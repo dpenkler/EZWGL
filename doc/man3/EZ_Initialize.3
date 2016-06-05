@@ -1,0 +1,82 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Initialize 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Initialize, EZ_InitializeXrm \- initialize the EZWGL library
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Initialize( int " argc ", char  **" argv ", int " initgl )
+.sp
+.BI "void  EZ_InitializeXrm( char *" className ", XrmOptionDescRec *" optsTable,
+.BI "                int " nOptions ", int *" argc_in_out ", char **" argv,
+.BI "                char *" fbkResrc ", int " initgl)
+
+.SH ARGUMENTS
+\fIargc\fR  Specifies the number of command line parameters.
+.sp
+\fIargc_in_out\fR  Specifies the pointer to \fIargc\fR.
+.sp
+\fIargv\fR  Specifies the command line parameters.
+.sp
+\fIinitgl\fR  Specifies whether or not to initialize the graphics library.
+.sp
+\fIclassName\fR Specifies the className of the application.
+.sp
+\fIoptsTable\fR Specifies the command line option table.
+.sp
+\fInOptions\fR Specifies the number of entries in \fIoptsTable\fR.
+.sp
+\fIfbkResrc\fR Specifies the fallback resources.
+.sp
+
+.SH DESCRIPTION
+.PP
+Each of these two functions initializes the EZWGL library.
+It opens the X server connection and initializes the internal data
+structure for EZWGL. Must be invoked before calling any other
+functions in the EZWGL library.
+.PP
+\fBEZ_InitializeXrm\fR is recommended since it is capable of
+parsing the command line options. This function modifies
+\fI*argc_in_out\fR. 
+
+.PP
+All EZWGL application takes the following set of command line options.
+
+.br
+.in +5 
+\-display    \fIDISPLAY\fR
+.br    
+\-iconic
+.br
+\-xrm        \fIRESOURCE_STRING\fR
+.br
+\-name       \fINAME_STRING\FR
+.br
+\-visual     \fIVISUAL_TYPE\fR
+.br
+\-geometry   \fIWIDTHxHEIGHT+XOFF+YOFF\fR
+.br
+\-background \fICOLOR\fR
+.br
+\-bg         \fICOLOR\fR
+.br
+\-foreground \fICOLOR\fR
+.br
+\-fg         \fICOLOR\fR
+.br
+\-backingstore
+.br
+\-privateColormap
+.br 
+\-readWriteColormap
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_Shutdown(3)	
+
+

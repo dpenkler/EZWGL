@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>EZwgl (10.4  Write Your Own Display Items)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="96.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="98.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>10.4  Write Your Own Display Items</h2>
+
+<p>
+<i>EZwgl</i> also provides a way for you to write your own
+display items and make it available to <code><font color="#990000"><b>EZ_CreateItemXrm</b></font></code>.
+To do so, you need to
+<ul>
+<p>
+<li>{provide the following 8 procedures
+<pre><p>
+  setup(<font color="#990000"><b>EZ_Item</b></font> *item);
+  computeSize(<font color="#990000"><b>EZ_Item</b></font> *item, int *w, int *h);
+  draw(<font color="#990000"><b>EZ_Widget</b></font> *widget, Drawable  drawable, int x0, int y0,
+       <font color="#990000"><b>EZ_Item</b></font>   *item, int Rx, int Ry, int Rw, int Rh);
+  update(<font color="#990000"><b>EZ_Widget</b></font> *widget, Drawable  drawable,
+         <font color="#990000"><b>EZ_Item</b></font>   *item, int Rx, int Ry, int Rw, int Rh);
+  highlight(<font color="#990000"><b>EZ_Widget</b></font>  *widget, Drawable drawable,
+            <font color="#990000"><b>EZ_Item</b></font>  *item, unsigned long fg, unsigned long bg,
+            int Rx, int Ry, int Rw, int Rh, int flag);
+  freePrivateData(<font color="#990000"><b>EZ_Item</b></font> *item);
+  int pick(<font color="#990000"><b>EZ_Item</b></font> *item, int x, int y);
+  postscript (<font color="#990000"><b>EZ_Item</b></font> *item, FILE *fp, void *psinfo);
+</pre>
+}
+<p>
+<li>{call <code><font color="#990000"><b>EZ_RegisterItem</b></font></code> to register
+your item. This function returns an integer type identifier
+which can be passed to <code><font color="#990000"><b>EZ_CreateItem</b></font></code> to instantiate
+the registered item.}
+<p>
+<li>{write interface routines as needed.}
+</ul>
+<p>---details to come---
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="96.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="98.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

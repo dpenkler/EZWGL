@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_FancyListBoxFindRowAtXY 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FancyListBoxFindItemAtXY \- return the item at a specified location
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item *EZ_FancyListBoxFindItemAtXY(EZ_Widget *" flistbox ", int x ", int " y, 
+.BI "                                     int " row_idx_return ", int " col_idx_ret )
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget.
+.sp
+\fIx\fR,\fIy\fR Specifies a location in the widget window.
+.sp
+\fIrow_idx_return\fR Specifies the return for the row index of the
+item found.
+\fIcol_idx_return\fR Specifies the return for the column index of the
+item found.
+.SH DESCRIPTION
+.PP
+\fBEZ_FancyListBoxFindItemAtXY\fR  locates and returns the item
+at the specified location, or NULL if there are no
+items at the specified location. If found, it returns the row
+index and the column index of the item in \fIrow_idx_return\fR 
+and \fIcol_idx_return\fR.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxData(3),EZ_GetFancyListBoxItemUsingIdx(3),
+EZ_GetFancyListBoxNumberOfRows(3), EZ_FancyListBoxFindRowAtXY(3)
+.br
+
+

@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DestroyItem 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DestroyItem \- destroy a display item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_DestroyItem( EZ_Item *" item )
+
+.SH ARGUMENTS
+\fIitem\fR  Specifies a display item.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_DestroyItem\fR destroies a display item. It invokes 
+the destroy callbacks registered to \fIitem\fR and
+releases all resources allocated for \fIitem\fR. Once destroyed, 
+it should never be referenced again.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3)
+.br
+

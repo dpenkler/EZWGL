@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetGlobalEventFilter 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetGlobalEventFilter \- register a global event filter
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_SetGlobalEventFilter( EZ_EventFilter" filter ", void " *data);
+
+.SH DESCRIPTION
+An event filter is a procedure of the following prototype:
+.sp
+.nf
+  void(*handler)(XEvent *event, void *data)
+.fi
+.PP
+\fBEZ_SetGlobalEventFilter\fR registers a global event filter.
+The filter will be invoked by the main event dispatcher whenever
+a new X event arrives. The filter may be used to alter the event
+or delete the event (by setting the event type to a invalid value).
+
+.SH "SEE ALSO"
+EZ_AddEventHandler(3)

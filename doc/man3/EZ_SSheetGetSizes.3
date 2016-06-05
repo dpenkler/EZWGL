@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetGetSizes 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetGetSizes \- return the current size of a spread sheet
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetGetSizes( EZ_Widget *" ssheet ", int *" nrows ", int *" ncolumns)
+        
+
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fInrows, ncolumns\fR  Specifies the return of number of rows and columns.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetGetSizes\fR  returns the current effective size of a spread sheet.
+The effect size is the smallest rectangle containing all nonempty cells.
+
+.SH "SEE ALSO"
+EZ_SSheetSetFirstCell(3), EZ_SSheetFindCell(3)
+.br
+
+
+

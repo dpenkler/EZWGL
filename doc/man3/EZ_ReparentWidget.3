@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ReparentWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ReparentWidget \- reparent a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ReparentWidget( EZ_Widget *" widget ", EZ_Widget *" newparent)
+
+.SH ARGUMENTS
+\fwidget\fR  Specifies a widget.
+.sp
+\fInewparent\fR specifies a widget.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ReparentWidget\fR removes widget from its current parent and inserts
+it at the end of \fInewparent\fR's children list.  If widget and newparent
+are both mapped, it reparents the widget window also.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SwapWidgets(3)
+.br

@@ -1,0 +1,52 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetDisplayInfo 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetDisplay, EZ_GetVisual, EZ_GetScreen,
+EZ_GetDepth, EZ_GetDisplayInfo, EZ_GetColormap  \- retrieve
+information about the display and visual
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "Display *EZ_GetDisplay(" void )
+.BI "int      EZ_GetScreen(" void )
+.BI "Visual  *EZ_GetVisual(" void )
+.BI "int      EZ_GetDepth(" void )
+.BI "void     EZ_GetDisplayInfo( Display "  **dpy_return ",  int " *scrn_return ",
+.BI "                           Visual " **vis_return ", int " *depth_return )
+.BI "Colormap EZ_GetColormap(" void )
+.SH ARGUMENTS
+\fIdpy_return\fR  Returns the display.
+.sp
+\fIscrn_return\fR  Returns the screen.
+.sp
+\fIvis_return\fR  Returns the visual.
+.sp
+\fIdepth_return\fR  Returns the depth.
+.BE
+.SH DESCRIPTION
+.PP
+\fBEZ_GetDisplay\fR returns the connection to the X server.
+.PP
+\fBEZ_GetScreen\fR  returns the screen number.
+.PP
+\fBEZ_GetVisual\fR  returns the visual used by EZWGL.
+.PP
+\fBEZ_GetDepth\fR  returns the depth of the selected visual.
+.PP
+\fBEZ_GetDisplayInfo\fR  returns the display/visual characteristics
+described above.
+.PP
+\fBEZ_GetColormap\fR returns the colormap used by EZWGL.
+
+.SH "SEE ALSO"
+EZ_GetNumberOfAllocatedColors(3)
+.br
+EZ_GetNumberOfReservedColorsForGL(3)
+.br
+
+

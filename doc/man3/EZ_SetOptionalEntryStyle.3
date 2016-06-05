@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetOptionalEntryStyle 3 "" EZWGL "EZWGL Functions"
+.BS 
+.SH NAME
+EZ_SetOptionalEntryStyle \- select one of the two option entry display styles
+
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetOptionalEntryStyle( EZ_Widget *" oentry ", int " style )
+
+
+.SH ARGUMENTS
+\fIoentry\fR  Specifies an optional entry widget.
+.sp
+\fIstyle\fR  Specifies  0 or 1.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetOptionalEntryStyle\fR selects one of the two display styles of
+optional entries. The default style is 0, the option button is displayed
+outside the entry. In style 1, the button is display inside the entry
+widget.
+ 
+.SH "SEE ALSO"
+EZ_SetEntryString(3), EZ_GetEntryString(3), 
+.br
+EZ_SetOptionalEntryOptions(3)
+
+
+

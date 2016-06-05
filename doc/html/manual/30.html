@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>EZwgl (4.14  Notebook Page)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="29.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="31.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.14  Notebook Page</h2>
+
+<p>
+A notebook page behaves like a regular frame. It looks like
+a file folder, with a tab positioned somewhere over the top
+edge.  When mouse button 1 is pressed and released over the tab,
+the corresponding page (frame) is activated and the current
+active page is de-activated.  
+<p>Notebook page is a special composite widget. It is made from a
+button (tab) and a frame (page).
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_NOTEBOOK_PAGE</b></font></tr>
+                <tr> <td> Default class  name <td>       "NotebookPage" </tr>
+                <tr> <td> Default instance name<td>     "notebookPage" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Subwidgets Info </h3 <br>
+<p>
+A notebook page can only be the child of a notebook widget. The subwidgets of
+a notebook page, a button and a frame, are subwidgets of the notebook. 
+<p><pre>
+
+             ( topFrame--> notebookPageTab
+  notebook-->(
+             ( bottomFrame--> notebookPage
+
+
+</pre>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p><code>void   <font color="#990000"><b>EZ_ActivateNoteBookPage</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  activate the specified page on a notebook widget.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_GetNoteBookPageTab</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the tab (a normal button) of a notebook page.
+</font>
+<p><p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140>  <code>"NotebookPage"</code>  </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140>  <code>"notebookPage"</code>  </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>2</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>raised</code>        </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>2</code> or <code>0</code> </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PADX</b></font></strong>                      <td width=140> padx                       <td width=140>  <code>8</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PADY</b></font></strong>                      <td width=140> pady                       <td width=140>  <code>6</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADX</b></font></strong>                     <td width=140> iPadx                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADY</b></font></strong>                     <td width=140> iPady                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_ORIENTATION</b></font></strong>               <td width=140> orientation                <td width=140>  <code>horizontal</code>    </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FILL_MODE</b></font></strong>                <td width=140> fillMode                   <td width=140>  <code>fillNone</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIDE</b></font></strong>                      <td width=140> side                       <td width=140>  <code>center</code>        </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code> </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_FOREGROUND</b></font></strong>     <td width=140> highlightForeground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_BACKGROUND</b></font></strong>     <td width=140> highlightBackground        <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="29.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="31.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

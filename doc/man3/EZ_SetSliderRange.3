@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetSliderRange 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetSliderRange \- set the range of a slider
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetSliderRange( EZ_Widget *" slider ", float " from ", float " to )
+
+.SH ARGUMENTS
+\fIslider\fR Specifies a slider widget.
+.sp
+\fIfrom\fR,\fIto\fR Specify a range.
+
+.SH DESCRIPTION
+A slider widget edits a float value by sliding the slider button.
+.PP
+\fBEZ_SetSliderRange\fR sets the range of a slider. 
+
+
+.SH "SEE ALSO"
+EZ_SetSliderValue(3), EZ_GetSliderValue(3)
+
+

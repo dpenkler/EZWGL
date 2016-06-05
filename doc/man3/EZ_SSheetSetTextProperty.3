@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetSetTextProperty 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetSetTextProperty \- set the default text property for
+a spread sheet widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetSetTextProperty( EZ_Widget *" ssheet ", EZ_TextProperty" tprop)
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fItprop\fR  Specifies a text property.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetSetTextProperty\fR  sets the current text property of
+a spread sheet widget. All future insertions, unless overwritten
+by the insertion function, will be displayed use this text property.
+
+.SH "SEE ALSO"
+EZ_SSheetFindCell(3),  EZ_SSheetSetHScrollbar(3)
+.br
+
+
+

@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetNoteBookPageTab 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetNoteBookPageTab \- returns the tab of a notebook page
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget *EZ_GetNoteBookPageTab( EZ_Widget *" page )
+
+.SH ARGUMENTS
+\fIpage\fR  Specifies a notebook page
+
+.SH DESCRIPTION
+A notebook page consists of two subwidgets, a tab and a frame.
+.PP
+\fBEZ_GetNoteBookPageTab\fR  returns the tab of a notebook page.
+The appearance of the tab can be reconfigured if so desired.
+
+.SH "SEE ALSO"
+EZ_ActivateNoteBookPage(3)
+
+

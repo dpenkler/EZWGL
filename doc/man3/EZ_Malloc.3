@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Malloc 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Malloc, EZ_Free \- allocate and free dynamic memory
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void *EZ_Malloc( int " nbytes )
+.BI "void EZ_Free(" ptr )
+
+.SH ARGUMENTS
+\fInbytes\fR Specifies the number of bytes to be allocated.
+.sp
+\fIptr\fR Specifies a pointer. It must be a return value of
+EZ_Malloc.
+
+.SH DESCRIPTION
+\fBEZ_Malloc\fR just calls the C library function \fImalloc\fR to allocate
+the specified amount of dynamic memory.
+.PP
+\fBEZ_Free\fR uses the C library function \fIfree\fR to free
+a chunck of allocated dynamic memory.
+
+.SH "SEE ALSO"
+EZ_Initialize(3), EZ_Shutdown(3)
+
+
+
+

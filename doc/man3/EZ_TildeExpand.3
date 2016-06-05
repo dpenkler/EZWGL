@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TildeExpand 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TildeExpand  \- replace leading ~ by the  current value of the 'HOME'
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_TildeExpand(char *" path)
+
+.SH ARGUMENTS
+\fIpath\fR Specifies a path, ':' separated directory names.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TildeExpand\fR replace all leading ~ in \fIpath\fR by
+the current value of the environment variable HOME. The return
+value should be freed after use.
+.PP
+
+.SH "SEE ALSO"
+EZ_GlobFiles(3)
+.br
+
+
+

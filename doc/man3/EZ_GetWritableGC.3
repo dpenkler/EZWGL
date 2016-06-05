@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWritableGC 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWritableGC \- return the common GC (graphics context) used in EZWGL
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "GC   EZ_GetWritableGC()
+
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWritableGC\fR returns the common GC used in the EZ Widget
+library. This procedure is provided as a convenience routine for
+those who design his/her own widgets. In genaral,  it is not safe to
+modify the attributes of the common GC
+as it may interfere with the rendering of internal EZ widgets.
+.PP
+
+.SH "SEE ALSO"
+EZ_RegisterWidget(3), EZ_CreateWidget(3)
+.br
+
+

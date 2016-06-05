@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetDirTreeNodeFullPath 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetDirTreeNodeFullPath  \- find the full pathname of node on a
+dir tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char  *EZ_GetDirTreeNodeFullPath( EZ_TreeNode *" node )
+
+.SH ARGUMENTS
+\fInode\fR  Specifies a tree node on a dir tree.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetDirTreeNodeFullPath\fR  returns the full pathname of the
+file represented by the given node.
+.PP
+
+.SH "SEE ALSO"
+EZ_SetDirTreeDirectoryNodeCreator(3), EZ_SetDirTreeFileNodeCreator(3),
+EZ_SetDirTreeOpenDirectoryMode(3)
+
+

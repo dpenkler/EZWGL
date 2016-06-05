@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SaveWidget2Postscript 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SaveWidget2Postscript, EZ_SaveWidget2PPM \- save the widget window to a file
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SaveWidget2Postscript( EZ_Widget *" widget ", int " landscape,
+.BI "                               int " dpi ", float " scale ", FILE *" fp)
+.BI "void EZ_SaveWidget2PPM( EZ_Widget *" canvas ", FILE *" fp));
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+\fIlandscape\fR  Specifies a boolean value.
+.sp
+\fIdpi\fR Specifies a resolution. 
+.sp
+\fIscale\fR Specifies a scaling factor.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SaveWidget2Postscript\fR reads the contents of visible portion
+of the widget window to an X image and converts the X image to postscript
+using the specified parameters.
+.PP
+\fBEZ_SaveWidget2PPM\fR save the widget window to an PPM image.
+
+.SH "SEE ALSO"
+
+
+

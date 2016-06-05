@@ -1,0 +1,79 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetSortRegion 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetSortRegion \- sort the specified spread sheet region
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetSortRegion( EZ_Widget *" ssheet ", int " r1 ", int " c1  ", int " r2 ", int " c2
+.BI "            int "col ", int "(*cmp) (CONST  void * , CONST void *) )
+.sp
+.BI "void EZ_SSheetSortRegionR( EZ_Widget *" ssheet ", int " r1 ", int " c1  ", int " r2 ", int " c2
+.BI "            int "row ", int "(*cmp) (CONST  void * , CONST void *) )
+.sp
+.BI "void EZ_SSheetSortColumns( EZ_Widget *" ssheet ", int " r1 ", int " c1  ", int " r2 ", int " c2
+.BI "             int "(*cmp) (CONST  void * , CONST void *) )
+.sp
+.BI "void EZ_SSheetSortRows( EZ_Widget *" ssheet ", int " r1 ", int " c1  ", int " r2 ", int " c2
+.BI "             int "(*cmp) (CONST  void * , CONST void *) )
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIr1,c1,r2,c2\fR  Specify the upper left and lower right corner of a 
+rectangular region.
+.sp
+\fIcol\fR Specifies a key column.
+.sp
+\fIrow\fR Specifies a key row.
+.sp
+\fIcmp\fR  Specify a comparision function. 
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetSortRegion\fR uses \fIqsort\fR to sort the specified
+region using the cells in the key column.
+\fIcmp\fR is used to compare two strings. See the 
+manual page of qsort for details. If \fIcmp\fR is NULL, this
+function will use an internal comparision function to sort
+the contents of the region in lexical order. The internal
+comparision is listed below.
+.PP
+\fBEZ_SSheetSortRegionR\fR sort the specified
+region using the cells in the key row.
+.PP
+\fBEZ_SSheetSortColumns\fR sort each 
+column individually in the specified region.
+.PP
+\fBEZ_SSheetSortColumns\fR sort each 
+row individually in the specified region.
+
+.PP
+The internal comparision function.
+.nf
+int EZ_CompareStr(CONST void *vaptr, CONST void *vbptr)
+{
+  char **aptr = (char **)vaptr;
+  char **bptr = (char **)vbptr;
+  char *a = *aptr, *b = *bptr;
+  if(a == NULL) return(1);
+  else if( b == NULL) return(-1);
+  while(*a && *b && *a == *b) {a++; b++;}
+  if(*a == 0) return(-1);
+  else if(*b == 0) return(1);
+  return( (*a > *b)? 1: -1);
+}
+
+
+.SH "SEE ALSO"
+EZ_SSheetFindCell(3),  EZ_SSheetSetTabChar(3)
+.br
+
+
+

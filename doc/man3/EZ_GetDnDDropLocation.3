@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetDnDDropLocation 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetDnDDropLocation  \- return the location of the last DnD drop
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_GetDnDDropLocation(int *" x_return ", int *" y_return, 
+.BI "         int *" abs_x_return ", int *" abs_y_return)
+
+.SH ARGUMENTS
+\fIx_return\fR, \fIy_return\fR  Specify the return for the
+location of the last DnD drop, relative to the upper-left corner of
+the window of the drop site.
+.sp
+\fIabs_x_return\fR, \fIabs_y_return\fR  Specify the return for the
+location of the last DnD drop, relative to the upper-left corner of
+the root window.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetDnDDropLocation\fR  returns the location of the last DnD
+drop.
+.PP
+
+.SH "SEE ALSO"
+EZ_WidgetAddDnDDataDecoder(3),EZ_WidgetAddDnDDataEncoder(3)
+.br
+EZ_ItemAddDnDDataDecoder(3),EZ_ItemAddDnDDataEncoder(3)
+
+

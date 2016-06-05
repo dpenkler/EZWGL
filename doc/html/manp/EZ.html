@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ  -  introduction  to  EZWGL, the EZ widget and graphics
+       library
+
+
+<H2>SYNOPSIS</H2>
+       The EZ widget and graphics library (EZWGL) is a C  library
+       written  on  top  of  Xlib.  It is designed for developing
+       graphics user interface under the X window system program-
+       ming environment.
+
+
+<H2>DESCRIPTION</H2>
+       EZWGL  consists  of  two  parts,  a   widget library and a
+       graphics library. The widget library  implements  about  a
+       twenty  or  so  commonly  used  widgets, including <font color="#440000"><b>b</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font>,
+       <font color="#440000"><b>l</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>l</b></font>, <font color="#440000"><b>f</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font>, <font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>y</b></font>, <font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font>, <font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>x</b></font>,  <font color="#440000"><b>s</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font>,  <font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>-</b></font>
+       <font color="#440000"><b>b</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>k</b></font>,  <font color="#440000"><b>c</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>x</b></font>,  <font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font>, <font color="#440000"><b>f</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font>, <font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font>, <font color="#440000"><b>w</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font>,
+       <font color="#440000"><b>s</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font>, <font color="#440000"><b>g</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font>, <font color="#440000"><b>h</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>m</b></font>, <font color="#440000"><b>s</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> and <font color="#440000"><b>3</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>-</b></font>
+       <font color="#440000"><b>c</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>s</b></font>.   The  widget  library also implements a <font color="#004400"><i>d</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>-</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>-</i></font>
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>p</i></font> mechanism and  a  resource  management  scheme.   The
+       graphics  library  implements  about  100  OpenGL(TM) like
+       graphics functions that provides high level support for 3D
+       graphics,  including  features like <font color="#440000"><b>z</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font>, <font color="#440000"><b>d</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font>
+       and <font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>g</b></font>.
+
+       An EZWGL application consists of following components.
+
+        <font color="#004400"><i>1</i></font><font color="#004400"><i>.</i></font> Include the one and only header file "<font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font>"
+
+        <font color="#004400"><i>2</i></font><font color="#004400"><i>.</i></font> Initialize the library by calling <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>z</b></font><font color="#440000"><b>e</b></font>
+
+        <font color="#004400"><i>3</i></font><font color="#004400"><i>.</i></font> Create widgets using <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font>
+
+        <font color="#004400"><i>4</i></font><font color="#004400"><i>.</i></font> Register widget callbacks  and  event  handlers  using
+        <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>k</b></font> and <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font>
+
+        <font color="#004400"><i>5</i></font><font color="#004400"><i>.</i></font>  Map  widgets  by  invoking  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font>  on your
+        toplevel widgets
+
+        <font color="#004400"><i>6</i></font><font color="#004400"><i>.</i></font> Processing events using  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>p</b></font>  or  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>-</b></font>
+        <font color="#440000"><b>v</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>s</b></font> or <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>
+
+       Here is a simple example that demonstrates these steps.
+
+       #include "EZ.h"                     /* the header file      */
+       static  void doexit(EZ_Widget *w, void *d)
+       {
+         <A HREF="EZ_Shutdown.html">EZ_Shutdown</A>();
+         exit(0);
+       }
+
+       main(int argc, char **argv)
+       {
+         EZ_Widget *hello;
+
+         <A HREF="EZ_Initialize.html">EZ_Initialize</A>(argc,argv,0);       /* initialize EZWGL    */
+
+                 /* create a button and set its foreground red    */
+         hello = <A HREF="EZ_CreateWidget.html">EZ_CreateWidget</A>(EZ_WIDGET_NORMAL_BUTTON, NULL,
+                                 EZ_LABEL_STRING, "Hello World",
+                                 EZ_FOREGROUND,   "red",
+                                 0);
+
+         <A HREF="EZ_AddWidgetCallBack.html">EZ_AddWidgetCallBack</A>(hello,       /* register call back  */
+               EZ_CALLBACK, doexit, NULL, 0);
+
+         <A HREF="EZ_DisplayWidget.html">EZ_DisplayWidget</A>(hello);          /* show the button     */
+
+         <A HREF="EZ_EventMainLoop.html">EZ_EventMainLoop</A>();               /* handle mouse inputs */
+       }
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_Initialize.html">EZ_Initialize</A>(3), <A HREF="EZ_CreateWidget.html">EZ_CreateWidget</A>(3), <A HREF="EZ_DisplayWidget.html">EZ_DisplayWidget</A>(3),
+       <A HREF="EZ_Shutdown.html">EZ_Shutdown</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

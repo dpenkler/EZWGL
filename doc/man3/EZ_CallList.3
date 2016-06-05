@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CallList 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CallList, EZ_CallLists\- execute display lists
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_CallList(int " num )
+
+.BI "void EZ_CallLists(int " start ", int " range )
+
+.SH ARGUMENTS
+\fInum\fR Specifies a list number.
+.sp
+\fIstart\fR Specifies a list number.
+.sp
+\fIrange\fR Specifies a range.
+
+.SH DESCRIPTION
+\fBEZ_CallList\fR causes the named display list be executed.
+.PP
+\fBEZ_CallLists\fR causes all display lists named \fIstart\fR, \fIstart+1\fR, ...,
+\fIstart + range-1\fR be executed.
+
+
+.SH "SEE ALSO"
+EZ_NewList(3), EZ_DeleteList(3), EZ_IsList(3)
+
+
+

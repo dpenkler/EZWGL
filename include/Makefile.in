@@ -1,0 +1,17 @@
+#
+@MCOMMON@
+@SET_MAKE@
+
+
+all static shared:
+
+
+install-shared install-static: install
+
+install:
+	$(CP) EZ.h $(destincludedir)
+
+clean realclean:
+
+mrproper:
+	- $(RMF) Makefile

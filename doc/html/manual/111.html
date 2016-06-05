@@ -1,0 +1,215 @@
+<html>
+<head>
+<title>EZwgl (12.8  Specifying Geometric Objects)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="110.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="112.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.8  Specifying Geometric Objects</h2>
+
+<p>
+Geometric objects are specified by enclosing a series of
+vertices, normals and colors between <code><font color="#990000"><b>EZ_Begin</b></font></code> and 
+<code><font color="#990000"><b>EZ_End</b></font></code> pair.
+<p><h3> 12.8.1  EZ_Begin and EZ_End </h3 <br>
+<p>
+This pair of routines provides the only way to specify geometrical
+primitives.
+<p><p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_Begin</b></font>(int PType);
+void <font color="#990000"><b>EZ_End</b></font>(void);
+</pre>
+<p>Possible primitive types are:
+<font size=-1>
+<pre><p>
+<font color="#990000"><b>EZ_TRIANGLE_STRIP</b></font>
+<font color="#990000"><b>EZ_TRIANGLE_FAN</b></font>
+<font color="#990000"><b>EZ_TRIANGLES</b></font>
+<font color="#990000"><b>EZ_QUAD_STRIP</b></font>
+<font color="#990000"><b>EZ_QUADS</b></font>
+<font color="#990000"><b>EZ_POLYGON</b></font> /* buggy */
+<font color="#990000"><b>EZ_LINE_STRIP</b></font>
+<font color="#990000"><b>EZ_LINES</b></font>
+<font color="#990000"><b>EZ_LINE_LOOP</b></font>
+<font color="#990000"><b>EZ_POINTS</b></font>
+<font color="#990000"><b>EZ_TMESH</b></font> (rectangular triangular mesh, row majored)
+<font color="#990000"><b>EZ_QMESH</b></font> (rectangular quadrilateral mesh, row majored)
+</pre>
+</font>
+<p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> For the last two primitive types, one must call
+<code>void <font color="#990000"><b>EZ_SetTQMeshSize</b></font></code> right after <code><font color="#990000"><b>EZ_Begin</b></font></code>. This
+function informs the graphical library about the size of the 
+triangular or rectangular
+mesh being processed.
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetTQMeshSize</b></font>(int row, int col);</code>
+<p><strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong>
+The only GL calls that are allowed inside an <code><font color="#990000"><b>EZ_Begin</b></font></code> and <code><font color="#990000"><b>EZ_End</b></font></code> pair 
+are
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_Vertex</b></font>23fv</code>
+<p>
+<li><code><font color="#990000"><b>EZ_Normal3f</b></font>v</code>
+<p>
+<li><code><font color="#990000"><b>EZ_Color3f</b></font>v</code>
+<p>
+<li><code><font color="#990000"><b>EZ_Index</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_CallList</b></font>s</code>
+<p>
+<li><code><font color="#990000"><b>EZ_Materialf</b></font>v</code>
+</ul>
+<p><h3> 12.8.2  A Brief Description of Geometrical Primitives </h3 <br>
+<p><ul>
+<p>
+<li> <code><font color="#990000"><b>EZ_TRIANGLE_STRIP</b></font></code>
+A triangle strip is series of triangles connected along shared
+edges. It is defined by a series of vertices. The first three
+vertices define the first triangle. Each subsequent vertex
+defines a new triangle using that vertex along with two vertices
+from the previous triangle. For example, if 
+<img src="images/39.gif"> are the vertices specified between
+the <code><font color="#990000"><b>EZ_Begin</b></font>(<font color="#990000"><b>EZ_TRIANGLE_STRIP</b></font>)</code> and <code><font color="#990000"><b>EZ_End</b></font>()</code>, then
+it defines three triangles, <img src="images/40.gif">, 
+<img src="images/41.gif"> and <img src="images/42.gif">.
+<p>
+<li><code><font color="#990000"><b>EZ_TRIANGLE_FAN</b></font></code>
+A triangle fan is a series of triangles share all share
+the same first vertex. For example,  if 
+<img src="images/39.gif"> are the vertices specified between
+the <code><font color="#990000"><b>EZ_Begin</b></font>(<font color="#990000"><b>EZ_TRIANGLE_FAN</b></font>)</code> and <code><font color="#990000"><b>EZ_End</b></font>()</code>, then
+it defines three triangles, <img src="images/40.gif">, 
+<img src="images/43.gif"> and <img src="images/44.gif">.
+<p>
+<li><code><font color="#990000"><b>EZ_TRIANGLES</b></font></code>
+This primitive specifies a series of individual triangles.
+The triangles does not share vertices. For example,
+ if <img src="images/45.gif"> are the vertices between
+the <code><font color="#990000"><b>EZ_Begin</b></font>(<font color="#990000"><b>EZ_TRIANGLES</b></font>)</code> and <code><font color="#990000"><b>EZ_End</b></font>()</code>, then
+it defines two triangles, <img src="images/40.gif"> and
+<img src="images/46.gif">.
+<p>
+<li><code><font color="#990000"><b>EZ_QUAD_STRIP</b></font></code>
+This primitive specifies a quadrilateral strip, a
+series of edge-sharing quadrilaterals. The first 4 vertices
+define the first quad. Each subsequent two vertices define
+a new quad using the last two vertices and the two new vertices,
+with the order of the two new vertices swapped. For example,
+the sequence <img src="images/47.gif"> define
+three quads: <img src="images/48.gif">,
+<img src="images/49.gif"> and <img src="images/50.gif">.
+<p>
+<li><code><font color="#990000"><b>EZ_QUADS</b></font></code>
+This primitive specifies a series of individual quads.
+The quads do not share vertices. For example,
+the sequence <img src="images/47.gif"> define
+two quads: <img src="images/48.gif"> and
+<img src="images/51.gif">.
+<p>
+<li><code><font color="#990000"><b>EZ_LINE_STRIP</b></font></code>
+This primitive defines a polyline.
+<p>
+<li><code><font color="#990000"><b>EZ_LINES</b></font></code>
+This primitive defines a series of line segments. For example,
+the sequence <img src="images/45.gif"> define three line segments,
+<img src="images/52.gif">, <img src="images/53.gif"> and <img src="images/54.gif">.
+<p>
+<li><code><font color="#990000"><b>EZ_LINE_LOOP</b></font></code>
+This primitive defines a closed polyline. It is the same as
+<code><font color="#990000"><b>EZ_LINE_STRIP</b></font></code> with the first vertex appended to the
+list of specified vertices.
+<p>
+<li><code><font color="#990000"><b>EZ_POINTS</b></font></code>
+This primitive specifies a sequence of points.
+</ul>
+<p><h3> 12.8.3  EZ_Vertex\{23\ </h3 <br>
+<p><code><font color="#990000"><b>EZ_Vertex</b></font>23fv</code> specifies the coordinates of a vertex and
+<code><font color="#990000"><b>EZ_Normal3f</b></font>v</code> specifies the normal vector at  a vertex.
+Arguments are either 2 floats or 3 floats or a pointer to 2 or 3
+floats. The normal vector is used in lighting calculations.
+For example, the following sequence specifies a rectangle.
+<p><font size=-1>
+<pre><h3> 12.8.4  Pixmaps </h3 <br>
+<p>
+<font color="#990000"><b>EZ_Begin</b></font>(<font color="#990000"><b>EZ_QUADS</b></font>);          /* begin individual quads   */
+<font color="#990000"><b>EZ_Normal3f</b></font>(1.0, 0.0, 0.0);  /* set the normal           */
+<font color="#990000"><b>EZ_Vertex2f</b></font>(0.0, 1.0);       /* the first vertex         */
+<font color="#990000"><b>EZ_Vertex2f</b></font>(1.0, 1.0);
+<font color="#990000"><b>EZ_Vertex2f</b></font>(1.0, 0.0);
+<font color="#990000"><b>EZ_Vertex2f</b></font>(0.0, 1.0);
+<font color="#990000"><b>EZ_End</b></font>();                   /* end the current object  */
+</pre>
+</font>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<p>
+Support for pixmaps has been added in release 1.38. To display a
+pixmap/bitmap on a 3DCanvas, one first call <code><font color="#990000"><b>EZ_CreageGLImage</b></font></code>
+to create an image from <i>EZwgl</i> pixmap (created by <code><font color="#990000"><b>EZ_CreateLabelPixmapFrom</b></font>***</code>),
+then use <code><font color="#990000"><b>EZ_PutGLImage</b></font>***</code> to display the
+image in the current draw buffer. Relevent routines are the following.
+<p><p><p>
+<pre>
+EZ_GLImage *EZ_CreateGLImage(EZ_Pixmap *pix);
+void EZ_GetGLImageWindow(int x, int y, int w, int h, EZ_GLImage **imgRet);
+void EZ_GetGLImageXWindow(int x, int y, int w, int h, EZ_GLImage **imgRet);
+
+void <font color="#990000"><b>EZ_GetGLImageInfo</b></font>(<font color="#990000"><b>EZ_GLImage</b></font> *glimage, Pixmap *pix_ret,
+                       Pixmap *shape_ret, int w_ret, int h_ret);
+
+void <font color="#990000"><b>EZ_FreeGLImage</b></font>(<font color="#990000"><b>EZ_GLImage</b></font> *glimage);
+
+<font color="#990000"><b>EZ_Pixmap</b></font> *<font color="#990000"><b>EZ_GetLabelPixmapFromGLImage</b></font>(<font color="#990000"><b>EZ_GLImage</b></font> *image);
+
+void <font color="#990000"><b>EZ_PutGLImage</b></font>(<font color="#990000"><b>EZ_GLImage</b></font> *glimage, 
+                   int srcX, int srcY, int srcW, int srcH,
+                    float destX, float destY, float destZ);
+void <font color="#990000"><b>EZ_PutGLImageScreen</b></font>(<font color="#990000"><b>EZ_GLImage</b></font> *glimage,
+                    int srcX, int srcY, int srcW, int srcH,
+                    float destX, float destY, float destZ);
+void <font color="#990000"><b>EZ_PutGLImageWindow</b></font>(<font color="#990000"><b>EZ_GLImage</b></font> *glimage,
+                    int srcX, int srcY, int srcW, int srcH,
+                    int destX, int destY);
+void <font color="#990000"><b>EZ_PutGLImageXWindow</b></font>(<font color="#990000"><b>EZ_GLImage</b></font> *glimage,
+                    int srcX, int srcY, int srcW, int srcH,
+                    int destX, int destY);
+
+</pre>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="110.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="112.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetSetHScrollbar 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetSetHScrollbar, EZ_SSheetSetVScrollbar \- set the scroll bar for
+a spread sheet widget.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetSetHScrollbar( EZ_Widget *" ssheet ", EZ_Widget *" hscroll)
+.BI "void EZ_SSheetSetVScrollbar( EZ_Widget *" ssheet ", EZ_Widget *" vscroll)
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIhscroll\fR  Specifies a horizontal scrollbar widget.
+.sp
+\fIvscroll\fR  Specifies a vertical scrollbar widget.
+.sp
+
+
+.SH DESCRIPTION
+        
+.PP
+These functions associate a horizontal or a vertical scrollbar
+to a spread sheet widget. The scrollbar will then be able to scroll
+the spread sheet.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetFindCell(3),  EZ_SSheetHighlightRegion(3)
+.br
+
+
+

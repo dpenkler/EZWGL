@@ -1,0 +1,73 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateSimpleMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateMenuFromList  \- create menu from menu description array
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+typedef struct menuEntry_ {
+  int           type;           /* entry type, e.g. EZ_WIDGET_MENU_NORMAL_BUTTON */
+  char          *name;          /* instance name, may be NULL */
+  char          *label;         /* label string */
+  char          *accelerator;   /* keyboard accelerator, e.g. C-a,  may be NULL */
+  int           underline;      /* index of label to underline */
+  int           returnValue;    /* return value */
+  EZ_CallBack   callback;       /* callback  */
+  void          *clientData;    /* client data to be passed to callback */
+  int           v1,v2,v3;       /* for radioBtn, groupId, buttonValue, groupVarValue */
+                                /* for checkBtn, onValue, offValue, initialOnOffState */
+} EZ_MenuEntry;
+.sp
+.BI " EZ_CreateMenuFromList( EZ_MenuEntry *" list)
+
+.SH ARGUMENTS
+\fIlist\fR  Specifies descriptions for a menu hierarchy. 
+Each entry with type \fIEZ_WIDGET_MENU_SUBMENU+ starts a submenu, the
+following entries defines the corresponding submenu, terminated with
+an entry of type 0.
+
+.SH DESCRIPTION
+.PP
+This function provides a way to create a menu tree. 
+See the example below for its usage.
+.PP
+
+.SH EXAMPLE
+.nf
+static  void btnCb(EZ_Widget *, void *);
+static  void rbtnCb(EZ_Widget *, void *);
+static  void cbtnCb(EZ_Widget *, void *);
+
+static EZ_MenuEntry menuEntries[] = {
+  {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL,  "normal Button",  NULL,  0,     100,   btnCb,    NULL,  0, 0, 0 },
+  {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL,  "Another Button", "M-b", 0,     200,   btnCb,    NULL,  0, 0, 0 },
+  {EZ_WIDGET_MENU_SEPARATOR,      NULL,  NULL,             NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+  {EZ_WIDGET_MENU_SUBMENU,        NULL,  "Walk Through",   "C-s", 0,     300,   NULL,    NULL,   0, 0, 0 },
+     {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL, "S 1",            NULL,  0,     400,   btnCb,    NULL,  0, 0, 0 },
+     {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL, "S 2",            NULL,  0,     500,   btnCb,    NULL,  0, 0, 0 },
+     {EZ_WIDGET_MENU_SEPARATOR,      NULL,  NULL,            NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+     {EZ_WIDGET_MENU_CHECK_BUTTON,   NULL, "C 1",            NULL,  0,     600,   cbtnCb,   NULL,  0, 1, 1 },
+     {EZ_WIDGET_MENU_CHECK_BUTTON,   NULL, "C 2",            NULL,  0,     700,   cbtnCb,   NULL,  0, 1, 0 },
+     {EZ_WIDGET_MENU_SEPARATOR,      NULL,  NULL,            NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+     {EZ_WIDGET_MENU_RADIO_BUTTON,   NULL, "R 1",            "C-r"  0,     800,   rbtnCb,   NULL,  5, 0, 0 },
+     {EZ_WIDGET_MENU_RADIO_BUTTON,   NULL, "R 2",            NULL,  0,     900,   rbtnCb,   NULL,  5, 1, 0 },
+     {EZ_WIDGET_MENU_RADIO_BUTTON,   NULL, "R 3",            NULL,  0,     1000,  rbtnCb,   NULL,  5, 2, 2 },
+     {0,                             NULL, NULL,             NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+  {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL,  "Last Button", NULL,     0,     2000,  btnCb,    NULL,  0, 0, 0 },
+  {0,                      NULL, NULL,             NULL,       0, 0,     NULL,     NULL,  0, 0, 0 },
+  NULL,        
+};
+
+EZ_Widget *menu = EZ_CreateMenuFromList(menuEntries);
+
+.fi
+
+.SH "SEE ALSO"
+EZ_CreateSimpleMenu(3), EZ_DoPopup(3) 
+
+

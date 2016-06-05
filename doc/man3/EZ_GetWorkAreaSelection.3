@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWorkAreaSelection 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWorkAreaSelection \- return the selection in a work-area widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item *EZ_GetWorkAreaSelection(EZ_Widget *" work_area)
+
+
+.SH ARGUMENTS
+\fIlwork_area\fR  Specifies a work-area widget.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWorkAreaSelection\fR returns the selected item 
+in a work-area widget. If no selection has been made, it returns NULL.
+Visually, the selected node is displayed with a flashing border.  
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelection(3),EZ_GetListTreeWidgetSelection(3)
+.br
+
+

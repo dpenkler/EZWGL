@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ListTreeFindNodeAtXY 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ListTreeFindNodeAtXY \- find the tree node at the specified location
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_TreeNode *EZ_ListTreeFindNodeAtXY(EZ_Widget *" ltree,
+.BI "                      int " x ", int " y )
+
+
+.SH ARGUMENTS
+\fIltree\fR  Specifies a list tree widget.
+.sp
+\fIx\fR,\fIx\fR Specifies a location.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ListTreeFindNodeAtXY\fR returns the tree node which occupies a
+region that contains the specified location, or NULL if there are
+no such tree nodes.
+
+.SH "SEE ALSO"
+EZ_GetListTreeWidgetTree(3), EZ_GetListTreeWidgetSelection(3),
+EZ_CreateDirTree(3)
+.br
+
+

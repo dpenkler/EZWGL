@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFancyListBoxWidgetComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFancyListBoxWidgetComponents  \- retrieve the components of a
+fancy listbox
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetFancyListBoxWidgetComponents( EZ_Widget *" flistbox,
+.BI "       EZ_Widget **" iflistbox_ret ", EZ_Widget **" hscroll_ret,
+.BI "       EZ_Widget **" vscroll_ret )
+
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget.
+.sp
+\fIiflistbox_ret\fR  Specifies  the return for the internal fancy
+listbox.
+.sp
+\fIhscroll_ret\fR  Specifies the return for the horizontal scroll bar.
+.sp
+\fIvscroll_ret\fR  Specifies the return for the vertical scroll bar.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFancyListBoxWidgetComponents\fR  returns the
+components of a fancy listbox. A fancy listbox contains 3 internal
+components, an internal fancy listbox, a horizontal scrollbar and
+a vertical scrollbar. 
+.PP
+
+.SH "SEE ALSO"
+EZ_GetListBoxWidgetComponents(3), EZ_GetFileSelectorWidgetComponents(3)
+EZ_GetWorkAreaWidgetComponents(3), EZ_GetTextWidgetComponents(3),
+EZ_GetListTreeWidgetComponents(3), EZ_GetOptionalEntryWidgetComponents(3)
+
+

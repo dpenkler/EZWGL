@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Normal2f 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+ EZ_Normal3f, EZ_Normal3fv  \- set the current normal vector
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Normal3f(float " x ", float " y ", float " z )
+.BI "void  EZ_Normal3fv(float *" nxyz )
+
+
+.SH ARGUMENTS
+\fIx\fR,\fIy\fR,\fIz\fR Specify the three components of a vector.
+.sp
+\fInxyz\fR Specifies a normal vector.
+
+.SH DESCRIPTION
+.PP
+These functions updates the current normal. The normal vector should
+be normalized.
+
+.SH "SEE ALSO"
+EZ_Normal3f(3), EZ_Color3f(3), EZ_Index(3)
+.br

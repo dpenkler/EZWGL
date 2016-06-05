@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetLabelItemStringInfo 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetLabelItemStringInfo \- retrieve the label string of a label-item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetLabelItemStringInfo(EZ_Item *" item ", char **" lab_ret ", int *" len_ret )
+
+.SH ARGUMENTS
+\fIitem\fR  Specifies a display item.
+.sp
+\fIlab_ret\fR Specifies a return for the label string.
+.sp
+\fIlen_ret\fR Specifies a return for the length of the label string.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetLabelItemStringInfo\fR  returns the information about the
+label of an label item. If \fIitem\fR is not a label item, it returns
+NULL to \fIlab_ret\fR and returns 0 to \fIlen_ret\fR.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3), EZ_ConfigureItem(3)
+

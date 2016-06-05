@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  EZ_MatrixMode 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MatrixMode \- specify the current matrix stack
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_MatrixMode( int " mode  )
+
+.SH ARGUMENTS
+\fImode\fR specifies a matrix stack. Must be EZ_PROJECTION or
+EZ_MODELVIEW.
+
+.SH DESCRIPTION
+\fBEZ_MatrixMode\fR specifies which matrix stack is the target for
+subsequent matrix operations.
+
+.SH "SEE ALSO"
+EZ_PushMatrix(3), EZ_Rotate(3), EZ_Translate(3), 
+EZ_LoadMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

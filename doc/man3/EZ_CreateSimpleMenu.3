@@ -1,0 +1,90 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateSimpleMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateSimpleMenu  \- create a menu
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI " EZ_CreateSimpleMenu( char *" str ", " ... )
+
+.SH ARGUMENTS
+\fIstr\fR  Specifies a string which configures
+the menu.  There are six menu item type flags.
+
+.sp
+%t      Makes non-formating text in this item as the menu title string.
+.sp
+%F      Gets the callback procedure and the client data to be passed
+to the callback from the optional arguments. This callback procedure 
+will be invoked whenever a valid selection has been made on this menu.
+(callback of the menu.)
+.sp
+%c      Sets the class name of the current menu-item to be the
+string following this formating text and before the next '%' or '|'.
+.sp
+%c      Sets the instance name of the current menu-item to be the
+string following this formating text and before the next '%' or '|'.
+.sp
+%f      Gets the callback procedure and the client data to be passed
+to the callback for this menu-item from the optional arguments.
+.sp
+%l  Inserts a menu separator.
+.sp
+%m Makes a submenu-item and gets the submenu from the optional
+arguments.
+.sp
+%n Sets the instace name of this menu item to be the substring
+after the current formating character and before the next formating
+character or |.
+.sp
+%i Sets the class name of this menu item to be the substring
+after the current formating characters and before the next 
+formating characters or |.
+.sp
+%u# Sets the index of the character to be underlined.
+.sp
+%p  Set the client pointer data to be attached to the menu. The client
+data will be retrieved from the optional arguments.
+.sp
+%p  Set the client integer data to be attached to the menu. The client
+data will be retrieved from the optional arguments.
+.sp
+%x[0-9]+ Sets the return value for this item. This value overrides the
+default position-based return value assigned to this menu-item.
+.sp
+%k[int,int,int]+ Make this item a menu check button. The three integers
+are the on value, off value and initial state (on/off).
+.sp
+%r[int,int,int]+ Make this item a menu radio button. The three integers
+are the radio button group id, the values this item represents and
+the initial value of the group variable.
+.PP
+\fI...\fR specify the optional arguments.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_CreateSimpleMenu\fR creates a menu widget and returns the
+pointer to the menu.
+.PP
+
+.SH EXAMPLE
+.nf
+void       submenu1Callback(EZ_Widget *, void *);
+void       Item2Callback(EZ_Widget *, void *);
+
+EZ_Widget *submenu1 = EZ_CreateSimpleMenu(``%F|red|green%x123%cGreenItem|blue%nBlueItem|%l|||'',
+                                                submenu1Callback, NULL);
+
+EZ_Widget *menu = EZ_CreateSimpleMenu(``%T Test Menu|Item 1|Item 2%f|submenu%m|last item''
+                                                Item2Callback, NULL, submenu1);
+.fi
+
+.SH "SEE ALSO"
+EZ_CreateMenuFromList(3), EZ_DoPopup(3) 
+
+

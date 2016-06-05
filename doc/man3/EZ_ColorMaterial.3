@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ColorMaterial 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ColorMaterial \- cause a material color to track the current color
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ColorMaterial(int " face ", int " mode )
+
+
+.SH ARGUMENTS
+\fIface\fR Specifies which orientated polygons should track the current
+color. Must be one of EZ_FRONT, EZ_BACK, EZ_FRONT_AND_BACK.
+.sp
+\fImode\fR Specifies which material properties should track the current
+color. Must be one of EZ_EMISSION, EZ_AMBIENT, EZ_DIFFUSE, EZ_SPECULAR
+or EZ_AMBIENT_AND_DIFFUSE.
+
+.SH DESCRIPTION
+\fBEZ_ColorMaterial\fR specifies which material property should
+track the current color, if EZ_COLOR_MATERIAL is enabled. Color
+material is enabled by calling EZ_Enable with mode EZ_COLOR_MATERIAL.
+
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_Normal3f(3), EZ_Vertex3f(3), EZ_Materialf(3)
+
+
+

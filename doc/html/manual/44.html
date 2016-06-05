@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>EZwgl (4.28  The 3D Canvas Widget)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="43.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="45.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.28  The 3D Canvas Widget</h2>
+
+<p>The 3D-canvas widget realizes the <i>EZ</i> graphics library.
+To each 3DCanvas widget, there is an associated data structure called 
+<em>the graphics context</em> which contains the entire state attributes of the
+graphics library.  The graphics context is essentially private to
+the 3D-canvas widget and hence multiple 3Dcanvases is allowed in an
+application.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_3D_CANVAS</b></font></tr>
+                <tr> <td> Default class  name <td>       "ThreeDCanvas" </tr>
+                <tr> <td> Default instance name<td>     "threeDCanvas" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_Set3DCanvas</b></font>( <font color="#990000"><b>EZ_Widget</b></font> *canvas);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+make a canvas the current active one (GL context switch). 
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_Configure3DCanvas</b></font>( <font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+update the state variables of the graphics context associated to a 3d canvas.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_GLConfig</b></font>(void);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+update the state variables of the current graphics context.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_Get3DCanvasSize</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the dimension of a 3d canvas.
+</font>
+<p><p>
+<code>XImage *<font color="#990000"><b>EZ_Read3DCanvas2XImage</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+save the graphics window to an XImage.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_Save3DCanvas2PPMImage</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *fname);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+save the grahics window to disk as a PPM image.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_Save3DCanvas2PS</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *fname);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+save the graphics window to postscript.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p><p>
+<center><img  src="images/3dcanvas.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>ThreeDCanvas</code>    </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>threeDCanvas</code>    </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PROPAGATE</b></font></strong>                 <td width=140> propagate                  <td width=140>  <code>true</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BACKING_STORE</b></font></strong>            <td width=140> backingStore               <td width=140> <code>true</code>        </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_RESERVE_MENU_BUTTON</b></font></strong>     <td width=140> reserveMenuButton          <td width=140> <code>false</code>      </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+<p><p><p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="43.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="45.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

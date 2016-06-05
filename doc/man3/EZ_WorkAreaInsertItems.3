@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaInsertItems 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaInsertItems \- insert some items to a workarea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WorkAreaInsertItems(EZ_Widget *" warea ", EZ_Item **" items ", int " n)
+
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+\fIitems\fR  Specifies an array of display items.
+.sp
+\fIn\fR  Specifies the number of items.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WorkAreaInsertItems\fR inserts n items to a workarea widget. If workarea
+is current viewable, the display will be updated immediately.
+
+.SH "SEE ALSO"
+EZ_WorkAreaInsertItem(3),
+.br
+EZ_WorkAreaDrawItemAt(3)
+.br
+
+

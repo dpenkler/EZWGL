@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>EZwgl (3.2  Adding Private Widget Resources)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="13.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="15.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>3.2  Adding Private Widget Resources</h2>
+
+<p>
+You can add private widget resources to one widget or to
+all widgets of a given type, e.g frames. For this
+you need
+<ul>
+<p>
+<li>a list of resource names and their value types, and
+<p>
+<li>a configuration procedure specifies how the resources will
+be used.
+</ul>
+The resource specification is of the following type.
+<p><font size=-1>        
+<pre><p>
+typedef struct {
+  int     option;     /* referenced in configure, must >1024 */
+  char    *iname;     /* instance name */
+  char    *cname;     /* class name, may be NULL */
+  char    *vtypes;    /* value type, e.g  "float, float" */
+} <font color="#990000"><b>EZ_ResourceSpec</b></font>;
+</pre>
+</font>
+<p><p>
+A list of resources looks like the next example.
+<font size=-1>        
+<pre><p>
+#define COUNTER_INIT_VALUE   1025
+#define COUNTER_INCREMENT    1026
+#define COUNTER_TEST         1027
+<font color="#990000"><b>EZ_ResourceSpec</b></font> counterResources[] =
+{
+  {COUNTER_INIT_VALUE,  "initValue", "InitValue", "int"},
+  {COUNTER_INCREMENT,   "increment", "Increment", "int"},
+  {COUNTER_TEST,        "test",      "Test",      "int,float,string,pointer,int"},
+};
+</pre>
+</font>
+<p><p><p>
+The configuration procedure has the prototype
+<font size=-1>        
+<pre><p>
+   int (*configure)(<font color="#990000"><b>EZ_Widget</b></font> *widget,int opt, <font color="#990000"><b>EZ_Value</b></font> *values);
+</pre>
+</font>
+<p>
+and here is a sample procedure.
+<p><font size=-1>        
+<pre><p>
+int counterConfigure(<font color="#990000"><b>EZ_Widget</b></font> *widget, int opt, <font color="#990000"><b>EZ_Value</b></font> *values)
+{
+  switch(opt)
+   {
+    case COUNTER_INIT_VALUE:
+      {
+        int i = values[0].value.i;
+        ez_SetCounter(widget, i);
+      }
+     break;
+    case COUNTER_INCREMENT:
+      {
+        int i = values[0].value.i;
+        ez_counter *ptr = (ez_counter *)<font color="#990000"><b>EZ_GetWidgetPtrData</b></font>(widget);
+        ptr->increment1 = i;
+      }
+     break;
+    case COUNTER_TEST:
+      {
+        int   i = values[0].value.i;
+        char  c = values[1].value.c;
+        float f = values[2].value.f;
+        char *str = value[3].value.p;  /* have to copy in real applications */
+        fprintf(stderr, "%d, %c,%f, %s\n", i, c, f, str);
+      }
+     break;
+    default:
+     break;
+ }
+}
+</pre>
+</font>
+<p><p><p>
+The command responsible for registering resources to all widgets of 
+a given type is
+<font size=-1>        
+<pre><p>
+void <font color="#990000"><b>EZ_RegisterResourcesAll</b></font>(int widget_type, int nresrc, <font color="#990000"><b>EZ_ResourceSpec</b></font> *resources,
+         int (*configure)(<font color="#990000"><b>EZ_Widget</b></font> *widget, int opt, <font color="#990000"><b>EZ_Value</b></font> *values) );
+</pre>
+</font>
+<p><p><p>
+To register resources for a single widget, use the configuration
+option <code><font color="#990000"><b>EZ_RESOURCES_HANDLE</b></font></code> in <code><font color="#990000"><b>EZ_CreateWidget</b></font></code>. For 
+example,
+<font size=-1>        
+<pre><p>
+ counter = <font color="#990000"><b>EZ_CreateWidget</b></font>(Counter_TYPE,
+           <font color="#990000"><b>EZ_RESOURCES_HANDLE</b></font>, 3, counterResources, counterConfigure,
+           COUNTER_INIT_VALUE, 10,
+           0);
+</pre>
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="13.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="15.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Perspective 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Perspective \- multiply the current matrix by a perspective projection matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Perspective(float " foy ", float " aspect ", float " near ", float " far )
+
+.SH ARGUMENTS
+\fIfoy\fR Specifies the field of angle (in degrees) in the y-direction.
+.sp
+\fIaspect\fR Specifies the aspect ratio which determines the field of
+angle in the x-direction (horizontal). \fIaspect\fR = width/height.
+.sp
+\fInear\fR ,\fIfar\fR  Specify the near and far depth clipping planes.
+
+.SH DESCRIPTION
+\fBEZ_Perspective\fR generates a perspective projection matrix and
+multiplies the current top matrix by this matrix.
+
+.SH "SEE ALSO"
+EZ_Rotate(3), EZ_Translate(3), EZ_LookAt(3), EZ_Frustum(3),
+EZ_MultMatrix(3), EZ_MatrixMode(3), EZ_Ortho(3)
+
+
+

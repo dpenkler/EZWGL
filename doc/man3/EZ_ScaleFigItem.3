@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 EZ_ScaleFigItem "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ScaleFigItem \- scale an FIG items
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ScaleFigItem(EZ_Item *" fitem ", float *" sx ", float " sy ", int " mode )
+
+
+.SH ARGUMENTS
+
+\fIfitem\fR  Specifies a FIG item.
+.sp
+\fIsx, sy\fR Specify the scaling factors.
+.sp
+\fImode\fR Specifies a coordinate mode (currently not used).
+.SH DESCRIPTION
+\fBEZ_ScaleFigItem\fR scales a FIG item by the specified factor.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3),  EZ_FigItemAddArc(3)
+.br
+EZ_GetGC(3)
+
+
+

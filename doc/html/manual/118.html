@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>EZwgl (12.15  Polygon Modes)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="117.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="119.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.15  Polygon Modes</h2>
+
+<p>
+The graphics context has a few state variables that control how
+polygons are rendered. These variables are set by the following
+functions.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_FrontFace</b></font>(int orien);</code>
+<p>This function sets the front face for polygons
+(either <code><font color="#990000"><b>EZ_CW</b></font></code> or <code><font color="#990000"><b>EZ_CCW</b></font></code>). Each polygon has two
+possible faces, front and back.  By default, the face with the counter-clock 
+orientation is the front face. This function can be used to override
+the default
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_CullFace</b></font>(int face);</code>
+<p>This function has no effect if cull face (back face removing) is
+disabled (default). The set mode is used to determine whether or not
+a particular polygon is rendered. The default mode is <code><font color="#990000"><b>EZ_BACK</b></font></code>,
+i.e., back facing polygons are not rendered if cull face is enabled.
+<code><font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_CULL_FACE</b></font>)</code> enables back face culling.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_PolygonMode</b></font>(int face, int mode);</code>
+<p>This function sets the rasterizing method for the <code>face</code> facing
+polygons. For example, the effect of <code><font color="#990000"><b>EZ_PolygoMode</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_LINE</b></font>)</code>
+is:  for all front facing polygons only the edges are rasterized.
+<p><code>face</code> specifies a face, either <code><font color="#990000"><b>EZ_FRONT</b></font></code> or
+<code><font color="#990000"><b>EZ_BACK</b></font></code> or <code><font color="#990000"><b>EZ_FRONT_AND_BACK</b></font></code>.
+<p><code>mode</code> specifies a mode, either <code><font color="#990000"><b>EZ_FILL</b></font></code> or
+<code><font color="#990000"><b>EZ_LINE</b></font></code> or <code><font color="#990000"><b>EZ_POINT</b></font></code>.
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="117.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="119.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

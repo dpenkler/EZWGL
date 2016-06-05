@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>EZwgl (11.2  Directory Trees)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="100.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="102.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>11.2  Directory Trees</h2>
+
+<p><i>EZwgl</i> provides a few convenience routines for 
+programmers to manipulating directory trees.
+<p>A directory tree is created by calling
+<p><pre><p>
+<font color="#990000"><b>EZ_TreeNode</b></font> *<font color="#990000"><b>EZ_CreateDirTree</b></font>(<font color="#990000"><b>EZ_DirTreeNodeCreator</b></font> creator,
+            char *patterns, void *client_data, int open_mode);
+</pre>
+where <code>creator</code> is a function of type
+<pre><p>
+ <font color="#990000"><b>EZ_TreeNode</b></font> *creator(char *path, void *client_data);
+</pre>
+<p><p>
+<code>pattern</code> is a glob pattern such as <code>"/home/mzou/*"</code>
+or <code>"*.c *.h"</code>; 
+<p><p>
+<code>client_data</code> is an arbitary client data to be passed to
+<code>creator</code> and
+<p><p>
+<code>open_mode</code> is a flag which specifies 
+how to open a directory node
+when a double button1 clicks occurs on the node. Must be
+<pre><p>
+<font color="#990000"><b>EZ_DIR_NODE_OPEN_DIRECTORY_NONE</b></font>
+<font color="#990000"><b>EZ_DIR_NODE_OPEN_DIRECTORY_DEFAULT</b></font>
+<font color="#990000"><b>EZ_DIR_NODE_OPEN_DIRECTORY_COLLAPSING</b></font>
+</pre>
+<p><h3> 11.2.1  Interface Routines </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_OpenCloseDirTreeDirectoryNode</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int collaps);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+open or close (depends on the current status) a directory node.
+</font>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_GetDirTreeNodeFullPath</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the full pathname of a dir tree node.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetDirTreeOpenDirectoryMode</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node, int mode);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the openning mode of a dir tree.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetDirTreeDefaultPixmaps</b></font>(<font color="#990000"><b>EZ_Bitmap</b></font> *o, <font color="#990000"><b>EZ_Bitmap</b></font> *c, <font color="#990000"><b>EZ_Bitmap</b></font> *f);</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetDirTreeDefaultPixmapsFromXpmFiles</b></font>(char *o, char *c, char *f);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the three default label pixmaps for directory trees.
+</font>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_UpdateDirTreeWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *TreeWidget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+update a dir tree widget.
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="100.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="102.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

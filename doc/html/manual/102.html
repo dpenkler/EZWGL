@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>EZwgl (11.3  About Pixmap Labels)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="101.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>11.3  About Pixmap Labels</h2>
+
+<p>
+The <i>EZwgl</i> library keeps a hash table for
+pixmaps used in an application. Each entry in the hash
+table has a reference count. When the reference count reaches
+0, the entry is de-allocated and the relevent X resources
+are released. If an application uses lots of pixmaps and
+needs to switch constantly between different pixmaps, chances
+are that these pixmaps are allocated and de-allocated frequently.
+As a result, the performance may not be optimal since 
+allocating pixmaps, especially creating pixmaps from images are
+expensive. For this situation, one may explicitly allocate 
+the pixmaps first and then use the internal pixmaps. Explicitly
+allocated pixmaps are guaranteed to be cached until being
+explicitly freed.
+<p>The following code segment demonstrates this usage.
+<font size=-1>
+<pre>
+ EZ_LabelPixmap *pixmap1 = EZ_CreateLabelPixmapFromImageFile("file1");
+ EZ_LabelPixmap *pixmap2 = EZ_CreateLabelPixmapFromImageFile("file2");
+
+ ...
+
+ if(condition1) /* use the first pixmap */
+   <font color="#990000"><b>EZ_ConfigureWidget</b></font>(widget, <font color="#990000"><b>EZ_LABEL_PIXMAP</b></font>, pixmap1, 0);
+ else /* use the second pixmap */
+   <font color="#990000"><b>EZ_ConfigureWidget</b></font>(widget, <font color="#990000"><b>EZ_LABEL_PIXMAP</b></font>, pixmap2, 0);
+
+ ...
+
+
+</pre>
+<p></font>
+<p>There are five rountines in <i>EZwgl</i> that allow an application
+to create internal pixmaps from different sources.
+<p><p><p>
+<pre><p>
+<font color="#990000"><b>EZ_LabelPixmap</b></font> *<font color="#990000"><b>EZ_CreateLabelPixmapFromXpmFile</b></font>(char *fileName);
+<font color="#990000"><b>EZ_LabelPixmap</b></font> *<font color="#990000"><b>EZ_CreateLabelPixmapFromImageFile</b></font>(char *fileName);
+<font color="#990000"><b>EZ_LabelPixmap</b></font> *<font color="#990000"><b>EZ_CreateLabelPixmapFromXBitmapFile</b></font>(char *fileName);
+<font color="#990000"><b>EZ_LabelPixmap</b></font> *<font color="#990000"><b>EZ_CreateLabelPixmapFromXpmData</b></font>(char **data);
+<font color="#990000"><b>EZ_LabelPixmap</b></font> *<font color="#990000"><b>EZ_CreateLabelPixmapFromXBitmapData</b></font>(char *data,
+                                     int width, int height);
+<font color="#990000"><b>EZ_LabelPixmap</b></font> *<font color="#990000"><b>EZ_CreateLabelPixmapFromXPixmap</b></font>(Pixmap pixmap, Pixmap shape,
+                                     int x, int y, int width, int height, int reuse);
+</pre>
+<p><p>
+To free an  internal label pixmap, use
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_FreeLabelPixmap</b></font>(<font color="#990000"><b>EZ_LabelPixmap</b></font> *IPixmap);
+</pre>
+<p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> Another situation is when an application
+needs to use part of an image to label a widget. <i>EZwgl</i>
+provides an indirect way to achieve this goal. One first
+creates a native X pixmap by using
+<code><font color="#990000"><b>EZ_CreateXPixmapFrom</b></font>***</code>, or
+<code>XCreatePixmap</code>, then uses the
+<code><font color="#990000"><b>EZ_X_PIXMAP</b></font></code> configuration option to set the label.
+<p>The following code segement is an example.
+<p><font size=-1>
+<pre>
+
+  Pixmap pixmap;
+  int    width, height;
+  
+  if(<font color="#990000"><b>EZ_CreateXPixmapFromImageFile</b></font>("file",&width, &height, &pixmap))
+    {
+       /* use the upper left quarter of the image to label widget */
+       <font color="#990000"><b>EZ_ConfigureWidget</b></font>(widget, 
+                          <font color="#990000"><b>EZ_X_PIXMAP</b></font>, pixmap, 0, 0, width/2, height/2, 
+                          0);
+
+       /* if there are no other use of pixmap, free it */
+       <font color="#990000"><b>EZ_FreeXPixmap</b></font>(pixmap);
+     }
+
+   ...
+
+
+</pre>
+<p></font>
+<p>Besides the Xlib function <code>XCreatePixmap</code>, 
+the following five functions may also be used to create native
+pixmaps from various sources.
+<p><p><p>
+<pre><p>
+int <font color="#990000"><b>EZ_CreateXPixmapFromXpmFile</b></font>(char *fileName, int *width_ret,
+        int *height_ret, Pixmap *pixmap_ret, Pixmap *shape_ret);
+int <font color="#990000"><b>EZ_CreateXPixmapFromImageFile</b></font>(char *fileName,
+        int *width_ret, int *height_ret, Pixmap *pixmap_ret);
+int <font color="#990000"><b>EZ_CreateXPixmapFromBitmapFile</b></font>(char *fileName, int *width_ret,
+        int *height_ret, Pixmap *pixmap_ret, Pixmap *shape_ret);
+int <font color="#990000"><b>EZ_CreateXPixmapFromXpmData</b></font>(char **data, int *width_ret,
+        int *height_ret, Pixmap *pixmap_ret, Pixmap *shape_ret);
+</pre>
+<p>Native X pixmaps created by <code><font color="#990000"><b>EZ_CreateXPixmapFrom</b></font>***</code> are
+retained until one call one of the following.
+<p><p>
+<pre><p>
+void XFreePixmap(<font color="#990000"><b>EZ_GetDisplay</b></font>(), pixmap);
+void <font color="#990000"><b>EZ_FreeXPixmap</b></font>(Pixmap pixmap);
+</pre>
+<p>The next routine returns the information about a LabelPixmap.
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetLabelPixmapInfo</b></font>(<font color="#990000"><b>EZ_Pixmap</b></font> *pix, Pixmap *pix_ret,
+             Pixmap *shape_ret, int w_ret, int h_ret);
+</pre>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="101.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

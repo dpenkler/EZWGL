@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MultiplyMatrix 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MultiplyMatrix \- multiply two matrices
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_MultiplyMatrix( EZ_Matrix " ans ", EZ_Matrix " A ", EZ_Matrix " B )
+
+.SH DESCRIPTION
+\fIans\fR Specifies a matrix to return the product.
+.sp
+\fIA\fR,\fIB\fR Specify two matrices.
+
+.SH DESCRIPTION
+\fBEZ_MultiplyMatrix\fR  computes the product AB  and returns the
+answer to \fIans\fR.
+
+.SH "SEE ALSO"
+EZ_MultMatrix(3), EZ_LoadMatrix(3), EZ_IdentityMatrix(3)
+
+
+

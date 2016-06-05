@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetCopyRegion 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetCopyRegion \- copy and paste a spread sheet region
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetCopyRegion( EZ_Widget *" ssheet ", int " r1 ", int "c1 ", int " r2 ", int "c2,
+.BI "                          int " r0 ", int " c0 ", int " delete)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIr1,c1,r2,c2 col\fR  Specify the upper-left and lower-right corner of a region.
+.sp
+\fIr0,c0\fR  Specify the location to paste the region.
+.sp
+\fIdelete\fR Specify whether or not to delete the source region.
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetCopyRegion\fR copy the specified region and paste the result
+at the specified location. If \fIdelet\fR is True, it deletes the source
+region before pasting.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetClearRegion(3),  EZ_SSheetGetRegionString(3),
+.br
+
+

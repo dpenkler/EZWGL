@@ -1,0 +1,214 @@
+<html>
+<head> <title>EZ_ConfigureItem</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_ConfigureItem</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_ConfigureItem - configure a display item
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font> Specifies a display item.
+
+        <font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font> Specify configuration options and their values.
+
+<H2>DESCRIPTION</H2>
+       <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font>  sets or modifies item attributes, things
+       like label string, color, border. This  function  takes  a
+       variable length arguments, a list of symbols each followed
+       by one or more values. The last symbol must be <font color="#440000"><b>N</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>L</b></font>, which
+       is itself not followed by any values.
+
+
+<H2>CONFIGURATION SYMBOLS AND THEIR VALUES</H2>
+       The set of item configuration options and their values are
+       listed below. For each option value, the string before the
+       last _ is its type.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>H</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>w</i></font>
+            Specifies a border width.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>Y</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>E</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>t</i></font>
+            Specifies  a  border  type.  <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>t</i></font>  must  be  one of
+            EZ_BORDER_NONE,   EZ_BORDER_FLAT,    EZ_BORDER_RIDGE,
+            EZ_BORDER_GROOVE,    EZ_BORDER_RAISED    or   EZ_BOR-
+            DER_SUNKEN.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>X</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>x</i></font>
+            Specifies the horizontal  padding  between  the  item
+            border and its contents.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>Y</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>y</i></font>
+            Specifies  the vertical padding between the item bor-
+            der and its contents.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>X</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>x</i></font>
+            Specifies the amount of spaces to be  inserted  hori-
+            zontally between textual label and image label. It is
+            used only when the item has a horizontal orientation.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>Y</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>y</i></font>
+            Specifies  the amount of spaces to be inserted verti-
+            cally between textual label and image  label.  It  is
+            used only when the item has a vertical orientation.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>N</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font>
+            Specifies  the  orientation  of  an item. <font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font> must be
+            EZ_HORIZONTAL or EZ_VERTICAL.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>N</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>p</i></font>
+            Specifies a location to anchor a label.  <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>p</i></font>  must
+            be  one  of  EZ_CENTER,  EZ_LEFT,  EZ_RIGHT,  EZ_TOP,
+            EZ_BOTTOM,  EZ_TOP_LEFT, EZ_TOP_RIGHT, EZ_BOTTOM_LEFT
+            or EZ_BOTTOM_RIGHT.  This attribute is used only when
+            an item has been given a size which  is  larger  than
+            its minimal size.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>J</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>N</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>j</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font>
+            Specifies   the   justfication  for  textual  labels.
+            <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>j</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font>  must  be  one  of  EZ_CENTER,   EZ_LEFT   or
+            EZ_RIGHT.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>K</b></font>, <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>B</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>k</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>k</i></font>, <font color="#004400"><i>v</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font>
+            Specifies  a  callback procedure and a client data to
+            be passed to the callback. Use this option only  when
+            an item is to have only one callback.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>D</b></font>, <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>g</i></font>
+            Specifies a forground color.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>K</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>D</b></font>, <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>g</i></font>
+            Specifies a background color.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>E</b></font>, <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>
+            Specifies an X bitmap file or a X pixmap file (an xpm
+            image).
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>A</b></font>, <font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>y</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>f</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font>,<font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font>,<font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>t</i></font>
+            Specify an X bitmap.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>A</b></font>, <font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>y</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>f</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font>
+            Specifies an XPM image data.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>P</b></font>, <font color="#004400"><i>P</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>p</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>p</i></font>,<font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>x</i></font>,<font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>y</i></font>,<font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font>,<font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>t</i></font>
+            Specify a rectangular region of a native X pixmap  to
+            be used as an image label.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>P</b></font>, <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>P</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>p</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>p</i></font>
+            Specifies an internal pixmap.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>D</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font>
+            Specifies a fond id.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>E</b></font>, <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>
+            Spcifies an X11 font name.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>H</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font>
+            Specifies  the wrap around length for textual labels.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>E</b></font>, <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>
+            Specifies an image file name. Supported image formats
+            are: ppm, xpm, bmp, gif and jpeg.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>G</b></font>, <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font>
+            Specifies a textual label.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>A</b></font>, <font color="#004400"><i>p</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font>
+            Specifies a generic pointer to be stored in a item.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>A</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font>
+            Specifies an integer to be stored in a item.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>Y</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>K</b></font>, <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>B</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>k</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>k</i></font>, <font color="#004400"><i>p</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font>
+            Specify  a  destroy  callback and a client data to be
+            passed to the callback. Use this option only when  an
+            item is to have only one destroy callback.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>R</b></font>, <font color="#004400"><i>C</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font>
+            Specifies  an  X cursor for drag and drop. The speci-
+            fied cursor will replace the default cursor when  the
+            item is being draged.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>P</b></font>, <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>p</i></font>
+            Specifies  a  DND bubble help string. DND bubble will
+            be displayed when a drag is paused over an  item  and
+            the item is a drop site.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>X</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>x</i></font>
+            Specifies  the  x coordinate of the upper-left corner
+            of an item in its hosting window.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>Y</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>y</i></font>
+            Specifies the y coordinate of the  upper-left  corner
+            of an item in its hosting window.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>H</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>w</i></font>
+            Specifies the width of an item.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>T</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>h</i></font>
+            Specifies the height of an item.
+
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>N</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>x</i></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>y</i></font>
+            Specify  the  coordinates of the upper-left corner of
+            an item in its hosting window.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>E</b></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>w</i></font>, <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>h</i></font>
+            Specify the width and height of an item.
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateItem.html">EZ_CreateItem</A>(3), <A HREF="EZ_DestroyItem.html">EZ_DestroyItem</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

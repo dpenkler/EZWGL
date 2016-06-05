@@ -1,0 +1,26 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DrawWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DrawWidget \- update a visible widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_DrawWidget( EZ_Widget " *widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_DrawWidget\fR redraws a visible widget. It has no
+effect if \fIwidget\fR is not visible or freezed or de-activated.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_DestroyWidget(3), EZ_DisplayWidget(3)
+
+

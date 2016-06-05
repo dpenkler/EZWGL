@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DisableImageDithering 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DisableImageDithering, EZ_EnableImageDithering  \- disable/enable
+image dithering for image labels
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_DisableImageDithering(" void )
+.BI "void  EZ_EnableImageDithering(" void )
+
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DisableImageDithering\fR disables image dithering for image
+labels. This option is relevant only for 8bit PseudoColor visuals.
+Image dithering is enabled by default. EZWGL uses the Floyed-Steinberg
+dithering algorithm to dither a color image.
+.PP
+\fBEZ_EnableImageDithering\fR enables image dithering.
+.SH "SEE ALSO"
+EZ_DisableBubbleHelp(3), EZ_DisableHighlight(3), EZ_DisableLableOffset(3)
+.br
+
+
+

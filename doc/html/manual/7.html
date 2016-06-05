@@ -1,0 +1,293 @@
+<html>
+<head>
+<title>EZwgl (2.2  Structure of an EZwgl Application)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="6.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="8.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>2.2  Structure of an <i>EZwgl</i> Application</h2>
+
+<p>
+An <i>EZwgl</i> program should contain the following components.
+<ul>
+<p>
+<li>Include the header file <code>EZ.h</code>.
+<p>
+<li>Initialize the library by calling <code><font color="#990000"><b>EZ_Initialize</b></font></code> or <code><font color="#990000"><b>EZ_InitializeXrm</b></font></code>.
+<p>
+<li>Create and configure widgets by using <code><font color="#990000"><b>EZ_CreateWidget</b></font></code> or 
+        <code><font color="#990000"><b>EZ_CreateWidgetXrm</b></font></code>.
+<p>
+<li>Register widget callbacks and/or event handlers by using
+<code><font color="#990000"><b>EZ_AddWidgetCallBack</b></font></code> and <code><font color="#990000"><b>EZ_AddEventHandler</b></font></code>.
+<p>
+<li>Map your widgets by invoking <code><font color="#990000"><b>EZ_DisplayWidget</b></font></code> on your
+toplevel widgets.
+<p>
+<li>Processing events by using <code><font color="#990000"><b>EZ_EventMainLoop</b></font></code> or
+<code><font color="#990000"><b>EZ_ServiceEvents</b></font></code> or <code><font color="#990000"><b>EZ_WaitAndServiceNextEvent</b></font></code>.
+</ul>
+<p><h3> 2.2.1  Hello World </h3 <br>
+<p>
+Listed below is a simple "Hello World" program. It demonstrates the
+steps outlined above for writting an <i>EZwgl</i> application.
+When run, this program displays a toplevel push button labeled
+"Hello World". If the widget window is resized, the position
+of the lable will be adjusted accordingly. If you press the left 
+mouse button (Button1) over the widget window, it exits.
+<p><font size=-1> 
+<pre>
+/************************** Example 1 *********************************/
+#include "EZ.h"                               /* the header file      */
+
+void cleanExit(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *dat)  /* push button callback */
+{
+  <font color="#990000"><b>EZ_Shutdown</b></font>();/* shutdown EZWGL */
+  exit(0);      /* and exit       */
+}
+  
+main(int argc, char **argv)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *hello;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(argc,argv,0);       /* initialize EZWGL    */
+
+          /* create a button and set its foreground red    */
+  hello = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font>, NULL,
+                          <font color="#990000"><b>EZ_LABEL_STRING</b></font>, "Hello World",
+                          <font color="#990000"><b>EZ_FOREGROUND</b></font>, "red",
+                          0);
+
+  <font color="#990000"><b>EZ_AddWidgetCallBack</b></font>(hello,       /* register call back  */
+        <font color="#990000"><b>EZ_CALLBACK</b></font>, cleanExit, NULL, 0);
+
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(hello);          /* show the button     */
+
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();               /* handle mouse inputs */
+}
+/************************** Example 1 *********************************/
+
+</pre>
+<p>
+</font>
+<p><h3> 2.2.2  The <i>EZwgl</i> Header File </h3 <br>
+<p>
+The one and only header file <code>EZ.h</code> must be included 
+in all source files of an <i>EZwgl</i> application.
+<p><p>
+<pre><p>
+#include "EZ.h"
+</pre>
+<p><p>
+This files contains type definitions, symbolic constants and
+forward declarations needed by all applications.
+<p><h3> 2.2.3  Initialization </h3 <br>
+<p>
+The first order of business of an <i>EZwgl</i> application is to initialize
+the <i>EZwgl</i> library. This is achieved by calling 
+<p><p><p>
+<code><font color="#990000"><b>EZ_Initialize</b></font>(int argc, char **argv, int initGL);</code>
+<p><p>
+or
+<p><pre><p>
+<font color="#990000"><b>EZ_InitializeXrm</b></font>(char *className,
+                 XrmOptionDescRec *optsTable,  int noptions, 
+                 int *argc_in_out,  char **argv_in_out,
+                 char *fallbackResrc,  int initgl);
+</pre>
+<p><p>
+These two functions parse the command line arguments, 
+opens the X server connection and initialize the internal 
+data structure for <i>EZwgl</i>.
+<p><h3> 2.2.4  Creating and Configuring Widgets </h3 <br>
+<p><p>
+The next two functions are responsible for allocating and
+initializing widgets.
+<p><p><pre><p>
+<font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_CreateWidget</b></font>(int type, <font color="#990000"><b>EZ_Widget</b></font> *parent, ...);
+</pre>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(int type, <font color="#990000"><b>EZ_Widget</b></font> *parent,
+                    char *instanceName, char *ClassName, ...);
+</pre>
+<p>These functions create a widget of the given type and initialize
+widget using the supplied configuration options. They are also 
+responsible for scanning the resource database and configure the widget
+according to its resources.  Configuration options passed to these
+two functions can be regarded as fallback 
+resources as they will be overriden by application defaults.
+<p><h3> 2.2.5  Registering Callbacks and Event Handlers </h3 <br>
+<p><p>
+Callbacks and event handlers are the only means that an
+application interacts with <i>EZ</i> widgets. When the user
+acts on a widget, e.g. pressing a checkButton, the callbacks
+or the event handlers for the corresponding widget,
+if any, will be invoked.
+<p>Callbacks and event handlers are registered by using
+<pre>
+void EZ_AddWidgetCallBack(EZ_Widget *widget, int which_list,
+                EZ_CallBack callback, void *data,int where);
+
+void <font color="#990000"><b>EZ_AddEventHandler</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_EventHandler</b></font> hdlr,
+                        void *data, int where);
+
+</pre>
+<p>We have already used callbacks in our first example.
+The procedure <code>cleanExit</code> will be executed when
+the left mouse button is pressed and released 
+over the button.
+<p>There are four procedure lists for each widget.
+<ul>
+<p>
+<li> a list of normal callbacks,
+<p>
+<li> a list of destroy callbacks,
+<p>
+<li> a list of motion callbacks, and 
+<p>
+<li> a list of event handlers.
+</ul>
+<p>Normal callbacks are invoked when the default action has occured on 
+a widget, e.g., press a push button, a double click on a listbox item 
+or drag a slider button. 
+<p>Destroy callbacks are invoked at the time a widget is being
+destroyed. This is useful if your application attaches
+a complex data structure to a widget, it provides a
+convenient way to clean up your complex data structure
+associated with a widget, e.g. free allocated memory.
+<p>Motion callbacks are available only for Entry, Slider, Scrollbar, 
+Dial, OptionalEntry,
+FreeLabel,  ListBox, FancyListBox, WorkArea, ListTree, gradient bar,
+histogram and spread sheet widgets.
+They are invoked whenever the text changes or the selection of a widget
+changes or the location of a FreeLabel changes etc.
+<p>Event handlers are used to define or alter the behavior of a
+widget to user events.  Private event handlers are called 
+before  the default event handler. A private event handler may remove 
+an event it handles by using <code><font color="#990000"><b>EZ_RemoveEvent</b></font></code>,
+which prevents the event in question from being dispatched
+to other handlers, including the default handler.
+<p><h3> 2.2.6  Prototypes for Callbacks and Event Handlers </h3 <br>
+<p>
+Normal callbacks, motion callbacks and destroy callbacks
+have the following prototype:
+<p><p>
+<code> void callback(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data)</code>
+<p><p><p>
+where <code>widget</code> is the widget that <code>callback</code> is registered to.
+<code>data</code> is a pointer to a client data that will be passed to
+<code>callback</code> when invoked.
+<p><p>
+Event handlers have the prototype
+<p><pre><p>
+ void eventHandler(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data,
+                          int eType, XEvent *xevent);
+</pre>
+<p><p>
+where <code>widget</code> is the widget that <code>eventHandler</code> is
+registered to; 
+<code>data</code> is a pointer to a client data that will be passed
+to the event handler;
+<code>eType</code> is the internal <i>EZ</i> event type; and <code>xevent</code>
+is the pointer to the actual X event, it contains all the information
+about the event.  Normally, actions of your event handler should be based
+on <code>xevent</code>. However, if your event handler just wants to check
+whether a key has been pressed or the the state of a button, you may
+find that using <code>eType</code> is more convenient than
+deciphering <code>xevent</code>.  
+<p><h3> 2.2.7  Displaying a Widget </h3 <br>
+<p><p>
+Once a widget has been created,
+ it can be displayed by invoking
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_DisplayWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><p>
+The first time this function is called on a widget, it performs two
+tasks:
+<ul>
+<p>
+<li>Traverses the whole widget tree, computes and finalizes the geometry of
+all widgets on the widget tree.
+<p>
+<li>Creates X windows for all widgets on the widget tree and
+maps them to the screen.
+</ul>
+<p>If it is called on a widget which has been previously
+displayed. The behavior depends on whether or not <code>widget</code>
+is current viewable. If it is, then this function updates 
+as necessory the geometry of <code>widget</code> and updates the
+display. If <code>widget</code> is not currently viewable, 
+the behavior is the following:
+<ul>
+<p>
+<li>If <code>widget</code> is a toplevel widget, then its window is remapped.
+<p>
+<li>If <code>widget</code> is not a toplevel widget, and one 
+ancestor of <code>widget</code> is not viewable, then this function
+does nothing visually.
+<p>
+<li>If <code>widget</code> is not a toplevel widget, and all its
+ancestors are viewable, then the widget window is remapped.
+</ul>
+<p><h3> 2.2.8  Processing Events </h3 <br>
+<p><p>
+After an application has created and displayed its widgets, it is
+ready to process events. There are three routines that can be used
+for event processing.
+<p><p>
+<code>void <font color="#990000"><b>EZ_EventMainLoop</b></font>(void);</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_ServiceEvents</b></font>(void)</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_WaitAndServiceNextEvent</b></font>(void)</code> 
+<p><p><p>
+The first function is the main event loop. 
+It is an infinite loop that <strong>waits</strong> and
+processes user inputs.  It will call as necessary 
+ the callbacks and event handlers registered
+with <i>EZ</i> widget library. It never returns.
+<p><p>
+The second function checks the event queue,  processes them if there are any, and
+returns. This function is useful for the "polling" style
+programming, especially for interactive graphics applications.
+<p><p><p>
+The third function checks the event queue, if there are no events on the queue,
+it waits for the next event to arrive. It processes the first event on the
+queue and then returns.  
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="6.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="8.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

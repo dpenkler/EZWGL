@@ -1,0 +1,8 @@
+
+DnD demos
+
+src1.c
+target1.c    --- Use DnD to transfer colors.
+
+src2.c
+target2.c    --- Use DnD to transfer files.

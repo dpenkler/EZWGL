@@ -1,0 +1,41 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetIndexToString 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetIndexToString, EZ_SSheetStringToIndex \- convert numeric indices to/from string
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_SSheetIndexToString(int " row ", int " col ", char *" strReturn);
+.BI "void  EZ_SSheetStringToIndex(char *" str ", int *" rowReturn ", int *" colReturn);
+
+        
+.SH ARGUMENTS
+.sp
+\fIrow,col\fR  Specify a cell index.
+.sp
+\fIstrReturn\fR Specifies an char array to return the converted string.
+.sp
+\fIstr\fR Specifies an cell index in string format.
+.sp
+\fIrowReturn, colReturn\fR  Specify the returns for the cell index in numeric format.
+
+.SH DESCRIPTION
+        
+.PP
+These two functions are used to convert cell indices to and from string format.
+In numeric format, cells are accessed using [row_index, col_index]; in string
+format cells are accessed using COLrow_index where COL is the column string. 
+For example, the string index for cell [4,5]  is E4.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetGetCell(3),  EZ_SSheetGetActiveCell(3)
+.br
+
+
+

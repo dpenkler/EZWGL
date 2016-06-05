@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_SetDirTreeOpenDirectoryMode</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_SetDirTreeOpenDirectoryMode</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SetDirTreeOpenDirectoryMode  -  select  a mode for open
+       subdirectories on dir trees
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font>    Specifies    a    mode.    Must    be    one    of
+       EZ_DIR_NODE_OPEN_DIRECTORY_NONE,   EZ_DIR_NODE_OPEN_DIREC-
+       TORY_DEFAULT and EZ_DIR_NODE_OPEN_DIRECTORY_COLLAPSING.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> dictates the way  subdirec-
+       tories are treated when open a directory on a dir tree. If
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font>  is  EZ_DIR_NODE_OPEN_DIRECTORY_NONE,  subdirectories
+       are  ignored,  i.e.,  nodes  are  created only for regular
+       files. If <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font> is EZ_DIR_NODE_OPEN_DIRECTORY_DEFAULT, sub-
+       directories  are  treated  the  same as regular files.  If
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font> is EZ_DIR_NODE_OPEN_DIRECTORY_COLLAPSING, then subdi-
+       recties  are  treated  the  same as regular files. In this
+       case, the siblings of the the directory to be  opend  will
+       all be destroied.
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_GetDirTreeNodeFullPath.html">EZ_GetDirTreeNodeFullPath</A>(3),  <A HREF="EZ_SetDirTreeDirectoryNodeCreator.html">EZ_SetDirTreeDirectoryNodeCreator</A>(3)
+       , <A HREF="EZ_SetDirTreeFileNodeCreator.html">EZ_SetDirTreeFileNodeCreator</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 EZ_FigItemHidePiece "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FigItemHidePiece, EZ_FigItemShowPiece, EZ_FigItemDeletePiece, 
+EZ_ScaleFigItem \- manipulate FIG items
+
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_FigItemHidePiece( EZ_Item *" fitem ", EZ_FigPiece *" piece ",int " update )
+.BI "void EZ_FigItemShowPiece( EZ_Item *" fitem ", EZ_FigPiece *" piece ",int " update )
+.BI "void EZ_FigItemDeletePiece( EZ_Item *" fitem ", EZ_FigPiece *" piece ",int " update )
+
+
+.SH ARGUMENTS
+\fIfitem\fR  Specifies a FIG item.
+.sp
+\fIpiece\fR Specifies a figure piece.
+.sp
+\fIupdate\fR Specifies whether or not to update the display.
+.SH DESCRIPTION
+These functions are used to modify figure items.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3),  EZ_ScaleFigItem(3)
+.br
+EZ_GetGC(3)
+
+
+

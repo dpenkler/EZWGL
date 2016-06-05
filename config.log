@@ -1,0 +1,223 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:556: checking host system type
+configure:580: checking for sed
+configure:610: checking for rm
+configure:640: checking for cp
+configure:670: checking for chmod
+configure:700: checking for tar
+configure:730: checking for mkdir
+configure:760: checking for ctags
+configure:790: checking for ar
+configure:820: checking for mv
+configure:850: checking for ranlib
+configure:880: checking for ln
+configure:920: checking for a BSD compatible install
+configure:973: checking whether make sets ${MAKE}
+configure:1017: checking for gcc
+configure:1130: checking whether the C compiler (gcc -O2 -fpic ) works
+configure:1146: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:1172: checking whether the C compiler (gcc -O2 -fpic ) is a cross-compiler
+configure:1177: checking whether we are using GNU C
+configure:1186: gcc -E conftest.c
+configure:1205: checking whether gcc accepts -g
+configure:1237: checking how to run the C preprocessor
+configure:1258: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1317: checking for AIX
+configure:1341: checking for POSIXized ISC
+configure:1363: checking for minix/config.h
+configure:1373: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1369:26: fatal error: minix/config.h: No such file or directory
+ #include <minix/config.h>
+                          ^
+compilation terminated.
+configure: failed program was:
+#line 1368 "configure"
+#include "confdefs.h"
+#include <minix/config.h>
+configure:1412: checking how to run the C preprocessor
+configure:1493: checking for inline
+configure:1507: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:1607: checking for X
+configure:1674: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1750: gcc -o conftest -O2 -fpic   conftest.c -lXt  1>&5
+configure:1921: checking for dnet_ntoa in -ldnet
+configure:1940: gcc -o conftest -O2 -fpic   conftest.c -ldnet   1>&5
+/usr/lib64/gcc/x86_64-slackware-linux/4.9.3/../../../../x86_64-slackware-linux/bin/ld: cannot find -ldnet
+collect2: error: ld returned 1 exit status
+configure: failed program was:
+#line 1929 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char dnet_ntoa();
+
+int main() {
+dnet_ntoa()
+; return 0; }
+configure:1962: checking for dnet_ntoa in -ldnet_stub
+configure:1981: gcc -o conftest -O2 -fpic   conftest.c -ldnet_stub   1>&5
+/usr/lib64/gcc/x86_64-slackware-linux/4.9.3/../../../../x86_64-slackware-linux/bin/ld: cannot find -ldnet_stub
+collect2: error: ld returned 1 exit status
+configure: failed program was:
+#line 1970 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char dnet_ntoa();
+
+int main() {
+dnet_ntoa()
+; return 0; }
+configure:2010: checking for gethostbyname
+configure:2038: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:2108: checking for connect
+configure:2136: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:2200: checking for remove
+configure:2228: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:2292: checking for shmat
+configure:2320: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:2393: checking for IceConnectionNumber in -lICE
+configure:2412: gcc -o conftest -O2 -fpic   conftest.c -lICE   1>&5
+configure:2438: checking for XOpenDisplay in -lX11
+configure:2457: gcc -o conftest -O2 -fpic   conftest.c -lX11    1>&5
+configure:2483: checking for XextAddDisplay in -lXext
+configure:2502: gcc -o conftest -O2 -fpic   conftest.c -lXext  -lX11   1>&5
+configure:2528: checking for XShapeQueryExtension in -lXext
+configure:2547: gcc -o conftest -O2 -fpic   conftest.c -lXext -lXext  -lX11   1>&5
+configure:2571: checking for XShmQueryExtension in -lXext
+configure:2590: gcc -o conftest -O2 -fpic   conftest.c -lXext -lXext  -lX11   1>&5
+configure:2619: checking for jpeg_destroy_decompress in -ljpeg
+configure:2638: gcc -o conftest -O2 -fpic   conftest.c -ljpeg  -lSM -lICE -lXext  -lX11 -lXext -lX11 -lm  1>&5
+configure:2662: checking for jpeglib.h
+configure:2673: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2698: checking for TIFFReadScanline in -ltiff
+configure:2717: gcc -o conftest -O2 -fpic   conftest.c -ltiff  -lSM -lICE -lXext  -lX11 -lXext -lX11 -lm  1>&5
+configure:2734: checking for tiffio.h
+configure:2744: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2929: checking for png_read_info in -lpng
+configure:2948: gcc -o conftest -O2 -fpic   conftest.c -lpng -lz -lm  -lSM -lICE -lXext  -lX11 -lXext -lX11 -lm  1>&5
+configure:2965: checking for png.h
+configure:2975: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3004: checking for png_structp in png.h
+configure:3013: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:3042: checking for dirent.h that defines DIR
+configure:3055: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:3080: checking for opendir in -ldir
+configure:3099: gcc -o conftest -O2 -fpic   conftest.c -ldir   1>&5
+/usr/lib64/gcc/x86_64-slackware-linux/4.9.3/../../../../x86_64-slackware-linux/bin/ld: cannot find -ldir
+collect2: error: ld returned 1 exit status
+configure: failed program was:
+#line 3088 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char opendir();
+
+int main() {
+opendir()
+; return 0; }
+configure:3163: checking for sys/wait.h that is POSIX.1 compatible
+configure:3184: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:3205: checking whether time.h and sys/time.h may both be included
+configure:3219: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:3245: checking for fcntl.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for limits.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for malloc.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for sgtty.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for strings.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for sys/ioctl.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for sys/time.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for string.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for strings.h
+configure:3245: checking for termios.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for sys/select.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for stdarg.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3245: checking for stdlib.h
+configure:3255: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3284: checking for working const
+configure:3338: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:3359: checking for uid_t in sys/types.h
+configure:3393: checking for ANSI C header files
+configure:3406: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:3473: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure: In function 'main':
+configure:3468:67: warning: incompatible implicit declaration of built-in function 'exit'
+ if (XOR (islower (i), ISLOWER (i)) || toupper (i) != TOUPPER (i)) exit(2);
+                                                                   ^
+configure:3497: checking for pid_t
+configure:3530: checking for size_t
+configure:3563: checking whether struct tm is in sys/time.h or time.h
+configure:3576: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:3597: checking for mode_t
+configure:3630: checking return type of signal handlers
+configure:3652: gcc -c -O2 -fpic  conftest.c 1>&5
+configure:3674: checking for working alloca.h
+configure:3686: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:3707: checking for alloca
+configure:3740: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:3906: checking for working fnmatch
+configure:3921: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure: In function 'main':
+configure:3918:10: warning: incompatible implicit declaration of built-in function 'exit'
+ main() { exit (fnmatch ("a*", "abc", 0) != 0); }
+          ^
+configure:3945: checking whether gcc needs -traditional
+configure:3991: checking for 8-bit clean memcmp
+configure:4009: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure: In function 'main':
+configure:4004:3: warning: incompatible implicit declaration of built-in function 'exit'
+   exit(memcmp(&c0, &c2, 1) < 0 && memcmp(&c1, &c2, 1) < 0 ? 0 : 1);
+   ^
+configure:4027: checking whether setpgrp takes no argument
+configure:4055: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure: In function 'main':
+configure:4048:2: warning: incompatible implicit declaration of built-in function 'exit'
+  exit(0);
+  ^
+configure: failed program was:
+#line 4035 "configure"
+#include "confdefs.h"
+
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
+/*
+ * If this system has a BSD-style setpgrp, which takes arguments, exit
+ * successfully.
+ */
+main()
+{
+    if (setpgrp(1,1) == -1)
+	exit(0);
+    else
+	exit(1);
+}
+
+configure:4079: checking return type of signal handlers
+configure:4122: checking for getcwd
+configure:4150: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:4122: checking for gethostname
+configure:4150: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:4122: checking for gettimeofday
+configure:4150: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:4122: checking for select
+configure:4150: gcc -o conftest -O2 -fpic   conftest.c  1>&5
+configure:4122: checking for strtol
+configure:4150: gcc -o conftest -O2 -fpic   conftest.c  1>&5

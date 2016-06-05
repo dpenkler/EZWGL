@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetApplicationName 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetApplicationName, EZ_GetApplicationName  \- set or retrieve an
+application name
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetApplicationName( char " *name )
+.BI "char *EZ_GetApplicationName( void )"
+.sp
+.SH ARGUMENTS
+\fIname\fR  Specifies a string.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_SetApplicationName\fR sets an string identifier for an EZWGL
+application. The set name will be displayed as the window title of
+the main window of the application. The default application name is
+its command name.
+.PP
+\fBEZ_GetApplicationName\fR returns the application name.
+
+.SH "SEE ALSO"
+EZ_Initialize(3)
+.br
+
+

@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GetCheckButtonState</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GetCheckButtonState</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_GetCheckButtonState, EZ_SetCheckButtonState
+        - retrieve the state of a check button
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>c</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>v</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>)</i></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>c</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>)</i></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>c</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font> Specifies a check button.
+
+       <font color="#004400"><i>v</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  Specifies  a  return for the current state value of
+       the check button.
+
+       <font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>f</i></font> Specifies a state, 0 for off and 1 for on.
+
+
+<H2>DESCRIPTION</H2>
+       A check button switch between two values,  represented  by
+       its on and off states.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font>  returns  1 if <font color="#004400"><i>c</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font> is in its on
+       state and returns 0 if it is in its off state. It  returns
+       the current state variable to <font color="#004400"><i>r</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font>  sets  the current state of a check
+       button.  It refreshes the display if necessary.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

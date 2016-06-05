@@ -1,0 +1,185 @@
+<html>
+<head>
+<title>EZwgl (10.5  Commands Common to All Display Items)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="97.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>10.5  Commands Common to All Display Items</h2>
+
+<p>
+Here is a list of commands common to all display items.
+<p><p>
+<code><font color="#990000"><b>EZ_Item</b></font> *<font color="#990000"><b>EZ_DuplicateItem</b></font> (<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+duplicate a figure item or a label item (not available for widget item).
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_DestroyItem</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+delete a display item. 
+</font>
+<p><p><p>
+<code>int <font color="#990000"><b>EZ_GetItemType</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the type of a display item.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_GetItemBwAndXYPading</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int *bw, int *xpad, int *ypad);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return border width and paddings of a display item.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_GetItemClientData</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int *i, void **p);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the client data attached to a display item.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_GetItemIntData</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the integer attached to a display item.
+</font>
+<p><p>
+<code>void *<font color="#990000"><b>EZ_GetItemPtrData</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the pointer attached to a display item.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetItemClientData</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int i, void *p);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+attach client data to a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetItemIntData</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int i);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+attach an integer to a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetItemPtrData</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, void *p);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+attach a pointer to a display item.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_AddItemCallBack</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int which,
+        <font color="#990000"><b>EZ_CallBack</b></font> callback, void *cdata, int where);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add a callback or a destroy callback to a display item.
+</font>
+<p><p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_RemoveItemCallBack</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item,  int which,
+       <font color="#990000"><b>EZ_CallBack</b></font> callback, void *cdata);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+remove a callback/destroy callback from a display item.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_RemoveAllItemCallBacks</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int which);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+remove all callbacks/destroy callbacks.
+</font>
+<p><p><p>
+<code><font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_GetItemHostWidget</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the host widget of a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_UpdateDisplayItem</b></font> (<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+redisplay a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetItemPosition</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int x, int y);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the location of a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetItemPosition</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int *x, int *y);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the configured/computed location of a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetItemAPosition</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int *x, int *y);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the actual/displayed location of a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetItemDimension</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int w, int h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the dimension of a display item.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_GetItemDimension</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int *w, int *h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the configured/computed dimension of a display item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetItemADimension</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int *w, int *h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the actual/displayed dimension of a display item.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_PickAnItem</b></font>( <font color="#990000"><b>EZ_Item</b></font> *item, int x, int y);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return True if point (x,y) is on item.
+</font>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="97.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

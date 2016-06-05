@@ -1,0 +1,25 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetItemWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWidgetItemWidget \- return the widget associated to a widget-item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget *EZ_GetWidgetItemWidget(EZ_Item *" item )
+
+.SH ARGUMENTS
+\fIitem\fR  Specifies a display item.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWidgetItemWidget\fR returns the widget associated with
+\fIitem\fR. It returns NULL if \fIitem\fR is not a widget-item.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3), EZ_ConfigureItem(3)
+

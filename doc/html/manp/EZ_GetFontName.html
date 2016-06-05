@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GetFontName</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GetFontName</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_GetFontName, EZ_GetFontNameFromId - retieve font name
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>f</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>)</b></font>
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font>  Specifies an font identifier.
+
+       <font color="#004400"><i>f</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font>  Specifies a native XFontStruct.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>d</b></font>  returns the font name associate with
+       the font id.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font>  returns the font  name  of  the  specified
+       font.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_GetFontFromId.html">EZ_GetFontFromId</A>(3), <A HREF="EZ_LoadXFont.html">EZ_LoadXFont</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

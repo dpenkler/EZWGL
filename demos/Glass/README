@@ -1,0 +1,14 @@
+
+Transparent
+   demonstrate how to make your transparent
+   widgets, like Eterm ...
+
+Setroot
+   Used to set the root background pixmap. 
+   Modified from Esetroot from the Eterm distribution.
+   (use Esetroot if you have it)
+
+
+
+
+        

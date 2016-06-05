@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetSetFirstCell 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetSetFirstCell \- set the origin of display
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetSetFirstCell( EZ_Widget *" ssheet ", int " row ", int " column)
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIrow, column\fR  Specifies the indices of a cell.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetSetFirstCell\fR  scroll the display so that the specified
+cell will be displyed at the upper left corner of the disply.
+
+.SH "SEE ALSO"
+EZ_SSheetFindCell(3) EZ_SSheetSetTextProperty(3)
+.br
+
+
+

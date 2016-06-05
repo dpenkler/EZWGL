@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>EZwgl (8.2  DnD Setup and Clean Up Procedures)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="86.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="88.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>8.2  DnD Setup and Clean Up Procedures</h2>
+
+<p><i>EZwgl</i> reserves five special convertion targets:
+<pre><p>
+ <font color="#990000"><b>EZ_DND_DRAG_INIT_ATOM</b></font>,
+ <font color="#990000"><b>EZ_DND_DRAG_START_ATOM</b></font>, <font color="#990000"><b>EZ_DND_DRAG_FINISH_ATOM</b></font>,
+ <font color="#990000"><b>EZ_DND_DROP_START_ATOM</b></font>, <font color="#990000"><b>EZ_DND_DROP_FINISH_ATOM</b></font>
+</pre>
+They are global atoms set by <i>EZwgl</i> at the
+initialization time. Encoders/decoders registered to
+these targets are treated as setup/clean up procedures
+for DnD.
+<p>Encoder for target <code><font color="#990000"><b>EZ_DND_DRAG_INIT_ATOM</b></font></code> is the
+drag initialization encoder. This encoder and its callback
+are invoked  when the user press-and-move the DnD mouse
+button over a drag source. The encoder behaves like
+a callback. Its main purpose is to setup a drag icon.
+It should not do any conversions as the encoded message
+will never be used.
+<p>Encoder for target <code><font color="#990000"><b>EZ_DND_DRAG_START_ATOM</b></font></code> is the
+drag setup encoder. This encoder is invoked when the drag
+is droped at a drop site. The encoded message will be the
+first message sent to the drop site, along with a list
+of targets the source converts. Drag setup actions
+are in the following order. 
+<ul>
+<p>
+<li>Build the list of targets it converts.
+<p>
+<li>Invoke setup encoder.
+<p>
+<li>Invoke setup encoder callback.
+<p>
+<li>Send the encoded message and the list of targets to
+the drop site.
+</ul>
+The list of targets is available to the setup encoder and
+its callback. One can get this list by calling
+<p><pre><p>
+void <font color="#990000"><b>EZ_DnDGetDragConversionTargets</b></font>(Atom **targets_ret,
+                                    int **ntargets_ret, 
+                                    unsigned int **action_tag)
+</pre>
+<p>The setup encoder and its callback are free to modify the list of targets. 
+For example, the callback may popup a dialogue, ask the user
+for some infomation and select one or more targets based on
+the response.
+<p>Encoder for target <code><font color="#990000"><b>EZ_DND_DRAG_FINISH_ATOM</b></font></code> is the
+drag cleanup encoder. This encoder is invoked whenever
+a DnD transaction is deemed complete, success or not. The
+encoded message is never used.
+<p>Decoder for target <code><font color="#990000"><b>EZ_DND_DROP_START_ATOM</b></font></code> is the
+the drop setup decoder. It is invoked right after the drop
+site has received the initial drag setup message (list of targets
+plus possiblly a short message) from the drag
+source. The order of actions at the setup time are:
+<ul>
+<p>
+<li>{Build a list of matching targets it decodes.}
+<p>
+<li>{Invoke the setup decoder to decode the setup message sent by 
+the drag source.}
+<p>
+<li>{Invoke the callback of the setup decoder.}
+</ul>
+The list of matching decoders is available for both the decoder
+and its callback. One can get this list by calling
+<pre><p>
+void <font color="#990000"><b>EZ_DnDGetMatchedConversionTargets</b></font>(Atom **targets_ret,
+                                       int **ntargets_ret,
+                                       unsigned int **action_tag_ret)
+</pre>
+The decoder and its callback are free to modify this list.
+<p><p>
+Encoder for target <code><font color="#990000"><b>EZ_DND_DROP_FINISH_ATOM</b></font></code> is the
+drop cleanup decoder. This decoder is invoked whenever
+a DnD transaction is deemed complete, success or not.
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="86.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="88.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

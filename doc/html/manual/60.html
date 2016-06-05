@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>EZwgl (5.5  Setting and Extracting Client Data)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="59.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="61.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>5.5  Setting and Extracting Client Data</h2>
+
+<p>
+The <code><font color="#990000"><b>EZ_Widget</b></font></code> data structure provides two special fields for
+applications to hook in application data to a widget. One is of type
+<code>int</code> and the other is of type <code>void *</code>. To set these fields,
+use
+<p><pre><p>
+void   <font color="#990000"><b>EZ_SetWidgetIntData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int  i);
+void   <font color="#990000"><b>EZ_SetWidgetPtrData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *ptr);
+void   <font color="#990000"><b>EZ_SetWidgetClientData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int i, void *ptr);
+</pre>
+<p>To extract client data from a widget, use
+<pre><p>
+int    <font color="#990000"><b>EZ_GetWidgetIntData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+void  *<font color="#990000"><b>EZ_GetWidgetPtrData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+void   <font color="#990000"><b>EZ_GetWidgetClientData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *i, void **ptr);
+</pre>
+<p><i>EZ</i> widgets are also capable of allocating 
+and managing dynamic storage. This feature provides
+a convenient way for an application to attach
+more complex client data to a widget without
+worrying about memory management. It is particularly
+convenient for situations when one needs to attach
+more than one pointers to a widget and doesn't want
+to introduce a new data structure for it.
+<p>The <code><font color="#990000"><b>EZ_Widget</b></font></code> data structure contains a 
+pointer to <code><font color="#990000"><b>EZ_UnknownDataType</b></font></code> which
+serves as the hook for dynamically allocated 
+storage.
+<p><font size=-1>
+<pre><p>
+typedef  union {
+  char            c;
+  short           s;
+  int             i;
+  long            l;
+  unsigned char   uc;
+  unsigned short  us;
+  unsigned int    ui;
+  unsigned long   ul;
+  float           f;
+  void            *p;
+}  <font color="#990000"><b>EZ_UnknownDataType</b></font>;
+</pre>
+</font>
+<p><p>
+Here are the relevent interface functions.
+<p><pre><p>
+void <font color="#990000"><b>EZ_SetWidgetUnknownData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx, 
+                             <font color="#990000"><b>EZ_UnknownDataType</b></font> value);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ (re)allocate (if needed) and set the the <code>idx</code>th element to <code>value</code>.
+</font>
+<p><pre><p>
+int <font color="#990000"><b>EZ_GetWidgetUnknownData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx,
+                            <font color="#990000"><b>EZ_UnknownDataType</b></font>  *ret);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ retrieve the <code>idx</code>th element. Return 1 if succesful, return 0 otherwise.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_UnknownDataType</b></font>   *<font color="#990000"><b>EZ_GetWidgetUnknownDataPtr</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the dynamically allocated array.
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="59.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="61.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_LookAt</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_LookAt</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_LookAt  -  multiply  the  current  matrix  by a viewing
+       matrix
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>v</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>v</i></font><font color="#004400"><i>y</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>v</i></font><font color="#004400"><i>z</i></font><font color="#004400"><i>,</i></font>
+                       <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>p</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>p</i></font><font color="#004400"><i>y</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>p</i></font><font color="#004400"><i>z</i></font><font color="#440000"><b>)</b></font>
+                       <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>u</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>u</i></font><font color="#004400"><i>y</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>u</i></font><font color="#004400"><i>z</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>v</i></font><font color="#004400"><i>x</i></font>,<font color="#004400"><i>v</i></font><font color="#004400"><i>y</i></font>,<font color="#004400"><i>v</i></font><font color="#004400"><i>z</i></font>  Specify the location of viewpoint.
+
+       <font color="#004400"><i>p</i></font><font color="#004400"><i>x</i></font>,<font color="#004400"><i>p</i></font><font color="#004400"><i>y</i></font>,<font color="#004400"><i>p</i></font><font color="#004400"><i>z</i></font>  Specify the location of the reference point.
+
+       <font color="#004400"><i>u</i></font><font color="#004400"><i>x</i></font>,<font color="#004400"><i>u</i></font><font color="#004400"><i>y</i></font>,<font color="#004400"><i>u</i></font><font color="#004400"><i>z</i></font>  Specify the view up vector.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>t</b></font> defines the line of sight and a view up  vector.
+       The  viewpoint  is at [vx,vy,vz], looking at the reference
+       point [px,py,pz], with a view up vector [ux,uy, uz].
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>t</b></font>  generates  the  corresponding    transformation
+       matrix  and  multiply the top matrix of the current matrix
+       stack by this matrix.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_Rotate.html">EZ_Rotate</A>(3), <A HREF="EZ_Translate.html">EZ_Translate</A>(3), <A HREF="EZ_Ortho.html">EZ_Ortho</A>(3), <A HREF="EZ_Frustum.html">EZ_Frustum</A>(3),
+       <A HREF="EZ_MultMatrix.html">EZ_MultMatrix</A>(3), <A HREF="EZ_MatrixMode.html">EZ_MatrixMode</A>(3), <A HREF="EZ_Perspective.html">EZ_Perspective</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

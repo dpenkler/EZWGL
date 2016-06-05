@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_CreateMenuFromList</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_CreateMenuFromList</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_CreateMenuFromList  - create menu from menu description
+       array
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       typedef struct menuEntry_ {
+         int           type;           /* entry type, e.g. EZ_WIDGET_MENU_NORMAL_BUTTON */
+         char          *name;          /* instance name, may be NULL */
+         char          *label;         /* label string */
+         char          *accelerator;   /* keyboard accelerator, e.g. C-a,  may be NULL */
+         int           underline;      /* index of label to underline */
+         int           returnValue;    /* return value */
+         EZ_CallBack   callback;       /* callback  */
+         void          *clientData;    /* client data to be passed to callback */
+         int           v1,v2,v3;       /* for radioBtn, groupId, buttonValue, groupVarValue */
+                                       /* for checkBtn, onValue, offValue, initialOnOffState */
+       } EZ_MenuEntry;
+
+        <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>y</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>)</i></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font>  Specifies descriptions for a menu  hierarchy.   Each
+       entry  with type <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>W</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>D</i></font><font color="#004400"><i>G</i></font><font color="#004400"><i>E</i></font><font color="#004400"><i>T</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>M</i></font><font color="#004400"><i>E</i></font><font color="#004400"><i>N</i></font><font color="#004400"><i>U</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>S</i></font><font color="#004400"><i>U</i></font><font color="#004400"><i>B</i></font><font color="#004400"><i>M</i></font><font color="#004400"><i>E</i></font><font color="#004400"><i>N</i></font><font color="#004400"><i>U</i></font><font color="#004400"><i>+</i></font> <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>s</i></font> <font color="#004400"><i>a</i></font> <font color="#004400"><i>s</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>,</i></font>
+       <font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font> <font color="#004400"><i>f</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font> <font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font> <font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font> <font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font>  <font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font>  <font color="#004400"><i>s</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>,</i></font>
+       <font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>d</i></font> <font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font> <font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font> <font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>y</i></font> <font color="#004400"><i>o</i></font><font color="#004400"><i>f</i></font> <font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font> <font color="#004400"><i>0</i></font><font color="#004400"><i>.</i></font>
+
+
+<H2>DESCRIPTION</H2>
+       This  function  provides a way to create a menu tree.  See
+       the example below for its usage.
+
+
+
+<H2>EXAMPLE</H2>
+       static  void btnCb(EZ_Widget *, void *);
+       static  void rbtnCb(EZ_Widget *, void *);
+       static  void cbtnCb(EZ_Widget *, void *);
+
+       static EZ_MenuEntry menuEntries[] = {
+         {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL,  "normal Button",  NULL,  0,     100,   btnCb,    NULL,  0, 0, 0 },
+         {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL,  "Another Button", "M-b", 0,     200,   btnCb,    NULL,  0, 0, 0 },
+         {EZ_WIDGET_MENU_SEPARATOR,      NULL,  NULL,             NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+         {EZ_WIDGET_MENU_SUBMENU,        NULL,  "Walk Through",   "C-s", 0,     300,   NULL,    NULL,   0, 0, 0 },
+            {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL, "S 1",            NULL,  0,     400,   btnCb,    NULL,  0, 0, 0 },
+            {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL, "S 2",            NULL,  0,     500,   btnCb,    NULL,  0, 0, 0 },
+            {EZ_WIDGET_MENU_SEPARATOR,      NULL,  NULL,            NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+            {EZ_WIDGET_MENU_CHECK_BUTTON,   NULL, "C 1",            NULL,  0,     600,   cbtnCb,   NULL,  0, 1, 1 },
+            {EZ_WIDGET_MENU_CHECK_BUTTON,   NULL, "C 2",            NULL,  0,     700,   cbtnCb,   NULL,  0, 1, 0 },
+            {EZ_WIDGET_MENU_SEPARATOR,      NULL,  NULL,            NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+            {EZ_WIDGET_MENU_RADIO_BUTTON,   NULL, "R 1",            "C-r"  0,     800,   rbtnCb,   NULL,  5, 0, 0 },
+            {EZ_WIDGET_MENU_RADIO_BUTTON,   NULL, "R 2",            NULL,  0,     900,   rbtnCb,   NULL,  5, 1, 0 },
+            {EZ_WIDGET_MENU_RADIO_BUTTON,   NULL, "R 3",            NULL,  0,     1000,  rbtnCb,   NULL,  5, 2, 2 },
+            {0,                             NULL, NULL,             NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+         {EZ_WIDGET_MENU_NORMAL_BUTTON,  NULL,  "Last Button", NULL,     0,     2000,  btnCb,    NULL,  0, 0, 0 },
+         {0,                      NULL, NULL,             NULL,       0, 0,     NULL,     NULL,  0, 0, 0 },
+         NULL,
+       };
+
+       EZ_Widget *menu = <A HREF="EZ_CreateMenuFromList.html">EZ_CreateMenuFromList</A>(menuEntries);
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateSimpleMenu.html">EZ_CreateSimpleMenu</A>(3), <A HREF="EZ_DoPopup.html">EZ_DoPopup</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

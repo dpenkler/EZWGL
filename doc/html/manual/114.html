@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>EZwgl (12.11  Logical Operations)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="113.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="115.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.11  Logical Operations</h2>
+
+<p>
+The <i>EZwgl</i> supports logical operations when drawing into the front
+buffer or a <code><font color="#990000"><b>EZ_PIXMAP</b></font></code> back buffer. Support for logical
+operations in <code><font color="#990000"><b>EZ_XIMAGE</b></font></code> back buffer is not yet implemented.
+<p>The default logical operation is <code><font color="#990000"><b>EZ_COPY</b></font></code>.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_LogicOp</b></font>(int op)</code>
+<p>This function sets the current logical operation. Possible
+logical operations are listed in the following table. In
+this table, <code>s</code> is the incoming pixel value and <code>d</code>
+is the pixel value stored in the framebuffer or the pixmap. 
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+Symbolic Name <td width=140> Operation </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_CLEAR</b></font></code> <td width=140> 0 </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_AND</b></font></code> <td width=140> s<img src="images/56.gif"> </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_AND_REVERSE</b></font></code> <td width=140> s<img src="images/57.gif"> </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_COPY</b></font></code> <td width=140> s </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_AND_INVERTED</b></font></code><td width=140> <img src="images/58.gif"> s <img src="images/59.gif"> d</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_NOOP</b></font></code> <td width=140> d </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_XOR</b></font></code> <td width=140> s <code>xor</code> d</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_OR</b></font></code> <td width=140>s<img src="images/60.gif">d</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_NOR</b></font></code><td width=140> <img src="images/58.gif">(s<img src="images/60.gif">d)</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_EQUIV</b></font></code><td width=140> <img src="images/58.gif">(s <code>xor</code> d)</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_INVERT</b></font></code><td width=140> <img src="images/58.gif"> d</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_OR_REVERSE</b></font></code> <td width=140> s<img src="images/60.gif"><img src="images/58.gif">d</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_COPY_INVERTED</b></font></code><td width=140> <img src="images/58.gif">s</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_OR_INVERTED</b></font></code> <td width=140> <img src="images/58.gif">s<img src="images/60.gif">d</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_NAND</b></font></code> <td width=140><img src="images/58.gif">(s<img src="images/59.gif">d)</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_SET</b></font></code><td width=140> 1</tr>
+<tr><td width=280>
+</table>
+</center>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="113.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="115.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

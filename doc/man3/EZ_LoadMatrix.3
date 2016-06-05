@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LoadMatrix 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LoadMatrix \- load a transformation matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_LoadMatrix(EZ_Matrix " matrix  )
+
+.SH ARGUMENTS
+\fImatrix\fR specifies a matrix.
+
+.SH DESCRIPTION
+\fBEZ_LoadMatrix\fR copies the specified matrix to
+the current matrix. If the current matrix mode is EZ_MODELVIEW, the inverse
+transpose of \fImatrix\fR will be computed and loaded to the companion
+of the current matrix. This companion matrix is used to transform normals.
+
+.SH "SEE ALSO"
+EZ_PushMatrix(3), EZ_Rotate(3), EZ_Translate(3), 
+EZ_MultMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetClearRegion 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetClearRegion \- clear a spread sheet region
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetClearRegion( EZ_Widget *" ssheet ", int " r1 ", int "c1 ", int " r2 ", int "c2)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIr1,c1,r2,c2 col\fR  Specify the upper-left and lower-right corner of a region.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetClearRegion\fR erases the specified spread sheet region.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetCopyRegion(3),  EZ_SSheetGetRegionString(3),
+.br
+
+

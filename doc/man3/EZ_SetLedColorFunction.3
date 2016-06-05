@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLedColorFunction 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLedColorFunction \- Set a pixel coloring function for an LED widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLedColorFunction(EZ_Widget *" led, 
+.BI "      unsigned long (* "colorf ")(int "x ", int" y)  ) 
+
+.sp
+.SH ARGUMENTS
+\fIled\fR  Specifies a LED widget.
+.sp
+\fIcolorf\fR  Specifies a function.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLedColorFunction\fR sets a function that selects colors
+(pixel values) for LED pixels. The set function will only be used when
+the color of a label is not explicitly specified.
+
+.SH "SEE ALSO"
+EZ_QueueLedAction(3), EZ_SetLedFont(3), EZ_SetLedSize(3), 
+EZ_SetLedPixelSize(3), EZ_SetLedFont(3)
+

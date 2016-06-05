@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 EZ_GetGC "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetGC, EZ_FreeGC \- find/create a GC
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "GC   EZ_GetGC(unsigned long " mask ", XGCValues *"gcvalues)
+.BI "void EZ_FreeGC(GC " gc)
+
+
+.SH DESCRIPTION
+\fBEZ_GetGC\fR finds or create a GC with the specified attributes.
+Once allocated, future call of this function with the same arguments
+will return the same GC. 
+.PP
+\fBEZ_FreeGC\fR release the specified GC.
+.SH "SEE ALSO"
+EZ_FigItemAddLine(3)
+.br
+
+
+
+

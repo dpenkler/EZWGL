@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GetItemUnknownData</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GetItemUnknownData</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SetItemUnknownData,  EZ_GetItemUnknownData,  EZ_GetIte-
+       mUnknownDataPtr
+        - register/retrieve arbitary data to a display item
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       typedef union {
+         char            c;
+         short           s;
+         int             i;
+         long            l;
+         unsigned char   uc;
+         unsigned short  us;
+         unsigned int    ui;
+         unsigned long   ul;
+         float           f;
+         void            *p;
+       } EZ_UnknownDataType;
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#004400"><i>*</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font>
+                                      <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font> <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#004400"><i>*</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font>
+                                      <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#004400"><i>*</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>)</b></font>
+
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>I</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font>  Specifies a display item.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font>  Specifies a positive integer.
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font>  Specifies an entity of type EZ_UnknownDataType.
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specifies the return for client data.
+
+
+
+<H2>DESCRIPTION</H2>
+       These functions attach client  data  to  a  display  item.
+       They  are  convenient  (but  a little dangerous) routines.
+       They come handy when one wants to attach a few client data
+       to a display item and does not feel like to create special
+       data structures to handle them.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font>  (re)allocates the storage allocated
+       for client data and set the 'idx' entry to
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font>  retrieves the client data stored at
+       the 'idx' location. It returns 1 if the 'idx'th  entry  is
+       available and returns 0 otherwise.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font>   returns the array allocated for
+       client data.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_SetItemPtrData.html">EZ_SetItemPtrData</A>(3), <A HREF="EZ_SetItemIntData.html">EZ_SetItemIntData</A>(3),
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

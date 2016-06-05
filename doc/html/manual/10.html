@@ -1,0 +1,684 @@
+<html>
+<head>
+<title>EZwgl (2.5  Resources)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="9.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="11.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>2.5  Resources</h2>
+
+<p>
+Resources are used to customize applications by the user. 
+<i>EZwgl</i> supports widget resources. 
+The appearance of widgets is completely customizable
+by resources. However, the functionality of widgets
+cannot be altered via resources. <i>EZwgl</i> does not
+support event-action translations.
+<p><h3> 2.5.1  The Resources Aware Functions </h3 <br>
+<p>Three new routines were introduced in version 1.40.
+<code><font color="#990000"><b>EZ_InitializeXrm</b></font></code>,  <code><font color="#990000"><b>EZ_CreateWidgetXrm</b></font></code>.
+and  <code><font color="#990000"><b>EZ_CreateItemXrm</b></font></code>.
+They are the resources-aware replacements to 
+<code><font color="#990000"><b>EZ_Initialize</b></font></code>, <code><font color="#990000"><b>EZ_CreateWidget</b></font></code> and
+<code><font color="#990000"><b>EZ_CreateItem</b></font></code>.  An application should use these 
+resource-aware functions in order
+to use the resource manager fully.
+<p><h3> 2.5.2  Class and Instance Names </h3 <br>
+<p>
+An application has a <code>ClassName</code> and an <code>instanceName</code>.
+The class name is set by <code><font color="#990000"><b>EZ_InitializeXrm</b></font></code>. It is normally 
+the application name with the first letter captalized, unless the
+first letter is 'X' or 'x', in which case the first two letters
+are capitalized.  The instance is the command name, or any string
+set by the <code>-name</code> command line option.  These two names
+are used by the resource manager to identify the application resources
+for the application. 
+<p>The command line option <code>-className</code> can be used to set the class name.
+<p>Each widget has a <code>ClassName</code> and a <code>instanceName</code> also. 
+The two names are introduced solely for the purpose of using Xlib's
+resources manager. They otherwise have nothing to do with the structure
+of the library. Consequently, one can use "class name" to group an arbitary
+set of widgets together and use their class name to set a common
+attribute, like foreground color.
+<p>Widget class and instance names are set by <code><font color="#990000"><b>EZ_CreateWidgetXrm</b></font></code>.
+For widgets implemented internally, the class and instance
+names can also set by using <code><font color="#990000"><b>EZ_CreateWidget</b></font></code> with 
+the <code><font color="#990000"><b>EZ_NAME</b></font></code> and <code><font color="#990000"><b>EZ_CLASS</b></font></code> attributes set.
+<p><h3> 2.5.3  Default Widget Class and Instance Names </h3 <br>
+<p>
+The default widget class and instance names are listed in the 
+following table.
+<p><center>
+<font size=-1>
+<p>
+<table border=1>
+<tr><td width=280>
+WidgetType                     <td width=140>  ClassName                     <td width=140> instanceName               </tr><tr><td width=280> 
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_WIDGET_FRAME</b></font></code>               <td width=140> <code>Frame</code>                       <td width=140><code>frame</code>                    </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_LABEL</b></font></code>               <td width=140> <code>Label</code>                 <td width=140><code>label</code>                    </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font></code>       <td width=140> <code>Button</code>                <td width=140><code>button</code>                   </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_CHECK_BUTTON</b></font></code>        <td width=140> <code>CheckButton</code>           <td width=140><code>checkButton</code>              </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_RADIO_BUTTON</b></font></code>        <td width=140> <code>RadioButton</code>           <td width=140><code>radioButton</code>              </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_BUTTON</b></font></code>         <td width=140> <code>MenuButton</code>            <td width=140><code>menuButton</code>               </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_SEPARATOR</b></font></code>      <td width=140> <code>MenuSeparatorItem</code>     <td width=140><code>menuSeparatorItem</code>        </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_SUBMENU</b></font></code>        <td width=140> <code>MenuSubmenuItem</code>       <td width=140><code>menuSubmenuItem</code>          </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_NORMAL_BUTTON</b></font></code>  <td width=140> <code>MenuButtonItem</code>        <td width=140><code>menuButtonItem</code>           </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_CHECK_BUTTON</b></font></code>   <td width=140> <code>MenuCheckButton</code>       <td width=140><code>menuCheckButton</code>          </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_RADIO_BUTTON</b></font></code>   <td width=140> <code>MenuRadioButton</code>       <td width=140><code>menuRadioButton</code>          </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_VERTICAL_SLIDER</b></font></code>     <td width=140> <code>VerticalSlider</code>        <td width=140><code>verticalSlider</code>           </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_HORIZONTAL_SLIDER</b></font></code>   <td width=140> <code>HorizontalSlider</code>      <td width=140><code>horizontalSlider</code>         </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_ENTRY</b></font></code>               <td width=140> <code>Entry</code>                 <td width=140><code>entry</code>                    </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_3D_CANVAS</b></font></code>           <td width=140> <code>ThreeDCanvas</code>          <td width=140><code>threeDCanvas</code>             </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_VERTICAL_SCROLLBAR</b></font></code>  <td width=140> <code>VerticalScrollbar</code>     <td width=140><code>verticalScrollbar</code>        </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_HORIZONTAL_SCROLLBAR</b></font></code><td width=140> <code>HorizontalScrollbar</code>   <td width=140><code>horizontalScrollbar</code>      </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_ILIST_BOX</b></font></code>           <td width=140> <code>IListBox</code>              <td width=140><code>iListBox</code>                 </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_LIST_BOX</b></font></code>            <td width=140> <code>ListBox</code>               <td width=140><code>listBox</code>                  </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_ITEXT</b></font></code>               <td width=140> <code>IText</code>                 <td width=140><code>iText</code>                    </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_TEXT</b></font></code>                <td width=140> <code>Text</code>                  <td width=140><code>text</code>                     </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_NOTE_BOOK</b></font></code>           <td width=140> <code>NoteBook</code>              <td width=140><code>noteBook</code>                 </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_NB_PAGE</b></font></code>             <td width=140> <code>NoteBookPage</code>          <td width=140><code>noteBookPage</code>             </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_NW_LABEL</b></font></code>            <td width=140> <code>NWLabel</code>               <td width=140><code>nWLabel</code>                  </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_PANE_HANDLE</b></font></code>         <td width=140> <code>PaneHandle</code>            <td width=140><code>paneHandle</code>               </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_ARROW_BUTTON</b></font></code>        <td width=140> <code>ArrowButton</code>           <td width=140><code>arrowButton</code>              </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_EXECUTOR</b></font></code>            <td width=140> <code>Executor</code>              <td width=140><code>executor</code>                 </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_OPTIONAL_ENTRY</b></font></code>      <td width=140> <code>OptionalEntry</code>         <td width=140><code>optionalEntry</code>            </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_FILE_SELECTOR</b></font></code>       <td width=140> <code>FileSelector</code>          <td width=140><code>fileSelector</code>             </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_ITREE</b></font></code>               <td width=140> <code>ITree</code>                 <td width=140><code>iTree</code>                    </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_LIST_TREE</b></font></code>           <td width=140> <code>Tree</code>                  <td width=140><code>tree</code>                     </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_IFANCY_LIST_BOX</b></font></code>     <td width=140> <code>IFancyListBox</code>         <td width=140><code>iFancyListBox</code>            </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_FANCY_LIST_BOX</b></font></code>      <td width=140> <code>FancyListBox</code>          <td width=140><code>fancyListBox</code>             </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_IWORK_AREA</b></font></code>          <td width=140> <code>IWorkArea</code>             <td width=140><code>iWorkArea</code>                </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_WORK_AREA</b></font></code>           <td width=140> <code>WorkArea</code>              <td width=140><code>workArea</code>                 </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_RAW_XWINDOW</b></font></code>         <td width=140> <code>RawXWindow</code>            <td width=140><code>rawXWindow</code>               </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_TEAR_OFF_BAR</b></font></code>   <td width=140> <code>TearOffBar</code>            <td width=140><code>tearOffBar</code>               </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_LCD</b></font></code>                 <td width=140> <code>Lcd</code>                   <td width=140><code>lcd</code>                      </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_LED</b></font></code>                 <td width=140> <code>Led</code>                   <td width=140><code>led</code>                      </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU</b></font></code>                <td width=140> <code>Menu</code>                  <td width=140><code>menu</code>                     </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_FREE_LABEL</b></font></code>          <td width=140> <code>FreeLabel</code>             <td width=140><code>freeLabel</code>                </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_EMBEDER</b></font></code>             <td width=140> <code>Embeder</code>               <td width=140><code>embeder</code>                  </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_STATUS_METER</b></font></code>        <td width=140> <code>StatusMeter</code>           <td width=140><code>statusMeter</code>              </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_MENU_BAR</b></font></code>            <td width=140> <code>MenuBar</code>               <td width=140><code>menuBar</code>                  </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_TERM</b></font></code>                <td width=140> <code>Term</code>                  <td width=140><code>term</code>                     </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_ITERM</b></font></code>               <td width=140> <code>ITerm</code>                 <td width=140><code>iTerm</code>                    </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_HORIZONTAL_RULER</b></font></code>    <td width=140> <code>HorizontalRuler</code>       <td width=140><code>horizontalRuler</code>          </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_VERTICAL_RULER</b></font></code>      <td width=140> <code>VerticalRuler</code>         <td width=140><code>verticalRuler</code>            </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_DIAL</b></font></code>                <td width=140> <code>Dial</code>         <td width=140><code>dial</code>            </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_GRADIENT_BAR</b></font></code>        <td width=140> <code>GradientBar</code>  <td width=140><code>gradientBar</code>     </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_HISTOGRAM</b></font></code>           <td width=140> <code>Histogram</code>   <td width=140><code>histogram</code>     </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_SPREAD_SHEET</b></font></code>        <td width=140> <code>SpreadSheet</code>   <td width=140><code>spreadSheet</code>     </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WIDGET_THUMB_WHEEL</b></font></code>         <td width=140> <code>ThumbWheel</code>   <td width=140><code>thumbWheel</code>     </tr><tr><td width=280> 
+</table>
+</font>
+</center>
+<p><p><h3> 2.5.4  Resource Files </h3 <br>
+<p>
+When the application statrs up, <code><font color="#990000"><b>EZ_InitializeXrm</b></font></code> reads and
+mergs resource files from the following sources, in this order:
+<ul>
+<p>
+<li>The fallback resource string passed to <code><font color="#990000"><b>EZ_InitializeXrm</b></font></code>.
+<p>
+<li>The file <code>/usr/lib/X11/app-defaults/</code><strong>ClassName</strong>.
+<p>
+<li>The file <code>XAPPLRESDIR/</code><strong>ClassName</strong> and the
+file <code>XUSERFILESEARCHPATH/</code><strong>ClassName</strong>.
+<p>
+<li>Resources set by the string <code>RESOURCE_MANAGER</code>.
+<p>
+<li>Resources set by the string <code>SCREEN_RESOURCE</code>.
+<p>
+<li>The file <code>HOME/.Xdefaults</code>
+<p>
+<li>The file <code>XENVIRONMENT/.Xdefaults</code> or 
+	<code>HOME/.Xdefaults-</code><strong>HOST</strong>.
+<p>
+<li>Resource file specified by the <code>-xrmfile</code> command line option.
+<p>
+<li>Resources set on the command line.
+</ul>
+<p><h3> 2.5.5  Forms of Resource Specifications </h3 <br>
+<p><p>
+Resources are specified by name/value pairs. 
+There are two type of resources: application
+resources and widget resources. The syntax for specifying
+an application resource is like:
+<p><p><p>
+<center><code>application_name.resource_name: value</code></center>
+<p><p>
+The next table lists the set of internally defined application resource names and their 
+values.
+<p><font size=-1>
+<pre><p>
+-----------------------------------------------------------
+ Resource Name                  Default value
+-----------------------------------------------------------
+"labelFont"                "-Adobe-Helvetica-Bold-R-Normal--*-120-*-*-*-*-*-*",
+"textFont"                 "-*-Courier-Medium-R-Normal--*-120-*-*-*-*-*-*",
+"menuTitleFont"            "-Adobe-Times-Bold-I-Normal--*-120-*-*-*-*-*-*",
+"highlight"                true
+"sliderDepression"         true
+"labelOffset"              true
+"ditherImage"              false
+"bubbleHelp"               off
+"initialState"             normalState
+"visual"                   
+"name"                     argv[0]
+"noBackingStore"           false
+"privateColormap"          false
+"readWriteColormap"        false
+"focusHighlightColor"      "black"
+"foreground"               "black"
+"background"               "gray74"
+</pre>
+</font>
+<p>Specifying a widget resource is a bit more complicated, since
+there may be several instances of the same widget in one 
+application. Consequently, one must use the whole pathname of
+a widget, starting with the application name, to specify
+a widget resource. For example, the line
+<p><p><p>
+<center><code>example1.box.label.labelString:  Welcome!</code></center>
+<p><p><p>
+sets the lable of a widget named <em>label</em>, which
+is a child of a widget named <em>box</em> which is a toplevel
+widget in an application called <em>example1</em>, to the
+string <em>"Welcome!"</em>.
+<p>There is a wildcard syntax which may be used to simplify resources
+specifications. One may use an asterisk instead of a dot and omitting
+one or more terms of the full pathname. For example, the above
+line may be simplified as
+<p><p>
+<p>
+<center><code>*label.labelString:  Welcome!</code></center>
+<p>For a complete description of resource specification and matching,
+please consult the "Xlib Programming Manual" by Adrian Nye.
+<p><h3> 2.5.6  Widget Resource Names </h3 <br>
+<p><p>
+Each configuration options has a corresponding resource name. Some
+resources apply to all widgets while others are relevent only to 
+some widgets.  Please consult the relevent sections in this manual for 
+a complete list of resources available for each widget.
+<p><h3> 2.5.7  Standard Command Line Options </h3 <br>
+<p>
+All <i>EZwgl</i> applications accept the set of standard
+command line options listed in the next table. 
+At startup time, the command line is parsed
+first in search of the standard options first,
+matching options are removed. The altered command line
+is then send to <code>XrmParseCommand</code> to match against
+the command line option table passed to 
+<code><font color="#990000"><b>EZ_InitializeXrm</b></font></code>.
+<p><font size=-1>
+<pre>
+static XrmOptionDescRec EZ_StandardCommandLineOptions[] = {
+  {"-display",          ".display",           XrmoptionSepArg,  NULL},
+  {"-visual",           ".visual",            XrmoptionSepArg,  NULL},
+  {"-geometry",         ".geometry",          XrmoptionSepArg,  NULL},
+  {"-background",       ".background",        XrmoptionSepArg,  NULL},
+  {"-bg",               ".background",        XrmoptionSepArg,  NULL},
+  {"-foreground",       ".foreground",        XrmoptionSepArg,  NULL},
+  {"-fg",               ".foreground",        XrmoptionSepArg,  NULL},
+  {"-iconic",           ".initialState",      XrmoptionNoArg,  "IconicState"},
+  {"-dualLabel",        ".dualLabel",         XrmoptionNoArg,  "True"},
+  {"-noBackingstore",   ".noBackingStore",    XrmoptionNoArg,  "True"},
+  {"-privateColormap",  ".privateColormap",   XrmoptionNoArg,  "True"},
+  {"-readWriteColormap",".readWriteColormap", XrmoptionNoArg,  "True"},
+
+  /* the next five options are for debugging only */	
+  {"-xrm",             NOTHING,            XrmoptionSepArg,  NULL},
+  {"-xrmfile",         NOTHING,            XrmoptionSepArg,  NULL},
+  {"-className",       NOTHING,            XrmoptionSepArg,  NULL},
+  {"-name",            NOTHING,            XrmoptionSepArg,  NULL},
+  {"-sychnronous",     NOTHING,            XrmoptionNoArg,   NULL},
+};
+
+</pre>
+<p>
+</font>
+<p><p><h3> 2.5.8  Application Resources </h3 <br>
+<p>
+<i>EZwgl</i> provides a limited support for application resources.
+In particular, there is no automatic type conversion facility as
+seen in Xt. <i>EZwgl</i> can only convert application resources to
+one of the four basic data types, namely <code>int,float,ulong</code>
+and <code>string</code>.  Consequently,  if you need to convert
+resources to other data types, you must
+provide ways to convert resource values (strings) to the
+desired data types.
+<p>Only global variables can be set via application resources.
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif"> Automatic Resource Value Convertion </h3 <br>
+<p>
+To convert resource values to one of the four basic 
+data types. One first define a list of resource
+specifications and a procedure specifies how the
+resource values will be used, 
+then call <code><font color="#990000"><b>EZ_RegisterApplicationResources</b></font></code>
+to register the resources. This function
+must be called right after the library has been
+initialized.
+<p>A resource specification is a special data structure
+of type
+<p><font size=-1>        
+<pre><p>
+typedef struct {
+  int     option;     /* reference id. must > 1024 */
+  char    *iname;     /* instance name */
+  char    *cname;     /* class name, may be NULL */
+  char    *vtypes;    /* value type, e.g  "float, float" */
+} <font color="#990000"><b>EZ_ResourceSpec</b></font>;
+</pre>
+</font>
+<p>Here is an example.
+<p><font size=-1>        
+<pre>
+
+static int   int1 = 0,   int2 = 0; /* var set by resources */
+static float float2 = 0;
+static  <font color="#990000"><b>EZ_ResourceSpec</b></font> exampleResources[] =
+{
+   { 1234, "aPairOfInt",  "APairOfInt", "int,int"   },
+   { 1235, "intFloat",    "IntFloat",   "int,float" },
+};
+
+</pre>
+<p>
+</font>
+<p>The configure procedure looks like
+<font size=-1>        
+<pre><p>
+int configure(<font color="#990000"><b>EZ_Widget</b></font> *notused, int option, <font color="#990000"><b>EZ_Value</b></font> *values)
+{
+  switch(option)
+   {
+     case 1234:  int1 = values[0].value.i; int2 = values[1].value.i; break;
+     case 1235:  int1 = values[0].value.i; float2 = values[1].value.f; break;
+     default:  break;
+   }
+}
+</pre>
+</font>
+<p><p>
+And here is how the resources above should be used.
+<font size=-1>        
+<pre><p>
+#include "EZ.h";
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac, av, 1);
+  <font color="#990000"><b>EZ_RegisterApplicationResources</b></font>(2, exampleResources, configure);
+  printf("int1=%d, int2=%d, float2=%f\n", int1, int2, float2);         
+  /* more stuff ... */
+}
+</pre>
+</font>
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif"> Using Symbolic Constants </h3 <br>
+<p><p>
+<i>EZwgl</i> includes a few functions that may be helpful
+for manipulating symbolic names.
+<p>One special data type is introduced for associating
+symbolic names with numerical values.
+<p><p>
+<font size=-1>
+<pre>
+typedef struct EZ_Value_ {
+  int  type;    /* value type: EZ_INT, EZ_FLOAT, EZ_POINTER, EZ_ULONG */
+  union {
+    char    c;    unsigned char  uc;
+    short   s;    unsigned short us;
+    int     i;    unsigned int   ui;
+    float   f;
+    void    *p;
+    void    *function;
+    char    *str;
+    unsigned long l;
+  } value;
+} EZ_Value;
+
+
+</pre>
+<p>
+</font>
+<p>The few relevent functions are:
+<p><p>
+<code>void   <font color="#990000"><b>EZ_InstallSymbol</b></font>(char *name, <font color="#990000"><b>EZ_Value</b></font> value);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+install the <code>name-value</code> pair in an internal table for later lookup.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Value</b></font>  *<font color="#990000"><b>EZ_RetrieveSymbol</b></font>(char *name);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+retrieve the value assigned to <code>name</code>. Return a pointer or NULL.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_GetApplicationResource</b></font>(char *rname, char **value_ret);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+retrieve the resource value assigned to <code>rname</code>. Return True or False.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_GetWidgetResource</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *wgt, char *rname, char **v_ret);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+retrieve the widget resource value for <code>rname</code>. Return True or False.
+</font>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_GetInstanceName</b></font>();</code>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_GetClassName</b></font>();</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+retrieve the instanceName and className.
+</font>
+<p><p>
+There are also four pairs of convenience routines for
+<code><font color="#990000"><b>EZ_InstallSymbol</b></font></code>, then are
+<font size=-1>
+<pre>
+int   EZ_InstallSymbolicInt       (char *name, int value);
+int   EZ_RetrieveSymbolicInt      (char *name, int *value_ret);
+
+int   <font color="#990000"><b>EZ_InstallSymbolicFloat</b></font>     (char *name, float value);
+int   <font color="#990000"><b>EZ_RetrieveSymbolicFloat</b></font>    (char *name, float *value_ret);
+
+int   <font color="#990000"><b>EZ_InstallSymbolicPointer</b></font>   (char *name, void *value);
+int   <font color="#990000"><b>EZ_RetrieveSymbolicPointer</b></font>  (char *name, void **value_ret);
+
+int   <font color="#990000"><b>EZ_InstallSymbolicULong</b></font>     (char *name, unsigned long value);
+int   <font color="#990000"><b>EZ_RetrieveSymbolicULong</b></font>    (char *name, unsigned long *value_ret);
+
+</pre>
+<p>
+</font>
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif"> An Example </h3 <br>
+<p>
+Suppose that in a hypothetical application we need to get the 
+variable <code>shape</code> from the application resource named <em>shape</em>.
+The variable <code>shape</code> takes only 4 different values:
+<code>triangle</code>, <code>square</code>, <code>pentagon</code> and
+<code>hexagon</code>. These values are represented by, say,
+<code>0, 1, 2</code> and <code>3</code>.  We can specify these
+values in the resource file, but it is more readable
+if we use the names instead. The following code segement
+does the trick.
+<p><font size=-1>
+<pre>
+#include <EZ.h>
+#define TRIANGLE       0
+#define SQUARE         1
+#define PETAGON        2
+#define HEXAGON        3
+
+static  int   shape = TRIANGLE;
+
+static <font color="#990000"><b>EZ_ResourceSpec</b></font> testResources[] =
+{
+  {1236,  "shape", "Shape", "int"},
+};
+
+static int configShape(<font color="#990000"><b>EZ_Widget</b></font> *notused, int option, <font color="#990000"><b>EZ_Value</b></font> *values)
+{
+  if(option == 1236)
+    {
+      int tmp = values[0].value;
+      if(tmp >= 0 && tmp <= 3) shape = tmp;
+    }
+}
+
+main(int argc, char **argv)
+{
+   char  *value_ret;
+
+   <font color="#990000"><b>EZ_InitializeXrm</b></font>("Test", NULL, 0, &argc, argv, NULL, 0);
+   /* install 4 name-value pairs */
+   if( <font color="#990000"><b>EZ_InstallSymbolicInt</b></font>("triangle", TRIANGLE) < 0 ||
+       <font color="#990000"><b>EZ_InstallSymbolicInt</b></font>("square",   SQUARE) < 0   ||
+       <font color="#990000"><b>EZ_InstallSymbolicInt</b></font>("petagon",  PETAGON)< 0   ||
+       <font color="#990000"><b>EZ_InstallSymbolicInt</b></font>("hexagon",  HEXAGON)< 0 )
+   fprintf(stderr,"InstallSymbol Failed");  /* symbol is already in use */
+
+   <font color="#990000"><b>EZ_RegisterApplicationResources</b></font>(1, testResources, configShape); 
+
+   ... ...
+
+}
+
+</pre>
+<p>
+</font>
+This code will set the value of <code>shape</code> to  <code>2</code>
+if the resource file contains a specification
+<p><p>
+<code>Test.shape:  pentagon</code>
+<p><h3> 2.5.9  Internally Defined Symbolic Names </h3 <br>
+<p>
+The following (integer) symbols are defined internally.
+<p><font size=-1>
+<pre><p>
+ no                  0 	                                 bottom              4  
+ yes                 1 	                                 topLeft             5      
+ No                  0 	                                 topRight            6      
+ Yes                 1 	                                 bottomLeft          7      
+ null                0 	                                 bottomRight         8      
+ Null                0 	                                 empty               0      
+ false               0 	                                 square              1      
+ true                1 	                                 sunkenSquare        2      
+ False               0 	                                 diamond             3      
+ True                1 	                                 sunkenDiamond       4      
+ on                  1 	                                 circle              5      
+ off                 0 	                                 check               6      
+ On                  1 	                                 rectangle           7      
+ Off                 0 	                                 mbutton             8      
+ none                0 	                                 tick                9      
+ None                0 	                                 row                 1      
+ nil                 0 	                                 column              2      
+ horizontal          1	                                  allRows             4      
+ horizontalLeft      2	                                  allColumns          8      
+ horizontalRight     3	                                  flat                1      
+ horizontalCenter    4	                                  ridge               2      
+ vertical            5	                                  groove              3      
+ verticalTop         6	                                  raised              4      
+ verticalBottom      7	                                  sunken              5      
+ verticalCenter      8 	                                 embossed            8  
+ fillNone            0 	                                 engraved            9  
+ fillHorizontally    1                                   shadow              22 
+ fillVertically      2 	                                 shadow              23 
+ fillBoth            3 	                                 normalState         1  
+ center              0 	                                 iconicState         3  
+ left                1 	                                 up                  10
+ right               2 	                                 down                11
+ top                 3 	                                 leftRight           12
+ upDown              13
+</pre>
+</font>
+<p><h3> 2.5.10  When Are Widget Resources Set </h3 <br>
+<p>
+When you create a widget using <code><font color="#990000"><b>EZ_CreateWidgetXrm</b></font></code>,
+the arguments are processed first, then the resource
+database is searched for widget resources and relevent
+resource values are set. 
+<p>In other words, attributes set by the
+arguments of <code><font color="#990000"><b>EZ_CreateWidgetXrm</b></font></code> may be thought
+as the fallback values for the corresponding resources.
+<p>To hardcode an widget attribute, use 
+<code><font color="#990000"><b>EZ_ConfigureWidget</b></font></code>.  Attributes set by
+this function overrides the corresponding attributes
+set by resources (unless you rescan the resource database).
+<p><h3> 2.5.11  Resources and Composite Widgets </h3 <br>
+<p>
+Setting resources for a composite widget is a little more
+involved, since there is no way to set the instance/class
+names for its components at the creation time. After
+<code><font color="#990000"><b>EZ_CreateWidget</b></font>***</code> returns, the resource database
+has already been scaned with relevent resources applied.
+<p><p>
+There are two ways to set resources for components of
+a composite widget.
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif"> Scan Resource Database At a Later Time </h3 <br>
+<p>
+In <i>EZwgl</i>, one can scan the resource database
+anytime after initialization. The procedures 
+responsible for searching the database for widget
+resources are 
+<p><font size=-1>
+<pre><p>
+void <font color="#990000"><b>EZ_GetAndUseWidgetResources</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+void <font color="#990000"><b>EZ_GetAndUseWidgetResources1</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+</font>
+<p><p>
+When invoked, they scans the
+resource database for resources relevent to widget 
+and set the resource (attribute) values accordingly.
+The first function scans and sets resources for 
+descendants widgets recursively.
+<p>To set resources for components of a composite
+widget, one first extract the components of the 
+composite widget using <code><font color="#990000"><b>EZ_Get</b></font>***Components</code>,
+then invoke <code><font color="#990000"><b>EZ_ConfigureWidget</b></font></code> on the
+components to give them an instanceName or ClassName,
+then call <code><font color="#990000"><b>EZ_GetAndUseWidgetResources</b></font></code> on the
+composite widget to rescan and set the resources 
+values.
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif">  Use the Builtin instance/Class Names </h3 <br>
+<p>
+Except fileSelector and optionalEntry,
+the components of all other composite
+widgets has the default widget instanceName and ClassName.
+These default names are explicit enough to specify 
+all subwidgets. For example, a text widget consists
+of three components: an internal-text-widget, a h-scrollbar and
+a v-scrollbar. The path names for these components are:
+<p><font size=-1>
+<pre><p>
+text_widget_name.iText
+text_widget_name.horizontalScrollbar
+text_widget_name.verticalScrollbar
+</pre>
+</font>
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif"> Components of an OptionalEntry </h3 <br>
+<p>
+OptionalEntry presents a unique problem, it contains
+a toplevel popup listbox, which is not a descendant
+of the the optionalEntry. The builtin name for the
+popup listbox is  <code>popup</code> (ClassName <code>Popup</code>).
+<i>EZwgl</i> provides a configuration option for
+optionalEntry, namely, <code><font color="#990000"><b>EZ_POPUP_NAME</b></font></code>, to
+override this name.  The componet names are listed below.
+<p><font size=-1>
+<pre>
+
+                 ( entry
+                 (
+ optionalEntry-->( arrowButton
+                 (         ( iListBox
+           ....... popup-->( horizontalScrollbar
+                           ( verticalScrollbar
+
+
+</pre>
+<p>
+</font>
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif"> Components of a FileSelector </h3 <br>
+<p><p>
+Since there are repetitions of buttons and entries
+on a  fileSelector widget, using the default
+widget instanceName is not sufficient in
+distinguishing components. The builtin 
+instanceNames for all components of a
+fileSelector is listed below.
+<p><font size=-1>
+<pre>
+
+                (           ( filterLabel
+                (           (                         ( iListBox           
+                (  frameA-->( filterEntry ...popupA-->( horizontalScrollbar
+                (                                     ( verticalScrollbar  
+                (          (           ( directoryLabel    
+                (          (           (                    ( iListBox
+                (          ( frameB1-->( directoryListBox-->( horizontalScrollbar
+                (          (                                ( verticalScrollbar  
+                (          (           ( fileLabel
+                (          (           (               ( iListBox
+ fileSelector-->( frameB-->( frameB2-->( fileListBox-->( horizontalScrollbar
+                (          (           (               ( verticalScrollbar
+                (
+                (          ( selectionLabel   
+                (          (                            ( iListBox           
+                ( frameC-->( selectionEntry ...popupB-->( horizontalScrollbar
+                (                                       ( verticalScrollbar  
+                (          ( okButton
+                ( frameD-->( filterButton
+                (          ( hideButton
+
+
+</pre>
+<p>
+</font>
+The instance names for the popup listboxes can be oriverriden
+by the configuration option <code><font color="#990000"><b>EZ_POPUP_NAME</b></font></code>. <i>EZwgl</i>
+appends the letter <code>A</code> and <code>B</code> at the end of the 
+configured name and assign them to the two popups.
+<p><h3> 
+<IMG SRC="images/blue_ball_small.gif"> Components of Notebook and NoteBookPage </h3 <br>
+<p><p>
+The notebook widget is made from three frames. The outermost
+frame is the notebook. The two inner frames are
+named <code>topFrame</code> and <code>bottomFrame</code>. <code>topFrame</code> 
+is the container for page tabs.
+<p>The notebook page widget can only be the child of a notebook
+widget. A notebook page consists of two widgets, a button
+and a frame. They frame is called <code>notebookPage</code>. The
+two subwidgets are actually descendants of the notebook widget.
+<p><font size=-1>
+<pre><p>
+             ( topFrame--> notebookPageTab
+  notebook-->(
+             ( bottomFrame--> notebookPage
+</pre>
+<p></font>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="9.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="11.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

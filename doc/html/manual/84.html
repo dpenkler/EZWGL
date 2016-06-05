@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>EZwgl (7.5  ClientMessage Handler)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="83.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>7.5  ClientMessage Handler</h2>
+
+<p>The <i>EZ</i> widget library does not handle ClientMessage events in any
+useful way.  The default behavior is that the event dispatcher drops
+all ClientMessage events except one, a message with <code>message_type</code>
+<code>WM_PROTOCOLS</code> and content <code>XA_WM_DELETE_WINDOW</code> from your
+window manager. (It is sent from your window manager when you close 
+the window.) For this message, the
+default action is to exit, which is not desirable for applications
+that uses more than of toplevel widgets. For example, in a file
+manager, closing a directory lister should not exist the application.
+<p>The <i>EZ</i> widget library includes a command for
+applications to hook in their own clientMessages handler.
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_SetClientMessageHandler</b></font>(<font color="#990000"><b>EZ_EventHandler</b></font> handler,
+                                void *data);
+</pre>
+<p>This function overides the default ClientMessage handler.
+If set succesfully, <code>handler</code> will be invokde whenever the
+application receives a ClientMessage event.
+<p>Set a <code>NULL</code> ClientMessage handler reverts to the default
+handler.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Example: A ClientMessage handler </h3 <br>
+<p>
+Here is an example that uses a private ClientMessage handler.
+<p>When you close the main window from the menu, it pops up 
+a dialogue asking for confirmation. 
+<p><font size=-1>
+<pre>
+/************************** Example ***********************/
+#include "EZ.h"
+
+<font color="#990000"><b>EZ_Widget</b></font> *Dialogue;         /* a dialogue       */
+Atom       WMProtocolsAtom;  /* WM_PROTOCOLS     */
+Atom       DeleteWindowAtom; /* WM_DELETE_WINDOW */
+
+void yesCallBack(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data)
+{ <font color="#990000"><b>EZ_Shutdown</b></font>();  exit(0); }
+
+void noCallBack(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data)
+{
+  if(widget)
+    {
+      <font color="#990000"><b>EZ_Widget</b></font> *toplevel = (<font color="#990000"><b>EZ_Widget</b></font> *)data;
+      <font color="#990000"><b>EZ_HideWidget</b></font>(toplevel); 
+      <font color="#990000"><b>EZ_ReleaseGrab</b></font>();
+    }
+}
+
+void buttonCallBack(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data)
+{
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(Dialogue);
+  <font color="#990000"><b>EZ_SetGrab</b></font>(Dialogue); 
+  <font color="#990000"><b>EZ_SetFocusTo</b></font>((<font color="#990000"><b>EZ_Widget</b></font> *)<font color="#990000"><b>EZ_GetWidgetPtrData</b></font>(Dialogue));
+}
+
+void clientMessageHandler(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data, int etype, XEvent *xev)
+{
+  XClientMessageEvent *ev = (XClientMessageEvent *)xev;      
+      
+  if(ev->message_type == WMProtocolsAtom)
+    {
+      Atom c = (ev->data.l)[0];
+      if(c == DeleteWindowAtom)
+	{
+	  <font color="#990000"><b>EZ_DisplayWidget</b></font>(Dialogue);
+	  <font color="#990000"><b>EZ_SetGrab</b></font>(Dialogue); 
+	  <font color="#990000"><b>EZ_SetFocusTo</b></font>((<font color="#990000"><b>EZ_Widget</b></font> *)<font color="#990000"><b>EZ_GetWidgetPtrData</b></font>(Dialogue));
+	}
+    }
+}
+
+main(int argc, char **argv)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *button, *buttonA;
+  <font color="#990000"><b>EZ_Widget</b></font> *yes, *no;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(argc,argv,0); 
+  DeleteWindowAtom = <font color="#990000"><b>EZ_GetAtom</b></font>("WM_DELETE_WINDOW");
+  WMProtocolsAtom = <font color="#990000"><b>EZ_GetAtom</b></font>("WM_PROTOCOLS");
+
+  frame   = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>,          NULL, 
+                            0);
+  button  = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font>,  frame,
+                            <font color="#990000"><b>EZ_LABEL_STRING</b></font>,          "Press me", 
+                            <font color="#990000"><b>EZ_CALLBACK</b></font>,              buttonCallBack, NULL,
+                            0);
+  buttonA = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font>,  frame,
+                            <font color="#990000"><b>EZ_LABEL_STRING</b></font>,          "A Button",
+                            0);
+  Dialogue= <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>,          NULL,
+                            <font color="#990000"><b>EZ_LABEL_STRING</b></font>,          "Want to Quit?",
+                            <font color="#990000"><b>EZ_TRANSIENT</b></font>,             True,
+                            0);
+  yes     = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font>,  Dialogue,
+                            <font color="#990000"><b>EZ_LABEL_STRING</b></font>,          "Yes",
+                            <font color="#990000"><b>EZ_CALLBACK</b></font>,              yesCallBack,NULL, 
+                            0);
+  no      = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font>,  Dialogue,
+                            <font color="#990000"><b>EZ_LABEL_STRING</b></font>,          "No",
+                            <font color="#990000"><b>EZ_CALLBACK</b></font>, noCallBack,  Dialogue,
+                            0);
+  <font color="#990000"><b>EZ_SetWidgetPtrData</b></font>(Dialogue, no); 
+  <font color="#990000"><b>EZ_SetClientMessageHandler</b></font>(clientMessageHandler, NULL);
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(frame);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+/************************** Example ***********************/
+
+</pre>
+<p>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="83.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

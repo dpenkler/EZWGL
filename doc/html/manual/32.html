@@ -1,0 +1,315 @@
+<html>
+<head>
+<title>EZwgl (4.16  Optional Entry)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="31.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="33.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.16  Optional Entry</h2>
+
+<p>An  optional entry is also refered as a ComboBox. It is a
+composite widget built from an entry, a button and a listbox. It allows
+users to enter text via the entry and also provides a list of
+possible choices via the listbox. The entry can be either editable or
+non-editable. Option is also provided so that the listbox remembers
+the history of selected information. 
+<p>There are two display styles (represented by 0 and 1) for an optional entry.
+The difference is the location where the arrow button is displayed. In
+the default style, the button is displayed outside the entry. 
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_OPTIONAL_ENTRY</b></font></tr>
+                <tr> <td> Default class  name <td>       "OptionalEntry" </tr>
+                <tr> <td> Default instance name<td>     "optionalEntry" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Subwidgets Info </h3 <br>
+<p><p>
+Instance names of subwidgets are listed below.
+<pre>
+
+                 ( entry ....
+                 (            arrowButton
+ optionalEntry-->(   ........   
+                 (         ( iListBox
+           ....... popup-->( horizontalScrollbar
+                           ( verticalScrollbar
+
+
+</pre>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetOptionalEntryWidgetComponents</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Widget</b></font> **entry,</code>
+<p><code>                                    <font color="#990000"><b>EZ_Widget</b></font> **listbox,  <font color="#990000"><b>EZ_Widget</b></font> **btn);</code>
+<p><p>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  return the components of an optional entry.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetOptionalEntryString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *str);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  set the text of an optional entry.
+</font>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_GetOptionalEntryString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ retrieve the text in an optional entry.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_OptionalEntryClearOptions</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  clear the listbox associated to the optional entry.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetOptionalEntryOptions</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char **items, int count);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  set items in the listbox associated to an optional entry.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_OptionalEntryAppendOption</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ append an item at the end of the listbox associated to the optional entry.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_OptionalEntryInsertOption</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *str, int idx);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ insert an item into the listbox at the specified location.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_OptionalEntryDeleteOption</b></font>    (<font color="#990000"><b>EZ_Widget</b></font> *widget, char *str);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ delete the specified item in the associated listbox.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetOptionalEntryStyle</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int style);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  select one of the two display styles.
+</font>
+<p><p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p><p>
+<center><img  src="images/optentry.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p><p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>"OptionalEntry"</code>  </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>"optionalEntry"</code>  </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PADX</b></font></strong>                      <td width=140> padx                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PADY</b></font></strong>                      <td width=140> pady                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADX</b></font></strong>                     <td width=140> iPadx                      <td width=140>  <code>2</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADY</b></font></strong>                     <td width=140> iPady                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_ORIENTATION</b></font></strong>               <td width=140> orientation                <td width=140>  <code>horizontal</code>    </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FILL_MODE</b></font></strong>                <td width=140> fillMode                   <td width=140>  <code>fillHorizontally</code>  </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIDE</b></font></strong>                      <td width=140> side                       <td width=140>  <code>center</code>        </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FONT_ID</b></font></strong>                  <td width=140> fontID                     <td width=140>                        </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FONT_NAME</b></font></strong>                <td width=140> fontName                   <td width=140>  <code>"*fixed*"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_LABEL_STRING</b></font></strong>             <td width=140> labelString                <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_xterm"</code>    </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_MOTION_CALLBACK</b></font></strong>          <td width=140> N/A                        <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_FOREGROUND</b></font></strong>     <td width=140> highlightForeground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_BACKGROUND</b></font></strong>     <td width=140> highlightBackground        <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></strong>        <td width=140> bgImageFileB               <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP_B</b></font></strong>             <td width=140> N/A                  <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></strong>         <td width=140> dndDragCursor              <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></strong>       <td width=140> dndBubbleString            <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_SELECTION_BACKGROUND</b></font></strong>     <td width=140> selectionBackground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SELECTION_FOREGROUND</b></font></strong>     <td width=140> selectionForeground        <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_ENTRY_STRING</b></font></strong>             <td width=140> entryString                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_POPUP_NAME</b></font></strong>               <td width=140> popupName                  <td width=140>   <code>"popup"</code>      </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_ENTRY_EDITABLE</b></font></strong>           <td width=140> entryEditable      <td width=140>     <code>true</code>       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_OPTIONAL_ENTRY_HISTORY</b></font></strong>  <td width=140> optionalEntryHistory       <td width=140>     <code>true</code>       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_OPTIONAL_ENTRY_STYLE</b></font></strong>    <td width=140> optionalEntryStyle         <td width=140>     <code>0</code>          </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="31.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="33.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

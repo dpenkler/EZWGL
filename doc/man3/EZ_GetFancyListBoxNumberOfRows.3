@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFancyListBoxNumberOfRows 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFancyListBoxNumberOfRows, EZ_GetFancyListBoxNumberOfColumns \- retrieve the
+nomber of rows/columns in a fancy listbox.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int  EZ_GetFancyListBoxNumberOfRows(EZ_Widget *flistbox)
+.sp
+.BI "int  EZ_GetFancyListBoxNumberOfColumns(EZ_Widget *flistbox)
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget
+.sp
+
+.SH DESCRIPTION
+.PP
+These two function retrieve the dimension of the two dimensional
+"dislpay item array" currently attached to a fancy listbox widget.
+.PP
+Note: For FancyListBox widgets, the first row ( the 0th row) is
+reserved for the header. As a result,
+\fIEZ_GetFancyListBoxNumberOfRows\fR
+always returns a value 1 larger than the number of rows you supplied
+to the FancyListBox widget.
+
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxData(3)
+.br
+
+
+

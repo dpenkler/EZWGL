@@ -1,0 +1,40 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetStatusMeterValue 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetStatusMeterValue, EZ_SetStatusMeterValueN \- set the value(s) of a
+status meter.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetStatusMeterValue( EZ_Widget *" smeter ", float " value)
+.BI "void  EZ_SetStatusMeterValueN( EZ_Widget *" smeter ", int " idx ", float " value)
+.BI "float EZ_GetStatusMeterValue( EZ_Widget *" smeter)
+.BI "float EZ_GetStatusMeterValueN( EZ_Widget *" smeter", int " idx)
+
+
+.SH ARGUMENTS
+\fIsmeter\fR Specifies a status meter widget.
+.sp
+\fIidx\fR Specifies an integer between 0 and 4 inclusive.
+.sp
+\fIvalue\fR Specify a floating point value.
+
+.SH DESCRIPTION
+\fBEZ_SetStatusMeterValue\fR sets the current value of the first quantity
+displayed on a status meter. 
+.PP
+\fBEZ_SetStatusMeterValueN\fR sets the value of the \fIidx\fR th
+quantity displayed on a status meter.
+.PP
+\fBEZ_GetStatusMeterValue\fR and \fBEZ_GetStatusMeterValueN\fR 
+retrive the value of the first or the idx_th quantity respectively.
+	
+.SH "SEE ALSO"
+EZ_SetSMeterRange(3)
+
+

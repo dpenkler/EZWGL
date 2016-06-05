@@ -1,0 +1,49 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetDefaultMessageHandler 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetDefaultMessageHandler \- register the default message handler
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+typedef struct {
+  Atom       messageType;    /* message type   */
+  int        messageLength;  /* message length */
+  char       *message;       /* the message    */
+  int        messageId;      /* message Id     */
+  int        replyId;        /* if request, the message id to reply */
+  int        isReply;        /* flag whether the message is a reply */
+  Window     sender;         /* sender's communication window id  */
+  Atom       senderClass;    /* sender's class name */
+  Atom       senderInstance; /* sender's instance name */
+  int        senderIsSelf;   /* is message originated from the myself? */
+} EZ_Message;
+.sp
+typedef void (*EZ_MessageHandler)(EZ_Message *msgIn, void *client_data);
+.sp
+.BI "void EZ_SetDefaultMessageHandler(EZ_MessageHandler " handler ", void "*clientData)
+
+
+.SH ARGUMENTS
+\fIhandler\fR  Specifies a message handler.
+.sp
+\fIclient_data\fR  Specifies an application data to be passed to the handler.
+.sp
+
+.SH DESCRIPTION
+.PP
+This function sets the default message handler for an application. All
+messages received with no handlers will be handled by this default
+message handler.
+.PP
+
+.SH "SEE ALSO"
+EZ_AddMessageHandler(3), EZ_BroadcastMessage(3), EZ_ReplyMessage(3)
+.br
+
+
+

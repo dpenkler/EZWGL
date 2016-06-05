@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetWidgetLabelString 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetWidgetLabelString, EZ_GetWidgetLabelString,
+EZ_GetWidgetLabelPosition \- retrieve information about the textual
+lable on a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_GetWidgetLabelString( EZ_Widget *" widget )
+.BI "void  EZ_SetWidgetLabelString( EZ_Widget *" widget ", char *" str )
+.BI "void  EZ_GetWidgetLabelPosition( EZ_Widget *" widget ", int *" x ", int *" y )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+\fIstr\fR  Specifies a string.
+.sp
+\fIx\fR,\fIy\fR Specifies the return for the label position.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetWidgetLabelString\fR  sets the textual lable of widget to the
+specified string \fIstr\fR. Only the button-type widget support
+textual labels (label, buttons, menu-items and frames).
+.PP
+\fBEZ_GetWidgetLabelString\fR  returns the label string of a widget.
+One should not modify the returned data or it will corrupt the
+internal widget data structure.
+.PP
+\fBEZ_GetWidgetLabelPosition\fR  returns the coordinate of the 
+starting position to render the textual label, relative to the upper
+left corner of the widget window. The returned value depends on the
+current geometry of the widget. If the widget is not viewable, it
+returns 0.
+
+.SH "SEE ALSO"
+ EZ_CreateWidget(3), EZ_GetWidgetGeometry(3)
+.br
+
+
+

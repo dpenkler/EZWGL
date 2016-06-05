@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MenuBarAddItemAndMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MenuBarAddItemAndMenu  \- insert an item with menu on a menubar
+
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget  *EZ_MenuBarAddItemAndMenu(EZ_Widget *" mbar ", char *" item, 
+.BI "                                     int  " ul ", EZ_Widget *" menu)
+
+.SH ARGUMENTS
+\fImbar\fR  Specifies a menubar widget.
+.sp
+\fIitem\fR  Specifies an item label.
+.sp
+\fIul\fR  Specifies the index of the character to be underlined.
+.sp
+\fImenu\fR  Specifies the menu to be attached to the item.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_MenuBarAddItemAndMenu\fR  add an item to a menubar and attached
+the specified menu to the newly created item.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_MenuBarSetItemMenu(3)
+.br
+
+
+

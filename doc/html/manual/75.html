@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>EZwgl (5.20  Overriding the Default Attributes)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="74.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>5.20  Overriding the Default Attributes</h2>
+
+<p>There are a few global attributes for the <i>EZ</i> widget library. They 
+affect the appearance and the behavior of <i>EZ</i> widgets.  Some of 
+these attributes can be modified at the initialization time.
+<p><p>
+Note: all the global attributes can be altered via resources.
+Procedures listed in this section take procedence over resources.
+<p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> It is recommended you use resource files to 
+override these default attributes instead of hardcoding them
+by calling routines described in this section. 
+<p><h3> 5.20.1  Setting the Default Background </h3 <br>
+<p><p>
+The <i>EZ</i> Widget library provides a function to set the <strong>default</strong> background
+color for all widgets in an application. 
+<p><p>
+<code>int <font color="#990000"><b>EZ_SetGlobalBackground</b></font>(char *colorName);</code>
+<p><p>
+The resource that sets the default background color 
+<p><code>application.background: color</code>
+<p><p>
+This function alters the five color entires allocated for widget
+background and borders. The RGB intensities for <code>colorName</code> should be
+in the middle range of the interval [0,255].
+<p>This function has no effect if the <code>-bg</code> command line option
+is properly set.  Neither does it have effects on widgets whose background
+or their ancestors' background are hard coded.
+<p><h3> 5.20.2  Setting the Default Fonts </h3 <br>
+<p>
+<i>EZwgl</i> uses three default fonts to display text.
+<center>
+<pre><p>
+  "-Adobe-Helvetica-Bold-R-Normal--*-120-*-*-*-*-*-*",
+  "-*-Courier-Medium-R-Normal--*-120-*-*-*-*-*-*"
+  "-Adobe-Times-Bold-I-Normal--*-120-*-*-*-*-*-*",
+</pre>
+</center>
+The first one (bold) is used for displaying textual labels;
+the second one (fixed width) is used for displaying text in text
+widgets and input fields and the last one (bold italic)
+font is used for displaying menu titles. One can override these
+default fonts by the following set of functions. All these functions
+overrides the corresponding resources set by the application default
+file.
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetDefaultLabelFont</b></font>(char *fontName);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetDefaultEntryTextFont</b></font>(char *fontName);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetDefaultMenuTitleFont</b></font>(char *fontName);</code>
+<p><p>
+The resources that set these default fonts are:
+<pre><p>
+application.labelFont:     font_name
+application.textFont:      font_name
+application.menuTitleFont: font_name
+</pre>
+<p><h3> 5.20.3  Disable Button Highlighting/Offseting </h3 <br>
+<p>
+By default, a button type widget lights up when the pointer is over
+it; and its label shifts a little bit to the right when it is pressed.
+You can control these behavior via the following two pair of functions.
+<p><p><code>void <font color="#990000"><b>EZ_DisableHighlight</b></font>(void);</code>
+<p><code>void <font color="#990000"><b>EZ_EnableHighlight</b></font>(void);</code>
+<p><p><code>void <font color="#990000"><b>EZ_DisableLabelOffset</b></font>(void);</code>
+<p><code>void <font color="#990000"><b>EZ_EnableLabelOffset</b></font>(void);</code>
+<p><p>
+The relevent resources are
+<pre><p>
+application.highlight:     boolean
+application.labelOffset:   boolean
+</pre>
+<p><h3> 5.20.4  Disable Slider Depression </h3 <br>
+<p><p>
+The default behavior of a slider/scrollbar is that when the slider
+button is pressed, it depresses, gives you the illusion of being pressed,
+just like a button. You can control the behavior by the following
+two functions.
+<p><p><code> void <font color="#990000"><b>EZ_DisableSliderDepression</b></font>(void);</code>
+<p><code> void <font color="#990000"><b>EZ_EnableSliderDepression</b></font>(void);</code>
+<p><p>
+The corresponding resource is
+<pre><p>
+application.sliderDepression:     boolean
+</pre>
+<p><h3> 5.20.5  Set Keyboard Focus Highlight Color </h3 <br>
+<p><p>
+The keyboard focus highlight color is controled by
+<p><p><code>void <font color="#990000"><b>EZ_SetKbdHighlightColor</b></font>(char *color_name);</code>
+<p>The equivalent resource is:
+<p><pre><p>
+application.focusHighlightColor:     color_name
+</pre>
+<p><h3> 5.20.6  Miscellaneous </h3 <br>
+<p>
+The next three functions may be used to slide open/close 
+a toplevel widget. The toplevel widget should have the
+<code><font color="#990000"><b>EZ_TRANSIENT</b></font></code> or <code><font color="#990000"><b>EZ_OVERRIDE_REDIRECT</b></font></code> resource
+set in order for them to work properly. Parameters are
+<code>x,y</code> the initial origin of the widget window, relative
+to the origin of the root window; <code>direction</code> the direction to slide
+open/close the widget window, values are one of <code><font color="#990000"><b>EZ_NORTH</b></font></code>,
+<code><font color="#990000"><b>EZ_NORTHEAST</b></font></code>, <code><font color="#990000"><b>EZ_EAST</b></font></code>, <code><font color="#990000"><b>EZ_SOUTHEAST</b></font></code>, 
+<code><font color="#990000"><b>EZ_SOUTH</b></font></code>, <code><font color="#990000"><b>EZ_SOUTHWEST</b></font></code>, <code><font color="#990000"><b>EZ_WEST</b></font></code>,
+<code><font color="#990000"><b>EZ_NORTHWEST</b></font></code> or <code>-1</code>;  <code>speed</code> is the number of pixels
+to slide over one step.
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_SlideOpenWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *w, int x, int y, 
+                        int direction, int speed);
+</pre>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_SlideOpenWidgetRelativeTo</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Widget</b></font> *rel,
+                                  int direction, int speed);
+</pre>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_SlideCloseWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int direction, int speed);
+</pre>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="74.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

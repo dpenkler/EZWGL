@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetGetActiveCell 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetGetActiveCell \- return the current active cell
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetGetActiveCell( EZ_Widget *" ssheet ", int *" row ", int *" col ", char **" str)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIrow,col\fR  Specify the returns for the row and column index.
+.sp
+\fIstr\fR Specifies the return for the content of the cell.
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetGetActiveCell\fR returns the current active cell
+and its contents. The returned contents should never be modified.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetGetCell(3),  EZ_SSheetSetActiveCell(3)
+.br
+
+
+

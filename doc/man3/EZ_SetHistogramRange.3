@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetHistogramRange 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetHistogramRange \- set the range of a histogram.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetHistogramRange( EZ_Widget *" histogram ", float "from ", float " to);
+        
+
+.SH ARGUMENTS
+\fIhistogram\fR  Specifies a histogram widget.
+.sp
+\fIfrom, to\fR  Specifies a range.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SetHistogramRange\fR sets the range of a histogram widget. The
+values displayed by the histogram will be cliped by the specified range.
+
+.SH "SEE ALSO"
+EZ_SetHistogramValues(3)
+.br
+
+
+

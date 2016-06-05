@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_SendMessage</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_SendMessage</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SendMessage,   EZ_BroadcastMessage,  EZ_ReplyMessage  -
+       send message to other EZWGL clients
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       typedef struct {
+         Atom       messageType;    /* message type   */
+         int        messageLength;  /* message length */
+         char       *message;       /* the message    */
+         int        messageId;      /* message Id     */
+         int        replyId;        /* if request, the message id to reply */
+         int        isReply;        /* flag whether the message is a reply */
+         Window     sender;         /* sender's communication window id  */
+         Atom       senderClass;    /* sender's class name */
+         Atom       senderInstance; /* sender's instance name */
+         int        senderIsSelf;   /* is message originated from the myself? */
+       } EZ_Message;
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>,</i></font>
+                            <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>A</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>,</i></font>
+                            <font color="#440000"><b>A</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>R</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>i</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>R</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>)</i></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font>
+                                 <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>,</i></font>  <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>R</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>)</i></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>M</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>)</i></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>M</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>,</i></font>
+                              <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>)</i></font>
+
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font>  Specifies a message type.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font> <font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font>  Specifies a message and the length of the
+       message.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font> Specifies a serial number. Serial number is local to
+       each application so the sender has to keep track of it.
+
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>R</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>y</i></font> Specifies whether or not  the  recipient  should
+       reply the message.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>R</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>y</i></font> Specifies whether or not the message is a reply to
+       an incoming message.
+
+       <font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>,</i></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>,</i></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font> Specifies the recipient.
+
+       <font color="#004400"><i>f</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>M</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>g</i></font> Specifies the incoming message.
+
+       <font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font> Specifies a serial number  for  other  clients  to
+       reply to.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font>  sends  the specified message to the speci-
+       fied recipient. This function is rarely  needed.  This  is
+       the  low  level  routine  used  by <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font> and
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font>.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font> broadcasts  a  message  to  all  EZWGL
+       clients.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font> replys an incoming message.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font>  replys  an  incoming message, requesting
+       the receiver to reply with the specified message id.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_SetDefaultMessageHandler.html">EZ_SetDefaultMessageHandler</A>(3), <A HREF="EZ_AddMessageHandler.html">EZ_AddMessageHandler</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

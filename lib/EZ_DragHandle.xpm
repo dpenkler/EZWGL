@@ -1,0 +1,26 @@
+/* XPM */
+static char *dragHandleXPMdata[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 3 1",
+/* colors */
+"a c #ffffff",
+"b c None",
+"k c #000000",
+/* pixels */
+"abbbabbbabbbabbb",
+"bkbbbkbbbkbbbkbb",
+"bbabbbabbbabbbab",
+"bbbkbbbkbbbkbbbk",
+"abbbabbbabbbabbb",
+"bkbbbkbbbkbbbkbb",
+"bbabbbabbbabbbab",
+"bbbkbbbkbbbkbbbk",
+"abbbabbbabbbabbb",
+"bkbbbkbbbkbbbkbb",
+"bbabbbabbbabbbab",
+"bbbkbbbkbbbkbbbk",
+"abbbabbbabbbabbb",
+"bkbbbkbbbkbbbkbb",
+"bbabbbabbbabbbab",
+"bbbkbbbkbbbkbbbk",
+};

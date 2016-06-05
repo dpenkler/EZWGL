@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_InsertWidgetAfter 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_InsertWidgetAfter, EZ_InsertWidgetBefore, EZ_SwapWidgets \-
+editing a widget tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void *EZ_InsertWidgetAfter(EZ_Widget *"a ", EZ_Widget *" b )
+.BI "void *EZ_InsertWidgetBefore(EZ_Widget *"a ", EZ_Widget *" b )
+.BI "void *EZ_SwapWidgets(EZ_Widget *"a ", EZ_Widget *" b )
+
+.SH ARGUMENTS
+
+\fIa\fR, \fIb\fR Specify two widgets.
+
+.SH DESCRIPTION
+\fBEZ_InsertWidgetAfter\fR inserts \fIa\fR after \fIb\fR. 
+.PP
+\fBEZ_InsertWidgetBefore\fR inserts \fIa\fR before \fIb\fR.
+.PP
+\fBEZ_SwapWidgets\fR swaps the position of \fIa\fR and \fIb\fR.
+.PP
+All these three functions require that \fIa\fR and \fIb\fR
+have no ancestor-descendant relationship.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_DestroyWidget(3)
+
+
+
+

@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TreeSetCharacter 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TreeSetCharacter \- specify the parameters to display a tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_TreeSetTreeCharacter(EZ_TreeNode *" root ", int " type,
+.BI "     int " indent ", int " spacing ", int " drawbranch )		 
+
+.SH ARGUMENTS
+.sp
+\fIroot\fR  Specifies the root node. 
+.sp
+\fItype\fR Specifies the tree type. Must be one of
+EZ_TREE or EZ_LIST_TREE.
+.sp
+\fIindent\fR Specifies the indentation between a node and children
+nodes, in pixels.
+.sp
+\fIspacing\fR Specifies the vertical spacing between neighboring nodes.
+.sp
+\fIdrawbranch\fR Specifies whether to draw a thin line between
+parent and children nodes. For \fIEZ_TREE\fR type trees, a value
+bigger than one indicates that the branches be drawn in
+zigzaged horizontal and vertical line segaments.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TreeSetTreeCharacter\fR sets the parameters used to display
+a tree. 
+
+.SH "SEE ALSO"
+EZ_CreateTreeNode(3), EZ_TreeTraverseTree(3)
+
+
+

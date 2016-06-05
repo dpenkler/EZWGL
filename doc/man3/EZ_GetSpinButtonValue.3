@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetSpinButtonValue 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetSpinButtonValue  \- return the current value of a spin button.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_GetSpinButtonValue( EZ_Widget *" spin)
+
+.SH ARGUMENTS
+\fIspin\fR  Specifies a spin button.
+.sp
+
+.SH DESCRIPTION
+A spin button is a composite widget, it consists of an entry and
+a scroll button. A spin button is used to cycle through a series
+of string type inputs. The value is controled by a spin function
+of type
+.sp
+.nf
+  char *(func)(int old_idx, int new_idx, void *clientData);
+.sp
+When the left mouse button is pressed over the arrow button,
+the spin function \verb+func+ will be called to compute the
+next choice. The value will then be displayed in the entry
+widget.
+        
+.PP
+\fBEZ_GetSpinButtonValue\fR returns the current value of
+a spin button.
+
+.SH "SEE ALSO"
+EZ_SetupSpinButton(3), EZ_GetSpinButtonComponents(3)
+.br
+
+
+

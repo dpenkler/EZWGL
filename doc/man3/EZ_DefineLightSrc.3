@@ -1,0 +1,84 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DefineLight 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DefineLightSrc, EZ_BindLightSrc \- define light source parameters
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_LightSrc *EZ_DefineLightSrc(float *" parameters )
+.BI "void EZ_BindLightSrc(int "num ", EZ_LightSrc *" lsrc )
+
+.SH ARGUMENTS
+.sp
+\fIparameters\fR  Specifies light source properties.
+.sp
+\fInum\fR Specifies a light source, must be an integer between 0 and 7.
+.sp
+\fIlsrc\fR Specifies a pre-defined light source.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DefineLightSrc\fR defines a light source based on the
+specified parameters. The defined light source can later be
+binded to one of the 8 light sources.
+.PP
+\fIparameters\fR specifies an array of floating point symbols and
+values that defines the light source properties.
+\fIparameters\fR must contain a sequence of lighting symbols,
+each followed by the appropriate number of floating point values. 
+The last symbol must be EZ_NULL_F, which is itself not followed by any
+values.
+.sp
+The symbols are:
+.in +3
+.sp
+\fBEZ_POSITION_F\fR specifies the position of the light source, must
+followed by 4 floating point numbers that defines the position of the
+light source. 
+.sp
+\fBEZ_AMBIENT_F\fR specifies the ambient color of the light source,
+must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the color.
+.sp
+\fBEZ_DIFFUSE_F\fR specifies the diffuse color of the light source,
+must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the color.
+.sp
+\fBEZ_SPECULAR_F\fR specifies the specular color of the light source,
+must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the color.
+.sp
+\fBEZ_SPOT_DIRECTION_F\fR specifies the spot direction of a spot light
+source, must followed by 4 floats that specify the spot direction.
+.sp
+\fBEZ_SPOT_EXPONENT_F\fR specifies the spot exponent, must followed by
+a non-negative floating point number that specifies the spot exponent.
+.sp
+\fBEZ_SPOT_CUTOFF_F\fR specifies the spot cutoff angle, must followed
+by an angle in degrees between 0.0 and 180.0.
+.sp
+\fBEZ_CONSTANT_ATTENUATION_F\fR specifies the constant attenuation
+coefficient, must followed by a floating point number that specifies
+the attenuation factor.
+.sp
+\fBEZ_LINEAR_ATTENUATION_F\fR specifies the linear attenuation
+coefficient, must followed by a floating point number that specifies
+the attenuation factor.
+.sp
+\fBEZ_QUADRATIC_ATTENUATION_F\fR specifies the quadratic attenuation
+coefficient, must followed by a floating point number that specifies
+the attenuation factor.
+.in -3
+.PP
+\fBEZ_BindLightSrc\fR binds the specified pre-defined light source property
+to the specified light source.
+
+.SH "SEE ALSO"
+EZ_DefineMaterial(3), EZ_DefineLightModel(3), EZ_BindMaterial(3),
+EZ_BindLightModel(3)

@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetHistogramValues 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetHistogramValue \- set the the first bin value of a histogram
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetHistogramValue( EZ_Widget *" histogram ", float " value)
+        
+
+.SH ARGUMENTS
+\fIhistogram\fR  Specifies a histogram widget.
+.sp
+\fIvalue\fR  Specifies a floating point value.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SetHistogramValue\fR shift the bins one unit to the right and
+sets the first bin value to the specified value. 
+
+.SH "SEE ALSO"
+EZ_GetHistogramValue(3), EZ_SetHistogramRange(3)
+.br
+
+
+

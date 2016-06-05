@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GetItemWidth</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GetItemWidth</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_GetItemWidth,   EZ_GetItemHeight,  EZ_GetItemDimension,
+       EZ_GetItemPosition, EZ_SetItemDimension, EZ_SetItemHeight,
+       EZ_SetItemPosition,  EZ_SetItemWidth  -  set/retrieve  the
+       geometry of a display item
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>)</i></font><font color="#004400"><i>;</i></font>
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>)</i></font><font color="#004400"><i>;</i></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font> <font color="#004400"><i>w</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>h</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>)</i></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>x</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>y</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>)</i></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>w</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>)</i></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>)</i></font><font color="#004400"><i>;</i></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>y</i></font><font color="#004400"><i>)</i></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>"</i></font><font color="#440000"><b>,</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font> <font color="#440000"><b>w</b></font><font color="#440000"><b>)</b></font>
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>m</i></font>  Specifies a display item.
+
+       <font color="#004400"><i>x</i></font>,<font color="#004400"><i>y</i></font> Specify the coordinates of the  upper-left  corner  of
+       the display item.
+
+       <font color="#004400"><i>x</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>,<font color="#004400"><i>y</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specify the returns for the coordinates of the
+       upper-left corner of the display item.
+
+       <font color="#004400"><i>w</i></font>,<font color="#004400"><i>h</i></font> Specify the width and height for the display item.
+
+       <font color="#004400"><i>w</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>,<font color="#004400"><i>h</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specify the returns for the width  and  height
+       for the display item.
+
+
+<H2>DESCRIPTION</H2>
+       All  these  functions  are  self  explanatory. They set or
+       retrieve the geometric info of a display item.
+
+       These functions are intended for writing the geometry man-
+       agers for the work-area widget.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateItem.html">EZ_CreateItem</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_SetNoteBookOrientation</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_SetNoteBookOrientation</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SetNoteBookOrientation - set the orientation of a note-
+       book widget.
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>n</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>k</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>k</i></font>  Specifies a notebook widget.
+
+       <font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font> Specifies an orientation. Possible values are:
+       EZ_HORIZONTAL_LEFT,  EZ_HORIZONTAL_RIGHT,  EZ_VERTICAL_TOP
+       and EZ_VERTICAL_BOTTOM.
+
+
+<H2>DESCRIPTION</H2>
+       This function sets the orientation of a  notebook  widget.
+       Orientation  determines  the  location  of  page tabs. The
+       default orientation is EZ_VERTICAL_TOP.
+
+       When a horizontal orientation  is  used,  you  should  use
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font> to display textual labels verti-
+       cally.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateRotateTextPixmap.html">EZ_CreateRotateTextPixmap</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

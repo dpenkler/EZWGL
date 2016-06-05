@@ -1,0 +1,76 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 EZ_FigItemAddString "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FigItemAddString,EZ_FigItemAddPixmap, EZ_FigItemAddPoints,
+EZ_FigItemAddLines, EZ_FigItemAddPolygon, EZ_FigItemAddRectangle,
+EZ_FigItemAddFilledRectangle, EZ_FigItemAddArc, EZ_FigItemAddFilledArc,
+EZ_FigItemAddRectangles, EZ_FigItemAddFilledRectangles, EZ_FigItemAddArcs,
+EZ_FigItemAddFilledArcs, EZ_FigItemAddSegments \- add pieces to a FIG item.
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddString(EZ_Item *" fitem ", GC " theGC,
+.BI "                   char *" str ", int " slen ", int  "justification ", int "x ", int "y)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddPixmap(EZ_Item *" fitem ", GC " theGC,
+.BI "		             EZ_Bitmap *" bmp ", int " sx ", int " sy ", int " sw " , int "sh, 
+.BI "                        int "dx ", int "dy )
+.sp
+.BI " EZ_FigPiece *EZ_FigItemAddPoints(EZ_Item *" fitem ", GC " theGC,
+.BI "                                  XPoint *" pts ", int " npts)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddLines(EZ_Item *" fitem ", GC "theGC,
+.BI " 			             XPoint *" pts ", int " npts ", int " mode)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddPolygon(EZ_Item *" fitem ", GC " theGC,
+.BI " 				      XPoint *" pts ", int " npts  ", int " mode)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddRectangle(EZ_Item *" fitem ", GC "theGC,
+.BI "					 int " x ", int " y ", int " w ", int " h)
+
+.BI "EZ_FigPiece *EZ_FigItemAddFilledRectangle(EZ_Item *" fitem ", GC "theGC,
+.BI "					       int "x ", int " y ", int " w ", int " h)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddArc(EZ_Item *" fitem ", GC "theGC,
+.BI "				   int "x ", int " y ", int " w ", int " h, 
+.BI "                              int " angle1 ", int " angle2)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddFilledArc(EZ_Item *" fitem ", GC "theGC,
+.BI "					 int " x ", int " y ", int " w ", int " h,
+.BI "                                    int "angle1 ", int " angle2)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddRectangles(EZ_Item *" fitem ", GC "theGC,
+.BI "					  XRectangle *"rects ", int " nrects)
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddFilledRectangles(EZ_Item *" fitem ", GC "theGC,
+.BI "						XRectangle *"rects ", int " nrects));
+.sp
+.BI "EZ_FigPiece *EZ_FigItemAddArcs(EZ_Item *" fitem ", GC "theGC,
+.BI "				    XArc *"arcs ", int " narcs)
+
+.BI "EZ_FigPiece *EZ_FigItemAddFilledArcs(EZ_Item *" fitem ", GC "theGC,
+.BI "					  XArc *"arcs ", int " narcs)
+
+.BI "EZ_FigPiece *EZ_FigItemAddSegments(EZ_Item *" fitem ", GC "theGC,
+.BI "						 XSegment *"segs ", int " nsegs)
+
+.SH ARGUMENTS
+too many...
+
+.SH DESCRIPTION
+These functions are wrappers to the corresponding Xlib functions. They 
+are used to add a piece to a figure Item.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3), EZ_FigItemHidePiece(3), EZ_ScaleFigItem(3)
+.br
+EZ_GetGC(3)
+
+
+

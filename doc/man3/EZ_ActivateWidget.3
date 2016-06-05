@@ -1,0 +1,43 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ActivateWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ActivateWidget, EZ_DeActivateWidget \- active/de-activate a widget.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ActivateWidget( EZ_Widget " *widget )
+.BI "void EZ_DeActivateWidget( EZ_Widget " *widget )
+.BI "void EZ_ActivateChildren( EZ_Widget " *widget )
+.BI "void EZ_DeActivateChildren( EZ_Widget " *widget )
+.BI "void EZ_ActivateSibling( EZ_Widget " *widget )
+.BI "void EZ_DeActivateSibling( EZ_Widget " *widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DeActivateWidget\fR de-activate a widget. If \fIwidget\fR
+is currently visible, it is removed from the display. A
+de-activated widget will remain invisible until it is re-activated.
+.PP
+\fBEZ_ActivateWidget\fR re-activate a widget. If the parent of
+\fIwidget\fR is visible, its window will be immediately mapped.
+Otherwise, it will be made visible when its parent is displayed or
+\fBEZ_DisplayWidget\fR is called on it.
+.PP
+\fBEZ_DeActivateChildren\fR de-activate all children of \fIwidget\fR.
+.PP
+\fBEZ_ActivateChildren\fR re-activate all children of \fIwidget\fR.
+.PP
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3)
+.br
+EZ_HideWidget(3)

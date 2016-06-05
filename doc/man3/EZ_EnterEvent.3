@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_EnterEvent 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_EnterEvent, EZ_GLEnterEvent \- enter an event
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_EnterEvent( EZ_Widget *" widget ", int "etype ", int *" values )
+.BI "int EZ_GLEnterEvent( EZ_Widget *" canvas ", int "etype ", int *" values )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+\fIcanvas\fR  Specifies a 3D canvas.
+.sp
+\fIetype\fR Specifies the type of event to be entered. It must be one of
+EZ_REDRAW, EZ_RESIZE, EZ_LEFT_BUTTON_PRESS, EZ_MIDDLE_BUTTON_PRESS, 
+EZ_RIGHT_BUTTON_PRESS, EZ_LEFT_BUTTON_RELEASE, EZ_MIDDLE_BUTTON_RELEASE, 
+EZ_RIGHT_BUTTON_RELEASE, EZ_POINTER_MOTION, EZ_ENTER_WINDOW, EZ_LEAVE_WINDOW
+or EZ_KEY_PRESS.
+.sp
+\fIvalues\fR Specifies additional information relevent to the event
+being sent or NULL.
+
+.SH DESCRIPTION
+\fBEZ_EnterEvent\fR enters the specified event to the specified widget
+window. It returns 1 on success and returns 0 otherwise.
+.PP
+If \fIvalues\fR is not NULL, its interpretation depends on the event type.
+.sp
+.in +2
+If \fIetype\fR is button-press, button-release or pointer-motion, 
+\fIvalues[0]\fR and \fIvalues[1]\fR specified the position of the
+pointer.
+.sp
+If \fIetype\fR is key-press, \fIvalues[0]\fR is the key being pressed
+and \fIvalues[1]\fR & (ControlMask | Mod1Mask | ShiftMask) represents
+the state of the modifier keys.
+.in -2
+.PP
+\fBEZ_GLEnterEvent\fR is very similar to \fBEZ_EnterEvent\fR except
+that it only sends events to 3D canvases.

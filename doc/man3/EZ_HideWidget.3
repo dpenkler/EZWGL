@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_HideWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_HideWidget \- hide a widget temporary.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_HideWidget( EZ_Widget " *widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_HideWidget\fR hides a widget temeporary. If 
+\fBwidget\fR is currently visible, it is removed from the display.
+A hidden widget will be made visible whenever \fBEZ_DisplayWidget\fR
+is called on it or all its ancestors are made visible.
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3)
+.br
+EZ_ActivateWidget(3)

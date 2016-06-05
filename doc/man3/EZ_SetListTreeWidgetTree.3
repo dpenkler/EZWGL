@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetListTreeWidgetTree 3 "" EZWGL "EZWGL Functions" 
+.BS
+.SH NAME
+EZ_SetListTreeWidgetTree \- associate a tree to a list tree widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetListTreeWidgetTree(EZ_Widget *" ltree ", EZ_TreeNode *" root)
+
+.SH ARGUMENTS
+\fIltree\fR  Specifies a list tree widget.
+.sp
+\fIroot\fR Specifies the root node of a tree.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetListTreeWidgetTree\fR associates a tree to a list tree widget.
+If \fIltree\fR is currently visible, the display will be updated immediately.
+
+.SH "SEE ALSO"
+EZ_GetListTreeWidgetTree(3), EZ_GetListTreeWidgetSelection(3),
+EZ_CreateDirTree(3)
+
+
+

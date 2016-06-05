@@ -1,0 +1,243 @@
+<html>
+<head>
+<title>EZwgl (4.30  Ruler)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="45.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="47.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.30  Ruler</h2>
+
+<p>
+A ruler is controled by the following parameters:
+<ul>
+<p>
+<li><code>tick unit</code>,  the number of pixels between tick marks (default is 5).
+<p>
+<li><code>tick scale</code>, length represented by 10 tick units (default is 10).
+<p>
+<li><code>tick length</code>, the length of the longest tick marker (default is 16).
+<p>
+<li><code>offset</code>, initial ruler offset (default is 0).
+<p>
+<li><code>position</code>,   location of the ruler. Default value is <code><font color="#990000"><b>EZ_TOP</b></font></code>
+for horizontal rulers and <code><font color="#990000"><b>EZ_LEFT</b></font></code> for vertical rulers.
+<p>
+<li><code>display value</code>, a flag indicates whether or not to display numerical tick marks.
+</ul>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_HORIZONTAL_RULER</b></font></tr>
+                <tr> <td> Default class  name <td>       "HorizontalRuler" </tr>
+                <tr> <td> Default instance name<td>     "horizontalRuler" </tr></table>
+<p><p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_VERTICAL_RULER</b></font></tr>
+                <tr> <td> Default class  name <td>       "VerticalRuler" </tr>
+                <tr> <td> Default instance name<td>     "verticalRuler" </tr></table>
+<p><p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_WidgetNotifyRuler</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ruler, int x, int y, </code>
+<p><code>                            <font color="#990000"><b>EZ_Widget</b></font> *sourceWidget );</code>
+<p><p>
+<font size=-1>
+Notify ruler the position of the mouse pointer, relative to the
+window of <code>srcWidget</code>.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_XWindowNotifyRuler</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ruler, int x, int y, </code>
+<p><code>                            Window window);</code>
+<p><font size=-1>
+Notify ruler the position of the mouse pointer, relative to
+<code>window</code>.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_WidgetMarkRuler</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ruler, int x, int y, </code>
+<p><code>                            <font color="#990000"><b>EZ_Widget</b></font> *sourceWidget );</code>
+<p><p>
+<font size=-1>
+Set one of the two marks on the ruler.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_XWindowMarkRuler</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ruler, int x, int y, </code>
+<p><code>                            Window window);</code>
+<p><font size=-1>
+Set one of the two marks on the ruler.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SetRulerOffset</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ruler, int offset);</code>
+<p><font size=-1>
+Sets ruler offset in pixels. The origin of the ruler window
+will be treated as -<code>offset</code> pixels from the imaginary
+ruler origin.
+<p></font>
+<p><p>
+<code>void  void <font color="#990000"><b>EZ_SetupRuler</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ruler, int tickUnit, int tickLength, </code>
+<p><code>                            int numScale, int offset)</code>
+<p><font size=-1>
+<p>Sets all control parameters. <code>tickUnit</code> is distance between tick marks;
+<code>tickLength</code> is the length of the longest tick marks; <code>numScale</code>
+represents the value corresponds to 10 tick units and <code>offset</code> is the
+ruler offset.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p><p>
+<center><img  src="images/ruler.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>  "HorizontalRuler"</code>         </tr>
+                                    <td width=140>                            <td width=140> or <code>"VerticalRuler"</code>       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>  "horizontalRuler"</code>         </tr>
+                                    <td width=140>                            <td width=140> or <code>"verticalRuler"</code>      </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code> or <code>2</code> </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code> or <code>sunken</code> </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_EXPAND</b></font></strong>                    <td width=140> expand                     <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PROPAGATE</b></font></strong>                 <td width=140> propagate                  <td width=140>  <code>true</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_TRANSIENT</b></font></strong>                 <td width=140> transient                  <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FONT_ID</b></font></strong>                  <td width=140> fontID                     <td width=140>  <code>5</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FONT_NAME</b></font></strong>                <td width=140> fontName                   <td width=140>  <code>"5x7"</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code>  </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_RULER_DISPLAY_VALUE</b></font></strong>     <td width=140> rulerDisplayValue          <td width=140> <code>True</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_RULER_TICK_UNIT</b></font></strong>         <td width=140> rulerTickUnit              <td width=140> <code>5</code>               </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_RULER_TICK_LENGTH</b></font></strong>       <td width=140> rulerTickLength            <td width=140> <code>16</code>              </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_RULER_TICK_SCALE</b></font></strong>        <td width=140> rulerTickScale             <td width=140> <code>10</code>              </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_RULER_TICK_OFFSET</b></font></strong>       <td width=140> rulerTickOffset            <td width=140> <code>0</code>               </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_RULER_POSITION</b></font></strong>           <td width=140> rulerposition              <td width=140> <code>top</code>             </tr><tr><td width=280>
+                                    <td width=140>                            <td width=140> or <code>"left"</code>       </tr><tr><td width=280>  
+</table>
+</center>
+</font>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="45.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="47.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

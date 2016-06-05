@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetSliderValue 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetSliderValue, EZ_GetSliderValue \- set/retrieve the value of a slider
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetSliderValue( EZ_Widget *" slider ", float " value)
+.BI "float EZ_GetSliderValue( EZ_Widget *" slider )
+
+.SH ARGUMENTS
+\fIslider\fR Specifies a slider widget.
+.sp
+\fIvalue\fR Specify a floating point value.
+
+.SH DESCRIPTION
+A slider widget edits a float value by sliding the slider button.
+.PP
+\fBEZ_SetSliderValue\fR sets the value of the slider to the
+specified value. It updates the slider button position if
+needed.
+.PP
+\fBEZ_GetSliderValue\fR returns the current slider value.
+
+.SH "SEE ALSO"
+EZ_SetSliderRange(3)
+
+

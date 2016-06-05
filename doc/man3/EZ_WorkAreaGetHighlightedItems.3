@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaGetHighlightedItems 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaGetHighlightedItems \- return the highlighted items in a workarea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_WorkAreaGetHighlightedItems(EZ_Widget *" warea ", EZ_Item **" items ", int " size)
+
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+\fIitems\fR  Specifies an array to return the highlighted items.
+.sp
+\fIsize\fR  Specifies the size of \fIitems\fR.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WorkAreaGetHighlightedItems\fR stores the highlighted items in the specified
+array and return the number of highlighted items.
+
+.SH "SEE ALSO"
+EZ_WorkAreaInsertItem(3),
+.br
+EZ_WorkAreaDrawItemAt(3)
+.br
+
+

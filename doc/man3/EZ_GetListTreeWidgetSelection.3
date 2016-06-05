@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetListTreeWidgetSelection 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetListTreeWidgetSelection  \- return the selection in a list-tree widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_TreeNode *EZ_GetListTreeWidgetSelection(EZ_Widget *" ltree)
+
+
+.SH ARGUMENTS
+\fIltree\fR  Specifies a list tree widget.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetListTreeWidgetSelection\fR returns the selected node 
+in a list-tree widget. If no selection has been made, it return NULL.
+Visually, the selected node is displayed with a flashing border.  
+
+.SH "SEE ALSO"
+EZ_GetListTreeWidgetTree(3), EZ_CreateTreeNode(3),
+EZ_CreateDirTree(3)
+.br
+
+

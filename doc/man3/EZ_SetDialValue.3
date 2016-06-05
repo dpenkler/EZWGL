@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetDialValue 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetDialValye,EZ_GetDialValue,\- set/retrieve the value of a dial
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetDialValue EZ_Widget *"dial", float " value);
+o.BI "float EZ_GetDialValue EZ_Widget *" dial)
+
+.SH ARGUMENTS
+\fIdial\fR  Specifies a dial widget.
+.sp
+\fIvalue\fR specifies a value. It should be in the range of the dial.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fIEZ_SetDialValue\fR sets the current value of a dial widget.
+.PP
+\fIEZ_GetDialValue\fR returns the current dial value.
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3), EZ_CreateWidget(3)
+.br

@@ -1,0 +1,52 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Fogfv 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Fogfv \- set fog parameters
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Fogfv(int "attr ", float *" pvalues )
+
+.SH ARGUMENTS
+.sp
+\fIattr\fR Specifies which attribute is being updated.
+Must be one of EZ_FOG_MODE, EZ_FOG_DENSITY, EZ_FOG_COLOR,
+EZ_FOG_INDEX, EZ_FOG_START, EZ_FOG_END.
+.sp
+\fIpvalues\fR Specifies the values for the specified \fIattr\fR in
+an array of floats.
+
+.SH DESCRIPTION
+\fBEZ_Fogfv\fR sets fog parameters. Fog is enabled/disabled by
+EZ_Enable/EZ_Disable with argument EZ_FOG.
+.sp
+If \fIattr\fR is EZ_FOG_MODE, \fIpvalues\fR should be an array
+of a single floating point number, which must be either
+EZ_LINEAR or EZ_EXP or EZ_EXP2. It selects one of the three
+fog models.
+.sp
+If \fIattr\fR is EZ_FOG_COLOR, \fIpvalues\fR should be an array of 4
+floats in [0.0, 1.0].
+.sp
+If \fIattr\fR is EZ_FOG_DENSITY, \fIpvalues\fR should be an array
+of a single floating point number, which specifies the fog density.
+.sp
+If \fIattr\fR is EZ_FOG_START,  \fIpvalues\fR should be an array
+of a single floating point number in range [0.0, 1.0].
+It sets the starting position for fog calculations, with 0.0 represents
+the far clipping plane and 1.0 represents the near clipping plane.
+.sp
+If \fIattr\fR is EZ_FOG_END,  \fIpvalues\fR should be an array
+of a single floating point number in range [0.0, 1.0]. It sets the
+ending position for fog calculations, with 0.0 represents
+the far clipping plane and 1.0 represents the near clipping plane.
+
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_Normal3f(3), EZ_Vertex3f(3), EZ_Lightf(3), EZ_Materialf(3)
+
+

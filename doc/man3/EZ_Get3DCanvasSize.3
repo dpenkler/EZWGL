@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Get3DCanvasSize 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Get3DCanvasSize \- retrieve the dimension of a 3D canvas 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Get3DCanvasSize(EZ_Widget *" canvas ", int *" w_ret ", int *" h_ret )
+
+.SH ARGUMENTS
+\fIcanvas\fR Specifies a 3D canvas widget.
+.sp
+\fIw_ret\fR Specifies the return for the width of \fIcanvas\fR.
+.sp
+\fIh_ret\fR Specifies the return for the height of \fIcanvas\fR.
+
+.SH DESCRIPTION
+\fBEZ_Get3DCanvasSize\fR returns the width and height of the 
+drawing buffer. This size may differ from the window size of 
+\fIcanvas\fR due to padding.
+
+.SH "SEE ALSO"
+EZ_DrawBuffer(3), EZ_Save3DCanvas2PPMImage(3)
+
+
+

@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetSubMenuMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetSubMenuMenu \- associate a menu to a submenu item 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetSubMenuMenu(EZ_Widget *" smitem ", EZ_Widget *" menu)
+
+.SH ARGUMENTS
+\fIsitem\fR  Specifies a submenu widget.
+.sp
+.sp
+\fImenu\fR Specifies a popup menu.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetSubMenuMenu\fR associate a popup menu \fImenu\fR with a 
+submenu item on another menu. 
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3)
+

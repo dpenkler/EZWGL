@@ -1,0 +1,226 @@
+<html>
+<head>
+<title>EZwgl (4.17  FileSelectors)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="32.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="34.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.17  FileSelectors</h2>
+
+<p>A fileSelector allows  users to select a filename interactively.
+It is a composite widget consists of six frames, two labels,
+two listboxes, two optional entries and
+three buttons. This widget uses the gnu glob library and the
+gnu tilde library (both are included).
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_FILE_SELECTOR</b></font></tr>
+                <tr> <td> Default class  name <td>       "FileSelector" </tr>
+                <tr> <td> Default instance name<td>     "fileSelector" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Subwidgets Info </h3 <br>
+<p>
+Instance names of subwidgets are listed below.
+<font size=-1>
+<pre>
+
+                (           ( filterLabel
+                (           (                         ( iListBox           
+                (  frameA-->( filterEntry ...popupA-->( horizontalScrollbar
+                (                                     ( verticalScrollbar  
+                (          (           ( directoryLabel    
+                (          (           (                    ( iListBox
+                (          ( frameB1-->( directoryListBox-->( horizontalScrollbar
+                (          (                                ( verticalScrollbar  
+                (          (           ( fileLabel
+                (          (           (               ( iListBox
+ fileSelector-->( frameB-->( frameB2-->( fileListBox-->( horizontalScrollbar
+                (          (           (               ( verticalScrollbar
+                (
+                (          ( selectionLabel   
+                (          (                            ( iListBox           
+                ( frameC-->( selectionEntry ...popupB-->( horizontalScrollbar
+                (                                       ( verticalScrollbar  
+                (          ( okButton
+                ( frameD-->( filterButton
+                (          ( hideButton
+
+</pre>
+<p></font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetFileSelectorWidgetComponents</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget,
+                <font color="#990000"><b>EZ_Widget</b></font> **ptnEntry,   <font color="#990000"><b>EZ_Widget</b></font> **fileEntry,
+                <font color="#990000"><b>EZ_Widget</b></font> **dirListbox, <font color="#990000"><b>EZ_Widget</b></font> **fileListbox,
+                <font color="#990000"><b>EZ_Widget</b></font> **okBtn,      <font color="#990000"><b>EZ_Widget</b></font> **filterBtn,
+                <font color="#990000"><b>EZ_Widget</b></font> **cancelBtn);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  return the components of a file selector.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetFileSelectorInitialPattern</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *pattern);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  set the glob pattern of a file selector.
+</font>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_GetFileSelectorSelection</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  return the current selection of a file selector.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p>
+<center><img  src="images/fileselector.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>"FileSelector"</code>   </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>"fileSelector"</code>   </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140> <code>300</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140> <code>400</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PADX</b></font></strong>                      <td width=140> padx                       <td width=140>  <code>2</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PADY</b></font></strong>                      <td width=140> pady                       <td width=140>  <code>4</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADX</b></font></strong>                     <td width=140> iPadx                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADY</b></font></strong>                     <td width=140> iPady                      <td width=140>  <code>4</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_FOREGROUND</b></font></strong>     <td width=140> highlightForeground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_BACKGROUND</b></font></strong>     <td width=140> highlightBackground        <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></strong>        <td width=140> bgImageFileB               <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP_B</b></font></strong>             <td width=140> N/A                  <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_GLOB_PATTERN</b></font></strong>             <td width=140> globPattern                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="32.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="34.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

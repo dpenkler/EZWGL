@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetListBoxComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetListBoxWidgetComponents  \- retrieve the components of a
+listbox
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetListBoxWidgetComponents( EZ_Widget *" listbox,
+.BI "       EZ_Widget **" ilistbox_ret ", EZ_Widget **" hscroll_ret,
+.BI "       EZ_Widget **" vscroll_ret )
+
+
+.SH ARGUMENTS
+\fIlistbox\fR  Specifies a listbox widget.
+.sp
+\fIifistbox_ret\fR  Specifies the return for the internal listbox.
+.sp
+\fIhscroll_ret\fR  Specifies the return for the horizontal scroll bar.
+.sp
+\fIvscroll_ret\fR  Specifies the return for the vertical scroll bar.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetListBoxWidgetComponents\fR  returns the
+components of a listbox. A listbox contains 3 internal
+components, an internal listbox, a horizontal scrollbar and
+a vertical scrollbar. 
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxWidgetComponents(3), EZ_GetFileSelectorWidgetComponents(3)
+EZ_GetWorkAreaWidgetComponents(3), EZ_GetTextWidgetComponents(3),
+EZ_GetListTreeWidgetComponents(3), EZ_GetOptionalEntryWidgetComponents(3)

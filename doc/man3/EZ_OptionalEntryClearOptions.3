@@ -1,0 +1,48 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_OptionalEntryClearOptions 3 "" EZWGL "EZWGL Functions"
+.BS 
+.SH NAME
+EZ_OptionalEntryClearOptions, EZ_OptionalEntryAppendOption,
+EZ_OptionalEntryInsertOption, EZ_OptionalEntryDeleteOption
+\- manipulate optional entry option list
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_OptionalEntryClearOptions( EZ_Widget *" oentry )
+.BI "void  EZ_SetOptionalEntryOptions( EZ_Widget *" oentry ", char **" items ", int *" nitems )
+.BI "void  EZ_OptionalEntryAppendOption(EZ_Widget *" oentry ", char *" str);
+.BI "void  EZ_OptionalEntryInsertOption(EZ_Widget *" oentry", char *"str ", int " idx)
+.BI "void  EZ_OptionalEntryDeleteOption(EZ_Widget *" widget ", char *" str)
+
+
+.SH ARGUMENTS
+\fIoentry\fR  Specifies an optional entry widget.
+.sp
+\fIitems\fR  Specifies a array of string items.
+.sp
+\fInitems\fR Specifies the number of items.
+.sp
+\fIstr\fR  Specifies one item.
+.sp
+\fIidx\fR Specifies an index.
+.SH DESCRIPTION
+.PP
+\fBEZ_OptionalEntryClearOptions\fR clears the list of options of an optional entry.
+.PP
+\fBEZ_SetOptionalEntryOptions\fR sets the list of options for an optional entry.
+.PP
+\fBEZ_OptionalEntryAppendOption\fR appends an item at the end of the option list.
+.PP
+\fBEZ_OptionalEntryInsertOption\fR inserts an item at the specified position.
+.PP
+\fBEZ_OptionalEntryDeleteOption\fR deletes the specified item from the option list.
+ 
+.SH "SEE ALSO"
+EZ_SetEntryString(3), EZ_GetEntryString(3)
+
+

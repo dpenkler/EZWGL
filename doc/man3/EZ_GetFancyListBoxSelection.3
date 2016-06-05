@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFancyListBoxSelection 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFancyListBoxSelection \- retieve the selection in a fancy-listbox widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item **EZ_GetFancyListBoxSelection(EZ_Widget *" flistbox)
+
+
+.SH ARGUMENTS
+\fIlflistbox\fR  Specifies a fancy listbox widget.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFancyListBoxSelection\fR returns the selected item(s)
+in a fancy listbox widget. If no selection has been made, it return NULL.
+Visually, the selected node is displayed with a flashing border.  
+.PP
+There are two selection mode in a fancy listbox. In \fBrow\fR mode, a row
+is selected at a time. A row usually consists of several items. In
+this case, \fBEZ_GetFancyListBoxSelection\fR  returns an array of 
+items. In \fBitem\fR mode, an item is selected a time. 
+\fBEZ_GetFancyListBoxSelection\fR returns an array (not NULL
+terminated) consists of just item.
+ 
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelectionIdx(3), EZ_GetFancyListBoxItemUsingIdx(3)
+EZ_GetWorkAreaSelection(3),EZ_GetListTreeWidgetSelection(3),
+EZ_SetFancyListBoxData(3), EZ_SetFancyListBoxHeader(3)
+.br
+
+

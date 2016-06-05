@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Clear 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Clear \- clear buffers
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Clear(int " which )
+
+.SH ARGUMENTS
+
+\fIwhich\fR Specify which buffer to clear. Must be ORed from
+EZ_COLOR_BUFFER_BIT and  EZ_DEPTH_BUFFER_BIT.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_Clear\fR uses the current clear color to clear the current
+frame buffer. If specified, it clears the depth buffer to
+its maximum value.
+
+
+.SH "SEE ALSO"
+EZ_ClearColor(3), EZ_ClearIndex(3)
+.br
+
+

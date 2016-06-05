@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LogicOp 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LogicOp \- Specify a logical pixel operation
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_LogicOp( int " op )
+
+.SH ARGUMENTS
+\fIop\fR Specifies a logical operation. Must be one of
+.sp
+.in +5
+EZ_CLEAR, EZ_AND, EZ_AND_REVERSE, EZ_COPY,
+EZ_AND_INVERTED, EZ_NOOP, EZ_XOR, EZ_OR, EZ_NOR,
+EZ_EQUIV, EZ_INVERT, EZ_OR_REVERSE, EZ_COPY_INVERTED,
+EZ_OR_INVERTED, EZ_NAND, EZ_SET
+.in -5
+
+.SH DESCRIPTION
+\fBEZ_LogicOp\fR selects a logical pixelvalue operation for subsequent
+rendering. 
+.PP
+\fBEZ_LogicOp\fR only works for the front buffer and the PIXMAP back
+buffer. It does not work on the XIMAGE back buffer.
+
+.SH "SEE ALSO"
+EZ_SetBackBuffer(3), EZ_DrawBuffer(3)
+
+
+

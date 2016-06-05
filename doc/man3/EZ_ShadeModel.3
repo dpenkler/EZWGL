@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ShadeModel 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ShadeModel \- select a shading model for coloring primitives
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ShadeModel(int " model )
+
+.SH ARGUMENTS
+\fImodel\fR Specifies a shading model. Either EZ_SMOOTH or EZ_FLAT.
+
+.SH DESCRIPTION
+\fBEZ_ShadeModel\fR selects a shading model for rendering primitives.
+In the EZ_FLAT shading model, each primitive is colored with a single
+color across the primitive. In the EZ_SMOOTH shading model, the colors
+at the vertices are linearly interpolated across the primitive.
+
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_Normal3f(3), EZ_Vertex3f(3), EZ_ColorMaterial(3)
+
+
+

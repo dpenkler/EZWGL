@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ClearColorf 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ClearColorf, EZ_ClearIndex \- set the clear color
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_ClearColorf(float " r ", float " g ", float " b ", float "a)
+.BI "void  EZ_ClearIndex(int " index )
+
+
+.SH ARGUMENTS
+\fIr\fR,\fIg\fR,\fIb\fR,\fIa\fR  Specifies RGBA components, in range [0,1].
+.sp
+\fIindex\fR Specify a color index.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ClearColorf\fR sets the RGB color to be used by \fBEZ_Clear\fR
+to clear the current color buffer. It has no effect only in index mode.
+.PP
+\fBEZ_ClearIndex\fR sets the index to be used by \fBEZ_Clear\fR
+to clear the current color buffer. It has no effect in RGB mode.
+
+.SH "SEE ALSO"
+EZ_Clear(3), EZ_Index(3), EZ_Color3f(3)
+.br
+
+

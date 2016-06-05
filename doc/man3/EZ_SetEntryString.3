@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetEntryString 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetEntryString, EZ_GetEntryString  \- set/retrieve the textual
+string in an entry widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetEntryString( EZ_Widget *" entry ", char *" str )
+.BI "char  *EZ_GetEntryString( EZ_Widget *" entry )
+
+.SH ARGUMENTS
+\fIentry\fR  Specifies an entry widget.
+.sp
+\fIstr\fR  Specifies a string.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetEntryString\fR replaces the text in an entry widget with the
+specified string.
+.PP
+\fBEZ_GetEntryString\fR returns the text in an entry widget.
+
+.SH "SEE ALSO"
+EZ_EntryEditKillRegion(3), EZ_SetOptionalEntryString(3),
+EZ_OnOffSecretEntry(3)
+
+

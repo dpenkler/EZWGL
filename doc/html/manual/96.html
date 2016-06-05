@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>EZwgl (10.3  Figure Item)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="95.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="97.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>10.3  Figure Item</h2>
+
+<p>
+A figure item is a free style display item. One can draw
+lines, polygons, arcs, text and pixmaps in figure item.
+Coordinates in a figure item are relative to its display
+location and a measured in pixels.
+<p><h3> 10.3.1  Resources </h3 <br>
+<p>
+Figure item supports the following resources.
+<p><font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_X</b></font></code>        <td width=140> <code>x</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_Y</b></font></code>        <td width=140> <code>y</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LOCATION</b></font></code> <td width=140> <code>location</code>  <td width=140> <code>int_x int_y</code></tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_WIDTH</b></font></code>   <td width=140> <code>width</code>    <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HEIGHT</b></font></code>  <td width=140> <code>height</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SIZE</b></font></code>    <td width=140> <code>size</code>     <td width=140>  <code>int_w int_h</code></tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_GEOMETRY</b></font></code>  <td width=140> <code>geometry</code>   <td width=140>  <code>int_x int_y int_w int_h</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><p>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_TYPE</b></font></code>   <td width=140> <code>borderType</code>    <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></code>  <td width=140> <code>borderWidth</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BACKGROUND</b></font></code>   <td width=140> <code>background</code>  <td width=140>  <code>string</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><h3> 10.3.2  Interface Functions </h3 <br>
+<p><p>
+<code>GC  <font color="#990000"><b>EZ_GetGC</b></font>(unsigned long mask, XGCValues *gcv);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+find or create a GC that matches the specified characteristics.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_FreeGC</b></font>(GC gc);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+free a GC allocated by <code><font color="#990000"><b>EZ_GetGC</b></font></code>.
+</font>
+<p>The following routines are wrappers for the corresponding
+Xlib drawing procedures.
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddString</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+                       char *str, int slen, int justification, int x, int y);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add a string to a figure item.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddPixmap</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+              <font color="#990000"><b>EZ_Bitmap</b></font> *bmp, int sx, int sy, int sw, int sh, int dx, int dy);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add a pixmap to a figure item.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddPoints</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+                                  XPoint *pts, int npts);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add some points to a figure item.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddLines</b></font> (<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+                          XPoint *pts, int npts, int mode);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add some lines to a figure item.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddPolygon</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+                           XPoint *pts, int npts, int mode);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add a polygon to a figure item.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddRectangle</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+              int x, int y, int w, int h);
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddFilledRectangle</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+              int x, int y, int w, int h);
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddRectangles</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+               XRectangle *rects, int nrects);
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddFilledRectangles</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+              XRectangle *rects, int nrects);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add a rectangles/filled rectangles to a figure item.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddArc</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+              int x, int y, int w, int h, int angle1, int angle);
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddFilledArc</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+               int x, int y, int w, int h, int a1, int a2);
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddArcs</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+               XArc *arcs, int narcs);
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddFilledArcs</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+               XArc *arcs, int narcs);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add an arc/filled arc to a figure item
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_FigPiece</b></font>  *<font color="#990000"><b>EZ_FigItemAddSegments</b></font>(<font color="#990000"><b>EZ_Item</b></font> *fitem, GC theGC,
+              XSegment *segs, int nsegs);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+add line segments to a figure item.
+</font>
+<p><p>
+The following are figure item/piece manipulation commands.
+<p><p>
+<code>void <font color="#990000"><b>EZ_ScaleFigItem</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, float sx, float sy, int mode);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+scale a figure item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_FigItemDeletePiece</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, <font color="#990000"><b>EZ_FigPiece</b></font> *fpiece, int update);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+delete a figure piece from a figure item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_FigItemHidePiece</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, <font color="#990000"><b>EZ_FigPiece</b></font> *fpiece, int update);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+hide a figure piece from a figure item.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_FigItemShowPiece</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, <font color="#990000"><b>EZ_FigPiece</b></font> *fpiece, int update);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+un-hide a figure piece.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetFigPieceBoundingBox</b></font>(<font color="#990000"><b>EZ_FigPiece</b></font> *fpiece,
+        int *x1, int *y1, int *x2, int *y2);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the bounding box of a figure piece.
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="95.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="97.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

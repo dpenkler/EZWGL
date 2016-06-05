@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetThumbWheelValue 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetThumbWheelValue, EZ_SetThumbWheelValue \- set/retrieve the value of a thumb wheel
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "float EZ_GetThumbWheelValue( EZ_Widget *" thum )
+.BI "void  EZ_SetThumbWheelValue( EZ_Widget *" thum ", float " value)
+.BI "void  EZ_SetThumbWheelRange( EZ_Widget *" thum ", float " from ", float " to)
+
+.SH ARGUMENTS
+\fIthum\fR Specifies a thumb wheel widget.
+.sp
+\fIvalue\fR Specify a floating point value.
+.sp
+\fIfrom, to\fR Specify a range.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetThumbWheelValue\fR returns the current value of a thumb wheel.
+.PP
+\fBEZ_SetThumbWheelValue\fR sets the current value of a thumb wheel.
+.PP
+\fBEZ_SetThumbWheelRange\fR sets the the range of a thumb wheel.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_ConfigureWidget(3)
+
+

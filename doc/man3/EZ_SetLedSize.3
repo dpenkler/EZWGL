@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLedSize 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLedSize \- set the size of an LED widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLedSize(EZ_Widget *" led ", int " w ", int " h)
+.sp
+.BI "void EZ_SetLedWidth(EZ_Widget *" led ", int " w)
+.sp
+.BI "void EZ_SetLedHeight(EZ_Widget *" led ", int " h)
+.sp
+
+.SH ARGUMENTS
+\fIled\fR  Specifies a LED widget.
+.sp
+\fIw\fR  Specifies a width for the led. The unit is "LED pixel".
+.sp
+\fIh\fR  Specifies a height for the led. The unit is "LED pixel".
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLedSize\fR sets the minimal size for a LED widget. The actually
+size of an LED widget is controlled by the geometry manager. 
+.PP
+\fBEZ_SetLedWidth\fR sets the minimal width for a LED widget. 
+.PP
+\fBEZ_SetLedHeight\fR sets the minimal height for a LED widget. 
+
+.SH "SEE ALSO"
+EZ_QueueLedAction(3), EZ_SetLedPixelSize(3), 
+EZ_SetLedString(3), EZ_SetLedColorFunction(3), EZ_SetLedOffPixelColor(3),
+EZ_SetLedFont(3),  EZ_SetLedPixelSize(3), 
+

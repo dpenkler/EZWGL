@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetLocatorXY 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLocatorXY,EZ_GetLocatorXY,\- set/retrieve the pointer location
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLocatorXY( EZ_Widget *"locator", float " x ", float " y);
+.BI "void EZ_GetLocatorXY( EZ_Widget *"locator", float *" x_ret ", float *" y_ret);
+
+.SH ARGUMENTS
+\fIlocator\fR  Specifies a locator widget.
+.sp
+\fIx,y\fR specifies a location in a locator widget, in [0,1]x[0,1].
+.sp
+\fIx_ret,y_ret\fR specifies the return of a locator.
+
+.SH DESCRIPTION
+.PP
+\fIEZ_SetLocatorXY\fR sets the locator. 
+.PP
+\fIEZ_GetLocatorXY\fR returns the current locator position.
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3), EZ_CreateWidget(3)
+.br

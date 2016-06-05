@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CallWidgetCallbacks 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CallWidgetCallbacks, EZ_CallWidgetMotionCallbacks, 
+\- invoke callbacks registered to a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void   EZ_CallWidgetCallbacks( EZ_Widget " *widget )
+.BI "void   EZ_CallWidgetMotionCallbacks( EZ_Widget  " *widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+These functions execute all callback procedures registered
+to the specified callback list of a widget.
+
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_AddEventHandler(3), EZ_AddWidgetCallBack(3)

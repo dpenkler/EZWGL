@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetWindow 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWidgetWindow,  \- retrieve the window id of a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "Window  EZ_GetWidgetWindow( EZ_Widget " *widget )
+.sp
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWidgetWindow\fR returns the X identifier for the
+window of \fIwidget\fR,  or \fBNone\fR if the window for
+\fIwidget\fR has not been created.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetWidgetGeometry(3)
+.br
+
+

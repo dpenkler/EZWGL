@@ -1,0 +1,45 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LightModelf 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LightModelf, EZ_LightModelfv \- set lighting model parameters
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_LightModelf(int "attr ", float " values )
+
+.BI "void EZ_LightModelfv(int " attr ", float *" pvalues )
+
+.SH ARGUMENTS
+.sp
+\fIattr\fR Specifies which attribute is being updated.
+Must be one of EZ_LIGHT_MODEL_LOCAL_VIEWER, EZ_LIGHT_MODEL_AMBIENT
+or EZ_LIGHT_MODEL_TWO_SIDE.
+.sp
+\fIvalues\fR Specifies the values for the specified \fIattr\fR.
+.sp
+\fIpvalues\fR Specifies the values for the specified \fIattr\fR in
+an array of floats.
+
+.SH DESCRIPTION
+\fBEZ_LightModelf/EZ_LightModelfv\fR sets lighting model parameters.
+.sp
+If \fIattr\fR is EZ_LIGHT_MODEL_AMBIENT, \fIvalues\fR should consist
+of 4 floats and \fIpvalues\fR should be an array of 4 floats, with
+each in interval [0.0, 1.0].
+.sp
+If \fIattr\fR is EZ_LIGHT_MODEL_LOCAL_VIEWER or EZ_LIGHT_MODEL_TWO_SIDE,
+\fIvalues\fR should be a single float point number. If \fIvalues\fR is
+nonzero, it enables the corresponding capability.
+
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_Normal3f(3), EZ_Vertex3f(3), EZ_Lightf(3),
+EZ_Materialf(3), EZ_DefineLightModel(3)
+
+
+
+

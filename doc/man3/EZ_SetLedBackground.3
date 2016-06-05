@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLedBackground 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLedBackground \- Set the background color of an LED widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLedBackground(EZ_Widget *" led ", char *" color)
+.sp
+.BI "void EZ_SetLedForeground(EZ_Widget *" led ", char *" color)
+.sp
+.BI "void EZ_SetLedOffPixelColor(EZ_Widget *" led ", char *" color)
+.SH ARGUMENTS
+\fIled\fR  Specifies a LED widget.
+.sp
+\fIcolor\fR  Specifies a color name.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLedBackground\fR sets the background color for an LED widget.
+The default background color is black. This background color is a
+different from the widget background color. The later is used to
+render the border.
+.PP
+\fBEZ_SetLedForeground\fR sets the foreground color of an LED widget.
+This color is the same as the widget foreground color.
+.PP
+\fBEZ_SetLedOffPixelColor\fR sets the color for off pixels.
+
+.SH "SEE ALSO"
+EZ_QueueLedAction(3), EZ_SetLedFont(3), EZ_SetLedWidth(3), 
+EZ_SetLedString(3), EZ_SetLedColorFunction(3), EZ_SetLedPixelSize(3), 
+
+

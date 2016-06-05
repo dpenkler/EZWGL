@@ -1,0 +1,116 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_InstallSymbol "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_InstallSymbol, EZ_RetrieveSymbol \- install/retrieve a symbolic
+constant to/from the resource database
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_InstallSymbol(char *" name ", EZ_Value " value)
+.sp
+.BI "EZ_Value *EZ_RetrieveSymbol(char *" name)
+
+.SH ARGUMENTS
+.sp
+\fIname\fR  Specifies a name.
+.sp
+\fIvalue\fR  Specifies a value to be associated with \fIname\fR.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_InstallSymbol\fR installs the key-value pair 
+(\fIname\fR, \fIvalue\fR) into an internal lookup table.
+It is a tool for converting resource values to
+other data types. This function returns -1 if it fails.
+.PP
+\fIvalue\fR is defined by the following data structure.
+.nf
+typedef struct {
+   int        type; /* EZ_INT, EZ_FLOAT, EZ_POINTER or EZ_ULONG */
+   union {
+     int   i;
+     float f;
+     void  *p;
+     ulong l;
+   }          value;
+} EZ_Value;
+.fi
+.PP
+\fBEZ_RetrieveSymbol\fR retrieves and returns the value for \fIname\fR.
+If \fIname\fR is not found in the table, it returns NULL.
+.PP
+The following (integer) symbols are installed by \fBEZ_InitializeXrm\fR
+.sp
+.nf
+( "no",                 0)
+( "yes",                1)
+( "No",                 0)
+( "Yes",                1)
+( "null",               0)
+( "Null",               0)
+( "false",              0)
+( "true",               1)
+( "False",              0)
+( "True",               1)
+( "on",                 1)
+( "off",                0)
+( "On",                 1)
+( "Off",                0)
+( "none",               0)
+( "None",               0)
+( "nil",                0)
+( "horizontal",         1)
+( "horizontalLeft",     2)
+( "horizontalRight",    3)
+( "horizontalCenter",   4)
+( "vertical",           5)
+( "verticalTop",        6)
+( "verticalBottom",     7)
+( "verticalCenter",     8)
+( "fillNone",           0)
+( "fillHorizontally",   1)
+( "fillVertically",     2)
+( "fillBoth",           3)
+( "center",             0)
+( "left",               1)
+( "right",              2)
+( "top",                3)
+( "bottom",             4)
+( "topLeft",            5)
+( "topRight",           6)
+( "bottomLeft",         7)
+( "bottomRight",        8)
+( "row",                1)
+( "column",             2)
+( "flat",               1)
+( "ridge",              2)
+( "groove",             3)
+( "raised",             4)
+( "sunken",             5)
+( "embossed",           8)
+( "engraved",           9)
+( "normalState",        1)
+( "iconicState",        3)
+( "empty",              0)
+( "square",             1)
+( "sunkenSquare",       2)
+( "diamond",            3)
+( "sunkenDiamond",      4)
+( "circle",             5)
+( "check",              6)
+( "rectangle",          7)
+.fi
+
+.SH "SEE ALSO"
+EZ_InstallSymbolicInt(3), EZ_InstallSymbolicPointer(3),
+EZ_GetApplicationResource(3)
+.br
+
+
+

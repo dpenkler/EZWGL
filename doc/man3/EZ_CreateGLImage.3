@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateGLImage 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateGLImage, EZ_FreeGLImage \- create/free an gl image.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_GLImage *EZ_CreateGLImage(EZ_Pixmap *" labelPixmap )
+.BI "void        EZ_FreeGLImage(EZ_GLImage *" image)
+
+.SH ARGUMENTS
+\fIlabelPixmap\fR  Specifies a LabelPixmap, must be created using
+\fIEZ_CreateLabelPixmap***\fR.
+.sp
+\fIimage\fR  Specifies a GL image.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_CreateGLImaeg\fR creates an image to be used by the graphics 
+library. Once created, it can be displayed on a 3DCanvas by using
+\fBEZ_PutGLImage***+.
+.PP
+\fBEZ_FreeGLImage\fR releases the resources allocated for an image.
+
+.SH "SEE ALSO"
+EZ_CreateXPixmapFromBitmapFile(3), EZ_PutGLImage(3)
+.br
+
+
+

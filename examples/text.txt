@@ -1,0 +1,118 @@
+
+This window is an  EZ_TextWidget. It serves as a text browser and a 
+simple one-buffer text editor.   Here is a summary of features  currently
+supported.
+
+
+hereisalongline_1_hereisalongline_2_hereisalongline_3_hereisalongline_4_hereisalongline_5_hereisalongline_6_hereisalongline_7_hereisalongline_8_hereisalongline_9_hereisalongline_10_hereisalongline_11_hereisalongline_12_
+\
+.default
+.fg "#fa1340"
+ \
+.default
+.font "-Adobe-Helvetica-Bold-R-Normal--*-180-*-*-*-*-*-*"
+.fg "#fa1340"
+Text Properties.
+\
+.default
+      Each character in a TextWidget has zero or more text properties. 
+      Currently supported text properties are:
+          a)  \
+.default
+.font "-Adobe-Times-Bold-I-Normal--*-180-*-*-*-*-*-*"
+font
+\
+.default
+          b)  \
+.default
+.fg "#ffff00"
+foreground color
+ \
+.default
+         c)  \
+.default
+.bg "#00ffff"
+background color
+\
+.default
+          d)  \
+.default
+.underline
+underline\
+.default
+.fg "#000000"
+  
+          e)  bitmap, \
+.default
+.bitmap "dog3.xpm"
+ xpm \
+.default
+.fg "#000000"
+
+
+\
+.default
+       \
+.default
+.fg "#000000"
+Text properties are rare sticly.  I.e,  character insertion inherits the
+ text properties of the previous character.
+
+\
+.default
+  \
+.default
+.font "-Adobe-Helvetica-Bold-R-Normal--*-180-*-*-*-*-*-*"
+.fg "#fa1340"
+Editing.
+\
+.default
+       EZ_TextWidget implg.
+       EZ_TextWidget implements a minimal set of  Emacs editing commands.
+       They are:
+
+        C-a         Beginning of line
+        C-b         Backward character
+        C-d          Delete next character
+        C-e          End of line
+        C-f           Forward character
+\
+.default
+.bg "#00ffff"
+background color
+\
+        C-k           Kill end of line     Insert  newline before point
+\
+.default
+.bitmap "aaa.xpm"
+something \
+.default
+and some more things
+
+        C-L           Redisplay
+        C-m          Insert  newline before point
+        C-n           Next line
+        C-o           Insert newline after point
+        C-p           Previous line
+        C-space 
+        C-@         Set mark
+        C-v           Next page
+        C-w          Kill Region
+        C-y           Paste selection.
+
+        M-v           Previous page
+        M-<           Beginning of buffer
+        M->           End of buffer
+
+        arraw keys       cursor movement.
+        backspace 
+        delete              delete previous character.
+
+        Button 1 down         start selection
+        Button 1 motion       adjust selection
+        Butd set region.
+
+        Button 2 down         Paste selection
+
+        Button 3 down          Extend selection
+

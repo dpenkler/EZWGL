@@ -1,0 +1,25 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ExecuteIdleCallBacks 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ExecuteIdleCallBacks \- call idle callbacks
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ExecuteIdleCallBacks( void )
+
+
+.SH DESCRIPTION
+
+\fBEZ_ExecuteIdleCallBacks\fR  execute one idle callback
+from the idle callback list. This function is invoked 
+internally by the main event dispatcher. 
+
+.SH "SEE ALSO"
+EZ_AddIdleCallBack(3)
+.br
+EZ_AddEventHandler(3)

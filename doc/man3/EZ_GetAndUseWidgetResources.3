@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetAndUseWidgetResources 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetAndUseWidgetResources, EZ_GetAndUseWidgetResources1  \- retrieve and use all resources for a widget
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetAndUseWidgetResources(EZ_Widget *" widget)
+.BI "void EZ_GetAndUseWidgetResources1(EZ_Widget *" widget)
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetAndUseWidgetResources\fR reads all resources for 
+\fIwidget\fR and its descendants and using them to set the corresponding attributes.
+This function is invoked by EZWGL whenever a widget is created
+using \fBEZ_CreateWidget\fR.
+.PP
+\fBEZ_GetAndUseWidgetResources1\fR reads all resources for \fIwidget\fR
+and sets the corrensponding widget attributes. This function does not
+scan resources for descendants.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3)
+.br
+
+
+

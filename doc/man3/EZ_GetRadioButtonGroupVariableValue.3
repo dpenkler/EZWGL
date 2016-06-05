@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetRadioButtonGroupVariableValue 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetRadioButtonGroupVariableValue,
+EZ_GetRadioButtonGroupVariableValue \- set/retrieve the value of the
+group variable of a radio button
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetRadioButtonGroupVariableValue( EZ_Widget *" rbutton,
+.BI "                                          int " value )
+.BI "int  EZ_SetRadioButtonGroupVariableValue( EZ_Widget *" rbutton )
+
+.SH ARGUMENTS
+\fIrbutton\fR Specifies a radio button.
+.sp
+\fIvalue\fR Specifies a value to be assigned to the group variable.
+
+.SH DESCRIPTION
+Radio buttons are grouped into groups. To each group of radio buttons
+there is a group variable. 
+.PP
+\fBEZ_SetRadioButtonGroupVariableValue\fR assign the group variable
+to the specified value. It updates the display if necessary.
+.PP
+\fBEZ_GetRadioButtonGroupVariableValue\fR returns the current value of
+the group variable.
+
+.SH "SEE ALSO"
+EZ_GetRadioButtonGroupID(3)
+
+

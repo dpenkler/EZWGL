@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Cube 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Tetrahedron, EZ_Cube, EZ_Octahedron, EZ_Icosahedron, EZ_Dodecahedron
+\- render regular polyhedra
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Tetrahedron(float " x ", float "y ", float " z ", float " scale )
+.BI "void  EZ_Cube(float " x ", float "y ", float " z ", float " scale )
+.BI "void  EZ_Octahedron(float " x ", float "y ", float " z ", float " scale )
+.BI "void  EZ_Icosahedron(float " x ", float "y ", float " z ", float " scale )
+.BI "void  EZ_Dodecahedron(float " x ", float "y ", float " z ", float " scale )
+
+.SH ARGUMENTS
+\fIx\fR,\fIy\fR,\fIz\fR Specify the center of the polyhedron.
+.sp
+\fIscale\fR Specify a scaling factor.
+
+.SH DESCRIPTION
+.PP
+These functions render the 5 regular polyhedra in the specified
+location.
+
+
+.SH "SEE ALSO"
+EZ_Tube(3), EZ_Sphere(3)
+.br
+
+

@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Index 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_index, EZ_Indexf, EZ_Indexi \- set the current color index
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Index(int " idx )
+.BI "void  EZ_Indexf(float " fidx )
+
+
+.SH ARGUMENTS
+\fIidx\fR Specify a color index.
+.sp
+\fIfidx\fR Specify a color index as a floating point number.
+
+.SH DESCRIPTION
+.PP
+These two functions update the current color in index mode.
+
+.SH "SEE ALSO"
+EZ_MapColor(3), EZ_ColorMapMode(3), EZ_Color3f(3)
+.br

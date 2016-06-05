@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ListTreeGetHighlightedNodes 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ListTreeGetHighlightedNodes \- return the highlighted nodes in a list tree widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_ListTreeGetHighlightedNodes( EZ_Widget *" tree, 
+.BI "       EZ_TreeNode **" narray ", int " arraySize)
+.BI "int EZ_ListTreeGetHighlightedItems( EZ_Widget *" tree, 
+.BI "       EZ_Item **" iarray ", int " arraySize)
+
+
+.SH ARGUMENTS
+\fItree\fR Specifies a list tree widget.
+.sp
+\fInarray\fR Specifies an array of tree nodes to return the highlighted nodes.
+.sp
+\fIiarray\fR Specifies an array of items to return the highlighted items.
+.sp
+\fIarraySize\fR Specify the size of narray or iarray.
+
+.SH DESCRIPTION
+\fBEZ_ListTreeGetHighlightedNodes\fR store highlighted tree nodes in
+the array supplied and returns the number of entries it sets.
+.PP
+\fBEZ_ListTreeGetHighlightedItems\fR store highlighted items in
+the array supplied and returns the number of entries it sets.
+	
+.SH "SEE ALSO"
+EZ_GetListTreeWidgetSelection(3)
+.br
+EZ_SetTreeWidgetRowBg(3)
+

@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GrabPointer "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GrabPointer, EZ_UngrabPointer \- grab/ungrab the mouse pointer 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int  EZ_GrabPointer(EZ_Widget *"  widget ", Cursor " cursor,
+.BI "                    int " timeout )
+.sp
+.BI "void  EZ_UngrabPointer(" void )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+\fIcursor\fR Specifies a cursor.
+.sp
+\fItimeout\fR Specifies a timeout in seconds.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_GrabPointer\fR grabs the pointer device to the window 
+of \fIwidget\fR if the pointer is not currently grabed.
+If \fIcursor\fR is not None, it will replace the current
+cursor. If \fItimeout\fR is positive, the grab will be
+automatically released after \fItimeout\fR seconds. If
+\fItimeout\fR is 0, the grab will sustain indefinitely
+until a call to \fIEZ_UngrabPointer\fR.
+.sp
+\fIEZ_GrabPointer\fR returns the status of the grab
+as described in XgrabPointer (3X11).
+.PP
+\fBEZ_UngrabPointer\fR release the current pointer
+grab.
+
+.SH "SEE ALSO"
+EZ_WaitCursor(3), EZ_SetGrab(3)
+.br
+
+
+

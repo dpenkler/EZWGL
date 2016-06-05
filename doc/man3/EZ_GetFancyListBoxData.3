@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFancyListBoxData 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFancyListBoxData \- retieve the array of items in a
+FancyListBox widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item ***EZ_GetFancyListBoxData(EZ_Widget *" flistbox )
+
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFancyListBoxData\fR returns the array of items in
+a FancyListBox widget. Items in  FancyListBox widgets are
+arranged as a two dimensional array of items, row majored.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelection(3),EZ_GetFancyListBoxItemUsingIdx(3),
+EZ_GetFancyListBoxNumberOfRows(3)
+.br
+
+

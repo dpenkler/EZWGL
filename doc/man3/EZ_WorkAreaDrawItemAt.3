@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaDrawItemAt 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaDrawItemAt  \- display an item in a workarea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WorkAreaDrawItemAt(EZ_Widget *" warea ", EZ_Item *" item,
+.BI "                           int " x ", int " y)
+
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+\fIitem\fR  Specifies a display item currently managed by \fIwarea\fR.
+.sp
+\fIx, y\fR  Specifies a  location.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WorkAreaDrawItemAt\fR display the given item at the specified
+location in a workarea widget. The item will not be inserted in the
+array of items the workarea currently manages.
+
+.SH "SEE ALSO"
+EZ_WorkAreaInsertAndDrawItemAt(3),
+.br
+EZ_WorkAreaScaleItem(3)
+.br
+
+

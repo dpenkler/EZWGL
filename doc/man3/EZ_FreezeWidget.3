@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DisableWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FreezeWidget, EZ_UnFreezeWidget \- temporaily freeze a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_FreezeWidget( EZ_Widget *" widget )
+.BI "void  EZ_UnFreezeWidget( EZ_Widget *" widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_FreezeWidget\fR  temporaily freeze a widget. A freezed widget
+will not process any events. 
+.PP
+\fBEZ_UnFreezeWidget\fR  resume a freezed  widget to its normal state
+and refresh the widget if necessary.
+
+.SH "SEE ALSO"
+ EZ_DisableWidget(3), EZ_ActivateWidget(3)
+.br
+
+
+

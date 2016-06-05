@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetGetRegionString 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetGetRegionString \- return the region as a single string
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_SSheetGetRegionString( EZ_Widget *" ssheet ", int " r1 ", int "c1 ", int " r2 ", int "c2);
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIr1,c1,r2,c2 col\fR  Specify the upper-left and lower-right corner of a region.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetGetRegionString\fR returns the cells in the specied region
+as a single string. Cells in the region will be separated by the current
+tab and newline characters. The returned value is malloced and should be
+freed by the caller.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetCopyRegion(3),  EZ_SSheetSetTabChar(3),
+.br
+
+

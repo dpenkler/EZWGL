@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWorkAreaData 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWorkAreaData \- return the array of display items managed by a
+workarea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item  **EZ_WorkAreaRaiseItem(EZ_Widget *" warea )
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWorkAreaData\fR returns the array of display items
+currently managed by the workarea widget. The returned value
+should not be modified.
+
+.SH "SEE ALSO"
+EZ_GetWorkAreaSelection(3)
+.br
+
+

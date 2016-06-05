@@ -1,0 +1,48 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetGradientBarColors 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetGradientBarColors, EZ_GetGradientBarColor
+ \- set/retrieve the colors a gradient bar
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetGradientBarColors( EZ_Widget *" gbar ", char **" clrs ", int " nclrs)
+.BI "void EZ_GetGradientBarColor( EZ_Widget *" gbar ", int *" r ", int *" g ", int *" b)
+        
+.SH ARGUMENTS
+\fIgbar\fR  Specifies a gradient bar widget.
+.sp
+\fIclrs\fR  Specifies an array of symbolic colors.
+.sp
+\fInclrs\fR  Specifies the number of elements in \fIclrs\fR.
+.sp
+\fIr,g,b\fR Specifies the return for the current RGB value.
+spin function \fIf\fR.
+
+.SH DESCRIPTION
+A gradient bar displays a smooth shaded color bar. The color bar
+is controled by up to 12 colors. A gradient bar behaves more or less
+like a slider, except it returns both a float point value and a 
+RGB value. The scroll button on a gradient bar has 4 different styles.
+      
+.PP
+\fBEZ_SetGradientBarColors\fR sets the colors to be used to
+render the gradient bar.
+
+.PP
+\fBEZ_GetGradientBarColor\fR returns the current RGB color
+of a gradient bar.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SetGradientBarRange(3), EZ_GetGradientBarValue(3)
+.br
+
+
+

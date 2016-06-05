@@ -1,0 +1,24 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetFileSelectorInitialPattern 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetFileSelectorInitialPattern \- set the initial glob pattern for
+a file selector
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetFileSelectorInitialPattern(EZ_Widget *" fselector ", char " pattern)
+
+.SH ARGUMENTS
+\fIfselector\fR Specifies a file selector.
+.sp
+\fIpattern\fR Specifies a glob pattern.
+
+.SH DESCRIPTION
+\fBEZ_SetFileSelectorInitialPattern\fR sets the initial glob pattern
+on a file selector widget to the specified pattern.
+

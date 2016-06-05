@@ -1,0 +1,153 @@
+Fri Dec 10 23:44:16 1999  m z  <zou@hitachi1.ma.utexas.edu>
+        
+        * Added EZ_SSheetSortRegionR, EZ_SSheetSortColumns/Rows
+        
+1999-12-04  Maorong Zou  <mzou@linux115.ma.utexas.edu>
+
+        * Released version 1.50 
+        * added a CVS repository entry 
+        *  :pserver:anonymous@cvs.math.utexas.edu:/home/cvs/EZWGL
+        * and a read-only cvs web interface
+        *  http://cvs.math.utexas.edu/cgi-bin/cvswe.cgi?cvsroot=EZWGL
+
+1999-11-18  Maorong Zou  <mzou@linux34.ma.utexas.edu>
+
+	* Added THUMB_WHEEN and SPREAD_SHEET widget
+	* a few modifications in in FigItem ...
+
+1999-09-22  Maorong Zou  <mzou@linux34.ma.utexas.edu>
+
+	* EZ_RESOURCE_STRING resource
+	* EZ_LedLoadPixelMatrix() EZ_LedLoadOnOffMatrix()
+	* EZ_AllowDualLabel()
+	* EZ_FlashWidgetBorder2()
+	* NewFile  EZ_ResourceEdit.c
+	* Incompatible change:  EZ_LED_PIXEL_SIZE now
+	*        takes a pair of ints (xsize, ysize)
+
+	
+Sun Aug 22 01:26:59 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * Separator Widget
+
+Tue Aug 17 02:10:03 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * Added   EZ_SlideOpenWidget,  EZ_SlideCloseWidget
+        *         EZ_SlideOpenWidgetRelativeTo
+        * new widget EZ_WIDGET_HISTOGRAM
+
+Tue Aug 10 12:33:26 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * Added the pare EZ_FreezeDisplay() and EZ_ThawDisplay()
+        * New File EZ_ResourceEdit.c (resource editor functions)
+        * Added EZ_RegisterApplicationResources(n,spec,config)
+        * Modified all resource handling functions
+        * changed EZ_Initialize and EZ_InitializeXrm from void to int
+        *   (return -1 on failure, 0 on success)
+        
+Mon Jul 12 02:13:37 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * New widget GradientBar
+        * Fix a bug in EZ_PixelValue2RGB
+        
+Tue Jul  6 02:17:29 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * Fix buffer overflow bug in EZ_Xpm.c
+        * added line/word wrap for textWidget, IN BROWSING FILE MODE ONLY!!
+        * (need to rewrite textWidget, the current line based
+        *  implementation is a design flaw)
+
+Thu Jun 17 01:49:17 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * New resources: SHAPE_PIXMAP, SHAPE_FILE
+        * EZ_Bitmap *EZ_CreateShapeMaskFromFigure(fitem) EZ_Item *fitem;
+        * Pixmap EZ_MakePixmapFromFigItem(item, width, height)
+             EZ_Item *item; int *width, *height;
+        
+Fri May 14 23:30:19 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * Added a new tree type: branched-list-tree
+
+Thu May 13 01:50:55 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * New Widget:  ScrollButton, SpinButton, Locator
+
+Sun May  9 02:03:17 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * Added UDF widget resource handling.
+        * EZ_RegisterResourcesAll(type, nresrc, resrc, configure);
+        * EZ_RegisterResourcesWidget(widget, nresrc, resrc, configure);        
+
+Tue May  4 23:36:31 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        *  Widget (horizontal/vertical) ruler
+        *  
+        *  Configuration options:
+        *  EZ_HIGHLIGHT_BACKGROUND, EZ_HIGHLIGHT_FOREGROUND,
+        *  EZ_OVERRIDE_REDIRECT
+
+Tue May  4 01:22:57 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * New Function 
+        * void  EZ_ConstrainFreeLabel(EZ_Widget *widget, int flag);
+        * void  EZ_MoveWidgetWindow(EZ_Widget *widget, int x, int y);
+        * void  EZ_ResizeWidgetWindow(EZ_Widget *widget, int w, int h);
+        * void  EZ_MoveResizeWidgetWindow(EZ_Widget *widget, int x, int y, int w, int h);        
+        * Added optimization for manipulating images.
+        *
+        
+Sat Apr 17 01:25:25 1999  m z  <mzou@crab.ma.utexas.edu>
+
+        * Autoconf (finally)
+
+1999-04-16  Maorong Zou  <mzou@linux34.ma.utexas.edu>
+
+        * added a vt100 emulator widget (EZ_WIDGET_TERM), derived from xiterm.
+        * added support for image format: png and tiff
+        
+Tue Dec  8 11:39:04 1998  Maorong Zou  <mzou@linux34.ma.utexas.edu>
+
+        *  new function:     EZ_ScaleRGBT
+        *                    EZ_XPixmap2RGB
+        *                    EZ_SelectInput
+        *                    EZ_CreateBackgroundPixmapsFromRawRGB
+
+Sat Dec  5 03:06:58 1998  m z  <mzou@bob.ma.utexas.edu>
+
+        * EZ_LABEL_SHADOW  "labelShadow" config. option
+
+Thu Dec  3 14:54:21 1998  Maorong Zou  <mzou@linux34.ma.utexas.edu>
+
+        * new function:   EZ_SetDirTreeSorter
+        *                 EZ_MarkWidgetDirty
+        
+Mon Nov 30 12:25:50 1998  Maorong Zou  <mzou@linux34.ma.utexas.edu>
+
+        * EZ_WM_IGNORE  "wmIgnore"    configuration option
+        *
+        * new function    EZ_GetIconTextGeometry
+        *                 EZ_SetGlobalEventFilter(filter, data)
+        
+Thu Nov 19 16:35:47 1998  Maorong Zou  <mzou@linux34.ma.utexas.edu>
+
+	*  EZ_TILE_ORIGIN  tileOrigin: mode x y
+	*  resources.  mode=0,1,2    (0 for off)
+
+	*  It is now possible to make all EZ widgets
+	*  pseudo transparent under Enlightment WM ...
+
+	*  A few image readers have been modified to
+	*  return RGB images.
+
+	*  new functions EZ_ScaleRGB, EZ_ReadImageFile,
+	*                EZ_ScaleLabelPixmap,
+	*                EZ_SwapLabelPixmaps, 
+	*                EZ_CopyLabelPixmaps,
+	*                EZ_TraverseAllWidgets,
+
+	*  In EZ_DisplayWidget, the order for displaying widget tree
+	*  is reversed. Now widgets refresh a lot faster visually.
+	
+	*  Bug Fix:  whe a radio button is destroyed, the widget is
+	*            not removed from its button group immediately.
+

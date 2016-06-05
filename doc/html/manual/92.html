@@ -1,0 +1,242 @@
+<html>
+<head>
+<title>EZwgl (9.1  An Example)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="91.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="91.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>9.1  An Example</h2>
+
+<p>
+In this section, we implement a simple client/server pair to demonstrate 
+the use of message passing.  The server will answer requests about creating
+pixmaps from image files. For demonstration purpose, it displays the messages
+together with the pixmaps in a text window.  The client consists of a
+directory list tree and a label. When the user double click on a file item
+in the list tree, it broadcasts a message out asking the server to create
+a pixmap from the file.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> The Server </h3 <br>
+<p>
+<font size=-1>
+<pre>
+
+#include "EZ.h"
+
+Atom  PIXMAP_ATOM;
+
+void msgHandler(<font color="#990000"><b>EZ_Message</b></font> *msg, void *data)
+{
+  /*
+   * the default message handler for the server:
+   * if message type is PXIMAP_ATOM, try to create
+   * a pixmap from the file supplied, and send the
+   * pixmap id and shape id back.
+   */
+  <font color="#990000"><b>EZ_TextProperty</b></font>         *tmpTp;
+  char                    buf[1024], *ptr;
+  <font color="#990000"><b>EZ_Widget</b></font>               *text = (<font color="#990000"><b>EZ_Widget</b></font> *)data;
+
+  if(msg->messageType == PIXMAP_ATOM && msg->messageLength > 0)
+    {
+      char   reply[1024];
+      Pixmap pixmap, shape;
+      int    w, h;
+      <font color="#990000"><b>EZ_Pixmap</b></font> *pptr;
+      /* print the message */   
+      sprintf(buf, "\n+++From [%lx], Type=[%lx], Len=[%d] Id=[%d]+++\n   %s\n",
+              msg->sender, msg->messageType, msg->messageLength,
+              msg->replyId,  msg->message);
+      <font color="#990000"><b>EZ_TextInsertString</b></font>(text, buf);
+
+      /* allocate the pixmap */
+      if((pptr = <font color="#990000"><b>EZ_CreateLabelPixmapFromXpmFile</b></font>(msg->message)) == NULL)
+        pptr = <font color="#990000"><b>EZ_CreateLabelPixmapFromImageFile</b></font>(msg->message);
+      if(pptr)
+        {
+          <font color="#990000"><b>EZ_GetLabelPixmapInfo</b></font>(pptr, &pixmap, &shape, &w, &h);
+          /* reply */
+          sprintf(reply, "%d %d %lx %lx", w, h, pixmap, shape);
+          <font color="#990000"><b>EZ_ReplyMessage</b></font>(msg, reply, strlen(reply));
+          
+          /* display the pixmap */
+          sprintf(buf, "   [pixmap=%lx shape=%lx]: replied\n", pixmap,shape);
+          <font color="#990000"><b>EZ_TextInsertString</b></font>(text, buf);                  
+          tmpTp =  <font color="#990000"><b>EZ_GetTextProperty</b></font>(<font color="#990000"><b>EZ_LABEL_PIXMAP</b></font>, pptr, NULL);
+          <font color="#990000"><b>EZ_TextInsertStringWithProperty</b></font>(text, buf, tmpTp);                  
+        }
+      else
+        {
+          sprintf(buf, "  Couldn't create pixmap\n", pixmap,shape);
+          <font color="#990000"><b>EZ_TextInsertString</b></font>(text, buf);  
+        }
+    }
+  else
+    {
+      sprintf(buf, "\n---From [%lx], Type=[%lx], Len=[%d] Id=[%d]----\n   %s\n",
+              msg->sender, msg->messageType, msg->messageLength,
+              msg->replyId,  msg->message); 
+      <font color="#990000"><b>EZ_TextInsertString</b></font>(text, buf);                
+    }
+}
+
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *text;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac, av, 0);
+  PIXMAP_ATOM =  <font color="#990000"><b>EZ_GetAtom</b></font>("PixmapTestAtom");
+
+  frame  = <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>,    NULL,
+                              "server",           "Server",
+                              <font color="#990000"><b>EZ_FILL_MODE</b></font>,       <font color="#990000"><b>EZ_FILL_BOTH</b></font>,
+                              <font color="#990000"><b>EZ_LABEL_STRING</b></font>,    "Pixmap server",
+                              <font color="#990000"><b>EZ_IPADX</b></font>,           4,
+                              <font color="#990000"><b>EZ_SIZE</b></font>,            400, 400,
+                              0);
+  text =  <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_TEXT</b></font>,      frame,
+                             "text",              "Text",
+                              0);
+  <font color="#990000"><b>EZ_SetDefaultMessageHandler</b></font>(msgHandler, text);
+
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(frame);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+
+</pre>
+<p>
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> The Client </h3 <br>
+<p><font size=-1>
+<pre>
+
+#include "EZ.h"
+
+Atom  PIXMAP_ATOM;
+
+void msgHandler(<font color="#990000"><b>EZ_Message</b></font> *msg, void *data)
+{
+  <font color="#990000"><b>EZ_Widget</b></font>        *label = (<font color="#990000"><b>EZ_Widget</b></font> *)data;
+  if(msg->messageLength > 0)
+    {
+      Pixmap pixmap, shape;
+      int    w, h;
+      if(sscanf(msg->message, "%d %d %lx %lx", &w, &h, &pixmap, &shape) == 4 && w > 0)
+        {
+          <font color="#990000"><b>EZ_Pixmap</b></font> *ptr = <font color="#990000"><b>EZ_CreateLabelPixmapFromXPixmap</b></font>(pixmap, shape, 0, 0, w,h, 1);
+          if(ptr) <font color="#990000"><b>EZ_ConfigureWidget</b></font>((<font color="#990000"><b>EZ_Widget</b></font> *)data, <font color="#990000"><b>EZ_LABEL_PIXMAP</b></font>, ptr, 0);
+          /* delete this handler */
+          <font color="#990000"><b>EZ_DeleteMessageHandler</b></font>(msg->messageType, msg->messageId, data, msgHandler);
+        }
+    }
+}
+
+static void timeoutCb(void *notused, void *data)
+{
+  printf("message handler timeout\n");
+}
+
+void ltreeCB(<font color="#990000"><b>EZ_Widget</b></font> *tree, void *data)
+{
+  <font color="#990000"><b>EZ_TreeNode</b></font>  *node = <font color="#990000"><b>EZ_GetListTreeWidgetSelection</b></font>(tree);
+  <font color="#990000"><b>EZ_Item</b></font>      *item;
+  static       int  msgId = 1;
+
+  if(node && (item = <font color="#990000"><b>EZ_TreeNodeGetItem</b></font>(node)))
+    {
+      char *path = <font color="#990000"><b>EZ_GetDirTreeNodeFullPath</b></font>(node);    
+      /* add a message handler */
+      <font color="#990000"><b>EZ_RegisterMessageHandler</b></font>(PIXMAP_ATOM, /* type of msg it handles */
+                                msgId+1,     /* the msgId it handles   */
+                                data,        /* client data to be passed to handler */
+                                msgHandler,  /* the handler            */
+                                1,           /* expire in one second   */
+                                timeoutCb,   /* what to do when handler expires */
+                                data         /* client data to be passed to timeoutCb */
+                                );
+      /* broadcast a message to find a server */
+      <font color="#990000"><b>EZ_BroadcastMessage</b></font>(PIXMAP_ATOM,  /* msg type */
+                          path,         /* the message */
+                          strlen(path), /* length of message */
+                          msgId,        /* this message Id   */
+                          msgId+1       /* ask recipient to reply using this id */
+                          );
+      msgId += 2;
+    }
+}
+
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *ltree, *label, *phandle;
+  <font color="#990000"><b>EZ_TreeNode</b></font> *root;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac, av, 0);
+  PIXMAP_ATOM =  <font color="#990000"><b>EZ_GetAtom</b></font>("PixmapTestAtom");
+
+  frame  = <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>,    NULL,
+                              "server",           "Server",
+                              <font color="#990000"><b>EZ_FILL_MODE</b></font>,       <font color="#990000"><b>EZ_FILL_BOTH</b></font>,
+                              <font color="#990000"><b>EZ_LABEL_STRING</b></font>,    "Pixmap client",
+                              <font color="#990000"><b>EZ_IPADX</b></font>,           4,
+                              <font color="#990000"><b>EZ_SIZE</b></font>,            800, 400,
+                              0);
+  ltree =  <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_TREE</b></font>,      frame,
+                              "tree",              "Tree",
+                              <font color="#990000"><b>EZ_WIDTH</b></font>,            300,
+                              0);
+  phandle = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_PANE_HANDLE</b></font>, frame, 
+                            0);
+
+  label = <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_LABEL</b></font>,      frame,
+                             "label",              "Label",
+                             0);
+  <font color="#990000"><b>EZ_AddWidgetCallBack</b></font>(ltree, <font color="#990000"><b>EZ_CALLBACK</b></font>, ltreeCB, label, 0);
+
+  <font color="#990000"><b>EZ_GlobHiddenFiles</b></font>(True);
+  root = <font color="#990000"><b>EZ_CreateDirTree</b></font>(NULL, "./*", NULL, 0);  /* */
+  <font color="#990000"><b>EZ_SetListTreeWidgetTree</b></font>(ltree, root); 
+
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(frame);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+
+</pre>
+<p>
+</font>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="91.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="91.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

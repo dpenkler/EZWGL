@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DisableLabelOffset 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DisableLabelOffset, EZ_EnableLabelOffset \- disable/enable button offset
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_DisableLabelOffset(" void )
+.BI "void  EZ_EnableLabelOffset(" void )
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DisableLabelOffset\fR Disable button offset. Button offset is
+enabled by default. I.e., when  button1 press occurs on a button,
+the label of the button is displayed 1 pixel down and to the right, creates
+an illusion that it is pressed.
+.PP
+\fBEZ_EnableLabelOffset\fR enable button offset.
+.SH "SEE ALSO"
+EZ_DisableBubbleHelp(3), EZ_DisableHighlight(3), EZ_DisableSliderDepression(3)
+.br
+
+
+

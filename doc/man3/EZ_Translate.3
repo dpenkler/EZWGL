@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Translate 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Translate \- multiply the current matrix by a translation matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Translate(float " x ", float " y " , float "z)
+
+
+.SH ARGUMENTS
+\fIx\fR,\fIy\fR,\fIz\fR Specify the coordinates of a point.
+
+.SH DESCRIPTION
+\fBEZ_Translate\fR moves the coordinate system origion to the
+specified point.
+
+.SH "SEE ALSO"
+EZ_Rotate(3), EZ_Scale(3), EZ_MultMatrix(3), EZ_PushMatrix(3),
+EZ_LoadMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>EZwgl (5.12  Grab a Widget)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="66.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="68.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>5.12  Grab a Widget</h2>
+
+<p>
+For dialogue boxes, one usually wants to suspend the
+application until the user responds to the dialogue. In particular,
+one needs to suspend event processing on all widgets except the
+dialogue.  The latter can be achieved by using <code><font color="#990000"><b>EZ_SetGrab</b></font></code>.
+<p><p><p>
+<pre><p>
+void  <font color="#990000"><b>EZ_SetGrab</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+void  <font color="#990000"><b>EZ_ReleaseGrab</b></font>(void);
+</pre>
+<p><code><font color="#990000"><b>EZ_SetGrab</b></font></code> sets a grab on <code>widget</code>. It informs the <i>EZ</i>
+event dispatcher to drop all events not associated with 
+<code>widget</code> or its descendants.  The grab, if set succesfully,
+will remain in effect until either
+<ul>
+<p>
+<li>the widget becomes unviewable. I.e., the widget window or one
+of its ancestor's window is unmapped; or
+<p>
+<li>a call to <code><font color="#990000"><b>EZ_ReleaseGrab</b></font></code>.
+</ul>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="66.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="68.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

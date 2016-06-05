@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WidgetExist 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+ EZ_WidgetExist \- test whether a widget exists
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget *EZ_WidgetExist(EZ_Widget *" widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WidgetExist\fR looks up \fBwidget\fR from the internal
+hash table of the EZWGL library and returns the result.
+
+.SH "SEE ALSO"
+EZ_WindowIsWidgetWindow(3)
+.br
+
+
+

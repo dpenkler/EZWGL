@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MenuBarFindItemAndMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MenuBarFindItemAndMenu  \- find an item and the associated menu on a menubar
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget  *EZ_MenuBarFindItemAndMenu(EZ_Widget *" mbar ", char *" item,
+.BI "                                      EZ_Widget **" menu_return )
+
+.SH ARGUMENTS
+\fImbar\fR  Specifies a menubar widget.
+.sp
+\fIitem\fR  Specifies an item label.
+.sp
+\fImenu_return\fR Specifies the return for the menu
+
+.SH DESCRIPTION
+.PP
+\fBEZ_MenuBarFindItemAndMenu\fR  finds and returns
+the widget (a no window label) which is labeled by 'item'.
+If \fImenu_return\fR is not NULL, it also returns the current
+popup menu  assicoated with the item in \fImenu_return\fR.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_MenuBarAddItemAndMenu(3)
+.br
+
+
+

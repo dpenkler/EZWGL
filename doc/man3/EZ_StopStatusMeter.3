@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_StopStatusMeter, EZ_StartStatusMeter  3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_StopStatusMeter, EZ_StartStatusMeter \- stop/start a status meter
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_StopStatusMeter( EZ_Widget *" smeter)
+.sp
+.BI "void  EZ_StartStatusMeter( EZ_Widget *" smeter)
+
+.SH ARGUMENTS
+\fIsmeter\fR Specifies a status meter widget.
+
+.SH DESCRIPTION
+\fBEZ_StopStatusMeter\fR stops a status meter. A stoped
+status meter will no longer updates itself.
+.PP
+\fBEZ_StartStatusMeter\fR restarts a stoped status meter.
+.PP
+	
+.SH "SEE ALSO"
+EZ_SetStatusMeterRange(3), EZ_SetStatusMeterForeground(3)
+
+

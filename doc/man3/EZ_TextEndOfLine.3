@@ -1,0 +1,106 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TextEndOfLine 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TextGetPosition, EZ_TextSetMarker, EZ_TextGotoPosition,
+EZ_TextBackwardChar, EZ_TextBackwardWord, EZ_TextBeginningOfBuffer,
+EZ_TextBeginningOfLine, EZ_TextClear,  EZ_TextDeleteNextChar,
+EZ_TextDeletePreviousChar, EZ_TextEndOfBuffer, EZ_TextEndOfLine,
+EZ_TextForwardChar, EZ_TextForwardWord, EZ_TextInsertChar,
+EZ_TextInsertNewLine, EZ_TextInsertString, EZ_TextInsertStringWithProperty,
+EZ_TextKillEndOfLine, EZ_TextKillRegion, EZ_TextLoadAnnotatedFile,
+EZ_TextLoadFile, EZ_TextNextLine, EZ_TextNextPage, EZ_TextPasteSelection,
+EZ_TextPreviousLine, EZ_TextPreviousPage, EZ_TextReDisplay,
+EZ_TextReplaceRegionWithPixmap, EZ_TextSaveAnnotatedText, EZ_TextSaveText,
+EZ_TextSetRegionBackground, EZ_TextSetRegionFont, 
+EZ_TextSetRegionForeground, EZ_TextSetRegionProperty, 
+EZ_TextSetRegionUnderline, EZ_TextGetRegionString \- text widget
+editing functions
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int   EZ_TextGetPosition(EZ_Widget *" twidget )
+.BI "int   EZ_TextSetMarker(EZ_Widget *" twidget )
+.BI "char  EZ_TextGetRegionString(EZ_Widget *" twidget )
+.BI "void  EZ_TextGotoPosition(EZ_Widget *" twidget ", int " pos )
+.BI "void  EZ_TextBackwardChar(EZ_Widget *" twidget )
+.BI "void  EZ_TextBackwardWord(EZ_Widget *" twidget )
+.BI "void  EZ_TextBeginningOfBuffer(EZ_Widget *" twidget )
+.BI "void  EZ_TextBeginningOfLine(EZ_Widget *" twidget )
+.BI "void  EZ_TextClear(EZ_Widget *" twidget )
+.BI "void  EZ_TextDeleteNextChar(EZ_Widget *" twidget )
+.BI "void  EZ_TextDeletePreviousChar(EZ_Widget *" twidget )
+.BI "void  EZ_TextEndOfBuffer(EZ_Widget *" twidget )
+.BI "void  EZ_TextEndOfLine(EZ_Widget *" twidget )
+.BI "void  EZ_TextForwardChar(EZ_Widget *" twidget )
+.BI "void  EZ_TextForwardWord(EZ_Widget *" twidget )
+.BI "void  EZ_TextInsertChar(EZ_Widget *" twidget ", char " c )
+.BI "void  EZ_TextInsertNewLine(EZ_Widget *" twidget);
+.BI "void  EZ_TextInsertString(EZ_Widget *" twidget ", char *"str )
+.BI "void  EZ_TextInsertStringWithProperty(EZ_Widget *" twidget,
+.BI "                     char * " str ", EZ_TextProperty *" prop )
+.BI "void  EZ_TextKillEndOfLine(EZ_Widget *" twidget)
+.BI "void  EZ_TextKillRegion(EZ_Widget *" twidget )
+.BI "void  EZ_TextLoadAnnotatedFile (EZ_Widget *" twidget ", char *" fname )
+.BI "void  EZ_TextLoadFile(EZ_Widget *" twidget ", char *" fname )
+.BI "void  EZ_TextNextLine(EZ_Widget *" twidget )
+.BI "void  EZ_TextNextPage(EZ_Widget *" twidget )
+.BI "void  EZ_TextPasteSelection(EZ_Widget *" twidget )
+.BI "void  EZ_TextPreviousLine (EZ_Widget *" twidget )
+.BI "void  EZ_TextPreviousPage(EZ_Widget *" twidget )
+.BI "void  EZ_TextReDisplay(EZ_Widget *" twidget )
+.BI "void  EZ_TextReplaceRegionWithPixmap(EZ_Widget *" twidget ", char *"fname)
+.BI "void  EZ_TextSaveAnnotatedText(EZ_Widget *" twidget", char *"fname)
+.BI "void  EZ_TextSaveText(EZ_Widget *" twidget ", char *"fname);
+.BI "void  EZ_TextSetRegionBackground(EZ_Widget *" twidget ", char *"clr)
+.BI "void  EZ_TextSetRegionFont(EZ_Widget *" twidget ", char *"fontname)
+.BI "void  EZ_TextSetRegionForeground(EZ_Widget *" twidget ", char *"clr)
+.BI "void  EZ_TextSetRegionProperty(EZ_Widget *" twidget ", EZ_TextProperty *"prop)
+.BI "void  EZ_TextSetRegionUnderline(EZ_Widget *" twidget ", int " udl )
+
+
+
+.SH ARGUMENTS
+\fItwidget\fR  Specifies a text widget.
+.sp
+\fIfname\fR  Specifies a file name.
+.sp
+\fIclr\fR  Specifies a color name.
+.sp
+\fIfontname\fR  Specifies a X11 fontname.
+.sp
+\fIprop\fR  Specifies a text property.
+
+.SH DESCRIPTION
+.PP
+Most of these functions are self explanatory. They are the basic edit
+commands for the EZ text widget.
+.PP
+\fBEZ_TextGetPosition\fR returns the position of the cursor. The
+position encods the row and column number in the following way:
+.br
+.in +4 
+      position = (column & 0xffff) | (row << 16))
+.in -4
+.br
+.PP
+\fBEZ_TextSetMarker\fR marks the beginning of region. The region is
+the portion of text between the marker and the cursor.
+.PP
+\fBEZ_TextGotoPosition\fR moves the cursor to the specified position.
+.PP
+\fBEZ_TextInsertStringWithProperty\fR inserts a string at the current
+cursor position with the specified property. \fIprop\fR is a text
+property returned by \fBEZ_GetTextProperty\fR.
+.PP
+.SH "SEE ALSO"
+EZ_GetTextProperty(3), EZ_CreateWidget(3)
+.br
+
+
+

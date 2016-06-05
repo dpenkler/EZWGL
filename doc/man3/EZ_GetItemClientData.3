@@ -1,0 +1,59 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetItemIntData 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetItemIntData, EZ_SetItemPtrData, EZ_SetItemClientData,
+EZ_GetItemIntData, EZ_GetItemPtrData, EZ_GetItemClientData
+ \- set/retrieve client data registered to a display item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void *EZ_SetItemIntData( EZ_Item" *item ", int " idata )
+.BI "void *EZ_SetItemPtrData( EZ_Item" *item ", void " *pdata )
+.BI "void *EZ_SetItemClientData( EZ_Item" *item,
+.BI "        int " idata ", void " *pdata )
+
+.BI "int   EZ_GetItemIntData( EZ_Item" *item )
+.BI "void *EZ_GetItemPtrData( EZ_Item" *item )
+.BI "void *EZ_GetItemClientData( EZ_Item" *item,
+.BI "       int *" i_ret ", void **" p_ret )
+
+.SH ARGUMENTS
+\fIitem\fR  Specifies a display item .
+.sp
+\fIidata\fR  Specifies an integer.
+.sp
+\fIpdata\fR  Specifies a generic pointer.
+.sp
+\fIi_ret\fR Specifies a return for the integer client data.
+.sp
+\fIp_ret\fR Specifies a return for the pointer client data.
+
+.SH DESCRIPTION
+.PP
+The EZ_Item data structure provides two fields for application
+to hook in application data to a item. One is of type 
+\fBint\fR and the other is of type \fBvoid *\fR.
+.PP
+\fBEZ_SetItemIntData\fR stores an integer in a item.
+.PP
+\fBEZ_SetItemPtrData\fR stores a pointer in a item.
+.PP
+\fBEZ_SetItemClientData\fR stores both the integer and the pointer
+client data.
+.PP
+\fBEZ_GetItemIntData\fR returns the integer stored in a
+item.
+.PP
+\fBEZ_GetItemPtrData\fR returns the pointer stored in a
+item.
+.PP
+\fBEZ_GetItemClientData\fR returns both the integer and the pointer
+client data.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3), EZ_AddItemCallBack(3)

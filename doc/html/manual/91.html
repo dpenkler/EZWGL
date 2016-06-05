@@ -1,0 +1,155 @@
+<html>
+<head>
+<title>EZwgl (9  Messages)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="90.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="92.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h1>9  Messages</h1>
+
+<p><i>EZwgl</i> includes a mechanism for clients to exchange messages.
+An <i>EZwgl</i> client can send a message to 
+one or to all <i>EZwgl</i> clients. A message is a piece of text
+together with some control 
+information encoded in the following data structure. 
+The various fields are filled by the parties when messages
+are sent or received.
+<p><font size=-1>
+<pre><p>
+typedef struct {
+  Atom       messageType;  /* message type identifier      */
+  int        messageLength;/* the length of the message    */    
+  char       *message;     /* the message: textual string  */
+  int        messageId;    /* set by sender, message Id    */
+  int        replyId;      /* set by sender, reply id      */
+  int        isReply;      /* True if the message is a reply  */
+  /* src info */
+  Window     sender;       /* sender's communication window id  */
+  Atom       senderClass;  /* sender's class name: XrmQuark     */
+  Atom       senderInstance; /* sender's instance name XrmQuark */
+  int        senderIsSelf;   /* True if msg is originated from the client itself */
+} <font color="#990000"><b>EZ_Message</b></font>;
+</pre>
+</font>
+<p>Messages are handled by message handlers. A message
+handler is a procedure of the following type
+<pre><p>
+typedef  void (*<font color="#990000"><b>EZ_MessageHandler</b></font>)(<font color="#990000"><b>EZ_Message</b></font> *msgIn, void *client_data);
+</pre>
+To handle message, an application must register at least one message handler. 
+Message handlers are registered by one of the following two commands.
+<p><p><p>
+<font size=-1>
+<pre><p>
+void  <font color="#990000"><b>EZ_RegisterMessageHandler</b></font>(Atom mtype, int mId,  void *data,
+                                <font color="#990000"><b>EZ_MessageHandler</b></font> handler, int timeout,
+                                <font color="#990000"><b>EZ_CallBack</b></font> *timeoutCb, void *cdata);
+void  <font color="#990000"><b>EZ_SetDefaultMessageHandler</b></font>(<font color="#990000"><b>EZ_MessageHandler</b></font> handler, void *data);
+</pre>
+</font>
+<p><p>
+The first procedure registers a specific message handler.
+This handler will only handle
+messages of the specified type <code>mtype</code> and the specified message Id
+<code>mId</code>, and it will expire in <code>timeout</code> seconds
+if <code>timeout>0</code>. When it expires, it executes  <code>timeroutCb(data, cdata)</code>
+if supplied.  The second function registers the default message handler. The default 
+message handler handles all messages which are not handled by specific handlers. 
+<p><p>
+To delete a message handler, use
+<p>
+<font size=-1>
+<pre><p>
+void  <font color="#990000"><b>EZ_DeleteMessageHandler</b></font>(Atom mtype, int mId,  void *data,
+                              <font color="#990000"><b>EZ_MessageHandler</b></font> handler);
+</pre>
+</font>
+<p><p><p>
+To send a message to a spcific client, use
+<p>
+<font size=-1>
+<pre><p>
+void  <font color="#990000"><b>EZ_SendMessage</b></font>(Atom mtype, char *message, int length, int msgId,
+                      Window recipient, int replayId, int isReply);
+</pre>
+</font>
+This function requires the id of the recipient's communication window,
+which is known only after some dialogue has been initiated. 
+Normally, one broadcasts a message first to find an interested party.
+When the party replies, the id of its communication window is 
+set in the <code>sender</code> field of the message.
+<p>The meaning of the arguments are:
+<ul>
+<p>
+<li><code>mtype</code> specifies the message type.
+<p>
+<li><code>message</code> specifies the message.
+<p>
+<li><code>length</code> specifies the  length of the message.
+<p>
+<li><code>msgId</code> specifies the transaction serial number.
+<p>
+<li><code>recipient</code> specifies the recipient.
+<p>
+<li><code>replyId</code> if the sender requires a reply, it specifies
+the message id for the reply. If the recipient of this
+message decides to reply, it should use this message id.. 
+<p>
+<li><code>isReply</code> specifies whether this message is a reply.
+</ul>
+<p><p>
+To broadcast a message to all <i>EZwgl</i> clients, use
+<p>
+<font size=-1>
+<pre><p>
+void  <font color="#990000"><b>EZ_BroadcastMessage</b></font>(Atom mtype, char *message, int length, 
+                            int msgId, int replyId);
+</pre>
+</font>
+<p><p>
+To reply a message, use
+<p>
+<font size=-1>
+<pre><p>
+void  <font color="#990000"><b>EZ_ReplyMessage</b></font>  (<font color="#990000"><b>EZ_Message</b></font> *fromsg, char *reply, int replylength);
+void  <font color="#990000"><b>EZ_ReplyMessageR</b></font> (<font color="#990000"><b>EZ_Message</b></font> *fromsg, char *reply, int len, int replyId);
+</pre>
+</font>
+The second function replies a message and requests a further correspondence
+from the recipient of the message.
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="91.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="90.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="92.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

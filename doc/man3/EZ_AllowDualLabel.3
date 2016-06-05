@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AllowDualLabel 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AllowDualLabel  \- enable simultaneous pixmap and textual lables
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_AllowDualLabel( int *" onoff ")
+
+.SH ARGUMENTS
+\fIonff\fR  Specifies a boolean value.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_AllowDualLabel\fR sets the global state for labeling
+button type widgets. If on, pixmap and textual labels will
+be displayed simutaneously. The default state is off. 
+
+.SH "SEE ALSO"
+EZ_SetWidgetLabelString(3)
+.br

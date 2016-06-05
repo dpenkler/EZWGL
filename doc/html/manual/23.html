@@ -1,0 +1,321 @@
+<html>
+<head>
+<title>EZwgl (4.7  Menus)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="22.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="24.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.7  Menus</h2>
+
+<p>A menu is a widget that contains a collection of items arranged in a
+column. If a menu is tied to a menuButton, it behaves a a pull-down menu;
+i.e, they are activated by pressing the mouse button 1 over a menu
+button.  If a menu is tied to a mouse button, it will behave like a
+popup menu.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_MENU</b></font></tr>
+                <tr> <td> Default class  name <td>       "Menu" </tr>
+                <tr> <td> Default instance name<td>     "menu" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>int <font color="#990000"><b>EZ_DoPopup</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int where);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+post a menu.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_DoPopupAt</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int x, int y);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+post a menu at the specified location.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetMenuSetupProcedure</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *menu, <font color="#990000"><b>EZ_CallBack</b></font> p, void *data);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+register a procedure to be invoked before posting the menu.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_GetPopupMenuTitleWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *menu);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the title widget (a lanel) on a menu.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_GetSelectedMenuItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *menu);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the last selected item.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p>
+<center><img  src="images/menus.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>"Menu"</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>"menu"</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>2</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>raised</code>        </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PADX</b></font></strong>                      <td width=140> padx                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PADY</b></font></strong>                      <td width=140> pady                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADX</b></font></strong>                     <td width=140> iPadx                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADY</b></font></strong>                     <td width=140> iPady                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_ORIENTATION</b></font></strong>               <td width=140> orientation                <td width=140>  <code>vertical</code>    </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FILL_MODE</b></font></strong>                <td width=140> fillMode                   <td width=140>  <code>fillBoth</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIDE</b></font></strong>                      <td width=140> side                       <td width=140>  <code>left</code>        </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code> </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_MENU_TEAR_OFF</b></font></strong>           <td width=140> menuTearOff                <td width=140>   <code>true</code>         </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+<p><h3> 4.7.1  Creating Simple Menus </h3 <br>
+<p><p>
+<i>EZwgl</i> provides a convenient way to create simple menus, menus
+that uses only menu-normal-buttons, menu-submenus and menu-separators.
+<p><code>int <font color="#990000"><b>EZ_CreateSimpleMenu</b></font>(char *str, ...)</code>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Specifing a Simple Menu </h3 <br>
+<p>A simple menu is specified by a string and an optional set of
+arguments that provide callback procedures and/or submenus for the 
+menu and menu items.
+<p>The string is a number of fields separated by <code>|</code>'s.  Each field
+may contain any number of the following specifications:
+<p><ul>
+<p>
+<li><code>%t</code> Makes non-formatting text in this item as the menu title string.
+<p>
+<li><code>%F</code> Gets the callback-procedure, client-data for the callback of the menu
+from the optional arguments.
+<p>
+<li><code>%f</code> Gets the callback-procedure, client-data for the callback of
+this menu-item from the optional arguments.
+<p>
+<li><code>%l</code> Inserts a menu-separator.
+<p>
+<li><code>%m</code> Makes this item as a menu-submenu item and
+gets the menu from the optional arguments.
+<p>
+<li><code>%n</code> Sets the instance name of the this menu item to
+be the substring after the current formating characters and
+before the next formating character or <code>|</code>.
+<p>
+<li><code>%c</code> Sets the class name of the this menu item to
+be the substring after the current formating characters and
+before the next formating character or <code>|</code>.
+<p>
+<li><code>%u</code> Set the index of the underline character 
+for the current item. 
+<p>
+<li><code>%s</code> Set the keyboard shortcut for the current item.
+<p>
+<li><code>%x</code>[0-9]+ Sets the return value for this item. This value overrides
+the default position-based value assigned to this menu item.
+You must enter the numeric value as the part of the text
+<p>
+<li>\verb+are the on value, off value and initial state (on/off).
+<p>
+<li>\verb+are the radio button group id, the values this item represents and
+the initial value of the group variable.
+</ul>
+<p><p>
+Here are some examples.
+<font size=-1>
+<pre>
+void       submenu1Callback(EZ_Widget *, void *);
+void       Item2Callback(EZ_Widget *, void *);
+
+<font color="#990000"><b>EZ_Widget</b></font> *submenu1 = <font color="#990000"><b>EZ_CreateSimpleMenu</b></font>("%F|red|green%x123 %s C-g|blue %u 0|%l|||",
+                                                submenu1Callback, NULL);
+
+<font color="#990000"><b>EZ_Widget</b></font> *menu = <font color="#990000"><b>EZ_CreateSimpleMenu</b></font>("%T Test Menu|Item 1|Item 2%f|submenu%m|last item"
+                                                Item2Callback, NULL, submenu1);
+
+</pre>
+<p>
+</font>
+The first two lines declare two callbacks, one for a submenu and one
+for a menu item.
+<p>The third line creates a simple menu. This submenu has callback
+<code>submenu1Callback</code> with client data <code>NULL</code>. It contains 5 menu
+items and a menu-separator. The first three items are labeled by
+"red", "green" and "blue" respectively. The second item has a
+numeric return value of <code>123</code> and a keyboard shortcut "C-g".
+The letter 'b' in the third item will be underlined and will
+be used as a keyboard accelerator.
+The other items have the default
+return values (their position in the menu). The last two items have
+no lables specified, so the default lable <code> item #</code> will be 
+used for them.
+<p>The forth line create a menu with title "Test Menu" and no
+callbacks. It contains four items. The second item has a callback
+procedure <code>Item2Callback</code> with call-data <code>NULL</code>. The third
+menu is a submenu-item with menu <code>submenu1</code>.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Specifing a Menu Tree </h3 <br>
+<p>
+One can create a menu hierarchy with a single call to <code><font color="#990000"><b>EZ_CreateMenuFromList</b></font></code>.
+This function requires an array of menu descriptions of the followingn type.
+<font size=-1>
+<pre><p>
+typedef struct menuEntry_ {
+  int           type;           /* entry type, e.g. <font color="#990000"><b>EZ_WIDGET_MENU_NORMAL_BUTTON</b></font> */
+  char          *name;          /* instance name, may be NULL */
+  char          *label;         /* label string */
+  char          *accelerator;   /* keyboard accelerator, e.g. C-a,  may be NULL */
+  int           underline;      /* index of label to underline */
+  int           returnValue;    /* return value */
+  <font color="#990000"><b>EZ_CallBack</b></font>   callback;       /* callback  */
+  void          *clientData;    /* client data to be passed to callback */
+  int           v1,v2,v3;       /* for radioBtn, groupId, buttonValue, groupVarValue */
+                                /* for checkBtn, onValue, offValue, initialOnOffState */
+} <font color="#990000"><b>EZ_MenuEntry</b></font>;
+</pre>
+</font>
+<p><p>
+For example, the next code segments defines a menu with a submenu.
+<font size=-1>
+<pre>
+static  void btnCb(EZ_Widget *, void *);
+static  void rbtnCb(EZ_Widget *, void *);
+static  void cbtnCb(EZ_Widget *, void *);
+
+static <font color="#990000"><b>EZ_MenuEntry</b></font> menuEntries[] = {
+  {<font color="#990000"><b>EZ_WIDGET_MENU_NORMAL_BUTTON</b></font>,  NULL,  "normal Button",  NULL,  0,     100,   btnCb,    NULL,  0, 0, 0 },
+  {<font color="#990000"><b>EZ_WIDGET_MENU_NORMAL_BUTTON</b></font>,  NULL,  "Another Button", "M-b", 0,     200,   btnCb,    NULL,  0, 0, 0 },
+  {<font color="#990000"><b>EZ_WIDGET_MENU_SEPARATOR</b></font>,      NULL,  NULL,             NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+  {<font color="#990000"><b>EZ_WIDGET_MENU_SUBMENU</b></font>,        NULL,  "Walk Through",   "C-s", 0,     300,   NULL,    NULL,   0, 0, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_NORMAL_BUTTON</b></font>,  NULL, "S 1",            NULL,  0,     400,   btnCb,    NULL,  0, 0, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_NORMAL_BUTTON</b></font>,  NULL, "S 2",            NULL,  0,     500,   btnCb,    NULL,  0, 0, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_SEPARATOR</b></font>,      NULL,  NULL,            NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_CHECK_BUTTON</b></font>,   NULL, "C 1",            NULL,  0,     600,   cbtnCb,   NULL,  0, 1, 1 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_CHECK_BUTTON</b></font>,   NULL, "C 2",            NULL,  0,     700,   cbtnCb,   NULL,  0, 1, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_SEPARATOR</b></font>,      NULL,  NULL,            NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_RADIO_BUTTON</b></font>,   NULL, "R 1",            "C-r"  0,     800,   rbtnCb,   NULL,  5, 0, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_RADIO_BUTTON</b></font>,   NULL, "R 2",            NULL,  0,     900,   rbtnCb,   NULL,  5, 1, 0 },
+     {<font color="#990000"><b>EZ_WIDGET_MENU_RADIO_BUTTON</b></font>,   NULL, "R 3",            NULL,  0,     1000,  rbtnCb,   NULL,  5, 2, 2 },
+     {0,                             NULL, NULL,             NULL,  0,     0,     NULL,     NULL,  0, 0, 0 },
+  {<font color="#990000"><b>EZ_WIDGET_MENU_NORMAL_BUTTON</b></font>,  NULL,  "Last Button", NULL,     0,     2000,  btnCb,    NULL,  0, 0, 0 },
+  {0,                      NULL, NULL,             NULL,       0, 0,     NULL,     NULL,  0, 0, 0 },
+  NULL,        
+};
+
+<font color="#990000"><b>EZ_Widget</b></font> *menu = <font color="#990000"><b>EZ_CreateMenuFromList</b></font>(menuEntries);
+
+</pre>
+<p>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="22.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="24.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

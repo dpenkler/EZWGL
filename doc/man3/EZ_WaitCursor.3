@@ -1,0 +1,43 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WaitCursor "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WaitCursor, EZ_NormalCursor \- retrieve a cursor id
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_WaitCursor(EZ_Widget *" widget ", Cursor " cursor )
+.sp
+.BI "void  EZ_BusyCursor(EZ_Widget *" widget ", Cursor " cursor ", int " timeout )
+.sp
+.BI "void  EZ_NormalCursor(EZ_Widget *" widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+\fICursor\fR Specifies an X cursor id.
+.sp
+\fItimeout\fR Specifies a timeout, in seconds.
+.SH DESCRIPTION
+.PP
+\fBEZ_WaitCursor\fR redefines the cursor for all widget windows
+in the hiearchy \fIwidget\fR resides to the specified cursor.
+If \fIcursor\fR is None, it restores the cursors for all the
+widgets in the hierarchy. 
+.PP
+\fBEZ_BusyCursor\fR behaves the same as \fBEZ_WaitCursor\fR, except
+that it wait only for the specified number of seconds.
+.PP
+\fBEZ_NormalCursor\fR is equivalent to 
+\fBEZ_WaitCursor(widget, None)\fR.
+
+.SH "SEE ALSO"
+EZ_GetCursor(3), EZ_CreateCursorFromBitmapFile(3)
+.br
+
+
+

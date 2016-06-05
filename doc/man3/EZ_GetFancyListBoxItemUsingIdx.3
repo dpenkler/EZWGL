@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFancyListBoxItemUsingIdx 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFancyListBoxItemUsingIdx \- retieve an item giving its array location
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item *EZ_GetFancyListBoxItemUsingIdx(EZ_Widget *" flistbox,
+.BI "                          int " row ", int " col)
+
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget.
+.sp
+\fIrow\fR Specifies the row index.
+.sp
+\fIcol\fR Specifies the column index.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFancyListBoxItemUsingIdx\fR returns the item at the given
+array location.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelectionIdx(3),
+EZ_GetWorkAreaSelection(3),EZ_GetListTreeWidgetSelection(3)
+.br
+
+

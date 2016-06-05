@@ -1,0 +1,26 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GLResetEvents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GLResetEvents \- empty the event queue for a 3D canvas 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GLResetEvents(EZ_Widget *" canvas )
+
+.SH ARGUMENTS
+\fIcanvas\fR  Specifies a 3D canvas.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GLResetEvents\fR empty the event queue for \fIcanvas\fR, 
+discards all outstanding events.
+
+.SH "SEE ALSO"
+EZ_AddEventHandler(3), EZ_GLNextEvent(3), EZ_GLEnterEvent(3)
+

@@ -1,0 +1,26 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LoadIdentity 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LoadIdentity \- replace the current matrix by the identity matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_LoadIdentity( " void  )
+
+.SH DESCRIPTION
+\fBEZ_LoadIdentity\fR replaces the current matrix by the identity matrix.
+If the current matrix mode is EZ_MODELVIEW, it also replaces the companion
+of the current matrix by the identity matrix. This companion matrix
+is used to transform normals.
+
+.SH "SEE ALSO"
+EZ_PushMatrix(3), EZ_Rotate(3), EZ_Translate(3), 
+EZ_MultMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

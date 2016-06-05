@@ -1,0 +1,225 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ItemAddDnDDataDecoder 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ItemAddDnDDataDecoder,EZ_ItemAddDnDDataEncoder,
+EZ_ItemDeleteDnDDataDecoder, EZ_ItemDeleteDnDDataEncoder
+EZ_ItemDeleteAllDnDDataDecoders, EZ_ItemDeleteAllDnDDataEncoders
+\- register/remove drag and drop(DnD) handlers
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_ItemAddDnDDataDecoder(EZ_Item *" item ", Atom " atom,
+.BI "         unsigned int " tag ", EZ_DnDDecoder " decoder ", void *" ddata,
+.BI "         EZ_CallBack " dcallback ", void *"cdata)
+.sp
+.BI "void  EZ_ItemAddDnDDataEncoder(EZ_Item *" item ", Atom " atom,
+.BI "         unsigned int " tag ", EZ_DnDEncoder " encoder ", void *" edata,
+.BI "         EZ_CallBack " ecallback ", void *"cdata)
+.sp
+.BI "void  EZ_ItemDelteDnDDataDecoder(EZ_Item *" item ", 
+.BI "         EZ_DnDDecoder " decoder ", void *" ddata)
+.sp
+.BI "void  EZ_ItemDelteDnDDataEncoder(EZ_Item *" item ", 
+.BI "         EZ_DnDEncoder " encoder ", void *" edata)
+.sp
+.BI "void  EZ_ItemDelteAllDnDDataDecoders(EZ_Item *" item )
+.sp
+.BI "void  EZ_ItemDelteAllDnDDataEncoders(EZ_Item *" item )
+
+
+.SH ARGUMENTS
+\fIatom\fR Specifies a DnD target.
+.sp
+\fItag\fR Specifies a tag. It must be either ~0 or a value or'ed from ShifMask,
+ControlMask and Mod1Mask.
+.sp
+\fIitem\fR Specifies a display item.
+.sp
+\fIencoder\fR Specify a DnD data encoder.
+.sp
+\fIdecoder\fR Specify a DnD data decoder.
+.sp
+\fIedata\fR Specify a client data to be passed to \fIencoder\fR when
+invoked.
+.sp
+\fIddata\fR Specify a client data to be passed to \fIdecoder\fR when
+invoked.
+.sp
+\fIecallback\fR Specify a procedure to be invoked when \fIencoder\fR
+executes succesfully.
+.sp
+\fIdcallback\fR Specify a procedure to be invoked when \fIdecoder\fR
+executes succesfully.
+.sp
+.fIcdata\fR Specify the argument to be passed to \fIecallback\fR or
+\fIdcallback\fR when called.
+
+.SH DESCRIPTION
+\fBEZ_ItemAddDnDDataEncoder\fR  registers a DnD encoder 
+to a display item. A \fBEZ_DnDEncoder\fR is a data conversion procedure of
+the type
+.nf
+ int (*encoder)(void *object, void *data, char **message,int *length, int *needfree)
+.fi
+.PP
+\fBEZ_ItemDeleteDnDDataEncoder\fR  dissociate a DnD encoder
+with a display item. The specified decoder will be removed only if
+both the procedure and client data match.
+.PP
+\fBEZ_ItemDeleteAllDnDDataEncoders\fR removes all 
+DnD encoders registered to a display item.
+.PP
+\fBEZ_ItemAddDnDDataDecoder\fR  registers a DnD decoder to a
+item. A \fBEZ_DnDDecoder\fR is a data conversion procedure of
+the type
+.nf
+  int (*decoder)(void *object, void *data, char *message, int length)
+.fi
+.PP
+\fBEZ_ItemDeleteDnDDataDecoder\fR  dissociate a DnD decoder
+with a display item. The specified decoder will be removed only if
+both the procedure and client data match.
+.PP
+\fBEZ_ItemDeleteAllDnDDataDecoders\fR removes all 
+DnD decoders registered to a display item.
+.PP
+The tag argument is used to choose conversion methods. It is useful
+for the following situations. 
+.sp
+1. A drag source has multiple encoders for the same conversion
+target. For example, when transfering files,  one may want either
+to copy a file or move a file to the destination specified by
+the drop site. This can be achieved by registering multiple encoders
+with different tags. For example, shift-press-drag-relase
+for copying the file and cntrl-press-drag-release for moving the
+file.
+.sp
+2. Sometimes it is preferable to enforce a more strict drag and
+drop policy so that a careless drag and drop will not do any harm. 
+For example, if you write a file manager and want to use DnD to
+remove files, it may be better to enforce a control-press-drag-release
+policy for the trash can. 
+.sp
+The tag value ~0 is reserved for a special purpose: drop at the root
+window of your display. Strictly speaking, the root window is not a
+valid drop site because it does not talk to the drag source.
+Nevertheless, for applications like file managers, it is useful
+to have a feature so a user can drop an item at the root window.
+Since the root window is not an official drop site, there
+will be no data transfers. The action is completely handled
+by the drag source. If you want to use this feature. Here 
+are the tricks. 
+.sp
+.in +3
+1. Write a special encoder which does not convert anything, but
+rather, acts like a callback. In the example of droping a file item
+over the background, you may want to create a Icon widget, set it up
+properly and display it. The encoder has to return EZ_DND_SUCCESS on
+success and EZ_DND_FAILURE on failure.  The callbacks for
+this special encoder behave exactly the same as that of a regular 
+encoder. It is invoked when the encoder returns EZ_DND_SUCCESS+.
+.sp
+2. Register your special encoder with a tag value ~0.
+.in +3
+
+
+.SH "EXAMPLES"
+
+.nf
+Atom MY_FILE_NAME_ATOM;      /* conversion type */
+Atom MY_FILE_CONTENTS_ATOM;
+
+int encodeFileName(EZ_Item *item, void *data,
+                   char **message, /* place to return the data after conversion */
+                   int  *length,   /* return the length of message */
+                   int *needFree)  /* signal whether to free *message when done */
+{
+  if(item)
+    {
+      /* file name is stored in the client data slots of item */
+      char *ptr = (char *)EZ_GetItemPtrData(item); 
+      int  len = EZ_GetItemIntData(item);
+      if(len > 0)
+        {
+          *length = len;
+          *message = ptr;
+          *needFree = 0;
+          return(EZ_DND_SUCCESS);
+        }
+    }
+  return(EZ_DND_FAILURE);
+}
+
+int encodeFileContents(EZ_Item *item, void *data,
+                       char **message, int *length, int *needFree)
+{
+  if(item)
+    {
+      char *ptr = (char *)EZ_GetItemPtrData(item);
+      int  len = EZ_GetItemIntData(item);
+      if(len > 0)
+        {
+          char *msg;
+          int  c, totalLength = 0;
+          FILE *fp = fopen(ptr, "r");
+          if(fp) while(fgetc(fp) != EOF) totalLength++; /* length of file */
+          (void)rewind(fp);
+          msg = (char *)malloc( (totalLength + 1)*sizeof(char));
+          ptr = msg;
+          while((c = fgetc(fp)) != EOF) *ptr++ =c;
+          fclose(fp);
+         *length = totalLength;
+         *message = msg;
+         *needFree = 1;  /* ask EZWGL to free msg when done with it */
+         return(EZ_DND_SUCCESS);
+        }
+    }
+  return(EZ_DND_FAILURE);
+}
+
+int decodeFileName(EZ_Item *item, void *data,
+		   char *message, int length)
+{
+  if(item)
+    {
+      if(length > 0)
+	{
+	  FILE *fp = fopen(message, "r");
+	  if(fp)
+	    {
+	      int c;
+	      while( (c = getc(fp)) != EOF) putchar(c);
+	      fclose(fp);
+	      return(EZ_DND_SUCCESS);
+	    }
+	}
+    }
+  return(EZ_DND_FAILURE);
+}
+
+int decodeFileContents(EZ_Item *item, void *data,
+		       char *message, int length)
+{
+  if(item)
+    {
+      if(length > 0)
+	{
+	  printf("%s", message);
+	  return(EZ_DND_SUCCESS);
+	}
+    }
+  return(EZ_DND_FAILURE);
+}
+.fi
+
+.SH "SEE ALSO"
+EZ_ItemAddDnDDataDecoder(3),EZ_ItemAddDnDDataEncoder(3)
+.br
+
+
+

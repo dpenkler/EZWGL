@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>EZwgl (5.6  Inquring the Geometry of a Widget)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="60.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="62.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>5.6  Inquring the Geometry of a Widget</h2>
+
+<p>
+The <i>EZ</i> widget library provides a few routines for
+extracting the geometry of a widget.
+<p><p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetWidgetGeometry</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *x_return,
+            int *y_return, int *w_return, int *h_return);
+void <font color="#990000"><b>EZ_GetWidgetAbsoluteGeometry</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *x_return,
+            int *y_return, int *w_return, int *h_return);
+</pre>
+<p><p>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the geometry of a widget.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_GetWidgetPosition</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *x, int *y);</code>
+<p><p>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the location of (the upper left corner) a widget.
+</font>
+<p><p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetWidgetDimension</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h);
+void <font color="#990000"><b>EZ_GetWidgetMinDimension</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h);
+</pre>
+<p><p>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the dimension (or minimal dimension) of a widget.
+</font>
+<p><p><p>
+<pre><p>
+int  <font color="#990000"><b>EZ_GetWidgetBorderWidth</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+void <font color="#990000"><b>EZ_GetWidgetBorder</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget,int *bwidth,
+                                          int *btype);
+</pre>
+<p><p>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the border characteristics.
+</font>
+<p><p><p>
+<pre><p>
+void  <font color="#990000"><b>EZ_GetWidgetPaddings</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *padx,
+                             int *pady, int *focus_pad);
+</pre>
+<p><p>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return all paddings.
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="60.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="62.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

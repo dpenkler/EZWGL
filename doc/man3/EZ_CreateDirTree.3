@@ -1,0 +1,52 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateDirTree 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateDirTree \- create a directory tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+typedef  void *(*EZ_DirTreeNodeCreator) (char *path, void *data);
+.sp
+.BI "EZ_TreeNode  *EZ_CreateDirTree(EZ_DirTreeNodeCreator " nctr ", char *" pattern,
+.BI "                               void *" client_data ", int " open_mode )
+
+.SH ARGUMENTS
+\fInctr\fR  Specifies a function, the node creator. 
+.sp
+\fIpattern\fR  Specifies a pattern
+.sp
+\fIclient_data\fR  Specifies an arbitary client data, it will be
+attached to all nodes on the directory tree created
+.sp
+\fIopen_mode\fR  Specifies one of the three ways to open directory
+nodes, when a double left-mouse-button occurs on a directory node.
+Value must be one of EZ_DIR_NODE_OPEN_DIRECTORY_NONE,
+EZ_DIR_NODE_OPEN_DIREC-TORY_DEFAULT or
+EZ_DIR_NODE_OPEN_DIRECTORY_COLLAPSING.  In the first mode, directory
+node cannot be opened, in the third mode, when a directory is opend, it
+collapse all other opened directory nodes. The second mode is the
+default, double click the left-mouse-button open/close the 
+corresponding directory nodes.
+.PP
+The node creator should call \fBEZ_CreateItem\fR to create a display
+item for the given pathname, set up the item as needed by the 
+application (configure appearance, register callbacks etc) and then
+call \fBEZ_CreateTreeNode\fR with NULL parent node and return the
+result.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_CreateDirTree\fR finds all files that matches \fIpattern\fR
+and create a tree representation of them. The root of the tree is
+always root at "/".  
+
+.SH "SEE ALSO"
+ EZ_CreateTreeNode(3), EZ_TreeFindNodeUsingItem(3)
+.br
+
+

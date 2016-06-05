@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetDefaultMaterial 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetDefaultMaterial \- returns a internally defined material
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Material *EZ_GetDefaultMaterial(int " idx )
+
+.SH ARGUMENTS
+.sp
+\fIidx\fR  Specifies an index, must be one of
+EZ_SILVER, EZ_SILVER_S, EZ_GOLD, EZ_GOLD_S, EZ_BRASS,
+EZ_COPPER, EZ_COPPER_S, EZ_BRONZE, EZ_RUBY, EZ_TURQUOISE,
+EZ_JADE, EZ_EMERALD or EZ_PERAL.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetDefaultMaterial\fR returns an internally pre-defined
+material. The return value can be used as the second argument
+of \fBEZ_BindMaterial\fR.
+
+.SH "SEE ALSO"
+EZ_DefineLightSrc(3), EZ_DefineMaterial(3), EZ_BindLightSrc(3),
+EZ_BindMaterial(3)

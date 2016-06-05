@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_OnFrameDragHandle 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_OnFrameDragHandle, EZ_HighlightFrameDragHandle \- modify the docking handle 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_OnFrameDragHandle( EZ_Widget *" frame ", int " x ", int "y )
+.BI "int EZ_HighlightFrameDragHandle( EZ_Widget *" frame ", int " onoff )
+
+.SH ARGUMENTS
+\fIframe\fR  Specifies a frame widget or a menubar widget.
+.sp
+\fIx,y\fR  Specify the coordinate of a point (window coordinate).
+.sp
+\fIonoff\fR  Specifies a boolean value.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_OnFrameDragHandle\fR  returns 1 if the specified point (x,y) is
+on the docking handle of the frame.
+.PP
+\fBEZ_HighlightFrameDragHandle\fR turns highlights on the docking handle
+on/off.
+
+.SH "SEE ALSO"
+EZ_DetachFrame(3), EZ_DockFrame(3)
+.br
+
+

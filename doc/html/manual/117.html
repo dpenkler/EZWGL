@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>EZwgl (12.14  Polyhedra, Sphere and Tube)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="116.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="118.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.14  Polyhedra, Sphere and Tube</h2>
+
+<p>
+The <i>EZwgl</i> includes a few functions for generating regular polyhedra,
+sphere and tube.
+<p><h3> 12.14.1  Tetrahedron </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Tetrahedron</b></font>(float x, float y, float z, float size);</code>
+<p>This function renders a tetrahedron based on the given size and
+center. It uses the current polygon mode to decide whether to
+render all face polygons or just to render the edges.
+<p><h3> 12.14.2  Cube </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Cube</b></font>(float x, float y, float z, float size);</code>
+<p>This function renders a cube based on the given size and
+center. It uses the current polygon mode to decide whether to
+render all face polygons or just to render the edges.
+<p><p><h3> 12.14.3  Octahedron </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Octahedron</b></font>(float x, float y, float z, float size);</code>
+<p>This function renders an octahedron based on the given size and
+center. It uses the current polygon mode to decide whether to
+render all face polygons or just to render the edges.
+<p><h3> 12.14.4  Dodecahedron </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Dodecahedron</b></font>(float x, float y, float z, float size);</code>
+<p>This function renders a dodecahedron based on the given size and
+center. It uses the current polygon mode to decide whether to
+render all face polygons or just to render the edges.
+<p><h3> 12.14.5  Icosahedron </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Icosahedron</b></font>(float x, float y, float z, float size);</code>
+<p>This function renders an icosahedron based on the given size and
+center. It uses the current polygon mode to decide whether to
+render all face polygons or just to render the edges.
+<p><h3> 12.14.6  Sphere </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Sphere</b></font>(int type, int level, float x, float y, float z, float r);</code>
+<p>This function renders a sphere based on the given information.
+It uses the current polygon mode to decide whether to
+render all face polygons or just to render the edges.
+Types are:
+<font size=-1>
+<pre><p>
+<font color="#990000"><b>EZ_SPHERE_TRIANGLE</b></font>
+<font color="#990000"><b>EZ_SPHERE_QUAD</b></font>
+<font color="#990000"><b>EZ_SPHERE_PARAMETRIC</b></font>
+</pre>
+</font>
+<p><h3> 12.14.7  Tube </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Tube</b></font>(float *data, int nsegs, int nsides)</code>
+<p>This function renders a tube based on the given data.
+<code>data</code> specifies a <strong>static</strong> array of floats. It should
+contain <code>4 * nsegs</code> numbers. If we think of <code>data</code>
+as an array of 4 vectors, then the first three floats of each
+vector specifies a point and the last one specifies a radius.
+<code>nsegs</code> specifies the number of segments in <code>data</code>.
+<code>nsides</code> specifies the number of sides for each radial
+section.
+<p>For example, the following code draws a cone.
+<p><font size=-1>
+<pre><p>
+static float cone[] = {
+-1.0, 0.0, 0.0, 0.0,
+ 0.0, 0.0, 0.0, 0.5,
+ 1.0, 0.0, 0.0, 1.0,
+};
+<font color="#990000"><b>EZ_Tube</b></font>(cone, 3, 16);
+</pre>
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="116.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="118.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

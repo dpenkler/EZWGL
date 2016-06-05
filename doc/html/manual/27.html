@@ -1,0 +1,350 @@
+<html>
+<head>
+<title>EZwgl (4.11  ListBoxes)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="26.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="28.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.11  ListBoxes</h2>
+
+<p>A listbox contains a list of items formatted into rows. When one of the items is
+selected, it is highlighted. When a double click of mouse button 1 occures on an item,
+the callbacks of the listbox are invoked. 
+<p>The contents of a listbox is scrollable in both directions.
+<p>There are two types of listboxes in <i>EZwgl</i>,  an internal listbox
+and a composite listbox. The latter is a composite widget
+made from a frame, an internal listbox and two scrollbars.
+From the application programmer's point of view, these two listboxes 
+are the same.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_LISTBOX</b></font></tr>
+                <tr> <td> Default class  name <td>       "ListBox" </tr>
+                <tr> <td> Default instance name<td>     "listBox" </tr></table>
+<p><p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_ILISTBOX</b></font></tr>
+                <tr> <td> Default class  name <td>       "IListBox" </tr>
+                <tr> <td> Default instance name<td>     "iListBox" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Subwidgets Info </h3 <br>
+<p><p>
+Subwidgets of ListBox are listed below.
+<pre>
+
+           ( iListBox
+ listBox-->( horizontalScrollbar
+           ( verticalScrollbar
+
+
+</pre>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_GetListBoxWidgetComponents</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Widget</b></font> **ilb,</code>
+<p><code>                                       <font color="#990000"><b>EZ_Widget</b></font> **hsc,  <font color="#990000"><b>EZ_Widget</b></font> **vsc);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  return the subwidgets of a composite listbox.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_ClearListBox</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ clear a listbox.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetListBoxItems</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char **items, int nitems);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  set up the list in a listbox.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_AppendListBoxItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ append one item at the end of a listbox.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_InsertListBoxItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *str, int idx);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ insert an item at the given location.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_DeleteListBoxItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  delete the item at the specified location.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_DeleteListBoxString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *str);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  find the item and delete it.
+</font>
+<p><p>
+<code>char  *<font color="#990000"><b>EZ_GetListBoxSelectedItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><p>
+<code>char  *<font color="#990000"><b>EZ_GetListBoxSelection</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  return the selected item in a listbox.
+</font>
+<p><p>
+<code>int   <font color="#990000"><b>EZ_GetListBoxSelectionLineNumber</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the selection index.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_ModifyListBoxItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *nitem, int idx);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  replace the item at the specified location by the given string.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_ListBoxSelectItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *str);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ find the specified item and make it the current selection.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_ListBoxSelectItemUsingIdx</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  make the item at the specified location the current selection.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_GetListBoxState</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, int *xoff, int *line1);</code> 
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the current xoffset and yoffset (index of the first line).
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetListBoxState</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, int xoff, int line1);</code> 
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  set the current xoffset and yoffset (index of the first line).
+</font>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_GetListBoxData</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, listboxentry **dat, int *cnt);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the internal listbox data. One should not modify them.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p>
+<center><img  src="images/listbox.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>  "ListBox"</code>       </tr><tr><td width=280>
+                                    <td width=140>                            <td width=140>  or<code>"IListBox"</code>    </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140>  <code>  "listBox"</code>       </tr><tr><td width=280>
+                                    <td width=140>                            <td width=140>  or<code>"iListBox"</code>    </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PADX</b></font></strong>                      <td width=140> padx                       <td width=140>  <code>0</code> or <code>8</code> </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PADY</b></font></strong>                      <td width=140> pady                       <td width=140>  <code>0</code> or <code>6</code> </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADX</b></font></strong>                     <td width=140> iPadx                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADY</b></font></strong>                     <td width=140> iPady                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_EXPAND</b></font></strong>                    <td width=140> expand                     <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PROPAGATE</b></font></strong>                 <td width=140> propagate                  <td width=140>  <code>true</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_TRANSIENT</b></font></strong>                 <td width=140> transient                  <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FONT_ID</b></font></strong>                  <td width=140> fontID                     <td width=140>  <code>3</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FONT_NAME</b></font></strong>                <td width=140> fontName                   <td width=140>  <code>"*Bold*"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_TEXT_LINE_LENGTH</b></font></strong>        <td width=140> textLineLength             <td width=140>  <code>30</code>            </tr><tr><td width=280>     
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code> </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_MOTION_CALLBACK</b></font></strong>          <td width=140> N/A                        <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_FOREGROUND</b></font></strong>     <td width=140> highlightForeground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_BACKGROUND</b></font></strong>     <td width=140> highlightBackground        <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></strong>        <td width=140> bgImageFileB               <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP_B</b></font></strong>             <td width=140> N/A                  <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></strong>         <td width=140> dndDragCursor              <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></strong>       <td width=140> dndBubbleString            <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_SCROLLBAR_WIDTH</b></font></strong>          <td width=140> scrollbarWidth             <td width=140>   <code>10</code>           </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SCROLLBAR_BORDER_WIDTH</b></font></strong>  <td width=140> scrollbarBorderWidth       <td width=140>   <code>2</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HSCROLL_INCREMENT</b></font></strong>        <td width=140> hScrollIncrement           <td width=140>   <code>1</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_VSCROLL_INCREMENT</b></font></strong>        <td width=140> vScrollIncrement           <td width=140>   <code>1</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_SELECTION_BACKGROUND</b></font></strong>     <td width=140> selectionBackground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SELECTION_FOREGROUND</b></font></strong>     <td width=140> selectionForeground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_TEXT_BACKGROUND</b></font></strong>          <td width=140> textBackground             <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_ROW_BG</b></font></strong>                   <td width=140> rowBg                      <td width=140>   <code>off nil nil</code>  </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_OPTIONAL_HSCROLLBAR</b></font></strong>      <td width=140> optionalHScrollbar         <td width=140> <code>true</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_OPTIONAL_VSCROLLBAR</b></font></strong>      <td width=140> optionalVScrollbar         <td width=140> <code>true</code>         </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+<p><p><p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="26.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="28.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

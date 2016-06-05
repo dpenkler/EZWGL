@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Rotate 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Rotate \- generate a rotation matrix 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Rotate(float " angle ", float " x ", float " y " , float "z)
+
+
+.SH ARGUMENTS
+\fIangle\fR Specifies an angle, in degrees.
+.sp
+\fIx\fR,\fIy\fR,\fIz\fR Specifies a direction. 
+
+.SH DESCRIPTION
+\fBEZ_Rotate\fR generates a matrix that performs a counterclockwise
+rotation of \fIangle\fR degrees about the direction 
+[\fIx\fR,\fIy\fR,\fIz\fR], and applies the resulting matrix to the
+current matrix.
+
+.SH "SEE ALSO"
+EZ_Scale(3), EZ_Translate(3), EZ_MultMatrix(3), EZ_PushMatrix(3),
+EZ_LoadMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

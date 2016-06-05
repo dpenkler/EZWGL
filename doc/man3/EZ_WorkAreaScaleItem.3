@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaScaleItem 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaScaleItem \- scale a FIG item in a workarea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WorkAreaScaleItem(EZ_Widget *" warea ", EZ_Item *" item ", int " smode,
+.BI "             float " sx ", float " sy ", int " tx ", int " ty ", int " redisplay)
+
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+\fIitem\fR  Specifies a display item currently managed by \fIwarea\fR.
+.sp
+\fIsmode\fR  Specifies 1 or 0.
+.sp
+\fIsx, sy\fR  Specify the scaling factor in the x and y direction.
+.sp
+\fItx, ty\fR  Specify the translation offset.
+.sp
+\fIredisplay\fR Specify a boolean value.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WorkAreaScaleItem\fR scales and translates an FIG item in a workarea widget 
+according to parameters given.  If redisplay is nozero, the display will be
+refreshed immediately.
+
+.SH "SEE ALSO"
+EZ_WorkAreaInsertItem(3),
+.br
+EZ_WorkAreaDrawItemAt(3)
+.br
+
+

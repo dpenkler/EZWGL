@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_SetDragIcon</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_SetDragIcon</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SetDragIcon,  EZ_SetDragCursor  -  set the current drag
+       icon or cursor
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>d</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>d</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>S</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font>  Specifies an icon (toplevel free label) widget
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>S</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font>  Specifies 0 or 1.
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font> sets up a drag icon  for  the  current  DnD
+       operation.  It  is  meant to be used by the initialization
+       procedure of the drag source. The DnD system  resets  drag
+       icon  to  NULL  when the current DnD transaction finishes.
+       There are two possible display styles for the  drag  icon,
+       repsented by 0 and 1. When set to 1, the drag icon will be
+       displayed using the XOR logical function.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font>  sets the current drag cursor. Drag  cursor
+       takes procedence over drag icon.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_GetWorkAreaSelection.html">EZ_GetWorkAreaSelection</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

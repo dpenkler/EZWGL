@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaRaiseItem 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaRaiseItem  \- raise a display item in a workarea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WorkAreaRaiseItem(EZ_Widget *" warea ", EZ_Item *" item)
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+\fIitem\fR  Specifies a display item.
+.sp
+
+.SH DESCRIPTION
+.PP
+If \fIitem\fR is currently obscured by other items in a
+workarea widget, \fBEZ_WorkAreaRaiseItem\fR raises the item.
+
+.SH "SEE ALSO"
+EZ_GetWorkAreaSelection(3)
+.br
+
+

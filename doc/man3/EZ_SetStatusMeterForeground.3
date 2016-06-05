@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetSMeterForeground 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetStatusMeterForeground, EZ_SetStatusMeterValueN \- set the value(s) of a
+status meter.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetStatusMeterForeground( EZ_Widget *" smeter ", char " *clr)
+.BI "void  EZ_SetStatusMeterForegroundN( EZ_Widget *" smeter ", int " idx", char " *clr)
+
+.SH ARGUMENTS
+\fIsmeter\fR Specifies a status meter widget.
+.sp
+\fIidx\fR Specifies an integer between 0 and 4 inclusive.
+.sp
+\fIclr\fR Specifies a color.
+
+.SH DESCRIPTION
+\fBEZ_SetStatusMeterForeground\fR sets the foreground 
+of a status meter.
+.PP
+\fBEZ_SetStatusMeterForegroundN\fR sets the color to be used to
+display the status of the \fIidx\fR th quantity.
+	
+.SH "SEE ALSO"
+EZ_SetStatusMeterRange(3), EZ_SetStatusMeterBackground(3)
+
+

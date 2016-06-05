@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>EZwgl (7.3  File Events)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="81.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="83.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>7.3  File Events</h2>
+
+<p>
+<i>EZwgl</i> provides a timer-like mechanism for reading
+and writing files in a event-driven fashion. 
+<p>To queue file events, use
+<pre><p>
+<font color="#990000"><b>EZ_Input</b></font> *<font color="#990000"><b>EZ_AddInput</b></font>(int fd, int mask, <font color="#990000"><b>EZ_InputCallBack</b></font> callback, void *data);
+</pre>
+<p>This function registers a new source of events: the status change of
+the specifed file descripter. From the time a <code>fd</code> is registered on,
+the specified status  of <code>fd</code> is watched by the main event
+dispatcher. Whenever the specified status changes, <code>callback</code> is
+invoked.
+<p>Here <code>fd</code> specifies a file descriptor.
+<code>mask</code> specifies what status to watch for. It is an or'ed
+combination of <code><font color="#990000"><b>EZ_READABLE_MASK</b></font></code>,
+<code><font color="#990000"><b>EZ_WRITABLE_MASK</b></font></code> and <code><font color="#990000"><b>EZ_EXCEPTION_MASK</b></font></code>.
+<code>callback</code> spcifies a procedure. It will be invoked whenever
+the specified status of <code>fd</code> changes.
+<code>data</code> specifies an arbitary client data to be passed
+to <code>callback</code> when invoked.
+<p><code><font color="#990000"><b>EZ_InputCallBack</b></font></code> is a procedure of the following type.
+<p><font size=-1>
+<code> void inputcallback(<font color="#990000"><b>EZ_Input</b></font> *obj, void *data, int fd, int mask)</code>
+</font>
+<p>To remove file events, use
+<pre><p>
+void <font color="#990000"><b>EZ_RemoveInput</b></font>(<font color="#990000"><b>EZ_Input</b></font> inputId);
+</pre>
+<p><h3> 7.3.1  An Example </h3 <br>
+<p>
+In this example, we watch the readable status of stdin, if there are
+anything to read, we read up to 1024 characters a time and append the
+string at the end of the text widget.
+<p><font size=-1>
+<pre>
+/******************* ExampleInput ***************************************/
+#include <unistd.h>
+
+#include "EZ.h"
+static void readStdin(<font color="#990000"><b>EZ_Input</b></font> *id, void *data, int fd, int mask)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *tw = (<font color="#990000"><b>EZ_Widget</b></font> *)data;
+  char buf[1024];
+  int n;
+  if(mask & <font color="#990000"><b>EZ_READABLE_MASK</b></font>)
+    {
+      n = read(fd, buf, 1023);
+      if(n > 0)
+        {
+          buf[n] = 0;
+          <font color="#990000"><b>EZ_TextEndOfBuffer</b></font>(tw);
+          <font color="#990000"><b>EZ_TextInsertString</b></font>(tw,buf);
+        }
+    }
+}
+
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *textW;
+  
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac,av,0);
+
+  textW = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_TEXT</b></font>, frame,
+                          <font color="#990000"><b>EZ_TEXT_BACKGROUND</b></font>, "white",
+                          <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>,     1,
+                          <font color="#990000"><b>EZ_SIZE</b></font>,             300, 300,    
+                          0);
+
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(textW);
+  <font color="#990000"><b>EZ_AddInput</b></font>(0, <font color="#990000"><b>EZ_READABLE_MASK</b></font>, readStdin, textW);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+/******************* ExampleInput ***************************************/
+
+</pre>
+<p>
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="81.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="83.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

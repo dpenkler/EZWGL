@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_AddInput</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_AddInput</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_AddInput,  EZ_RemoveInput  - register/remove input han-
+       dlers
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>f</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>k</i></font><font color="#004400"><i>,</i></font>
+                     <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>k</b></font> <font color="#004400"><i>c</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>k</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#440000"><b>)</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>f</i></font><font color="#004400"><i>d</i></font>  Specifies a file descriptor.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>k</i></font> Specifies the mask that indicates a read,  write,  or
+       exception   condition.  It  must  be  ORed  from  EZ_READ-
+       ABLE_MASK, EZ_WRITABLE_MASK and EZ_EXCEPTION_MASK.
+
+       <font color="#004400"><i>c</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>k</i></font>  Specify the procedure to be invoked  when  input
+       is ready.
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font>  Specifies the argument that is to be passed to <font color="#004400"><i>c</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>-</i></font>
+       <font color="#004400"><i>b</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>k</i></font>  when invoked.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>t</i></font>  Specifies a EZ_Input handler.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font>  registers  an  input  handler  to  the  EZWGL
+       library.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font> removes a previousely registered input han-
+       dler.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>k</b></font> is a procedure of type
+         void (*inputCallback)(void *object, void *data, int fd, int mask);
+
+       Here is a simple input handler that reads from  the  stan-
+       dard input and insert the input in a text widget.
+
+       static void readStdin(EZ_Input *id, void *data, int fd, int mask)
+       {
+         EZ_Widget *tw = (EZ_Widget *)data;
+         char buf[1024];
+         int n;
+         if(mask & EZ_READABLE_MASK)
+           {
+             n = read(fd, buf, 1023);
+             if(n &gt; 0)
+            {
+              buf[n] = 0;
+              <A HREF="EZ_TextEndOfBuffer.html">EZ_TextEndOfBuffer</A>(tw);
+              <A HREF="EZ_TextInsertString.html">EZ_TextInsertString</A>(tw,buf);
+            }
+           }
+       }
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_EventMainLoop.html">EZ_EventMainLoop</A>(3), <A HREF="EZ_ServiceEvents.html">EZ_ServiceEvents</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

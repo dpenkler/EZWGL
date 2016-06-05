@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaFindItemAtXY 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaFindItemAtXY \- find the item at the specified location
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item *EZ_WorkAreaFindItemAtXY(EZ_Widget *" workarea ", int x ", int " y)
+
+.SH ARGUMENTS
+\fIworkarea\fR  Specifies a workarea widget.
+.sp
+\fIx\fR,\fIy\fR Specifies a location in the widget window.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WorkAreaFindItemAtXY\fR  locates and returns the item
+at the specified location, or NULL if there are no
+items at the specified location.
+.PP
+
+.SH "SEE ALSO"
+EZ_FancyListBoxFindItemAtXY(3), EZ_GetWorkAreaNumberOfItems(3)
+.br
+
+

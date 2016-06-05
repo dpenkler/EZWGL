@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetAtom 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetAtom  \- create an atom identifier
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "Atom  EZ_GetAtom( char *" atom_name )
+
+.SH ARGUMENTS
+\fIatom_name\fR  Specifies an atom name.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetAtom\fR  returns the atom identifier associated with
+the specified \fIatom_name\fR string.  If there is currently no atom
+associated with \fIatom_name\fR, a new atom will be
+created. Otherwise, the corresponding atom identifier is returned.
+.PP
+
+.SH "SEE ALSO"
+EZ_WidgetAddDnDDataDecoder(3),EZ_WidgetAddDnDDataEncoder(3)
+.br
+EZ_ItemAddDnDDataDecoder(3),EZ_ItemAddDnDDataEncoder(3)
+
+

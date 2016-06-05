@@ -1,0 +1,62 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AddItemCallBack 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AddItemCallBack,EZ_RemoveItemCallBack,
+EZ_RemoveAllItemCallBacks  \- register/remove callbacks associated to
+a display item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_AddItemCallBack( EZ_Item *" item ",
+.BI "     int " which ", EZ_CallBack " callback ", void *" clientdata ", int " location )
+.BI "void EZ_RemoveItemCallBack( EZ_Item *" item ",
+.BI "     int " which ", EZ_CallBack " callback ", void *" clientdata )
+
+.BI "void EZ_RemoveAllItemCallBacks( EZ_Item *" item ", int "which )
+
+.SH ARGUMENTS
+\fIitem\fR  Specifies a display item.
+.sp
+\fIcallback\fR  Specifies a callback.
+.sp
+\fIclientdata\fR  Specifies an clientdata to be passed to the
+callback.
+.sp
+\fIwhich\fR  Specifies a callback list. 
+.sp
+\fIlocation\fR  Specifies when the callback is to be called
+relative to other previously callbacks.
+.sp
+.SH DESCRIPTION
+.PP
+An \fBcallback\fR is a procedure of the following prototype:
+.sp
+.nf
+    void (* callback)(void *object, void *data)
+.fi
+.PP
+\fBEZ_AddItemCallBack\fR registers a callback to a item. 
+There are two callback lists associated to a item: an
+\fBEZ_CALLBACK\fR list and an \fBEZ_DESTROY_CALLBACK\fR list.
+Normal callbacks are called when a double Button1 click occurs on a
+item.  Destroy callbacks are invoked at the time a item is
+destroyed. If \fIlocation\fR is 0, the callback will be put in front
+of all previously registered callbacks. If \fIlocation\fR is
+1, the callback will be inserted at the end of all
+previousely registered callbacks.
+.PP
+\fBEZ_RemoveItemCallBack\fR deletes a callback from the
+specified callback list. The specified
+callback will be deleted only if both the procedure and
+the client data match.
+.PP
+\fBEZ_RemoveAllCallBacks\fR deletes all callbacks from
+the specified callback list.
+
+.SH "SEE ALSO"
+EZ_CreateItem(3), EZ_ConfigureItem(3), EZ_SetItemClientData(3)

@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Vertex2f 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Vertex2f, EZ_Vertex2fv, EZ_Vertex3f, EZ_Vertex3fv  \- set the
+current vertex
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Vertex2f(float " x ", float " y )
+.BI "void  EZ_Vertex3f(float " x ", float " y ", float " z )
+.BI "void  EZ_Vertex2fv(float *" xy )
+.BI "void  EZ_Vertex3fv(float *" xyz )
+
+
+.SH ARGUMENTS
+\fIx\fR,\fIy\fR,\fIz\fR Specify the coordinates of a vertex.
+.sp
+\fIxy\fR Specifies an array of two floats.
+.sp
+\fIxyz\fR Specifies an array of three floats.
+
+.SH DESCRIPTION
+.PP
+These functions set the current vertex. It is meant to be used 
+inside the EZ_Begin/EZ_End pair. The current color and normal
+are associated with the vertex when set.
+
+.SH "SEE ALSO"
+EZ_Normal3f(3), EZ_Color3f(3), EZ_Index(3)
+.br

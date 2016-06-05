@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DestroyWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DestroyWidget \- destroy a widget and its descendants
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_DestroyWidget( EZ_Widget " *widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_DestroyWidget\fR destroies a widget and all its descendants.
+It invokes the destroy callbacks registered to \fIwidget\fR and
+releases all resources allocated for \fIwidget\fR. A
+destroied widget should never be referenced again.
+.PP
+The actual destruction is completed in two steps. In the first
+step, it recursively descends the widget tree, remove the widget
+and its children from the widget hash table, inserts them into
+the destroyed widget list and mark the widget and its children 
+destroyed. In the second step, it invokes the destroy callbacks
+in post-order (invoke children's destroy callbacks first) and
+then dereference the allocated resources.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3)
+.br
+

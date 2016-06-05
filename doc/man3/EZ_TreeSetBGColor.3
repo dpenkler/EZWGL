@@ -1,0 +1,41 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TreeSetBGColor 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TreeSetFGColor, EZ_TreeSetBGColor \- set the foreground/background
+color for a tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_TreeSetFGColor(EZ_TreeNode *" root ", unsigned long " pv )
+.BI "void EZ_TreeSetBGColor(EZ_TreeNode *" root ", unsigned long " pv )
+.BI "void EZ_TreeSetFGColor(EZ_TreeNode *" root ", char *" colorname )
+.BI "void EZ_TreeSetBGColor(EZ_TreeNode *" root ", char *" colorname )
+
+.SH ARGUMENTS
+.sp
+\fIroot\fR  Specifies a tree node, the root of a subtree.
+.sp
+\fIpv\fR Specifies a pixel value.
+.sp
+\fIcolorname\fR Specifies a color.
+.SH DESCRIPTION
+.PP
+\fBEZ_TreeSetFGColor\fR travers the subtree rooted at \fIroot\fR and
+set the forground color for each node to the specified color.
+.PP
+\fBEZ_TreeSetBGColor\fR travers the subtree rooted at \fIroot\fR and
+set the background color for each node to the specified color.
+.PP
+\fBEZ_TreeSetFGColorName\fR and \fBEZ_TreeSetBGColorName\fR do the same
+work except they use color names instead of pixel values.
+
+.SH "SEE ALSO"
+EZ_CreateTreeNode(3), EZ_TreeTraverseTree(3), EZ_TreeSetCharacter(3)
+
+
+

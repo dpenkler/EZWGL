@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetFindCursorCell 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetFindCursorCell \- return the cell under the pointer
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_SSheetFindCursorCell( EZ_Widget *" ssheet ", int " x ", int " y ", int *" row  ", int *" col)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIx, y\fR Specify the window coordinates of the mouse pointer.
+.sp
+\fIrow,col\fR  Specify the returns for the row and column index.
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetFindCursorCell\fR finds the cell under the
+specified window coordinates. If found, it
+returns 1 and set the row and column indices. Otherwise,
+it returns 0.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetGetActiveCell(3),  EZ_SSheetSetTabChar(3)
+.br
+
+
+

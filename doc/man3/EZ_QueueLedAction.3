@@ -1,0 +1,62 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_QueueLedAction 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_QueueLedAction, EZ_RemoveLedAction \- queue/remove an action for an LED widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int  EZ_QueueLedAction(EZ_Widget *" led ", int " type ", int " delay,
+.BI "                      int " count ", char *" message ", char *" color)
+.sp
+.BI "void  EZ_RemoveLedAction(EZ_Widget *" led ", int " id )
+.sp
+.SH ARGUMENTS
+\fIled\fR  Specifies a LED widget.
+.sp
+\fItype\fR  Specifies a symbolic LED action name. Must be one of
+EZ_LED_SCROLL_LEFT, EZ_LED_SCROLL_RIGHT, EZ_LED_SCROLL_UP,
+EZ_LED_SCROLL_DOWN, EZ_LED_SCROLL_CENTER, EZ_LED_SCROLL_CENTER_V,
+EZ_LED_SWEEP_LEFT, EZ_LED_SWEEP_RIGHT, EZ_LED_SWEEP_UP,
+EZ_LED_SWEEP_DOWN, EZ_LED_SWEEP_CENTER, EZ_LED_SWEEP_CENTER_V,
+EZ_LED_BOUNCE, EZ_LED_BOUNCE_V, EZ_LED_SHOW, EZ_LED_BLINK and
+EZ_LED_SLEEP.
+.sp
+\fIdelay\fR Specifies the time delay (in micro seconds) between two 
+consecutive frames for this action. It is used to control the speed
+of scrolling.
+.sp
+\fIcount\fR Specifies the number of times this action is going to
+be completed.
+.sp
+\fImessage\fR Specifies the message to be displayed. If NULL, the
+most recent message will be displayed.
+.sp
+\fIcolor\fR Specifies the color to be used along with the specified
+action.
+.sp
+\fIid\fR Specifies the identifier of a queued led action. 
+
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_QueueLedAction\fR queues an action for an LED widget.  The action
+will be executed at a later time. If multiple actions are queued
+to an LED widget, they will be executed sequentially (FIFO). 
+.sp
+On success, this function returns a unique positive integer that identifies the
+action. It returns -1 on failure.
+.PP
+\fBEZ_RemoveLedAction\fR removes an queued action for the specified
+LED widget. 
+
+
+.SH "SEE ALSO"
+EZ_LedIsFree(3), EZ_SetLedBackground(3), EZ_SetLedOffPixelColor(3),
+EZ_SetLedFont(3), EZ_SetLedWidth(3), EZ_SetLedPixelSize(3), 
+EZ_SetLedString(3), EZ_SetLedColorFunction(3)
+

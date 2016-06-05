@@ -1,0 +1,58 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetIntData 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetWidgetIntData, EZ_SetWidgetPtrData, EZ_SetWidgetClientData,
+EZ_GetWidgetIntData, EZ_GetWidgetPtrData, EZ_GetWidgetClientData
+ \- set/retrieve client data registered to a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void *EZ_SetWidgetIntData( EZ_Widget" *widget ", int " idata )
+.BI "void *EZ_SetWidgetPtrData( EZ_Widget" *widget ", void " *pdata )
+.BI "void *EZ_SetWidgetClientData( EZ_Widget" *widget,
+.BI "        int " idata ", void " *pdata )
+
+.BI "int   EZ_GetWidgetIntData( EZ_Widget" *widget )
+.BI "void *EZ_GetWidgetPtrData( EZ_Widget" *widget )
+.BI "void *EZ_GetWidgetClientData( EZ_Widget" *widget,
+.BI "       int *" i_ret ", void **" p_ret )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+\fIidata\fR  Specifies an integer.
+.sp
+\fIpdata\fR  Specifies a generic pointer.
+.sp
+\fIi_ret\fR Specifies a return for the integer client data.
+.sp
+\fIp_ret\fR Specifies a return for the pointer client data.
+
+.SH DESCRIPTION
+.PP
+The EZ_Widget data structure provides two fields for application
+to hook in application data to a widget. One is of type 
+\fBint\fR and the other is of type \fBvoid *\fR.
+.PP
+\fBEZ_SetWidgetIntData\fR stores an integer in a widget.
+.PP
+\fBEZ_SetWidgetPtrData\fR stores a pointer in a widget.
+.PP
+\fBEZ_SetWidgetClientData\fR stores both the integer and the pointer
+client data.
+\fBEZ_GetWidgetIntData\fR returns the integer stored in a
+widget.
+.PP
+\fBEZ_GetWidgetPtrData\fR returns the pointer stored in a
+widget.
+.PP
+\fBEZ_GetWidgetClientData\fR returns both the integer and the pointer
+client data.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_AddEventHandler(3), EZ_AddWidgetCallBack(3)

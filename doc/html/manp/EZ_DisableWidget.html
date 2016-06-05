@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_DisableWidget</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_DisableWidget</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_DisableWidget,  EZ_EnableWidget - suspend a widget from
+       processing events
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  Specifies an EZ Widget.
+
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font>   suspends  a  widget   from   processing
+       events. For button type widgets, disabled widgets are dis-
+       played with a different face. A disabled widget still pro-
+       cesses the Expose event.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font>   resume  a suspended widget to its normal
+       state.
+
+
+<H2>SEE ALSO</H2>
+        <A HREF="EZ_FreezeWidget.html">EZ_FreezeWidget</A>(3), <A HREF="EZ_ActivateWidget.html">EZ_ActivateWidget</A>(3),  <A HREF="EZ_DisableWidgetTree.html">EZ_DisableWidgetTree</A>(3)
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

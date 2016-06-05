@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetExecutorCommand 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetExecutorCommand \- set the shell command for an executor
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetExecutorCommand( EZ_Widget *" executor ", char *" cmd ", char *" args )
+
+.SH ARGUMENTS
+\fIexecutor\fR  Specifies an executor widget.
+.sp
+\fIcmd\fR Specifies command name.
+.sp
+\fIargs\fR Specifies the command arguments to be passed to \fIcmd\fR.
+
+.SH DESCRIPTION
+An executor widget executes other EZWGL applications and embededs the
+toplevel windows to its widget window. 
+.PP
+\fBEZ_SetExecutorCommand\fR sets the shell command to be executed by
+the executor. If executor is visible and is currently executing other
+commands,  this procedure terminates the running commands and starts
+the specified one.
+
+
+

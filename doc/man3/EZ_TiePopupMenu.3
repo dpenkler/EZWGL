@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TiePopupMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TiePopupMenu \- time a popup menu with a mouse button
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_TiePopupMenu( EZ_Widget *" menu,
+.BI "    int " buttonN ", int " postposition )
+
+.SH ARGUMENTS
+\fImenu\fR  Specifies a popup menu.
+.sp
+\fIbuttonN\fR Specifies a mouse button. Must be one of
+Button1, Button2 and Button3.
+.sp
+\fIpostPosition\fR Specifies the position relative to
+the pointer to post the menu. Must be one of
+EZ_RIGHT, EZ_LEFT, EZ_BOTTOM, EZ_TOP, EZ_TOP_LEFT, EZ_BOTTOM_LEFT,
+EZ_TOP_LEFT, EZ_TOP_RIGHT and EZ_BOTTOM_RIGHT. 
+
+.SH DESCRIPTION
+\fBEZ_TiePopupMenu\fR ties a popup menu with a mouse button. The
+specified menu will be posted whenever the specified moust button
+is pressed.
+
+.SH "SEE ALSO"
+EZ_DoPopup(3)
+
+

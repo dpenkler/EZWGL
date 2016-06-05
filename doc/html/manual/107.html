@@ -1,0 +1,326 @@
+<html>
+<head>
+<title>EZwgl (12.4  Setting the Display Mode)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="106.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="108.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.4  Setting the Display Mode</h2>
+
+<p>
+Most of the graphics state attributes can be set via
+the command <code><font color="#990000"><b>EZ_Enable</b></font></code> (see next section). However, there
+are two important attributes that must be set via 
+separate function calls.
+These two attributes are <em>ColorMode</em> and <em>BackBufferType</em>.
+<p><h3> 12.4.1  Choosing a Color Mode </h3 <br>
+<p><p>
+The <i>EZ</i> graphics library supports both RGB mode and Colormap
+(index) mode. The color mode is binded to 3DCanvases, i.e.,
+each 3DCanvas may choose either of the two color modes. But
+realistically, the two color modes cannot be used
+simultaneously on PseudoColor displays
+since <i>EZwgl</i> uses a single physical colormap.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_RGBMode</b></font>(void);</code>
+<p>This function sets the display mode to RGB mode. On 8bit
+displays, <i>EZwgl</i> uses dithering to simulate a 24 bit RGB Mode.
+<p>In RGB mode, colors are referenced directly from their
+RGB intensities.  There are two pairs of functions for
+setting the current color in RGB mode.
+<p><p><p><p>
+<code>void <font color="#990000"><b>EZ_Color3f</b></font>(float r, float g, float b)</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Color3fv</b></font>(float rgb[3])</code>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_Color3i</b></font>(int r, int g, int b)</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Color3iv</b></font>(int rgb[3])</code>
+<p><p>
+All these routines set the current RGB color. In the `<code>f</code>'
+version,  RGB intensities are in the range [0.0, 1.0] while
+in the `<code>i</code>' version, intensities are in the range
+[0, 255].
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_ColorMapMode</b></font>(void)</code>
+<p>This function sets the display mode to index mode. Care
+must be taken in index mode since we only have a very
+limited number (less than 256) of colors.
+<p>In ColorMap mode, colors are refered through a lookup table
+(internal color map). Entries of this table can be set/modified
+by calling the function
+<p><strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> <i>EZwgl</i> keeps a global shared colormap of size 256. This colormap
+is shared by all widgets. On PseudoColor/GrayScale
+displays, it is not even guaranteed that one can allocate all 256 colors.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_MapColor</b></font>(int idx, int r, int g, int b);</code>
+<p><p>
+To set the current color in ColorMap mode, use
+<p><p>
+<code>void <font color="#990000"><b>EZ_Index</b></font>(int idx);</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Indexf</b></font>(float fidx)</code>
+<p><h3> 12.4.2  Choosing a Back Buffer </h3 <br>
+<p>
+Be default, the library is in single buffer mode. Whatever
+you draw is displayed immediately on the screen. If you 
+want to do some animations, single buffer will not be
+adequate because you'll see the screen clear as well as
+all the drawing. During animation, you'll see a visible
+flickering.  For such situation, it is preferable to
+draw a frame in a hidden back buffer and copy the 
+completed buffer to the display 
+(the front buffer) when done.
+<p>Buffering is controled by three items: A back buffer,
+an attribute to signal which buffer to draw into, and
+a command to copy the back buffer to the front buffer.
+<p>The following routines select a back buffer.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SetBackBuffer</b></font>(int type);</code>
+<p>This function chooses a back buffer for the current graphics context. 
+<i>EZwgl</i> supports two types of back buffers, an <code><font color="#990000"><b>EZ_PIXMAP</b></font></code> 
+back buffer and an <code><font color="#990000"><b>EZ_XIMAGE</b></font></code>
+back buffer. The latter is usually faster on localhost. On a remote host, 
+however, the former is usually faster since it needs less data
+transfer via the network. 
+<p><strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> The <code><font color="#990000"><b>EZ_XIMAGE</b></font></code> backbuffer does not support the standard
+X11 bitmap fonts and logical pixle operations. 
+The default back buffer is <code><font color="#990000"><b>EZ_PIXMAP</b></font></code>.
+<p><p>
+<i>EZwgl</i> also provides a function to select the back buffer
+automatically.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_AutoSelectBackBuffer</b></font>(void);</code>
+<p>This function selects a back buffer based on the environment
+variable <code><font color="#990000"><b>EZ_BACK_BUFFER</b></font></code>, which can be either <code>pixmap</code>
+or <code>ximage</code>. If this environment variable is not set, then
+it makes a selection based on the following creterion: if 
+the server supports shared memory extension and it is usable,
+then it selects the <code><font color="#990000"><b>EZ_XIMAGE</b></font></code> back buffer; otherwise,
+it selects the <code><font color="#990000"><b>EZ_PIXMAP</b></font></code> back buffer.
+<p><p>
+To signal which buffer to draw, use
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_DrawBuffer</b></font>(int buf);</code>
+<p>Use the next function to copy the contents of a back buffer to the
+front.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SwapBuffers</b></font>(void);</code>
+<p><h3> 12.4.3  Choosing a Shading Model </h3 <br>
+<p>
+By default, the graphics library uses a flat shading model
+for coloring geometric objects, i.e., all vertices are assigned
+the same color.  A primitive can also be smooth (Gouraud) shaded.
+In this model, all vertices are treated individually. The library
+uses linear interpolation to color the primitive.  Shading model 
+is controled by 
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_ShadeModel</b></font>(ind mode);</code>
+<p>This function selects one of the two 
+shading modes: <code><font color="#990000"><b>EZ_SMOOTH</b></font></code> or <code><font color="#990000"><b>EZ_FLAT</b></font></code>.
+<p><h3> 12.4.4  Clear Color </h3 <br>
+<p><p>
+For each 3DCanvas, there is a clear color. It is used
+by <code><font color="#990000"><b>EZ_Clear</b></font></code> to reset the draw buffer. The next
+two commands set the clear color.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_ClearColorf</b></font>(float r, float g, float b);</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_ClearIndex</b></font>(ind idx)</code>
+<p><p><p>
+The next command clears the specified buffers. 
+<p>
+<code>void <font color="#990000"><b>EZ_Clear</b></font>(ind mode)</code>
+<p>Valid modes are <code><font color="#990000"><b>EZ_COLOR_BUFFER_BIT</b></font></code> or <code><font color="#990000"><b>EZ_DEPTH_BUFFER_BIT</b></font></code> or
+the two or'ed together.
+<p><h3> 12.4.5  Example G2, The Sine Curve </h3 <br>
+<p>
+This short example demonstrates the use of double buffers.
+We create a 3DCanvas and draw a sine curve into it continuously.
+At each draw we shift the phase a little bit, creating the
+illusion of a moving wave.
+<p>We use a check button to turn the double buffer  on/off.
+In double buffer mode, the animation looks smooth, while in
+single buffer mode, the curve flickers too much.
+<p>We also provide a slider to adjust the speed of the animation.
+<p><font size=-1>
+<pre>
+/*************** Example G2 ******************************************/
+#include "EZ.h"
+
+static void eventHandler(<font color="#990000"><b>EZ_Widget</b></font> *, void *, int, XEvent *);
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *);
+static void sliderCallBack(<font color="#990000"><b>EZ_Widget</b></font> *, void *);
+static void cbtnCallBack(<font color="#990000"><b>EZ_Widget</b></font> *, void *);
+static float speed = 0.1;
+static int  bufferMode = 1;
+
+main(int argc, char **argv)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *canvas, *slider, *cbtn;
+  /* 
+   * Initialize EZWGL, don't forget to 
+   * initialize the graphics library also.
+   */
+  <font color="#990000"><b>EZ_Initialize</b></font>(argc, argv, 1);      /* notice the 1        */
+  /*
+   * canvases do not resize propertly as toplevel
+   * widgets (bug!) It is recommended to put it
+   * under a frame at least for now.
+   */
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>, NULL, 
+                         <font color="#990000"><b>EZ_FILL_MODE</b></font>, <font color="#990000"><b>EZ_FILL_BOTH</b></font>,
+                         0);
+  canvas = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_3D_CANVAS</b></font>, frame,
+                           <font color="#990000"><b>EZ_ORIENTATION</b></font>,   <font color="#990000"><b>EZ_VERTICAL_BOTTOM</b></font>,
+                           <font color="#990000"><b>EZ_WIDTH_HINT</b></font>,    320, 
+                           <font color="#990000"><b>EZ_HEIGHT_HINT</b></font>,   320,
+                           <font color="#990000"><b>EZ_EVENT_HANDLER</b></font>, eventHandler, NULL,
+                           0);
+  slider = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_VERTICAL_SLIDER</b></font>, frame,
+                           <font color="#990000"><b>EZ_LABEL_STRING</b></font>,      "speed",
+                           <font color="#990000"><b>EZ_SLIDER_RANGE</b></font>,      0.0, 10.0, 
+                           <font color="#990000"><b>EZ_SLIDER_INIT_VALUE</b></font>, 1.0,
+                           <font color="#990000"><b>EZ_CALLBACK</b></font>,          sliderCallBack, &speed,
+                           0);
+
+  /* create a button to toggle double buffer on/off */
+  cbtn = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_CHECK_BUTTON</b></font>, canvas,
+                         <font color="#990000"><b>EZ_LABEL_STRING</b></font>,        "Turn DoubleBuffer On/Off", 
+                         <font color="#990000"><b>EZ_CHECK_BUTTON_ON_VALUE</b></font>,  0,
+                         <font color="#990000"><b>EZ_CHECK_BUTTON_OFF_VALUE</b></font>, 1,
+                         <font color="#990000"><b>EZ_CHECK_BUTTON_ON_OFF</b></font>,    <font color="#990000"><b>EZ_ON</b></font>,    
+                         <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>,           2,
+                         <font color="#990000"><b>EZ_BORDER_TYPE</b></font>,            <font color="#990000"><b>EZ_BORDER_RAISED</b></font>,
+                         <font color="#990000"><b>EZ_CALLBACK</b></font>,               cbtnCallBack, NULL,
+                         0);
+  /*
+   * now display the canvas. One must first display
+   * a 3DCanvas before calling any GL functions !!!
+   */
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(canvas);         
+
+  /* now setup global GL attributes */
+  <font color="#990000"><b>EZ_RGBMode</b></font>();                 /* we are using RGB mode  */
+  <font color="#990000"><b>EZ_AutoSelectBackBuffer</b></font>();    /* select a back buffer   */
+  <font color="#990000"><b>EZ_DrawBuffer</b></font>(<font color="#990000"><b>EZ_BACK</b></font>);/* always draw into the back buf */
+
+  /*
+   * We'll draw a 2D polygon, so we don't have to setup
+   * a complex projection matrix. The default matrix mode
+   * is <font color="#990000"><b>EZ_MODELVIEW</b></font>. We just set the projection matrix
+   * on this default matrix stack.
+   */
+  <font color="#990000"><b>EZ_LoadIdentity</b></font>();            /* clear the top mtx 2 id */     
+  <font color="#990000"><b>EZ_Ortho2</b></font>(0.0,10.0,-1.3,1.3); /* project the unit cube  */
+
+  /*
+   * We don't draw anything here, let the
+   * event handler handle the drawing 
+   */
+  while(1)
+    {
+      <font color="#990000"><b>EZ_ServiceEvents</b></font>();
+      <font color="#990000"><b>EZ_DrawBuffer</b></font>(bufferMode == 0? <font color="#990000"><b>EZ_FRONT</b></font>: <font color="#990000"><b>EZ_BACK</b></font>);
+      draw(canvas);
+      if(bufferMode != 0) <font color="#990000"><b>EZ_SwapBuffers</b></font>();
+    }
+}
+
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *canvas)
+{
+  static float shift = 0.0;
+  float  t, x, y;
+  int    i;
+
+  <font color="#990000"><b>EZ_Clear</b></font>(<font color="#990000"><b>EZ_COLOR_BUFFER_BIT</b></font>); /* clear the frame buffer */
+  <font color="#990000"><b>EZ_Color3f</b></font>(1.0,1.0,0.0);
+
+  <font color="#990000"><b>EZ_Begin</b></font>(<font color="#990000"><b>EZ_LINE_STRIP</b></font>);       /* start a polyline       */
+
+  t = shift; 
+  shift += speed;
+  x = 0.0;
+
+  for(i = 0; i < 1000; i++)
+    {
+      y = sin(t+x);
+      x += 0.01;
+      
+      <font color="#990000"><b>EZ_Vertex2f</b></font>(x, y);
+    }
+  <font color="#990000"><b>EZ_End</b></font>();
+}
+/* 
+ * the event handler. It should handle at least the
+ * <font color="#990000"><b>EZ_REDRAW</b></font> event and the <font color="#990000"><b>EZ_RESIZE</b></font>.
+ */
+static void eventHandler(<font color="#990000"><b>EZ_Widget</b></font> *canvas, void *data,
+                         int eventType, XEvent *xevent)
+{
+  switch(eventType) 
+    {
+    case <font color="#990000"><b>EZ_REDRAW</b></font>:
+    case <font color="#990000"><b>EZ_RESIZE</b></font>:
+      draw(canvas);
+      if(bufferMode != 0) <font color="#990000"><b>EZ_SwapBuffers</b></font>();
+      break;
+    case <font color="#990000"><b>EZ_KEY_PRESS</b></font>:
+      if(<font color="#990000"><b>EZ_PressedKey</b></font> == <font color="#990000"><b>EZ_ESCAPE_KEY</b></font>) exit(0);
+      break;
+    default:
+      break;
+    }
+}
+
+static void sliderCallBack(<font color="#990000"><b>EZ_Widget</b></font> *slider, void *data)
+{
+  float *f = (float *)data;
+  *f = 0.05 * <font color="#990000"><b>EZ_GetSliderValue</b></font>(slider);
+}
+
+static void cbtnCallBack(<font color="#990000"><b>EZ_Widget</b></font> *cbtn, void *data)
+{
+  <font color="#990000"><b>EZ_GetCheckButtonState</b></font>(cbtn, &bufferMode);
+}
+/*************** Example G2 ******************************************/  
+
+</pre>
+<p>
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="106.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="108.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

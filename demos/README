@@ -1,0 +1,21 @@
+
+This directory contain a few EZWGL demos.
+
+REdit     --- Resource Editor
+
+DnD       --- Drag and drop demos.
+
+GL        --- GL demos.
+
+Message   --- Messages.
+
+animate.c --- animation button
+btnbox.c  --- button box
+
+counter.c --- counter widget (example of composite widget)
+locator.c --- locator (example of primitive widget)
+
+puzzle.c  --- the 15 puzzle.
+clock.c   --- digital clock (lcd widget)
+hanoi.c   --- hanoi tower (workArea widget)
+meter.c   --- status meter (statusMeter widget)

@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MapColor 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MapColor \- change a color map entry
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_MapColor(int "idx ", int "r ", int "g ",int "b )
+
+.SH ARGUMENTS
+\fIidx\fR Specifies a color index into the color map.
+.sp
+\fIr,g,b\fR Specifies the RGB intensities of the color associated with
+the entry.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_MapColor\fR  modifies the \fIidx\fRth entry of the color map.
+
+.SH "SEE ALSO"
+EZ_ColorMapMode(3), EZ_Index(3)
+.br
+
+

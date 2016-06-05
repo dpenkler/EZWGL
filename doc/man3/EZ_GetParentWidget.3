@@ -1,0 +1,44 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetParentWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetParentWidget, EZ_GetChildrenWidget, EZ_GetSiblingWidget
+ \- return neighboring widgets in the widget hierarchy
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget *EZ_GetParentWidget( EZ_Widget" *widget )
+.BI "EZ_Widget *EZ_GetChildrenWidget( EZ_Widget" *widget )
+.BI "EZ_Widget *EZ_GetSiblingWidget( EZ_Widget" *widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+
+.SH DESCRIPTION
+.PP
+Widgets in EZWGL are organized in linear trees. A widget
+has two links, the children link and the sibling link.
+Direct children of parent are linked in the sibling branch.
+.nf
+
++-------+
+| parent|
++-------+
+   |
+   v
++-------+     +-------+    +------------------+    
+|       | --> | child | -->| sibling-of-child | --> ...
++-------+     +-------+    +------------------+    
+   |             |                 |
+   v             v                 v
+  ...           ...               ...
+.fi
+.PP
+These functions returns the neighboring widgets in a widget hierarchy.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_RemoveWidget(3), EZ_DestroyWidget(3)

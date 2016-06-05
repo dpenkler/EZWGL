@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_QueueLedAction</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_QueueLedAction</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_QueueLedAction,  EZ_RemoveLedAction  -  queue/remove an
+       action for an LED widget
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>Q</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>,</i></font>
+                             <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>)</i></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>d</i></font>  Specifies a LED widget.
+
+       <font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font>  Specifies a symbolic LED action name. Must be one of
+       EZ_LED_SCROLL_LEFT, EZ_LED_SCROLL_RIGHT, EZ_LED_SCROLL_UP,
+       EZ_LED_SCROLL_DOWN,                  EZ_LED_SCROLL_CENTER,
+       EZ_LED_SCROLL_CENTER_V,                 EZ_LED_SWEEP_LEFT,
+       EZ_LED_SWEEP_RIGHT,  EZ_LED_SWEEP_UP,   EZ_LED_SWEEP_DOWN,
+       EZ_LED_SWEEP_CENTER, EZ_LED_SWEEP_CENTER_V, EZ_LED_BOUNCE,
+       EZ_LED_BOUNCE_V,     EZ_LED_SHOW,     EZ_LED_BLINK     and
+       EZ_LED_SLEEP.
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>y</i></font>  Specifies the time delay (in micro seconds) between
+       two consecutive frames for this action. It is used to con-
+       trol the speed of scrolling.
+
+       <font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font>  Specifies  the number of times this action is going
+       to be completed.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font> Specifies the message to be  displayed.  If  NULL,
+       the most recent message will be displayed.
+
+       <font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font> Specifies the color to be used along with the speci-
+       fied action.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font> Specifies the identifier of a queued led action.
+
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>Q</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font> queues an action for an LED widget.  The
+       action  will  be  executed  at  a  later time. If multiple
+       actions are queued to an LED widget, they will be executed
+       sequentially (FIFO).
+
+       On  success, this function returns a unique positive inte-
+       ger that identifies the action. It returns -1 on  failure.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font> removes an queued action for the speci-
+       fied LED widget.
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_LedIsFree.html">EZ_LedIsFree</A>(3), <A HREF="EZ_SetLedBackground.html">EZ_SetLedBackground</A>(3),  <A HREF="EZ_SetLedOffPixelColor.html">EZ_SetLedOffPixelColor</A>(3)
+       ,      <A HREF="EZ_SetLedFont.html">EZ_SetLedFont</A>(3),      <A HREF="EZ_SetLedWidth.html">EZ_SetLedWidth</A>(3),
+       <A HREF="EZ_SetLedPixelSize.html">EZ_SetLedPixelSize</A>(3), <A HREF="EZ_SetLedString.html">EZ_SetLedString</A>(3), <A HREF="EZ_SetLedColorFunction.html">EZ_SetLedColorFunction</A>(3)
+       
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

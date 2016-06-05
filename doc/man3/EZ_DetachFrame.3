@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DetachFrame 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DetachFrame, EZ_DockFrame, EZ_FrameIsDetached \- detach and dock frames
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_DetachFrame( EZ_Widget *" frame ", int " xoff ", int " yoff )
+.BI "int EZ_DockFrame( EZ_Widget *" frame ", int " mode )
+.BI "int EZ_FrameIsDetached(EZ_Widget *"frame)
+
+.SH ARGUMENTS
+\fIframe\fR  Specifies a frame widget or a menubar widget.
+.sp
+\fIxoff,yoff\fR  Specify an offset.
+.sp
+\fImode\fR  Specifies a docking mode, 0 or 1.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DetachFrame\fR  detaches a frame or menubar widget from its parent.
+The detached widget window will be moved away from its current location by
+the specified offset. A detached widget behaves like a toplevel widget.
+It's widget window is invisible by your window manager.  However, one 
+can move/scale the detached window by draging the drag handle/corner.
+This function returns 1 on success and 0 on failure.
+.PP
+\fBEZ_DockFrame\fR does the opposite of \fBEZ_DetachFrame\fR, it tries to
+dock a detached frame.  If \fImode\fR is 0, frame will be docked only if
+it is close to its old location. If  \fImode\fR is nonzero, the frame will
+be docked.
+.pp
+\fBEZ_FrameIsDetached\fR returns True if the specified frame is currently
+detached.
+
+
+.SH "SEE ALSO"
+EZ_OnFrameDragHandle(3)
+.br
+
+

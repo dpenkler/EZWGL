@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME 
+EZ_DoScroll \- move a scrollbar
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_DoScroll( EZ_Widget *" scrollbar ", int " offset ", int " absolute )
+
+
+.SH ARGUMENTS
+\fIscrollbar\fR specifies a scrollbar widget.
+.sp
+\fIoffset\fR specifies an offset.
+.sp
+\fIabsolute\fR specifies how to interpret offset.
+.SH DESCRIPTION
+.PP
+A scrollbar uses three state variables to scroll an object: total_size, page_size
+and start_position (e.g. number of lines, number of lines in one page and the
+index of the first line currently displayed).  
+.sp
+\fBEZ_DoScroll\fR  scrolls the object which scrollbar controls by the specified
+\fIoffset\fR.   If \fIabsoulte\fR is True, \fIoffset\fR is treated as the absolute
+position, otherwise, it is interpreted as the offset from the start_position.
+
+
+.SH "SEE ALSO"
+EZ_UpdateScrollbar(3)
+.br
+
+
+

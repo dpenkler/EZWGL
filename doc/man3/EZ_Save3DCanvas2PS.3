@@ -1,0 +1,41 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Save3DCanvas2PS 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Save3DCanvas2PS \- dump a 3D canvas to a PS file
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Save3DCanvas2PS( EZ_Widget *" canvas ", char *" fname )
+.BI "void EZ_Save3DCanvas2PSA( EZ_Widget *" canvas ", int "mode,
+.BI "                          int " dpi ", float " scale ", char *" fname));
+.SH ARGUMENTS
+\fIcanvas\fR  Specifies a 3D canvas widget.
+.sp
+\fIfname\fR  Specifies a file name.
+.sp
+\fImode\fR Specifies a PS mode, either EZ_PORTRAIT or EZ_LANDSCAPE.
+.sp
+\fIdpi\fR Specifies a resolution. 
+.sp
+\fIscale\fR Specifies a scaling factor.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_Save3DCanvas2PSA\fR reads the contents of visible portion
+of a 3D canvas to an X image and converts the X image to postscript
+using the specified parameters.
+.PP
+\fBEZ_Save3DCanvas2PS\fR is equivalent to
+.br
+\fBEZ_Save3DCanvas2PSA\fR(\fIcanvas\fR, \fIEZ_PORTRAIT\fR, \fI300\fR,
+\fI1.0\fR, \fIfname\fR)
+
+.SH "SEE ALSO"
+EZ_Save3DCanvas2PPMImage(3)
+
+

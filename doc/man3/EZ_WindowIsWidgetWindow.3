@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WindowIsWidgetWindow 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WindowIsWidgetWindow \- test whether a given window belongs to
+an EZ widget.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget *EZ_WindowIsWidgetWindow(Window *" window )
+
+.SH ARGUMENTS
+\fIwindow\fR  Specifies an window identifier.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WindowIsWidgetWindow\fR test if \fIwindow\fR is the
+widget window of an EZ widget. It returns the corresponding
+widget if yes and returns NULL otherwise.
+
+.SH "SEE ALSO"
+EZ_WidgetExist(3)
+.br
+
+
+

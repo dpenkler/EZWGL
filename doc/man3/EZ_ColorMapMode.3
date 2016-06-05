@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ColorMapMode 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ColorMapMode, EZ_RGBMode \- set the color mode
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_ColorMapMode(" void )
+.BI "void  EZ_RGBMode(" void )
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ColorMapMode\fR  sets the color mode to index mode. In index
+mode, colors are referenced through a lookup table.
+.PP
+\fBEZ_RGBMode\fR  sets the color mode to RGB mode. In RGB mode, colors
+are referenced directly through their RGB components.
+
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_Index(3)
+.br
+
+

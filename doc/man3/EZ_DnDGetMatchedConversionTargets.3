@@ -1,0 +1,45 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DnDGetMatchedConversionTargets 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DnDGetMatchedConversionTargets  \- return the lists of targets the
+both the drag-source and the drop-site convert
+
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_DnDGetMatchedConversionTargets(Atom **" targets_ret ", int **" ntargets_return 
+.BI "                                     int   *" modifier_return )
+
+.SH ARGUMENTS
+\fItargets_return\fR returns the array of targets.
+.sp
+\fIntargets_return\fR  returns the number of entries in \fItarget_return\fR.
+.sp
+\fImodfier_return\fR  returns the modifier masks for the current DnD session.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DnDGetMatchedConversionTargets\fR  returns the list of targets the
+both the drag-source and the drop-site convert.  The list of matched
+targets is available only after a drag is droped at a valid drop site.
+.PP
+If DnD is not currently active, the returned values are random. 
+.PP
+This procedure is intended for to be used by 
+Drag-Start-Filters and Drop-Start-Filters to select best conversion 
+targets.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_GetDnDDropLocation(3), EZ_DnDGetDragConversionTargets(3)
+.br
+
+
+

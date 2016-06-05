@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>EZwgl (10.1  Widget Item)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="95.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>10.1  Widget Item</h2>
+
+<p>
+Widget items are fully functional widgets. 
+They are very different from other
+items. For a label item or a fig item, interactions
+between the user and the item 
+are handled by the middle man, its host widget. For
+a widget item, however, user interactions are directly
+handled by the relevent widget.  For this reason, 
+callbacks registered to a widget item will probably 
+never get called.
+<p><h3> 10.1.1  Resources </h3 <br>
+<p>
+Widget item support the following resources.
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_X</b></font></code>        <td width=140> <code>x</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_Y</b></font></code>        <td width=140> <code>y</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LOCATION</b></font></code> <td width=140> <code>location</code>  <td width=140> <code>int_x int_y</code></tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_WIDTH</b></font></code>   <td width=140> <code>width</code>    <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HEIGHT</b></font></code>  <td width=140> <code>height</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SIZE</b></font></code>    <td width=140> <code>size</code>     <td width=140>  <code>int_w int_h</code></tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_GEOMETRY</b></font></code>  <td width=140> <code>geometry</code>   <td width=140>  <code>int_x int_y int_w int_h</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><p>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_PADX</b></font></code>   <td width=140> <code>padx</code>    <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_PADY</b></font></code>  <td width=140> <code>pady</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_TYPE</b></font></code>   <td width=140> <code>borderType</code>    <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></code>  <td width=140> <code>borderWidth</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BACKGROUND</b></font></code>   <td width=140> <code>background</code>  <td width=140>  <code>string</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><h3> 10.1.2  Interface Functions </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetWidgetItemWidget</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, <font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ set the widget of a widget item.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Widget</b></font>  *<font color="#990000"><b>EZ_GetWidgetItemWidget</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the widget of a widget item.
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="95.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

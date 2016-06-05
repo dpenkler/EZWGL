@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFileSelectorWidgetComponents  3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFileSelectorWidgetComponents  \- retrieve the components of a
+file selector
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetFileSelectorWidgetComponents( EZ_Widget *" fselector
+.BI "       EZ_Widget **" pentry_ret ", EZ_Widget **" sentry_ret,
+.BI "       EZ_Widget **" dlistbox_ret ", EZ_Widget **" flistbox_ret,
+.BI "       EZ_Widget **" ok_btn_ret ", EZ_Widget **" filter_btn_ret,
+.BI "       EZ_Widget **" cancel_btn_ret )
+
+.SH ARGUMENTS
+\fIfselector\fR  Specifies a file selector.
+.sp
+\fIpentry_ret\fR  Specifies the return for the pattern entry.
+.sp
+\fIsentry_ret\fR  Specifies the return for the selection entry.
+.sp
+\fIdlistbox_ret\fR  Specifies the return for the directory listbox.
+.sp
+\fIflistbox_ret\fR  Specifies the return for the file listbox.
+.sp
+\fIok_btn_ret\fR  Specifies the return for the ok button.
+.sp
+\fIfilter_btn_ret\fR  Specifies the return for the filter button.
+.sp
+\fIcancel_btn_ret\fR  Specifies the return for the cancel button.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFileSelectorWidgetComponents\fR  returns the
+components of a file selector.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxWidgetComponents(3), EZ_GetOptionalEntryWidgetComponents(3)
+EZ_GetListBoxWidgetComponents(3), EZ_GetWorkAreaWidgetComponents(3),
+EZ_GetTextWidgetComponents(3), EZ_GetListTreeWidgetComponents(3)

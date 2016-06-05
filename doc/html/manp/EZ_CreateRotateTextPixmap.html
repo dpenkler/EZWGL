@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_CreateRotateTextPixmap</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_CreateRotateTextPixmap</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_CreateRotateTextPixmap - draw rotated text
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>f</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#440000"><b>,</b></font>
+                                       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>j</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>)</i></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>f</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#440000"><b>,</b></font>
+                                       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>j</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>u</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>)</i></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font>  Specifies a string
+
+       <font color="#004400"><i>f</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>d</i></font>   Specifies  a internal font id, must be the return
+       value of <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>L</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>X</i></font><font color="#004400"><i>F</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font>.
+
+       <font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font> Specifies the length of  one  line.  Long  text
+       will be broken into mutiple lines according to limit.
+
+       <font color="#004400"><i>j</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font>  Specifies text justfication. Must be one of
+       <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>L</i></font><font color="#004400"><i>E</i></font><font color="#004400"><i>F</i></font><font color="#004400"><i>T</i></font>, <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>R</i></font><font color="#004400"><i>I</i></font><font color="#004400"><i>G</i></font><font color="#004400"><i>H</i></font><font color="#004400"><i>T</i></font> or <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>E</i></font><font color="#004400"><i>N</i></font><font color="#004400"><i>T</i></font><font color="#004400"><i>E</i></font><font color="#004400"><i>R</i></font>.
+
+       <font color="#004400"><i>u</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font> Specifies the  index  of  the  character  to  be
+       underlined or -1.
+
+       <font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font> Specifies an angle in degrees.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font>  returns an internal pixmap dis-
+       playing a rotated text string. This is  the  only  way  in
+       EZWGL to render vertical text.
+
+
+<H2>SEE ALSO</H2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

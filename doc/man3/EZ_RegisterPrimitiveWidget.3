@@ -1,0 +1,41 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_RegisterPrimitiveWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_RegisterPrimitiveWidget \- register a primitive widget to EZWGL
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+
+.nf
+int   EZ_RegisterPrimitiveWidget(char *iname, char *cname,
+                    void  (*Setup)       (EZ_Widget *widget),
+		    void  (*ComputeSize) (EZ_Widget *widget, int *w, int *h),
+                    void  (*DrawWidget)  (EZ_Widget *widget),
+                    void  (*FreeData)    (EZ_Widget *widget),
+                    void  (*EventHandle) (EZ_Widget *widget, XEvent *event) )
+.fi
+
+.SH DESCRIPTION
+.PP
+This function registers a primitive widget to EZWGL and returns
+an integer type identifier.  Once registered, the widget
+can be instantiated by calling EZ_CreateWidget with the corresponding
+type.
+
+.SH "SEE ALSO"
+EZ_RegisterCompositeWidget(3)
+
+
+
+
+
+
+
+
+
+
+

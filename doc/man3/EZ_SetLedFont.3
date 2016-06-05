@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLedFont 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLedFont \- select a font for an LED widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLedFont(EZ_Widget *" led ", char *" font)
+.sp
+.SH ARGUMENTS
+\fIled\fR  Specifies a LED widget.
+.sp
+\fIfont\fR  Specifies a font name.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLedFont\fR chooses a font for an LED widget. The default
+font is the "9x16" fixed with font. 
+
+.SH "SEE ALSO"
+EZ_QueueLedAction(3), EZ_SetLedWidth(3), EZ_SetLedPixelSize(3), 
+EZ_SetLedString(3), EZ_SetLedColorFunction(3), EZ_SetLedOffPixelColor(3),
+

@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WidgetNotifyRuler 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WidgetNotifyRuler\- notify a ruler widget about the mouse pointer location
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WidgetNotifyRuler( EZ_Widget *"ruler ", int " x ", int " y ", EZ_Widget *" srcWidget)
+.BI "void EZ_XWindowNotifyRuler( EZ_Widget *"ruler ", int " x ", int " y ", EZ_Widget *" srcWindow)
+
+.SH ARGUMENTS
+\fIruler\fR  Specifies a ruler widget.
+.sp
+\fIsrcWidget\fR specifies a widget.
+.sp
+\fIsrcWindow\fR specifies an X window ID.
+.sp
+\fIx,y\fR specifies the pointer coordinates relative to the source window.
+
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WidgetNotifyRyler\fR notify a ruler about the location of the mouse
+pointer relative the window of srcWidget.
+.PP
+.PP
+\fBEZ_XWindowNotifyRyler\fR notify a ruler about the location of the mouse
+pointer relative srcWindow.
+.PP
+
+.SH "SEE ALSO"
+EZ_WidgetMarkRuler(3), EZ_GetRulerMarks(3)
+.br

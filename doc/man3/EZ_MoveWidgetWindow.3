@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MoveWidgetWindow 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MoveWidgetWindow, EZ_ResizeWidgetWindow,
+EZ_MoveResizeWidgetWindow \- change widget window geometry
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_MoveWidgetWindow( EZ_Widget *" widget ", int " x ", int " y )
+.BI "void  EZ_ResizeWidgetWindow( EZ_Widget *" widget ", int " w ", int " h )
+.BI "void  EZ_MoveResizeWidgetWindow( EZ_Widget *" widget ", int "x ", int " y ", int " w ", int " h )
+
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+\fIx, y\fR  Specifies the new window origin, coor is parent relative.
+.sp
+\fI w, h\fR Specifies the new width and height.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_MoveWidgetWindow\fR  moves the widget window to the specified
+new location. If successful, the widget remembers its new origin.
+Future scaling will have no effect on the location of the widget window, 
+unless the EZ_FORGET_LOCATION attribute is set afterwards.
+.PP
+\fBEZ_ResizeWidgetWindow\fR resize the widget window to the specified size.
+Unless the EZ_FORGET_SIZE attribute is set afterwards, the geometry
+manager remembers and honors the new size.
+.PP
+\fBEZ_MoreResizeWidgetWindow\fR  combines the previous
+two functions.
+
+
+.SH "SEE ALSO"
+EZ_SetWidgetPosition(3), EZ_GetWidgetGeometry(3)
+.br
+
+
+

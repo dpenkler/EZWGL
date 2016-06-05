@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetWorkAreaGeometryManager 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetWorkAreaGeometryManager \- set the geometry manager of a
+work-area widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetWorkAreaGeometryManager(EZ_Widget *" warea,
+.BI "     void (*" manager ")(void *" clientData,
+.BI "                         EZ_Item *" items ", int " nitems,
+.BI "                         int " Rx ", int " Ry ", int " Rw ", int " Rh,
+.BI "                         int " xspace ", int " yspace,
+.BI "                         int *" width_return ", int *" height_return ))
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work-area widget.
+.sp
+\fImanaget\fR Specifies a geometry manager.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetWorkAreaGeometryManager\fR replaces the current geometry
+manager of a work-area widget with the specified geometry manager.
+.PP
+
+
+.SH "SEE ALSO"
+EZ_GetItemDimesion(3), EZ_GetItemPosition(3)
+

@@ -1,0 +1,364 @@
+<html>
+<head>
+<title>EZwgl (12.7  Manipulating Matrices)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="109.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="111.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.7  Manipulating Matrices</h2>
+
+<p>There are two matrix stacks that transform and project geometric primitives 
+to the screen. One matrix stack is called the <code><font color="#990000"><b>EZ_MODELVIEW</b></font></code>. The
+top matrix on this stack is used to transform the current primitive to the eye
+coordinate space. The other stack is called <code><font color="#990000"><b>EZ_PROJECTION</b></font></code>. The
+top matrix on this stack is used to project the transformed geometric
+primitives to the normalized screen space.  
+<p><p>
+To set the current matrix mode, use
+<p><p>
+<code>void <font color="#990000"><b>EZ_MatrixMode</b></font>(int mode);</code>
+<p>Modes are: <code><font color="#990000"><b>EZ_MODELVIEW</b></font></code> or <code><font color="#990000"><b>EZ_PROJECTION</b></font></code>.
+<p><strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> The <i>EZ</i> graphics library uses <strong>row vectors</strong>. If the
+top matrix on the <code><font color="#990000"><b>EZ_MODELVIEW</b></font></code> stack is <img src="images/6.gif"> and the top
+matrix on the <code><font color="#990000"><b>EZ_PROJECTION</b></font></code> stack is <img src="images/7.gif">, then for any given
+vector <img src="images/8.gif">, the transformed coordinate in the eye
+coordinate space is <img src="images/9.gif">; and the
+projected coordinate in the homogeneous screen space (unclipped) is
+<img src="images/10.gif">.  This coordinate is then clipped and
+scaled to the current viewport.
+<p>There are a few more  commands for manipulating matrices. 
+<p><p>
+<code>void <font color="#990000"><b>EZ_LoadIdentity</b></font>(void)</code>
+<p>This function resets the top matrix of the currment matrix stack to
+Identity.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_LoadMatrix</b></font>(<font color="#990000"><b>EZ_Matrix</b></font> M)</code>
+<p>This function replace the top matrix of the current matrix stack by
+matrix <code>M</code>.
+<p><p><p><p>
+<code>void <font color="#990000"><b>EZ_MultMatrix</b></font>(<font color="#990000"><b>EZ_Matrix</b></font> M)</code>
+<p>This function left multiply the top matrix of the current matrix stack by
+matrix <img src="images/6.gif">. If the current top matrix is <img src="images/11.gif">, this function
+replaces <img src="images/11.gif"> with <img src="images/12.gif">.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_GetMatrix</b></font>(<font color="#990000"><b>EZ_Matrix</b></font> M)</code>
+<p>This function copies the top matrix of the current matrix stack to the
+given matrix <img src="images/6.gif">. 
+<p><p>
+<code>void <font color="#990000"><b>EZ_PushMatrix</b></font>(void)</code>
+<p>This function pushes down the current matrix stack, duplicating the
+top matrix. 
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_PopMatrix</b></font>(void)</code>
+<p>This function pops the current matrix stack.
+<p><strong>The following routines are normally used to modify the projection
+matrices.</strong>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_Ortho</b></font>(float l, float r, float b, float t,
+           float n, float f);
+</pre>
+<p>This function defines a box-shaped encloure in the eye coordinate
+system. <code>l, r,b,t,n,f</code> specifies the boundries of the box,
+they are the clipping planes. This function multiply the current
+matrix by
+<p>
+<center>
+<img src="images/13.gif">
+</center>
+<p>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Ortho2</b></font>(float left, float right, float bottom, float top)</code>
+<p>This routine sets up a 2D clipping rectangle. It is equivalent to 
+<code><font color="#990000"><b>EZ_Ortho</b></font></code> with parameter  <code>n = -1.0, f= 1.0</code>.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_Perspective</b></font>(float fov, float, asp, float n, float f)</code>
+<p>This routine defines a perspective viewing pyramid inside the eye 
+coordinate system. The vertical direction is the <img src="images/15.gif"> direction in
+the eye coordinate system. This function multiply the current matrix by
+<p>
+<center>
+<img src="images/14.gif">
+</center>
+<p>
+<p><p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_Frustum</b></font>(float l, float r, float b,
+                float t, float n, float f);
+</pre>	
+<p>This routine defines a perspective viewing pyramid inside the eye 
+coordinate system. The eye is at the origin. The lower-left and
+upper-right corners of the near clipping window are
+<img src="images/17.gif"> and <img src="images/18.gif">. The parameter <img src="images/19.gif"> specifies the
+distance from the eye to the far clipping plane. This
+function multiply the current matrix by
+<p>
+<center>
+<img src="images/16.gif">
+</center>
+<p>
+<p><p>
+<strong>The following command is normally used to define the
+eye coordinate system.</strong>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_LookAt</b></font>(float vx, float vy, float vz,
+                float px, float py, float pz,
+                float ux, float uy, float uz);
+</pre>
+<p>This routine defines a view point and a reference point on the
+line of sight, together with a view up vector which defines the
+direction of the y-axis of the eye coordinate system.
+This function multiply the current matrix by
+<p><strong>Trans(-vx,-vy,-vz)M </strong> where <img src="images/6.gif"> is a matrix described below.
+<p>Let <img src="images/23.gif">,  <img src="images/24.gif"> and define
+<p>
+<center>
+<img src="images/20.gif">
+</center>
+<p>
+<p>
+Then
+<p>
+<center>
+<img src="images/21.gif">
+</center>
+<p>
+<p>
+Equivalently, let 
+<font size=-1>  <img src="images/25.gif">,
+<img src="images/26.gif">,   
+<img src="images/27.gif">, 
+<img src="images/28.gif">,
+<img src="images/29.gif"> 
+</font>
+and
+<font size=-1>
+<img src="images/30.gif">. 
+</font>
+Then
+<p>
+<center>
+<img src="images/22.gif">
+</center>
+<p>
+<p><p>
+<strong>The next few routines are general purpose commands for
+manipulating matrices.</strong>
+<p><p>
+<code>void <font color="#990000"><b>EZ_Translate</b></font>(float x, float y, float z);</code>
+<p>
+This command multiply the current matrix by
+<p>
+<center>
+<img src="images/31.gif">
+</center>
+<p>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_Scale</b></font>(float x, float y, float z);</code>
+<p>This command multiply the current matrix by
+<p>
+<center>
+<img src="images/32.gif">
+</center>
+<p>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_Rotate</b></font>(float angle, float x, float y, float z);</code>
+<p>This command multiply the current matrix by
+<p>
+<center>
+<img src="images/33.gif">
+</center>
+<p>
+<p>
+where <img src="images/35.gif"> is the matrix
+<p>
+<center>
+<img src="images/34.gif">
+</center>
+<p>
+<p>
+where  <img src="images/36.gif">,
+ <img src="images/37.gif"> and  <img src="images/38.gif">.
+<p><p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GenerateRotationMatrix</b></font>(<font color="#990000"><b>EZ_Matrix</b></font> M, 
+        float angle, float x, float y, float z);
+</pre>
+<p>This command generate the rotation matrix
+<strong>Rot(angle, x,y,z)</strong> and copy the result to the given matrix
+<img src="images/6.gif">.
+<p><h3> 12.7.1  Example G3, Using Matrices </h3 <br>
+<p>
+In this example, we draw a face using spheres. We use matrices to
+scale and translate the (same) sphere to different locations.
+<p><font size=-1>
+<pre>
+/********************* Example G3 **********************************************/
+#include "EZ.h"
+
+static void event_handle(<font color="#990000"><b>EZ_Widget</b></font> *, void *,int,XEvent *); /* event handle   */
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *canvas);                        /* repaint func   */
+static float light_position[] = {0.5, 0.5, 0.0, 1.0};    /* light position */
+static float white[] = {1.0,1.0,1.0,1.0};
+static float shininess[] = {8.0};
+
+main(int argc, char **argv)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *canvas;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(argc, argv, 1);
+
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>, NULL, 
+                         <font color="#990000"><b>EZ_FILL_MODE</b></font>, <font color="#990000"><b>EZ_FILL_BOTH</b></font>,
+                         0);
+  canvas = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_3D_CANVAS</b></font>, frame,
+                           <font color="#990000"><b>EZ_WIDTH_HINT</b></font>,    320, 
+                           <font color="#990000"><b>EZ_HEIGHT_HINT</b></font>,   320,
+                           <font color="#990000"><b>EZ_EVENT_HANDLER</b></font>, event_handle, NULL,
+                           0);
+
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(canvas);
+
+  /* setup GL modes */
+  <font color="#990000"><b>EZ_AutoSelectBackBuffer</b></font>();                          /* select a back buffer */
+  <font color="#990000"><b>EZ_RGBMode</b></font>();                                       /* select color mode    */
+  <font color="#990000"><b>EZ_ShadeModel</b></font>(<font color="#990000"><b>EZ_SMOOTH</b></font>);                           /* select shading model */
+  <font color="#990000"><b>EZ_DrawBuffer</b></font>(<font color="#990000"><b>EZ_BACK</b></font>);                             /* draw into the backbuf*/
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_CULL_FACE</b></font>);                            /* enable backface cull */
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_DEPTH_TEST</b></font>);                           /* enable zbuffer       */
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_LIGHTING</b></font>);                             /* enable lighting      */
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_LIGHT0</b></font>);                               /* enable one light src */
+
+  <font color="#990000"><b>EZ_Lightfv</b></font>(<font color="#990000"><b>EZ_LIGHT0</b></font>, <font color="#990000"><b>EZ_POSITION</b></font>, light_position);
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_SPECULAR</b></font>,white);   /* set material for front face */
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_SHININESS</b></font>,shininess);
+
+  <font color="#990000"><b>EZ_MatrixMode</b></font>(<font color="#990000"><b>EZ_PROJECTION</b></font>);           /* setup a fixed projection matrix  */
+  <font color="#990000"><b>EZ_LoadIdentity</b></font>();
+  <font color="#990000"><b>EZ_Perspective</b></font>(45.0, 1.0, 2.0, 30.0);   /* a perspective view, ...          */
+  <font color="#990000"><b>EZ_MatrixMode</b></font>(<font color="#990000"><b>EZ_MODELVIEW</b></font>);            /* set matrix mode to model view    */
+  <font color="#990000"><b>EZ_LoadIdentity</b></font>();
+  <font color="#990000"><b>EZ_LookAt</b></font>(0.3,0.1,15.0, 0.0,0.0,0.0,    /* and set up a look at view        */
+            0.0,1.0, 0.0);                /* view up vector                   */
+
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();                     /* turn control to EZWGL            */
+}
+
+static float rotX = 0.0, rotY = 0.0, rotZ = 0.0;      /* rotation angles      */
+static float yellow[] = {0.8, 0.8, 0.0, 0.0};         /* material color       */
+static float red[] = {0.8, 0.4, 0.3, 0.0};            /* material color       */
+
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *canvas)
+{
+  <font color="#990000"><b>EZ_Clear</b></font>(<font color="#990000"><b>EZ_COLOR_BUFFER_BIT</b></font> | <font color="#990000"><b>EZ_DEPTH_BUFFER_BIT</b></font>);
+
+  <font color="#990000"><b>EZ_PushMatrix</b></font>();  
+  <font color="#990000"><b>EZ_Rotate</b></font>(rotX, 1.0, 0.0, 0.0 ); 
+  <font color="#990000"><b>EZ_Rotate</b></font>(rotY, 0.0, 1.0, 0.0 );
+  <font color="#990000"><b>EZ_Rotate</b></font>(rotZ, 0.0, 0.0, 1.0 );
+
+  /* draw a red sphere */
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_DIFFUSE</b></font>, red); 
+  <font color="#990000"><b>EZ_Sphere</b></font>(<font color="#990000"><b>EZ_SPHERE_TRIANGLE</b></font>, 4, 0.0,0.0,0.0,3.0);
+
+  /* translate to (-1.0, 0.8, 0.8), scale down unformly by 0.2
+   * and draw a yellow sphere. */
+  <font color="#990000"><b>EZ_PushMatrix</b></font>();
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_DIFFUSE</b></font>, yellow); 
+  <font color="#990000"><b>EZ_Translate</b></font>(-1.0,0.8,2.2);
+  <font color="#990000"><b>EZ_Scale</b></font>(0.2,0.2,0.2);
+  <font color="#990000"><b>EZ_Sphere</b></font>(<font color="#990000"><b>EZ_SPHERE_TRIANGLE</b></font>, 4, 0.0,0.0,0.0,3.0);
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+
+  /* translate to (1.0, 0.8, 0.8), scale down unformly by 0.2
+   * and draw a yellow sphere */
+  <font color="#990000"><b>EZ_PushMatrix</b></font>();
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_DIFFUSE</b></font>, yellow); 
+  <font color="#990000"><b>EZ_Translate</b></font>(1.0,0.8,2.2);
+  <font color="#990000"><b>EZ_Scale</b></font>(0.2,0.2,0.2);
+  <font color="#990000"><b>EZ_Sphere</b></font>(<font color="#990000"><b>EZ_SPHERE_TRIANGLE</b></font>, 4, 0.0,0.0,0.0,3.0);
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+
+  /* and so on */
+  <font color="#990000"><b>EZ_PushMatrix</b></font>();
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_DIFFUSE</b></font>, yellow); 
+  <font color="#990000"><b>EZ_Translate</b></font>(0.0,-0.1,2.65);
+  <font color="#990000"><b>EZ_Scale</b></font>(0.15,0.35,0.15);
+  <font color="#990000"><b>EZ_Sphere</b></font>(<font color="#990000"><b>EZ_SPHERE_TRIANGLE</b></font>, 4, 0.0,0.0,0.0,3.0);
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+
+  <font color="#990000"><b>EZ_PushMatrix</b></font>();
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_DIFFUSE</b></font>, yellow); 
+  <font color="#990000"><b>EZ_Translate</b></font>(0.0,-1.6,2.6);
+  <font color="#990000"><b>EZ_Scale</b></font>(0.4,0.1,0.1);
+  <font color="#990000"><b>EZ_Sphere</b></font>(<font color="#990000"><b>EZ_SPHERE_TRIANGLE</b></font>, 4, 0.0,0.0,0.0,3.0);
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+ 
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+  <font color="#990000"><b>EZ_SwapBuffers</b></font>();                                 /* copy backbuf to front  */
+}
+
+static void event_handle(<font color="#990000"><b>EZ_Widget</b></font> *canvas, void *data, int eventType, XEvent *xev)
+{
+  switch(eventType) {
+  case <font color="#990000"><b>EZ_REDRAW</b></font>:
+  case <font color="#990000"><b>EZ_RESIZE</b></font>:
+    draw(canvas);
+    break;
+  case <font color="#990000"><b>EZ_KEY_PRESS</b></font>:
+    switch(<font color="#990000"><b>EZ_PressedKey</b></font>) {
+    case <font color="#990000"><b>EZ_DOWN_KEY</b></font>:   rotX += 5.0; draw(canvas); break;
+    case <font color="#990000"><b>EZ_UP_KEY</b></font>:     rotX -= 5.0; draw(canvas); break;
+    case <font color="#990000"><b>EZ_RIGHT_KEY</b></font>:  rotY += 5.0; draw(canvas); break;
+    case <font color="#990000"><b>EZ_LEFT_KEY</b></font>:   rotY -= 5.0; draw(canvas); break;
+    case <font color="#990000"><b>EZ_ESCAPE_KEY</b></font>:   <font color="#990000"><b>EZ_Shutdown</b></font>(); exit(0);  break;
+    default:                                       break;
+    }
+    <font color="#990000"><b>EZ_GLResetEvents</b></font>(NULL); /* clear the event queue, too many keypresses */
+    break;
+  default:
+    break;
+  }
+}
+/********************* Example G3 **********************************************/
+
+</pre>
+<p>
+</font>  
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="109.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="111.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

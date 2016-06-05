@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_FancyListBoxClear 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FancyListBoxDeleteSomeRows \- delete rows of a fancy listbox widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_FancyListBoxDeleteSomeRows ( EZ_Widget *" flistbox,
+.BI "                int  *" indices ", int " count)
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget.
+.sp
+\fIindices\fR  Specifies the indices of the rows to be deleted.
+.sp
+.sp
+\fIcount\fR Specifies the number of rows to be deleted.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_FancyListBoxDeleteSomeRows\fR deletes the specified rows
+from a fancy listbox widget.
+
+.SH "SEE ALSO"
+EZ_FancyListBoxDeleteRow(3)
+.br
+
+

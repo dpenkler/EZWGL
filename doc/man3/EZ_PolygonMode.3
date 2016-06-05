@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_PolygonMode 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_PolygonMode \- select a rendering mode for polygons 
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_PolygonMode(int " face ", int " mode )
+
+.SH ARGUMENTS
+\fIface\fR Specifies the polygons \fImode\fR applies to. Must be one of
+EZ_FRONT, EZ_BACK or EZ_FRONT_AND_BACK.
+.sp
+\fImode\fR Specifies a rendering mode. Must be one of 
+EZ_FILL, EZ_LINES or EZ_POINTS. 
+
+.SH DESCRIPTION
+.PP
+\fIEZ_PolygonMode\fR selects a rendering mode for
+polygins. \fIface\fR determines which facing polygons \fImode\fR
+applies to. If \fIface\fR is EZ_BACK, \fImode\fR only applies
+to back facing polygons. \fImode\fR determines how subsequent
+polygons are rasterized. If \fImode\fR is EZ_LINES, only the
+edges of subsequent \fIface\fR facing polygons are rasterized.
+
+.SH "SEE ALSO"
+EZ_Vertex3f(3), EZ_Normal3f(3), EZ_Color3f(3), EZ_CullFace(3),
+EZ_FrontFace(3)
+

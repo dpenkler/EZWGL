@@ -1,0 +1,261 @@
+<html>
+<head>
+<title>EZwgl (4.23  Status Meters)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="38.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="40.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.23  Status Meters</h2>
+
+<p>A status meter is like a progress bar. It has either a vertical
+or a horizontal orientation. A status meter is capable of displaying
+five distinct quantities simultaneously.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_STATUS_METER</b></font></tr>
+                <tr> <td> Default class  name <td>       "StatusMeter" </tr>
+                <tr> <td> Default instance name<td>     "statusMeter" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetStatusMeterRange</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, float f, float t);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the range of a status meter.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetStatusMeterValue</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, float value);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the value of a status meter.
+</font>
+<p><p>
+<code>float <font color="#990000"><b>EZ_GetStatusMeterValue</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the status value.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_StopStatusMeter</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+stop a status meter.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_StartStatusMeter</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+resume a status meter.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetStatusMeterForeground</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *clr);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the foreground color.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetStatusMeterBackground</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, char *clr);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the background color.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetStatusMeterRangeN</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx, float f, float t);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the rang of the n<em>th</em> status variable.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetStatusMeterForegroundN</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx, char *clr);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the foreground color to display the n<em>th</em> status variable.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetStatusMeterValueN</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx, float value);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the value of th n<em>th</em> status variable.
+</font>
+<p><p>
+<code>float <font color="#990000"><b>EZ_GetStatusMeterValueN</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the value of the n<em>th</em> status variable
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p>
+<center><img  src="images/statusmeter.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>"StatusMeter"</code>   </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>"statusmeter"</code>   </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PADX</b></font></strong>                      <td width=140> padx                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PADY</b></font></strong>                      <td width=140> pady                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADX</b></font></strong>                     <td width=140> iPadx                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADY</b></font></strong>                     <td width=140> iPady                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code> </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></strong>         <td width=140> dndDragCursor              <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></strong>       <td width=140> dndBubbleString            <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_SMETER_VALUE</b></font></strong>             <td width=140> statusMeterValue           <td width=140>    <code>0.0</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_RANGE</b></font></strong>             <td width=140> statusMeterRange           <td width=140>    <code>0.0 0.0</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_STOPED</b></font></strong>            <td width=140> statusMeterStoped          <td width=140>    <code>false</code>       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_BACKGROUND</b></font></strong>        <td width=140> statusMeterBackground      <td width=140>    <code>"gray74"</code>    </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_FOREGROUND</b></font></strong>        <td width=140> statusMeterForeground      <td width=140>    <code>"blue"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_FOREGROUND_N</b></font></strong>     <td width=140> statusMeterForegroundN     <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_SHOW_VALUE</b></font></strong>       <td width=140> statusMeterShowValue       <td width=140>    <code>false</code>       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_VALUE_N</b></font></strong>          <td width=140> statusMeterValueN          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_RANGE_N</b></font></strong>          <td width=140> statusMeterRangeN          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_STYLE</b></font></strong>             <td width=140> statusMeterStyle           <td width=140>     <code>0</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SMETER_ORIENTATION</b></font></strong>       <td width=140> statusMeterOrientation     <td width=140>    <code>horizontal</code>  </tr><tr><td width=280> 
+</table>
+</center>
+<p></font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="38.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="40.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

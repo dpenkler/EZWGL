@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetSetRegionJustification 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetSetRegionJustification \- set region justification for a spread sheet
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetSetRegionJustification( EZ_Widget *" ssheet,
+.BI "           int " r1 ", int "c1 ", int " r2 ", int "c2 ", int "justification)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIr1,c1,r2,c2 col\fR  Specify the the upper-left and lower-right corner of 
+a region.
+.sp
+\fIjustification\fR Specify  a justification, must be one of \fIEZ_LEFT, EZ_RIGHT\fR
+or \fIEZ_CENTER\fR
+
+.SH DESCRIPTION
+\fBEZ_SSheetSetRegionJustification\fR sets the justification for the specified
+region.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetCopyRegion(3),  EZ_SSheetGetRegionString(3),
+.br
+
+

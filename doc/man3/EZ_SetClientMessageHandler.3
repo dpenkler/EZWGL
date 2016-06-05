@@ -1,0 +1,60 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetClientMessageHandler 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetClientMessageHandler \- register a client message handler
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetClientMessageHandler( EZ_EventHandler " handler ", void *" data )
+
+.SH ARGUMENTS
+\fIhandler\fR  Specifies a client message handler.
+.sp
+\fIdata\fR  Specifies a client data to be passed to \fIhandler\fR when
+invoked.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetClientMessageHandler\fR  registers a client message handler
+to an EZWGL application. A client message handler is a procedure that
+handles ClientMessage events. Its primary function is to
+communicate with the window manager and other applications. 
+The default client message handler handles only the message of
+type WM_PROTOCOLS/WM_DELETE_WINDOW.
+.PP
+Here is an example of a client message handler that refrain the window
+manager from closing a dialogue widget window.
+.PP
+.RS
+.nf
+Atom DeleteWindowAtom = EZ_GetAtom("WM_DELETE_WINDOW");
+Atom WMProtocolsAtom = EZ_GetAtom("WM_PROTOCOLS");
+
+void myClientMessageHandler(EZ_Widget *widget, void *data, 
+					int etype, XEvent *xev)
+{
+  XClientMessageEvent *ev = (XClientMessageEvent *)xev;      
+      
+  if(ev->message_type == WMProtocolsAtom)
+    {
+      Atom c = (ev->data.l)[0];
+      if(c == DeleteWindowAtom)
+	{
+	  EZ_DisplayWidget(Dialogue);
+	  EZ_SetGrab(Dialogue); 
+	}
+    }
+}
+.fi
+.RE
+
+.SH "SEE ALSO"
+EZ_AddEventHandler(3), EZ_AddWidgetCallBack(3)
+.br
+
+
+

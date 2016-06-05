@@ -1,0 +1,59 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetScrollbarState 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetScrollbarState,  EZ_UpdateScrollbar \- set and get
+the states of a scroll bar
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetScrollbarState(EZ_Widget *" scrollbar,
+.BI "      int *" totalsize_ret ", int *" pagesize_ret ", int *" start_ret)
+.sp
+.BI "void EZ_UpdateScrollbar(EZ_Widget *" scrollbar,
+.BI "       int " totalsize ", int " pagesize ", int " start)
+
+.SH ARGUMENTS
+\fIscrollbar\fR  Specifies a scrollbar widget.
+.sp
+\fItotalsize_ret\fR  Specifies a return for the total size of the
+object controlled by the scrollbar.
+.sp
+\fIpagesize_ret\fR  Specifies a return for the page size.
+.sp
+\fIstart_ret\fR  Specifies a return for the start position.
+.sp
+\fItotalsize\fR  Specifies a the total size of the object
+controlled by the scrollbar.
+.sp
+\fIpagesize\fR  Specifies the page size.
+.sp
+\fIstart\fR  Specifies the start position.
+
+.SH DESCRIPTION
+A scrollbar controls the portion of an object to be displayed
+in a widget window. The state of a scrollbar consists of three
+parameters: The total size of the object, the page size of 
+the widget window and the starting location of the displayed page
+relative to the starting point of the object. The displayed page
+is the segment 
+.br
+.in +5
+[start, start+pagesize] 
+.in -5
+in object.
+
+.PP
+\fBEZ_GetScrollbarState\fR returns the state of a scrollbar.
+.PP
+\fBEZ_UpdateScrollbar\fR sets the state of a scrollbar.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3)
+
+
+

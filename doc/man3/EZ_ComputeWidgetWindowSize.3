@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ComputeWidgetWindowSize 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ComputeWidgetWindowSize \- compute the geometry of a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ComputeWidgetWindowSize(EZ_Widget *" widget ", int *" w_ret ", int *" h_ret,
+.BI "                                EZ_Widget *" topMostDirtyWidget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+\fIw_ret\fR, \fIh_ret\fR Specify the returns for the width and the height.
+.sp
+\fItopMostDirtyWidget\fR This argument is used internally. Should be NULL
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ComputeWidgetWindowSize\fR computes the dimension of a widget.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetWidgetDimension(3), EZ_GetWidgetPosition(3), 
+

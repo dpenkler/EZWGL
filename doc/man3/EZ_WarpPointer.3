@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WarpPointer 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WarpPointer, EZ_WarpPointerToWidgetWindow \- move the mouse pointer
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WarpPointer( int " x ", int " y)
+.BI "void EZ_WarpPointerToWidgetWindow(EZ_Widget *" widget ", int " where)
+
+.SH ARGUMENTS
+\fIx\fR, \fIy\fR  Specify the screen coordinates of a point, relative
+to the upper left corner of the root window.
+.sp
+\fIwidget\fR specifies a widget.
+.sp
+\fIwhere\fI specifies an location.
+.SH DESCRIPTION
+.PP
+\fBEZ_WarpPointer\fR  moves the mouse pointer to the specified
+position. 
+.PP
+\fBEZ_WarpPointerToWidgetWindow\fR  warps the mouse pointer onto or 
+near the widget window, depending on the value of \fIwhere\fR.
+If where = 0, it warps the pointer to the upper left corner of the
+widget window; if where > 0, it moves the pointer to the lower right
+corner of the widget window; if where < 0, it warps the pointer outside
+the UL corner of the widget window.
+
+.SH "SEE ALSO"
+EZ_EventMainLoop(3), EZ_ServiceEvents(3)
+.br

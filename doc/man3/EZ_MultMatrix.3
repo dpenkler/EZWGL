@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  EZ_MultMatrix 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MultMatrix \- multiply the current matrix by a matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_MultMatrix(EZ_Matrix " matrix  )
+
+.SH ARGUMENTS
+\fImatrix\fR specifies a matrix.
+
+.SH DESCRIPTION
+\fBEZ_MultMatrix\fR multiplies the current matrix by the given
+matrix. If the current matrix mode is EZ_MODELVIEW, the inverse
+transpose of \fImatrix\fR will be computed and multiplied to the companion
+of the current matrix. The inverse of this companion matrix
+is used to transform normals.
+
+.SH "SEE ALSO"
+EZ_PushMatrix(3), EZ_Rotate(3), EZ_Translate(3), 
+EZ_LoadMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

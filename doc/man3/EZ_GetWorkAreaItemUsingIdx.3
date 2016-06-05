@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWorkAreaItemUsingIdx 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWorkAreaItemUsingIdx \- return the number of items in a
+WorkArea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int  EZ_GetWorkAreaItemUsingIdx(EZ_Widget *" workarea ", int "idx )
+
+.SH ARGUMENTS
+\fIworkarea\fR  Specifies a workarea widget.
+.sp
+\fIidx\fR  Specifies an positive integer.
+
+.SH DESCRIPTION
+.PP
+Display items in a WorkArea widget is arranged as a one dimensional
+array of items. \fBEZ_GetWorkAreaItemUsingIdx\fR  returns the item
+at the specified location.
+.PP
+
+.SH "SEE ALSO"
+EZ_WorkAreaFindItemAtXY(3)
+.br
+
+

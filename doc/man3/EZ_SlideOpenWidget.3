@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 EZ_SlideOpenWidget "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SlideOpenWidget, EZ_SliderCloseWidget \- slide open/close a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SlideOpenWidget(EZ_Item *" widget ", int "x ", int " y ", int " speed );
+.BI "void EZ_SlideOpenWidgetRelativeTo(EZ_Widget *" widget ", EZ_Widget *"reference,
+.BI "                                  int " dir ", int " speed );
+.BI "void EZ_SlideCloseWidget(EZ_Item *" widget ", int " speed )
+
+.SH ARGUMENTS
+
+\fIfwidget\fR  Specifies a widget,
+.sp
+\fIreference\fR  Specifies a reference widget,
+.sp
+\fIx, y\fR Specify a location.
+.sp
+\fIdir\fR Specifies a direction. Ored from EZ_NORTH, EZ_EAST, EZ_SOUTH and EZ_WEST.
+.sp
+\fIspeed\fR Specifies a sliding speed, pixels per frame.
+.SH DESCRIPTION
+\fBEZ_SlideOpenWidget, EZ_SliderOpenWidgetRelativeTo\fR slides open the widget window
+according to the specified attributes. 
+.PP
+\fBEZ_SlideCloseWidget\fR close the widget window.
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3)
+
+
+

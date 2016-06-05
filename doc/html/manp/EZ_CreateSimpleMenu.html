@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_CreateSimpleMenu</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_CreateSimpleMenu</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_CreateSimpleMenu  - create a menu
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+        <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>,</b></font> <font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>s</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font>   Specifies a string which configures the menu.  There
+       are six menu item type flags.
+
+
+       %t      Makes non-formating text in this item as the  menu
+       title string.
+
+       %F      Gets the callback procedure and the client data to
+       be passed to the callback  from  the  optional  arguments.
+       This  callback  procedure will be invoked whenever a valid
+       selection has been made on this menu.   (callback  of  the
+       menu.)
+
+       %c      Sets the class name of the current menu-item to be
+       the string following this formating text  and  before  the
+       next '%' or '|'.
+
+       %c      Sets the instance name of the current menu-item to
+       be the string following this formating text and before the
+       next '%' or '|'.
+
+       %f      Gets the callback procedure and the client data to
+       be passed to the callback  for  this  menu-item  from  the
+       optional arguments.
+
+       %l  Inserts a menu separator.
+
+       %m  Makes  a  submenu-item  and  gets the submenu from the
+       optional arguments.
+
+       %n Sets the instace name of this menu item to be the  sub-
+       string  after  the  current formating character and before
+       the next formating character or |.
+
+       %i Sets the class name of this menu item to  be  the  sub-
+       string  after  the current formating characters and before
+       the next formating characters or |.
+
+       %u# Sets the index of the character to be underlined.
+
+       %p  Set the client pointer data  to  be  attached  to  the
+       menu.  The client data will be retrieved from the optional
+       arguments.
+
+       %p  Set the client integer data  to  be  attached  to  the
+       menu.  The client data will be retrieved from the optional
+       arguments.
+
+       %x[0-9]+ Sets the return value for this item.  This  value
+       overrides the default position-based return value assigned
+       to this menu-item.
+
+       %k[int,int,int]+ Make this item a menu check  button.  The
+       three  integers  are  the  on value, off value and initial
+       state (on/off).
+       %r[int,int,int]+ Make this item a menu radio  button.  The
+       three  integers  are the radio button group id, the values
+       this item represents and the initial value  of  the  group
+       variable.
+
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font>  creates a menu widget and returns the
+       pointer to the menu.
+
+
+
+<H2>EXAMPLE</H2>
+       void       submenu1Callback(EZ_Widget *, void *);
+       void       Item2Callback(EZ_Widget *, void *);
+
+       EZ_Widget *submenu1 = <A HREF="EZ_CreateSimpleMenu.html">EZ_CreateSimpleMenu</A>(``%F|red|green%x123%cGreenItem|blue%nBlueItem|%l|||'',
+                                                       submenu1Callback, NULL);
+
+       EZ_Widget *menu = <A HREF="EZ_CreateSimpleMenu.html">EZ_CreateSimpleMenu</A>(``%T Test Menu|Item 1|Item 2%f|submenu%m|last item''
+                                                       Item2Callback, NULL, submenu1);
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateMenuFromList.html">EZ_CreateMenuFromList</A>(3), <A HREF="EZ_DoPopup.html">EZ_DoPopup</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

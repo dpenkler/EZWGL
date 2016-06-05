@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ItemExist 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+ EZ_ItemExist \- test whether an item exists
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item *EZ_ItemExist(EZ_Item *" Item )
+
+.SH ARGUMENTS
+\fIItem\fR  Specifies a display item.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ItemExist\fR looks up \fIitem\fR from the internal
+hash table for items, and returns the answer.
+
+.SH "SEE ALSO"
+EZ_WidgetExist(3)
+.br
+
+
+

@@ -1,0 +1,552 @@
+<html>
+<head>
+<title>EZwgl (12.9  Lighting)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="111.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="113.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.9  Lighting</h2>
+
+<p>
+Lighting is controled by three items: light sources,
+light model and material properties. The color of
+a vertex is calculated based on the following factors:
+(a) the position of the vertex, the current normal 
+vector and the current material properties. (b)
+the position and properties of the light sources and
+(c) the light model properties.
+<p>For a complete description of lighting calculations,
+please see 
+<font size=-1>
+<pre><p>
+  AUTHOR: Neider, Jackie
+  TITLE: OpenGL programming guide : the official guide to learning
+        OpenGL, release 1 /OpenGL Architecture Review Board, Jackie
+                         Neider, Tom Davis, Mason Woo.
+  PUBLISHED:      Reading, Mass. : Addison-Wesley, c1993.
+  DESCRIPTION:    xxxiii, 516 p., (16) p. of plates : ill. (some col.) ; 24 cm.
+  NOTES:          Includes index.
+  SUBJECTS:       OpenGL 
+                  Computer graphics
+  OTHER AUTHORS:  Davis, Tom
+                  Woo, Mason
+                  OpenGL Architecture Review Board
+  ISBN:           0201632748 
+  OCLC NUMBER:    27679041
+</pre>
+</font>
+<p>To use lighting, follow the following steps.
+<ul>
+<p>
+<li>Call <code><font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_LIGHTING</b></font>)</code> to enable
+lighting calculations.
+<p>
+<li>Call <code><font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_LIGHT</b></font>#)</code> to turn on
+light sources, where <code>#</code> is an integer between 0 and 7. One
+can turn on multiple light sources.
+<p>
+<li>Call <code><font color="#990000"><b>EZ_Lightfv</b></font></code>, <code><font color="#990000"><b>EZ_LightModelfv</b></font></code> and
+<code><font color="#990000"><b>EZ_Materialfv</b></font></code> to set light source properties, light model 
+properties and material properties.
+<p>
+<li>When define a geometric object, make sure you set
+the normal vectors by using <code><font color="#990000"><b>EZ_Normal3f</b></font>v</code>.
+If needed, one may enable color material
+and use <code><font color="#990000"><b>EZ_Color3f</b></font>v</code> to set vertex colors.
+</ul>
+<p><h3> 12.9.1  Example G4, Lighting </h3 <br>
+<p>
+Here is a short example that uses lighting calculations. In this
+example, we turn on one light source, set its positon but use
+its default color. We set the local viewer property of the
+light model. Then we render a yellow dodecahedron and a
+red sphere. 
+<p><font size=-1>
+<pre>
+/********************* Example G4 **********************************************/
+#include "EZ.h"
+
+static void event_handle(<font color="#990000"><b>EZ_Widget</b></font> *, void *,int,XEvent *); /* event handle   */
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *canvas);                        /* repaint func   */
+static float light_position[] = {0.5, 0.5, 0.0, 1.0};       /* light position */
+static float white[] = {1.0,1.0,1.0,1.0};
+static float shininess[] = {8.0};
+
+main(int argc, char **argv)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *canvas;
+
+  /* create a canvas */
+  <font color="#990000"><b>EZ_Initialize</b></font>(argc, argv, 1);
+
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>, NULL, 
+                         <font color="#990000"><b>EZ_FILL_MODE</b></font>, <font color="#990000"><b>EZ_FILL_BOTH</b></font>,
+                         0);
+  canvas = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_3D_CANVAS</b></font>, frame,
+                           <font color="#990000"><b>EZ_ORIENTATION</b></font>,   <font color="#990000"><b>EZ_VERTICAL_BOTTOM</b></font>,
+                           <font color="#990000"><b>EZ_WIDTH_HINT</b></font>,    320, 
+                           <font color="#990000"><b>EZ_HEIGHT_HINT</b></font>,   320,
+                           <font color="#990000"><b>EZ_EVENT_HANDLER</b></font>, event_handle, NULL,
+                           0);
+
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(canvas);
+
+  /* setup GL modes */
+  <font color="#990000"><b>EZ_AutoSelectBackBuffer</b></font>();                          /* select a back  buffer */
+  <font color="#990000"><b>EZ_RGBMode</b></font>();                                       /* select color  mode    */
+  <font color="#990000"><b>EZ_ShadeModel</b></font>(<font color="#990000"><b>EZ_SMOOTH</b></font>);                           /* select  shading model */
+  <font color="#990000"><b>EZ_DrawBuffer</b></font>(<font color="#990000"><b>EZ_BACK</b></font>);                             /* draw into the  backbuf*/
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_CULL_FACE</b></font>);                            /* enable  backface cull */
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_DEPTH_TEST</b></font>);                           /* enable  zbuffer       */
+ 
+  /* lighting related attributes. One should be aware 
+   * that where to invoke <font color="#990000"><b>EZ_Lightfv</b></font> or <font color="#990000"><b>EZ_Materialfv</b></font>
+   * matters a lot. The corresponding properties are
+   * computed based on the current model view matrix.
+   */
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_LIGHTING</b></font>);                             /* enable lighting      */
+  <font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_LIGHT0</b></font>);                               /* enable one light src */
+  /* set light src pos, this light src has a fixed position, i.e. 
+   * the position will not be affected by the model view matrux */
+  <font color="#990000"><b>EZ_Lightfv</b></font>(<font color="#990000"><b>EZ_LIGHT0</b></font>, <font color="#990000"><b>EZ_POSITION</b></font>, light_position);
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_SPECULAR</b></font>,white);   /* set material for front face */
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_SHININESS</b></font>,shininess);
+  <font color="#990000"><b>EZ_LightModelfv</b></font>(<font color="#990000"><b>EZ_LIGHT_MODEL_LOCAL_VIEWER</b></font>, white);
+
+  <font color="#990000"><b>EZ_MatrixMode</b></font>(<font color="#990000"><b>EZ_PROJECTION</b></font>);           /* setup a fixed projection matrix */
+  <font color="#990000"><b>EZ_Perspective</b></font>(60.0, 1.0, 2.0, 30.0);   /* a perspective view, ...         */
+  <font color="#990000"><b>EZ_MatrixMode</b></font>(<font color="#990000"><b>EZ_MODELVIEW</b></font>);            /* set matrix mode to model view   */
+  <font color="#990000"><b>EZ_LookAt</b></font>(0.0,0.0,15.0, 0.0,0.0,0.0,    /* and set up a look at view       */
+            0.0,1.0, 0.0);                /* view up vector        */
+
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();                     /* turn control to EZWGL           */
+}
+
+static float rotX = 0.0, rotY = 0.0, rotZ = 0.0;      /* rotation angles      */
+static float scale = 1.0;                             /* zooming factor       */
+static float yellow[] = {0.8, 0.8, 0.0, 0.0};         /* material color       */
+static float red[] = {0.8, 0.1, 0.0, 0.0};            /* material color       */
+
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *canvas)
+{
+  /* 
+   * since we only have one 3DCanvas, which is always
+   * active, we actually don't need the argument.
+   */
+  <font color="#990000"><b>EZ_Clear</b></font>(<font color="#990000"><b>EZ_COLOR_BUFFER_BIT</b></font> |                    /* clear the frame buffer */
+           <font color="#990000"><b>EZ_DEPTH_BUFFER_BIT</b></font>);                    /* and the zbuffer        */
+  <font color="#990000"><b>EZ_PushMatrix</b></font>(); 
+  <font color="#990000"><b>EZ_Scale</b></font>(scale,scale,scale);                      /* a uniform scale        */
+  <font color="#990000"><b>EZ_Rotate</b></font>(rotX, 1.0, 0.0, 0.0 );                  /* rotate about X, Y & Z  */
+  <font color="#990000"><b>EZ_Rotate</b></font>(rotY, 0.0, 1.0, 0.0 );
+  <font color="#990000"><b>EZ_Rotate</b></font>(rotZ, 0.0, 0.0, 1.0 );
+  <font color="#990000"><b>EZ_PushMatrix</b></font>();               
+  <font color="#990000"><b>EZ_Translate</b></font>( -3.0, 0.0, 0.0 );
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_DIFFUSE</b></font>, yellow);      /* a yellow material */
+  <font color="#990000"><b>EZ_Dodecahedron</b></font>(0.0,0.0,0.0,2.4);
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+  <font color="#990000"><b>EZ_PushMatrix</b></font>();
+  <font color="#990000"><b>EZ_Translate</b></font>(3.0,0.0,0.0);     
+  <font color="#990000"><b>EZ_Materialfv</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>,<font color="#990000"><b>EZ_DIFFUSE</b></font>, red);         /* a red material  */
+  <font color="#990000"><b>EZ_Sphere</b></font>(<font color="#990000"><b>EZ_SPHERE_TRIANGLE</b></font>, 4,0.0,0.0,0.0,2.0); 
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+  <font color="#990000"><b>EZ_PopMatrix</b></font>();
+  <font color="#990000"><b>EZ_SwapBuffers</b></font>();
+}
+
+static void event_handle(<font color="#990000"><b>EZ_Widget</b></font> *canvas, void *data, int eventType, XEvent *xev)
+{
+  switch(eventType) {
+  case <font color="#990000"><b>EZ_REDRAW</b></font>:
+  case <font color="#990000"><b>EZ_RESIZE</b></font>:
+    draw(canvas);
+    break;
+  case <font color="#990000"><b>EZ_KEY_PRESS</b></font>:
+    switch(<font color="#990000"><b>EZ_PressedKey</b></font>) {
+    case <font color="#990000"><b>EZ_DOWN_KEY</b></font>:   rotX += 5.0; draw(canvas); break;
+    case <font color="#990000"><b>EZ_UP_KEY</b></font>:     rotX -= 5.0; draw(canvas); break;
+    case <font color="#990000"><b>EZ_RIGHT_KEY</b></font>:  rotY += 5.0; draw(canvas); break;
+    case <font color="#990000"><b>EZ_LEFT_KEY</b></font>:   rotY -= 5.0; draw(canvas); break;
+    case 'e':           scale *= 1.1;draw(canvas); break;
+    case 'r':           scale *= 0.9;draw(canvas); break;
+    case <font color="#990000"><b>EZ_ESCAPE_KEY</b></font>: 
+      <font color="#990000"><b>EZ_DestroyWidget</b></font>(canvas);
+      <font color="#990000"><b>EZ_Shutdown</b></font>();
+      exit(0);          
+      break;
+    default:  
+      break;
+    }
+    <font color="#990000"><b>EZ_GLResetEvents</b></font>(NULL); /* clear the event queue, too many keypresses */
+    break;
+  default:
+    break;
+  }
+}
+/********************* Example G4 **********************************************/
+
+</pre>
+<p>
+</font>
+<p><h3> 12.9.2  Setting Light Source Properties </h3 <br>
+<p>
+A light source has the following properties.
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_AMBIENT</b></font></code>   ambient color.
+<p>
+<li><code><font color="#990000"><b>EZ_DIFFUSE</b></font></code>   diffuse color.
+<p>
+<li><code><font color="#990000"><b>EZ_SPECULAR</b></font></code>   specular color.
+<p>
+<li><code><font color="#990000"><b>EZ_POSITION</b></font></code>   position.
+<p>
+<li><code><font color="#990000"><b>EZ_SPOT_DIRECTION</b></font></code>  spot direction for spot
+light source.
+<p>
+<li><code><font color="#990000"><b>EZ_SPOT_EXPONENT</b></font></code>   spot exponent.
+<p>
+<li><code><font color="#990000"><b>EZ_SPOT_CUTOFF</b></font></code>  spot cutoff angle.
+<p>
+<li><code><font color="#990000"><b>EZ_CONSTANT_ATTENUATION</b></font></code>  constant
+attenuation factor.
+<p>
+<li><code><font color="#990000"><b>EZ_LINEAR_ATTENUATION</b></font></code>  linear
+attenuation coefficient.
+<p>
+<li><code><font color="#990000"><b>EZ_QUADRATIC_ATTENUATION</b></font></code>   quadratic
+attenuation coefficient.
+</ul>
+<p>All these properties are set by the function
+<p><p><p>
+<code> void <font color="#990000"><b>EZ_Lightfv</b></font>(int lightNum, int propName, float *prop)</code>
+<p>The default light sources properties are list below.
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+ambient color <td width=140> (0.0, 0.0, 0.0) </tr>
+<tr><td width=280>
+diffuse color for <code>LIGHT0</code> <td width=140> (1.0,1.0,1.0) </tr>
+diffuse color for other lig srcs <td width=140> (0.0,0.0,0.0) </tr>
+<tr><td width=280>
+specular color for <code>LIGHT0</code> <td width=140> (1.0,1.0,1.0) </tr>
+specular color for other lig srcs <td width=140> (0.0,0.0,0.0) </tr>
+<tr><td width=280>
+position <td width=140> (0.0,0.0,1.0,0.0) </tr>
+<tr><td width=280>
+spot direction <td width=140> (0.0,0.0,-1.0) </tr>
+<tr><td width=280>
+spot exponent <td width=140> 0.0 </tr>
+<tr><td width=280>
+spot cutoff angle <td width=140> 180.0<img src="images/55.gif"> </tr>
+<tr><td width=280>
+constant attenuation factor <td width=140> 1.0 </tr>
+<tr><td width=280>
+linear attenuation coefficient <td width=140> 0.0 </tr>
+<tr><td width=280>
+quadratic attenuation coefficient <td width=140> 0.0 </tr>
+<tr><td width=280>
+</table>
+</center>
+<p><h3> 12.9.3  Setting Light Model Properties </h3 <br>
+<p>
+Each graphics context has a unique light model. A light model
+has the following properties.
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_LIGHT_MODEL_AMBIENT</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_LIGHT_LOCAL_VIEWER</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_LIGHT_TWO_SIDE</b></font></code>
+</ul>
+<p>These properties are set by
+<p><p><p>
+<code> void <font color="#990000"><b>EZ_LightModelfv</b></font>(int propName, float *prop);</code>
+<p>Here are the default light model properties.
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+ambient color <td width=140> (0.2, 0.2, 0.2) </tr>
+<tr><td width=280> 
+local viewer <td width=140> 0.0 </tr>
+<tr><td width=280>
+tow side mode <td width=140>  0.0 </tr>
+<tr><td width=280>
+</table>
+</center>
+<p><h3> 12.9.4  Setting Material Properties </h3 <br>
+<p>
+Each material has the following properties.
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_EMISSION</b></font></code> emissive color.
+<p>
+<li><code><font color="#990000"><b>EZ_AMBIENT</b></font></code> ambient color.
+<p>
+<li><code><font color="#990000"><b>EZ_DIFFUSE</b></font></code> diffuse color.
+<p>
+<li><code><font color="#990000"><b>EZ_SPECULAR</b></font></code> specular color.
+<p>
+<li><code><font color="#990000"><b>EZ_SHININESS</b></font></code> specular exponent.
+<p>
+<li><code><font color="#990000"><b>EZ_COLOR_INDICES</b></font></code> indices for lighting on
+color map mode.
+</ul>
+<p>These properties are set by
+<p><p><p>
+<code> void <font color="#990000"><b>EZ_Materialfv</b></font>(int face, int propName, float *prop);</code>
+<p>Here are the default material properties.
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+emissive color <td width=140> (0.0, 0.0, 0.0) </tr>
+<tr><td width=280> 
+ambient color <td width=140> (0.2, 0.2, 0.2) </tr>
+<tr><td width=280> 
+diffuse color <td width=140> (0.8, 0.8, 0.8) </tr>
+<tr><td width=280> 
+specular color <td width=140> (0.0, 0.0, 0.0) </tr>
+<tr><td width=280> 
+shininess <td width=140> 0.0 </tr>
+<tr><td width=280> 
+color indices <td width=140> 0.0 1.0 1.0 </tr>
+<tr><td width=280>
+</table>
+</center>
+<p><h3> 12.9.5  Convinence Routines </h3 <br>
+<p>
+The <i>EZwgl</i> provides a few handy routines for packing
+lighting properties together. They can be used to save
+a few <code>EZ_***fv</code> calls.
+<p><p><p>
+<code><font color="#990000"><b>EZ_Material</b></font> *<font color="#990000"><b>EZ_DefineMaterial</b></font>(float *definitions)</code>
+<p>This function define a material from the given defintion and return
+a pointer to the allocated material structure.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_BindMaterial</b></font>(int face, <font color="#990000"><b>EZ_Material</b></font> *mat);</code>
+<p>This function bind the defined material <code>mat</code> to <code>face</code>.
+<p>Here is an example.
+<p><font size=-1>
+<pre>
+static float mat[] = { 
+  EZ_SPECULAR_F,   1.0,1.0,1.0,1.0,     
+  EZ_DIFFUSE_F, 0.8, 0.0, 0.8, 0.0
+  EZ_NULL_F,
+};
+
+<font color="#990000"><b>EZ_Material</b></font> material = <font color="#990000"><b>EZ_DefineMaterial</b></font>(mat);
+... ...
+<font color="#990000"><b>EZ_BindMaterial</b></font>(<font color="#990000"><b>EZ_FRONT_AND_BACK</b></font>, material);
+... ...
+
+</pre>
+<p>
+</font>
+<p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> <strong>Predefined Materials</strong>
+The <i>EZwgl</i> includes a few predefined materials. They can
+be retrieved via
+<p><p><p>
+<code><font color="#990000"><b>EZ_Material</b></font> *<font color="#990000"><b>EZ_GetDefaultMaterial</b></font>(int which);</code>
+Here is a list of the predefined materials.
+<p><p><p>
+<p>
+<table border=1>
+<p>
+<table border=1>
+<tr><td width=280>
+Symbolic Name <td width=140> property values </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_SILVER</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient (0.19125, 0.0735, 0.0225, 1.0)</small></tr>
+      <td width=140> <small>diffuse (0.7038, 0.27048, 0.0828, 1.0)</small></tr>
+      <td width=140> <small>specular ( 0.256777, 0.137622, 0.086014, 1.0)</small></tr>
+      <td width=140> <small>shininess 1.0</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_SILVER_S</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient (0.23125, 0.23125, 0.23125, 1.0)</small></tr>
+      <td width=140> <small>diffuse (0.2775, 0.2775, 0.2775, 1.0)</small></tr>
+      <td width=140> <small>specular ( 0.773911, 0.773911, 0.773911, 1.0)</small></tr>
+      <td width=140> <small>shininess 7.0</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_GOLD</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient (0.24725, 0.1995, 0.0745, 1.0)</small></tr>
+      <td width=140> <small>diffuse (0.75164, 0.60648, 0.22648, 1.0)</small></tr>
+      <td width=140> <small>specular (0.628281, 0.555802, 0.366065, 1.0)</small></tr>
+      <td width=140> <small>shininess 4.0</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_GOLD_S</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient (0.24725, 0.2245, 0.0645, 1.0)</small></tr>
+      <td width=140> <small>diffuse (0.34615, 0.3143, 0.0903, 1.0)</small></tr>
+      <td width=140> <small>specular (0.797357, 0.723991, 0.208006, 1.0)</small></tr>
+      <td width=140> <small>shininess 6.5</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BRASS</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient (0.329412, 0.223529, 0.027451, 1.0)</small></tr>
+      <td width=140> <small>diffuse (0.780392, 0.568627, 0.113725, 1.0)</small></tr>
+      <td width=140> <small>specular (0.992157, 0.941176, 0.807843, 1.0)</small></tr>
+      <td width=140> <small>shininess 2.2</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_COPPER</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient (0.19125, 0.0735, 0.0225, 1.0)</small></tr>
+      <td width=140> <small>diffuse (0.7038, 0.27048, 0.0828, 1.0)</small></tr>
+      <td width=140> <small>specular (0.256777, 0.137622, 0.086014, 1.0)</small></tr>
+      <td width=140> <small>shininess 1.0</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_COPPER_S</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient (0.2295, 0.08825, 0.0275, 1.0)</small></tr>
+      <td width=140> <small>diffuse (0.5508, 0.2118, 0.066, 1.0)</small></tr>
+      <td width=140> <small>specular (0.580594, 0.223257, 0.0695701, 1.0)</small></tr>
+      <td width=140> <small>shininess 4.1</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+</table>
+<p>
+<td width=140>
+<p>
+<table border=1>
+<tr><td width=280>
+Symbolic Name <td width=140> property values </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BRONZE</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient       (0.2125, 0.1275, 0.054, 1.0)</small></tr>
+      <td width=140> <small>diffuse  (0.714, 0.4284, 0.18144, 1.0)</small></tr>
+      <td width=140> <small>specular ( 0.393548, 0.271906, 0.166721, 1.0)</small></tr>
+      <td width=140> <small>shininess 2.2</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_RUBY</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient       (0.1745, 0.01175, 0.01175, 1.0)</small></tr>
+      <td width=140> <small>diffuse  (0.61424, 0.04136, 0.04136, 1.0)</small></tr>
+      <td width=140> <small>specular (0.727811, 0.626959, 0.626959, 1.0)</small></tr>
+      <td width=140> <small>shininess 6.5</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_TURQUOISE</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient       (0.1, 0.18725, 0.1745, 1.0)</small></tr>
+      <td width=140> <small>diffuse  (     0.396, 0.74151, 0.69102, 1.0)</small></tr>
+      <td width=140> <small>specular (     0.297254, 0.30829, 0.306678, 1.0)</small></tr>
+      <td width=140> <small>shininess 1.0</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_JADE</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient       (     0.135, 0.2225, 0.1575, 1.0)</small></tr>
+      <td width=140> <small>diffuse  (     0.54, 0.89, 0.63, 1.0)</small></tr>
+      <td width=140> <small>specular (     0.316228, 0.316228, 0.316228, 1.0)</small></tr>
+      <td width=140> <small>shininess 1.2</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_EMERALD</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient       (     0.0215, 0.1745, 0.0215, 1.0)</small></tr>
+      <td width=140> <small>diffuse  (     0.07568, 0.61424, 0.07568, 1.0)</small></tr> 
+      <td width=140> <small>specular (     0.633, 0.727811, 0.633, 1.0)</small></tr> 
+      <td width=140> <small>shininess 6.4</small></tr>
+      <td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_PERAL</b></font></code> <td width=140> <small>emission  (0.0,0.0,0.0,1.0)</small></tr>
+<td width=140>  <small>ambient       (   0.25, 0.20725, 0.20725, 1.0)</small></tr>
+<td width=140> <small>diffuse  (     1.0, 0.829, 0.829, 1.0)</small></tr>
+<td width=140> <small>specular (     0.296648, 0.296648, 0.296648, 1.0)</small></tr>
+<td width=140> <small>shininess 1.0</small></tr>
+<td width=140> <small>color indices 0.0, 0.0, 1.0</small></tr>  
+<tr><td width=280>
+</table>
+<p>
+</tr>
+</table>
+<p><p><p>
+<code><font color="#990000"><b>EZ_LightSrc</b></font> *<font color="#990000"><b>EZ_DefineLight</b></font>(float *definitions)</code>
+<p>This function define a light source from the given defintion and return
+a pointer to the allocated light source structure.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_BindLight</b></font>(int lightNum, <font color="#990000"><b>EZ_LightSrc</b></font> *lsrc)</code>
+This function bind the packed light source definition <code>lsrc</code> to
+light number <code>lightNum</code>.
+<p>Here is an example.
+<p><font size=-1>
+<pre><p>
+static float  light2[] =
+{
+  <font color="#990000"><b>EZ_POSITION_F</b></font>,   0.0,5.0,10.0,1.0,
+  <font color="#990000"><b>EZ_SPECULAR_F</b></font>,   1.0,1.0,1.0,1.0,     
+  <font color="#990000"><b>EZ_SPOT_DIRECTION_F</b></font>, 0.0,0.0,-1.0,0.0,
+  <font color="#990000"><b>EZ_SPOT_CUTOFF_F</b></font>,  30.0, 
+  <font color="#990000"><b>EZ_SPOT_EXPONENT_F</b></font>, 10.0, 
+  <font color="#990000"><b>EZ_NULL_F</b></font>,
+};
+<font color="#990000"><b>EZ_LightSrc</b></font> *lsrc2 = <font color="#990000"><b>EZ_DefineLight</b></font>(light2);
+... ...
+<font color="#990000"><b>EZ_BindLight</b></font>(<font color="#990000"><b>EZ_LIGHT4</b></font>, lsrc2);
+... ...
+</pre>
+</font>
+<p><p><p>
+<code><font color="#990000"><b>EZ_LightModel</b></font> *<font color="#990000"><b>EZ_DefineLightModel</b></font>(float *definitions)</code>
+This function define a packed light model from the given defintion and return
+a pointer to the allocated light model structure.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_BindLightModel</b></font>(<font color="#990000"><b>EZ_LightModel</b></font> *lmodel)</code>
+<p>This function replace the current light model by the packed light
+model <code>lmodel</code>.
+<p>Here is an example.
+<p><font size=-1>
+<pre><p>
+static float  lmodelDef[] =
+{
+  <font color="#990000"><b>EZ_AMBIENT_F</b></font>,   0.0,0.4,0.4,0.0,     
+  <font color="#990000"><b>EZ_LIGHT_MODEL_LOCAL_VIEWER</b></font>, 1.0,
+  <font color="#990000"><b>EZ_LIGHT_MODEL_TWO_SIDE</b></font>, 1.0,
+  <font color="#990000"><b>EZ_NULL_F</b></font>,
+};
+<font color="#990000"><b>EZ_LightModel</b></font> *lmodel = <font color="#990000"><b>EZ_DefineLightModel</b></font>(lmdelDef);
+... ...
+<font color="#990000"><b>EZ_BindLightModel</b></font>(lmodel);
+... ...
+</pre>
+</font>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="111.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="113.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

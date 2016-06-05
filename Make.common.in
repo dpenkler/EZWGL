@@ -1,0 +1,44 @@
+# ./Make.common.in	 -*- Makefile -*-
+
+DATE="20 APRIL 1999"#
+MAJORVERSION=1#
+MINORVERSION=50#
+VERSION=$(MAJORVERSION).$(MINORVERSION)#
+VERNAME=EZWGL-$(VERSION)#
+srcdir = @srcdir@
+VPATH  = @srcdir@
+SHELL = /bin/sh
+
+# Installation target directories 
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+binprefix = @prefix@/bin
+manprefix = @prefix@/man
+destbindir= @bindir@
+destincludedir= @prefix@/include
+destlibdir= @prefix@/lib
+destmandir= @mandir@/man1
+manext = 1
+
+# Tools & program stuff
+CC = @CC@ 
+CPP = @CPP@
+RM = @RM@
+RMF = @RM@ -f
+CP = @CP@
+AR = @AR@
+LN = @LN@
+RANLIB = @RANLIB@
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL@ -s -m 755
+INSTALL_DATA = @INSTALL@ -m 644
+CFLAGS = @CFLAGS@
+CPPFLAGS = @CPPFLAGS@ 
+LDFLAGS = @LDFLAGS@
+DEFS = @DEFS@
+LIBS = @LIBS@
+LINC = -I@srcdir@ -I@srcdir@/../ -I@srcdir@/../../
+XINC = @X_CFLAGS@ 
+XLIB = @X_LIBS@ @X_PRE_LIBS@ -lX11 @X_EXTRA_LIBS@
+
+# End of Make.common

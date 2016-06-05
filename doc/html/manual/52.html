@@ -1,0 +1,241 @@
+<html>
+<head>
+<title>EZwgl (4.36  Histogram)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="51.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="53.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.36  Histogram</h2>
+
+<p>
+A histogram displays an array of vertical or horizontal bars,
+representing an array of floating point values. The size 
+of the array, the number
+of bins is controled by the <code><font color="#990000"><b>EZ_HISTOGRAM_SAMPLE</b></font></code> resource.
+If this resource value is 0, it displays a dynamic array. The range
+of the histogram is controlled by the <code><font color="#990000"><b>EZ_BAR_RANGE</b></font></code> resource.
+The default range is [0, 100]. The width of the bars is controlled
+by the <code><font color="#990000"><b>EZ_BAR_WIDTH</b></font></code> resource. The colors of the bars is
+set by the <code><font color="#990000"><b>EZ_BAR_COLOR_N</b></font></code> resource. 
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_HISTOGRAM</b></font></tr>
+                <tr> <td> Default class  name <td>       "Histogram" </tr>
+                <tr> <td> Default instance name<td>     "histogram" </tr></table>
+<p><p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void   <font color="#990000"><b>EZ_SetHistogramValues</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, float *values, int nvalues);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ set histogram bin values.
+</font>
+<p><p>
+<code>void   <font color="#990000"><b>EZ_SetHistogramValue</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, float value);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ set the value for the next bin. Used in progressing histograms.
+</font>
+<p><p>
+<code>float  <font color="#990000"><b>EZ_GetHistogramValue</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int n);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ retrieve the nth value.
+</font>
+<p><p>
+<code>int  <font color="#990000"><b>EZ_GetHistogramSelection</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, float *value_return);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ retrieve the last selected bin and its value.
+</font>
+<p><p><p>
+<code>float  <font color="#990000"><b>EZ_SetHistogramRange</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, float frm, float to);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ set the range.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetHistogramColors</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, unsigned long *colors, int ncolors);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ set bar colors, <code>ncolors</code> is should be smaller than 12.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p><p>
+<center><img  src="images/histogram.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>  "GradientBar"</code>   </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>  "gradientBar"</code>   </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>sunken</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_EXPAND</b></font></strong>                    <td width=140> expand                     <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PROPAGATE</b></font></strong>                 <td width=140> propagate                  <td width=140>  <code>true</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_TRANSIENT</b></font></strong>                 <td width=140> transient                  <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code> </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_MOTION_CALLBACK</b></font></strong>          <td width=140> N/A                        <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                        <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SHAPED_WINDOW</b></font></strong>            <td width=140> shapedWindow               <td width=140>   <code>false</code>        </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SHAPE_FILE</b></font></strong>               <td width=140> shapeFile                  <td width=140>   <code>NULL</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SHAPE_PIXMAP</b></font></strong>             <td width=140> N/A                        <td width=140>   <code>NULL</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></strong>         <td width=140> dndDragCursor              <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></strong>       <td width=140> dndBubbleString            <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BACKING_STORE</b></font></strong>            <td width=140> backingStore               <td width=140>   <code>true</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+<strong><font color="#990000"><b>EZ_BAR_EDITABLE</b></font></strong>      <td width=140> barEditable         <td width=140>   <code>True</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BAR_ORIENTATION</b></font></strong>   <td width=140> barOrientation      <td width=140>   <code><font color="#990000"><b>EZ_HORIZONTAL</b></font></code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BAR_WIDTH</b></font></strong>        <td width=140> barWidth           <td width=140>   <code>1</code>           </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BAR_RANGE</b></font></strong>         <td width=140> barRange            <td width=140>   <code>0.0 100.0</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BAR_COLOR_N</b></font></strong>      <td width=140> barColorN           <td width=140>   <code>0,green</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BAR_COLOR_N</b></font></strong>      <td width=140> barColorN           <td width=140>   <code>1,yellow</code>           </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HISTOGRAM_SAMPLE</b></font></strong>  <td width=140> histogramSample     <td width=140>   <code>10</code>           </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="51.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="53.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

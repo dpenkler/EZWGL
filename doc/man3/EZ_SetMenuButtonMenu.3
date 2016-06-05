@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetMenuButtonMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetMenuButtonMenu, EZ_GetMenuButtonMenu  \- associate a menu with a menu button
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void       EZ_SetMenuButtonMenu(EZ_Widget *" mbutton ", EZ_Widget *" menu )
+.BI "EZ_Widget *EZ_GetMenuButtonMenu(EZ_Widget *" mbutton )
+
+
+.SH ARGUMENTS
+\fImbutton\fR Specifies a menu button.
+.sp
+\fImenu\fR Specifies a menu.
+
+.SH DESCRIPTION
+MenuButton implements pulldown menus. \fBEZ_SetMenuButtonMenu\fR
+associates \fImenu\fR with \fImbutton\fR. Whenever a Button1 press
+occurs on \fImbutton\fR, the associated menu \fImenu\fR will be
+posted.
+.PP
+\fBEZ_SetMenuButtonMenu\fR returns the menu currently associated
+with the menubutton.
+
+.SH "SEE ALSO"
+EZ_CreateSimpleMenu(3)
+.br
+EZ_DoPopup(3)

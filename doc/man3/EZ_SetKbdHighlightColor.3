@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetKbdHighlightColor 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetKbdHighlightColor, EZ_SetKbdHighlightColorRGB \- override the
+default keyboard focus highlight color
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetKbdHighlightColor( char *" color_name )
+.BI "void EZ_SetKbdHighlightColorRGB( int " r ", int " g ", int " b)
+.SH ARGUMENTS
+\fIcolor_name\fR Specifies a color.
+.sp
+\fIr\fR,\fIg\fR,\fIb\fR Specify the RGB components of a color.
+
+.SH DESCRIPTION
+By default, widget that has the keyboard focus is highlighted
+by a black focus border. These two procedures set the
+keyboard focus highlight color to the specified color.
+.PP
+
+.SH "SEE ALSO"
+EZ_SetGlobalBackground(3), EZ_SetDefaultLabelFont(3)
+
+

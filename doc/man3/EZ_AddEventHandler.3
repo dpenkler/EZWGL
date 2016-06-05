@@ -1,0 +1,79 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AddEventHandler 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AddEventHandler,EZ_RemoveEventHandler,
+EZ_RemoveAllEventHandlers  \- register/remove event handlers associated to a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_AddEventHandler( EZ_Widget" *widget ",
+.BI "        EZ_EventHandler " handler ", void "*clientdata ", int " location)
+.BI "void EZ_AddEventHandler00( EZ_Widget" *widget ",
+.BI "        EZ_EventHandler " handler ", void "*clientdata ", int " location)
+.BI "void EZ_AddEventHandlerAll( EZ_Widget" *widget ",
+.BI "        EZ_EventHandler " handler ", void "*clientdata ", int " location)
+.BI "void EZ_RemoveEventHandler( EZ_Widget" *widget ",
+.BI "                         EZ_EventHandler " handler ", void "*clientdata)
+.BI "void EZ_RemoveEventHandler00( EZ_Widget" *widget ",
+.BI "                         EZ_EventHandler " handler ", void "*clientdata)
+.BI "void EZ_RemoveAllEventHandlers( EZ_Widget " *widget )
+.BI "void EZ_RemoveAllEventHandlers00( EZ_Widget " *widget )
+
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+\fIhandler\fR  Specifies an event handler.
+.sp
+\fIclientdata\fR  Specifies a clientdata to be passed to the
+event handler.
+.sp
+\fIlocation\fR  Specifies when the event handler is to be called
+relative to other previously registered handlers
+.sp
+.SH DESCRIPTION
+.PP
+An event handler is a procedure of the following prototype:
+.sp
+.nf
+void(*handler)(void *object, void *data, int etype, XEvent *event)
+.fi
+.PP
+\fBEZ_AddEventHandler\fR registers an event handler to a widget. If
+\fIlocation\fR is 0, the event handler will be put in front
+of all previously registered event handlers. If \fIlocation\fR is
+1, the event handler will be inserted at the end of all
+previousely registered event handlers.
+.PP
+For composite widget, \fBEZ_AddEventHandler\fR inserts the event
+handler to the most relevent internal widget. To add an event handler
+to the toplevel frame of a composite widget, use \fBEZ_AddEventHandler00\fR.
+.PP
+\fBEZ_AddEventHandlerAll\fR registers an event handler to widget and
+all its descendants.
+.PP
+\fBEZ_RemoveEventHandler\fR deletes an event handler. The specified
+event handler will be deleted only if both the procedure and
+the client data match.
+.PP
+For composite widget, \fBEZ_RemoveEventHandler\fR removes the specified event
+handler from the most relevent internal widget. To remove an event handler
+from a composite widget, use \fBEZ_RemoveEventHandler00\fR.
+
+.PP
+\fBEZ_RemoveAllEventHandlers\fR deletes all event handlers registered
+to a widget.
+.PP
+For composite widget, \fBEZ_RemoveAllEventHandlers\fR removes all event
+handlers from the most relevent internal widget. To remove all event handlers
+registered to the toplevel frame of a composite widget,
+use \fBEZ_RemoveAllEventHandlers00\fR.
+
+.SH "SEE ALSO"
+EZ_AddWidgetCallBack(3)
+.br

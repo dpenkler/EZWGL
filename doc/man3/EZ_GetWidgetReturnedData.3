@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME 
+EZ_GetWidgetReturnedData \- return the return value of a menu item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetWidgetReturnedData( EZ_Widget *" widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWidgetReturnedData\fR  returns the return data of a menu item.
+It is normally used in menu callbacks to figure out which item has been
+selected. If no valid selection was made, this function returns -1.
+
+
+.SH "SEE ALSO"
+ EZ_DoPopup(3)
+.br
+
+
+

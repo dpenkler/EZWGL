@@ -1,0 +1,79 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateLabelPixmapFromImageFile 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateXPixmapFromImageFile, EZ_CreateXPixmapFromBitmapFile, 
+EZ_CreateXPixmapFromXpmData, EZ_CreateXPixmapFromXpmFile,
+EZ_FreeXPixmap  \- create/free native X pixmap from file or data
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_CreateXPixmapFromImageFile(char *" file ", unsigned int *" w_ret,
+.BI  "         unsigned int *" h_ret ", Pixmap *"pixmap_ret )
+
+.BI "int EZ_CreateXPixmapFromXpmData(char **" data ", unsigned int *" w_ret,
+.BI  "         unsigned int *" h_ret ", Pixmap *"pixmap_ret ", Pixmap *" shape_ret )
+
+.BI "int EZ_CreateXPixmapFromXpmData(char *" file ", unsigned int *" w_ret,
+.BI  "         unsigned int *" h_ret ", Pixmap *"pixmap_ret ", Pixmap *" shape_ret )
+
+.BI "int EZ_CreateXPixmapFromBitmapFile(char *" file ", unsigned int *" w_ret,
+.BI  "         unsigned int *" h_ret ", Pixmap *"pixmap_ret ", Pixmap *" shape_ret )
+
+.BI "void EZ_FreeXPixmap(Pixmap "pximap )
+
+.SH ARGUMENTS
+\fIfile\fR  Specifies a unix file name.
+.sp
+\fIdata\fR  Specifies an XPM data or an X bitmap data.
+.sp
+\fIw_ret\fR, \fIh_ret\fR  Specify the returns for the width and height
+of the X pixmap.
+.sp
+\fIpixmap_ret\fR   Specifies the returns for the X pixmap.
+.sp
+\fIshape_ret\fR   Specifies the returns for shape mask or NULL.
+.sp
+\fIpixmap\fR   Specifies an X pixmap.
+
+.SH DESCRIPTION
+.PP
+This set of functions create native  X pixmaps from various sources. 
+They return the identifier of the created pixmap if sucessful and
+return None otherwise.  All these functions search for files in
+the following directories: the current directory, $EZ_LIBDIR, 
+/usr/include/X11/bitmaps and /usr/include/X11/pixmaps.
+.PP
+\fBEZ_CreateXPixmapFromImageFile\fR  creates an X pixmap from an
+image file. Currently EZWGL reads images in PPM, GIF, XPM and JPEG
+formats.
+.PP
+\fBEZ_CreateLabelXFromXBitmapFile\fR  creates an X pixmap from an
+x-bitmap file. The created pixmap is a bitmap.
+.PP
+\fBEZ_CreateXPixmapFromXBitmapData\fR  creates a pixmap from an
+x-bitmap data. The created pixmap is a bitmap.
+.PP
+\fBEZ_CreateLabelPixmapFromXpmData\fR creates a pixmap from an
+XPM data set.
+.PP
+\fBEZ_CreateLabelPixmapFromXpmFile\fR creates a pixmap from an
+XPM file.
+.PP
+\fBEZ_FreeXPixmap\fR frees the specified X pixmap. It is equivalent to
+.br
+.in +8
+XFreePixmap(EZ_GetDisplay(), pixmap)
+.in -8
+
+.SH "SEE ALSO"
+EZ_ConfigureWidget(3), EZ_CreateXPixmapFromBitmapFile(3),
+EZ_CreateXPixmapFromXpmData(3)
+.br
+
+
+

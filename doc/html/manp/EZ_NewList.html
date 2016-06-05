@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_NewList</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_NewList</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_NewList, EZ_EndList- create or replace a display list
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>n</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>m</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>)</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#004400"><i>v</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>m</i></font> Specifies a list number.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font> Specifies the compilation mode. Must be EZ_COMPILE or
+       EZ_COMPILE_AND_EXECUTE.
+
+
+<H2>DESCRIPTION</H2>
+       A display list is  a  set  of  graphics  commands  grouped
+       together for later execution.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font>  creates a new display list. Subsequent gl com-
+       mands are put into this list until a call to <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font>.
+
+       If <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font> is EZ_COMPILE, gl commands are just compiled  into
+       the  list. If  <font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font> is EZ_COMPILE_AND_EXECUTE, gl commands
+       are compiled and executed.
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CallList.html">EZ_CallList</A>(3), <A HREF="EZ_DeleteList.html">EZ_DeleteList</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

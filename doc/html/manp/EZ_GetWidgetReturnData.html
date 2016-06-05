@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GetWidgetReturnData</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GetWidgetReturnData</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_GetSelectedMenuItem,  EZ_GetWidgetReturnData - retrieve
+       the selected item from a popup menu
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font>  <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>         <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>         <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>*</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  Specifies an EZ Widget.
+
+
+
+<H2>DESCRIPTION</H2>
+       These functions are relevant only  for  <font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>s</b></font>,  <font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>s</b></font>
+       and <font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>-</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>s</b></font>.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font>   returns  the  return-value set on
+       the last selected menu-item. In the  case  when  no  valid
+       selection  was made during the last menu popup, it returns
+       -1.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> returns the last selected menu item
+       on  a  popup  menu. If no valid selection has been made on
+       the last popup, it returns NULL.
+
+       When a menu is posted, its return value is set to -1. When
+       a  selection  is made and the menu is unposted, the return
+       value of the selected menu item is propagated to its  par-
+       ent  (a popup menu). If the menu was posted by a menu-but-
+       ton, this return value is also propagated to the menu but-
+       ton.  The selected item is propagated accordingly.
+
+
+<H2>SEE ALSO</H2>
+        <A HREF="EZ_CreateWidget.html">EZ_CreateWidget</A>(3), <A HREF="EZ_DoPopup.html">EZ_DoPopup</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

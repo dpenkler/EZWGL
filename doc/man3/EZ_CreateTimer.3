@@ -1,0 +1,60 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateTimer 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateTimer, EZ_ResetTimer, EZ_CancelTimer, EZ_RestartTimer \- register a timer to EZWGL
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Timer *EZ_CreateTimer(long " sec ", long ", usec ",int "repeat,
+.BI "               EZ_CallBack " callback ", void *" pdata ", int " idata )
+.sp
+.BI "EZ_Timer *EZ_ResetTimer(EZ_Timer *" timer ", long " sec ", long ", usec,
+.BI " int " repeat ", EZ_CallBack " callback ", void *" pdata ", int " idata )
+.sp
+.BI "void  EZ_CancelTimer(EZ_Timer *" timer )
+.sp
+.BI "void  EZ_RestartTimer(EZ_Timer *" timer )
+
+.SH ARGUMENTS
+
+\fItimer\fR  Specifies a previousely registered timer.
+.sp
+\fIsec\fR, \fIusec\fR  Specifies the time to wait before firing the timer.
+.sp
+\fIrepeat\fR Specifies the number of times the timer to be fired. A
+negative value indicates that the timer will be fired indefinitely.
+.sp
+\fIcallback\fR Specifies a procedure to be invoked when the timer
+fires.
+.sp
+\fIpdata\fR Specifies a client data to be passed to \fIcallback\fR
+when invoked.
+.sp
+\fIidata\fR Specifies an additional client data to be stored in
+the EZ_Timer data structure. Both \fIpdata\fR and \fIidata\fR
+can be retrieved by EZ_GetTimerClientData(3).
+
+.SH DESCRIPTION
+.PP
+\fBEZ_CreateTimer\fR  creates a timer and register it to the EZWGL
+library.
+.PP
+\fBEZ_ResetTimer\fR resets a timer to the newly specified 
+configuration. If \fItimer\fR is NULL or has already expried,
+a new timer will be created.
+.PP
+\fBEZ_RestartTimer\fR  restarts a timer. The specified time
+will have been reseted to a state just like a newly created
+timer when this procedure returns.
+.PP
+\fBEZ_CancelTimer\fR  cancells a registered timer.
+
+.SH "SEE ALSO"
+EZ_GetTimerClientData(3), EZ_GetTimerState(3)
+
+

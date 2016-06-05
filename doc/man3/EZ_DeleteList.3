@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DeleteList 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DeleteList,EZ_DeleteLists\- delete display lists
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_DeleteList(int " num )
+
+.BI "void EZ_DeleteLists(int " start ", int " range )
+
+.SH ARGUMENTS
+\fInum\fR Specifies a list number.
+.sp
+\fIstart\fR Specifies a list number.
+.sp
+\fIrange\fR Specifies a range.
+
+.SH DESCRIPTION
+\fBEZ_DeleteList\fR causes the named display list be deleted.
+.PP
+\fBEZ_DeleteLists\fR causes all display lists named \fIstart\fR, \fIstart+1\fR, ...,
+\fIstart + range-1\fR be deleted.
+
+
+.SH "SEE ALSO"
+EZ_NewList(3), EZ_DeleteList(3), EZ_IsList(3)
+
+
+

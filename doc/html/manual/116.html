@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>EZwgl (12.13  Text)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="115.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="117.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.13  Text</h2>
+
+<p>
+The <i>EZwgl</i> provides support for bitmap fonts and vector fonts. For
+<code><font color="#990000"><b>EZ_XIMAGE</b></font></code> back buffers, only the vector font is supported. The
+library also provides two methods to specify the location to render text
+strings: in modeling space and in screen space. To set the current
+font use
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SetVectorFont</b></font>(int vfont)</code>
+<p>This function sets the current vector font. Only two vector fonts
+are supported, a small vector font 
+<code><font color="#990000"><b>EZ_SMALL_VECTOR_FONT</b></font></code> or
+a large vector font <code><font color="#990000"><b>EZ_LARGE_VECTOR_FONT</b></font></code>.
+<p>The next function sets the current bitmap font.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SetBitmapFont</b></font>(char *fontName);</code>
+<p>To specify where to render text on the screen. Use the following set
+of functions.
+<p><p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_CMove3f</b></font>(float x, float y, float z);
+void <font color="#990000"><b>EZ_CMove2f</b></font>(float x, float y);
+void <font color="#990000"><b>EZ_CMove3fv</b></font>(float xyz[3]);
+void <font color="#990000"><b>EZ_CMoveScreen3f</b></font>(float x, float y, float z);
+void <font color="#990000"><b>EZ_CMoveScreen2f</b></font>(float x, float y);
+</pre>
+<p>These functions set the current character position.
+<p>To draw a string, use
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_DrawString</b></font>(int whichFont, char *str);</code>
+<p>This function draws <code>str</code> using the current vector or bitmap
+font at the current character position. 
+<p><strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> If the current draw buffer is an <code><font color="#990000"><b>EZ_XIMAGE</b></font></code> back
+buffer, bitmap fonts defaults to the current vector font. There is
+no way to draw a bitmap font to an <code><font color="#990000"><b>EZ_XIMAGE</b></font></code> back buffer.
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="115.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="117.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

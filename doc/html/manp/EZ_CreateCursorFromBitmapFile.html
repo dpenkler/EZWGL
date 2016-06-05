@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_CreateCursorFromBitmapFile</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_CreateCursorFromBitmapFile</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_CreateCursorFromBitmapFile,  EZ_CreateCursorFromBitmap-
+       Data - define an X cursor
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>C</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>k</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>,</i></font>
+                               <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>f</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>b</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>,</b></font>
+                               <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>,</i></font>
+                               <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+
+       <font color="#440000"><b>C</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>,</i></font>
+                               <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>k</i></font>
+                               <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>f</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>b</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>,</b></font>
+                               <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>,</i></font>
+                               <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font>  Specifies a file to read the cursor bitmap.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>k</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font>  Specifies a file to read the cursor mask  bitmap
+       or NULL.
+
+       <font color="#004400"><i>f</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font>  Specifies  the foreground color for the cursor or
+       NULL.
+
+       <font color="#004400"><i>b</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>r</i></font> Specifies the background color for the  cursor  or
+       NULL.
+
+       <font color="#004400"><i>h</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>x</i></font>,<font color="#004400"><i>h</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font> Specify a hotspot in the bitmap.
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font> Specifies the bitmap bits.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>k</i></font> Specifies the mask bitmap bits or NULL.
+
+       <font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>h</i></font>,<font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>t</i></font> Specify the dimension of the bitmaps.
+
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>  Specifies a name for the cursor being created.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specifies a return for the internal identifier for
+       the cursor being created.
+
+
+<H2>DESCRIPTION</H2>
+       These two functions create an X cursor from the  specified
+       X bitmaps, and return the X cursor id. In case of failure,
+       they return <font color="#004400"><i>N</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>e</i></font>.  <font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>, if  specified,  can  be  used  in
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font>  to  retrieve  the  cursor.   The value
+       returned to <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> can be used in <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>r</b></font> to  return
+       the cursor.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_GetCursor.html">EZ_GetCursor</A>(3), <A HREF="EZ_WaitCursor.html">EZ_WaitCursor</A>(3)
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

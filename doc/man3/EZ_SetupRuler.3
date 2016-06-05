@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetupRuler 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetupRuler\- setup a ruler widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetupRuler( EZ_Widget *"ruler ", int " tickUnit.
+.BI "                    int " tickLen ", int " nscale ", int " offset);
+.BI "void EZ_SetRulerOffset( EZ_Widget *"ruler ", int " offset );
+
+.SH ARGUMENTS
+\fIruler\fR  Specifies a ruler widget.
+.sp
+\fIoffset\fR specifies an offset of the ruler origin. That is,
+the origin of the ruler window will be treated as -offset units.
+.sp
+\fItickUnit, tickLen, nscle\fR specifies a set of control parameters.
+\fItickUnit\fR is distance between tick marks. If tickUnit is zero,
+it will be set approximately the equivalent of 1mm in pixels. 
+If tickUnit is negative, it will be set to the equivalent of 1/8 inch in
+pixels. Otherwise, it is treated as the number of pixels.
+\fItickLength\fR  is the length of the longest tick marks and \fInScale\fR
+represents the value corresponds to 10 tick units.
+
+.sp
+\fIx,y\fR specifies the pointer coordinates relative to the source window.
+
+
+.SH DESCRIPTION
+.PP
+These functions  set a mark on a ruler widget. A ruler widget
+has two static marks.
+
+.SH "SEE ALSO"
+EZ_WidgetNotifyRuler(3), EZ_GetRulerMarks(3)
+.br

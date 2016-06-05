@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetBackgroundGC 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetDarkBrightNormalBDGC \- return the GCs used to render the border of a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetDarkBrightNormalGC(EZ_Widget " *widget ", GC " *dkgc ", GC " *btgc ", GC " *ngc )
+
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+\fIdkgc, btgc, ngc\fR  Specifies the returns for the dark, bright and normal border GC respectively.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetDarkBrightNormalBDGC\fR returns the GCs used to render a widget's border.
+
+.SH "SEE ALSO"
+EZ_GetBackgroundGC(3)
+
+

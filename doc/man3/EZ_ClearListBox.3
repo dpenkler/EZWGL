@@ -1,0 +1,58 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ClearListBox 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ClearListBox, EZ_DeleteListBoxItem, EZ_InsertListBoxItem,
+EZ_ModifyListBoxItem, EZ_AppendListBoxItem 
+EZ_ListBoxSelectItem, EZ_ListBoxSelectItemUsingIdx  \- listbox editing functions
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ClearListBox( EZ_Widget *" listbox)
+.BI "void EZ_DeleteListBoxItem( EZ_Widget *" listbox ", int " idx)
+.BI "void EZ_InsertListBoxItem( EZ_Widget *" listbox ", char *" str ", int " idx)
+.BI "void EZ_ModifyListBoxItem( EZ_Widget * " listbox ", char *" str ", int " idx)
+.BI "void EZ_AppendListBoxItem( EZ_Widget * " listbox ", char *" str )
+.BI "void EZ_ListBoxSelectItem( EZ_Widget *" listbox ", char *" str )
+.BI "void EZ_ListBoxSelectItemUsingIdx( EZ_Widget *" listbox ", int " idx )
+
+
+.SH ARGUMENTS
+\fIlistbox\fR  Specifies a listbox widget.
+.sp
+\fIstr\fR  Specifies a textual string.
+.sp
+\fIidx\fR  Specifies an array index.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ClearListBox\fR clears the listbox.
+.PP
+\fBEZ_DeleteListBoxItem\fR deletes the specified item.
+.PP
+\fBEZ_InsertListBoxItem\fR inserts the given item at the specified
+position.
+.PP
+\fBEZ_AppendListBoxItem\fR appends \fIstr\fR at the end of
+the list of items in \fBlistbox\fR.
+.PP
+\fBEZ_ModifyListBoxItem\fR replaces the item at location \fIidx\fR by
+\fIstr\fR.
+.PP
+\fBEZ_ListBoxSelectItem\fR sets the selection on the
+specified item. If sucessful, the display will be adjusted so that the
+selection is visible.
+.PP
+\fBEZ_ListBoxSelectItemUsingIdx\fR behaves the
+same as \fBEZ_ListBoxSelectItem\fR except that it
+uses the index instead of the item string.
+
+.SH "SEE ALSO"
+EZ_GetListBoxSelection(3), EZ_SetListBoxItems(3)
+.br
+
+

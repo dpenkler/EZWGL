@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_StartAsIcon "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_StartAsIcon  \- set the initial state of main toplevel window
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_StartAsIcon(int "boolv)
+.sp
+
+.SH ARGUMENTS
+\fIboolv\fR  Specifies either True or False.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_StartAsIcon\fR sets the initial mapping state for
+the first toplevel widget window. If \fIboolv\fR is true,
+the application starts in the IconicState.  This function
+has no effects if invoked after \fBEZ_DisplayWidget\fR.
+.sp
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3), EZ_Initialize(3)
+.br
+
+
+

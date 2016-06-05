@@ -1,0 +1,24 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetMatrix 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetMatrix \- retrieve the current matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetMatrix( EZ_Matrix " matrix )
+
+.SH DESCRIPTION
+\fImatrix\fR Specifies a matrix to return the current matrix.
+
+.SH DESCRIPTION
+\fBEZ_GetMatrix\fR copy the top matrix of the current matrix
+stack to \fImatrix\fR.
+
+.SH "SEE ALSO"
+EZ_MultMatrix(3), EZ_LoadMatrix(3), EZ_PushMatrix(3)
+

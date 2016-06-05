@@ -1,0 +1,49 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetTimerClientData 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetTimerClientData, EZ_SetTimerIntData, EZ_SetTimerPtrData
+\- store client data stored in a timer
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetTimerIntData(EZ_Timer *" timer ", int " idata )
+.sp
+.BI "void  EZ_SetTimerPtrData(EZ_Timer *" timer ", void *" pdata )
+.sp
+.BI "void  EZ_SetTimerCilentData(EZ_Timer *" timer,
+.BI "             int " idata ", void *" pdata)
+
+
+.SH ARGUMENTS
+
+\fItimer\fR  Specifies a timer.
+.sp
+\fIidata\fR Specifies an integer to be stored in \fItimer\fR.
+.sp
+\fIpdata\fR Specifies a pointer to be stored in \fItimer\fR.
+
+
+.SH DESCRIPTION
+.PP
+The EZ_Timer data structure provides two slots for applications to
+store client data. One if of type \fBint\fR and the other is of type
+\fBvoid *\fR. These functions store client data in a time.
+.PP
+\fBEZ_SetimerIntData\fR stores an integer in \fItimer\fR.
+.PP
+\fBEZ_SetimerPtrData\fR stores a pointer in \fItimer\fR.
+.PP
+\fBEZ_SetimerClientData\fR stores both the integer and the pointer
+data in \fItimer\fR.
+
+.SH "SEE ALSO"
+EZ_CreateTimer(3), EZ_GetTimerState(3), EZ_GetTimerClientData(3),
+EZ_SetTimerCallBack(3)
+
+
+

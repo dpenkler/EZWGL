@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetBackBuffer 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetBackBuffer \- select a back buffer 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SelectBackBuffer( int " buf)
+
+.SH ARGUMENTS
+\fIbuf\fR Specifies a back buffer type, either 
+EZ_XIMAGE or EZ_PIXMAP.
+
+.SH DESCRIPTION
+\fBEZ_SelectBackBuffer\fR selects the specified
+back buffer.
+
+.SH "SEE ALSO"
+EZ_DrawBuffer(3), EZ_SwapBuffers(3), EZ_AutoSelectBackBuffer(3)
+
+
+

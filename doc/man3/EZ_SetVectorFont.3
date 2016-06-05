@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetBitmapFont 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetVectorFont \- select one of the two vector fonts
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetVectorFont(int " type )
+
+
+.SH ARGUMENTS
+\fItype\fR Specify a vector font type, either EZ_SMALL_VECTOR_FONT or EZ_LARGE_VECTOR_FONT.
+
+.SH DESCRIPTION
+\fIEZ_SetVectorFont\fR selects one of the two vector fonts for a 3D canvas. The 
+selected font will be used to draw character strings by
+EZ_DrawString with the first argument set to EZ_VECTOR_FONT. 
+
+.PP
+
+.SH "SEE ALSO"
+EZ_CMove3f(3), EZ_DrawString(3), EZ_SetBitmapFont(3)
+
+
+

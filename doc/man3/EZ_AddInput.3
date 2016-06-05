@@ -1,0 +1,73 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AddInput 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AddInput, EZ_RemoveInput \- register/remove input handlers
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Input *EZ_AddInput(int " fd ", int " mask,
+.BI  "              EZ_InputCallBack " callback ", void *"data )
+
+.BI "void EZ_RemoveInput(EZ_Input *" input )
+
+
+.SH ARGUMENTS
+\fIfd\fR  Specifies a file descriptor.
+.sp
+\fImask\fR Specifies the mask that indicates a read, write, or
+exception condition. It must be ORed from EZ_READABLE_MASK,
+EZ_WRITABLE_MASK and EZ_EXCEPTION_MASK.
+.sp
+\fIcallback\fR  Specify the procedure to be invoked when input is
+ready.
+.sp
+\fIdata\fR  Specifies the argument that is to be passed to
+\fIcallback\fR  when invoked.
+.sp
+\fIinput\fR  Specifies a EZ_Input handler.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_AddInput\fR registers an input handler to the EZWGL library.
+.PP
+\fBEZ_RemoveInput\fR removes a previousely registered
+input handler.
+.PP
+\fBEZ_InputCallBack\fR is a procedure of type
+.nf
+  void (*inputCallback)(void *object, void *data, int fd, int mask);
+.fi
+.PP
+Here is a simple input handler that reads from the standard input
+and insert the input in a text widget.
+.PP
+.nf
+static void readStdin(EZ_Input *id, void *data, int fd, int mask)
+{
+  EZ_Widget *tw = (EZ_Widget *)data; 
+  char buf[1024];
+  int n;
+  if(mask & EZ_READABLE_MASK)
+    {
+      n = read(fd, buf, 1023);
+      if(n > 0)
+	{
+	  buf[n] = 0;
+	  EZ_TextEndOfBuffer(tw);
+	  EZ_TextInsertString(tw,buf);
+	}
+    }
+}
+.fi
+
+.SH "SEE ALSO"
+EZ_EventMainLoop(3), EZ_ServiceEvents(3)
+.br
+
+
+

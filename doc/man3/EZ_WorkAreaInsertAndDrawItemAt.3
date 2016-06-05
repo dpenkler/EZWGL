@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaInsertAndDrawItemAt 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaInsertAndDrawItemAt  \- insert and display an item in a workarea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WorkAreaInsertAndDrawItemAt(EZ_Widget *" warea ", EZ_Item *" item,
+.BI "                           int *" location ", int " displayMode)
+
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+\fIitem\fR  Specifies a display item currently managed by \fIwarea\fR.
+.sp
+\fIlocation\fR  Specifies a  location or NULL.
+.sp
+\fIdisplayMode\fR Specifies 1 or 0.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WorkAreaInsertAndDrawItemAt\fR inserts and display the specified
+item in a workarea widget. If displayMode is 0, the item will be displayed
+at the specified location, otherwise, the location will be assigned by
+the geometry manager.
+
+.SH "SEE ALSO"
+EZ_WorkAreaInsertItem(3),
+.br
+EZ_WorkAreaScaleItem(3)
+.br
+
+

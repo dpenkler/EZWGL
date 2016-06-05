@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_CreateGLImage</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_CreateGLImage</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_CreateGLImage,   EZ_FreeGLImage  -  create/free  an  gl
+       image.
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>p</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>P</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>p</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>        <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>)</i></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>P</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>p</i></font>  Specifies  a  LabelPixmap,  must  be  created
+       using <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>L</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>b</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>P</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>*</i></font><font color="#004400"><i>*</i></font><font color="#004400"><i>*</i></font>.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font>  Specifies a GL image.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>g</b></font> creates an image to be used by the graph-
+       ics library. Once created, it can be displayed on a 3DCan-
+       vas by using <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>*</b></font><font color="#440000"><b>*</b></font><font color="#440000"><b>*</b></font><font color="#440000"><IMG SRC=></font><font color="#440000"><b>.</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font>  releases  the  resources  allocated for an
+       image.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateXPixmapFromBitmapFile.html">EZ_CreateXPixmapFromBitmapFile</A>(3), <A HREF="EZ_PutGLImage.html">EZ_PutGLImage</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

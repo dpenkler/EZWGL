@@ -1,0 +1,79 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SendMessage 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SendMessage, EZ_BroadcastMessage, EZ_ReplyMessage \- send message
+to other EZWGL clients
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+typedef struct {
+  Atom       messageType;    /* message type   */
+  int        messageLength;  /* message length */
+  char       *message;       /* the message    */
+  int        messageId;      /* message Id     */
+  int        replyId;        /* if request, the message id to reply */
+  int        isReply;        /* flag whether the message is a reply */
+  Window     sender;         /* sender's communication window id  */
+  Atom       senderClass;    /* sender's class name */
+  Atom       senderInstance; /* sender's instance name */
+  int        senderIsSelf;   /* is message originated from the myself? */
+} EZ_Message;
+.sp
+.BI "void  EZ_SendMessage(Atom " mtype, " char " *message, " int " length,
+.BI "                     int " msgId, " Window " recipient, " Atom " rclass,
+.BI "                     Atom " rinstance, " int " needReplay, " int "isReply)
+.sp
+.BI "void  EZ_BroadcastMessage(Atom " mtype, " char " *message,
+.BI "                          int " length, "  int " msgId, " int " needReply)
+.sp "
+.BI "void  EZ_ReplyMessage(EZ_Message " *fromMsg, " char " *message,  int " length)
+.sp
+.BI "void  EZ_ReplyMessageR(EZ_Message " *fromMsg, " char " *message,  int " length,
+.BI "                       int " replyId)
+.sp
+
+
+.SH ARGUMENTS
+\fImtype\fR  Specifies a message type.
+.sp
+\fImessage, length\fR  Specifies a message and the length of the message.
+.sp
+\fImsgId\fR Specifies a serial number. Serial number is local to each
+application so the sender has to keep track of it.
+.sp
+\fIneedReply\fR Specifies whether or not the recipient should reply
+the message.
+.sp
+\fIisReply\fR Specifies whether or not the message is a reply to an
+incoming message.
+.sp
+\fIrecipient, rclass, rinstance\fR Specifies the recipient.
+.sp
+\fIfromMsg\fR Specifies the incoming message.
+.sp
+\fIreplyId\fR Specifies a serial number for other clients to reply to.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SendMessage\fR sends the specified message to the specified
+recipient. This function is rarely needed. This is the low level
+routine used by \fBEZ_BoardcastMessage\fR and \fBEZ_ReplyMessage\fR.
+.PP
+\fBEZ_BoardcastMessage\fR broadcasts a message to all EZWGL clients.
+.PP
+\fBEZ_ReplyMessage\fR replys an incoming message.
+.PP
+\fBEZ_ReplyMessageR\fR replys an incoming message, requesting the
+receiver to reply with the specified message id.
+
+.SH "SEE ALSO"
+EZ_SetDefaultMessageHandler(3), EZ_AddMessageHandler(3)
+.br
+
+
+

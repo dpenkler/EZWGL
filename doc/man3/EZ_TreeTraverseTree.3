@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TreeTraverseTree 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TreeTraverseTree \- travers a subtree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_TreeTraverseTree(EZ_TreeNode *" root ",
+.BI "		 void (*" preF  ")(EZ_TreeNode * " node ),
+.BI "		 void (*" postF ")(EZ_TreeNode * "node ))
+
+
+.SH ARGUMENTS
+.sp
+\fIroot\fR  Specifies a tree node, the root of a subtree.
+.sp
+\fIpreF\fR Specifies a procedure to be executed at a node 
+before visiting the children of the node.
+.sp
+\fIpostF\fR Specifies a procedure to be executed at a node after all
+descendants of the node have been visited.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TreeTraverseTree\fR travers the subtree rooted at \fIroot\fR 
+executes the given procedures.
+
+.SH "SEE ALSO"
+EZ_CreateTreeNode(3), EZ_TreeSetCharacter(3)
+
+
+

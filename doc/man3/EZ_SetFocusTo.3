@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetFocusTo "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetFocusTo \- focus keyboard on a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetFocusTo(EZ_Widget *"  widget)
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetFocusTo\fR set the keyboard input focus to the
+specified widget if \fIwidget\fR is currently visible and
+is focusable.
+
+.SH "SEE ALSO"
+EZ_GetFocus(3),
+.br
+EZ_GrabWidget(3)
+
+

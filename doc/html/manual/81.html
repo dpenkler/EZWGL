@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>EZwgl (7.2  Timer Events)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="80.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="82.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>7.2  Timer Events</h2>
+
+<p>
+There are two lists of timers in the <i>EZwgl</i>,
+a list of repeating timers and a list of
+one-time timers. The second list is an ordered
+list sorted according to the timeouts
+while the first one is not sorted.
+<p>Timers are created by 
+<pre><p>
+<font color="#990000"><b>EZ_Timer</b></font> *<font color="#990000"><b>EZ_CreateTimer</b></font>(long sec, long usec, int repetition,
+          <font color="#990000"><b>EZ_CallBack</b></font> callback, void *pdata, int idata);
+</pre>
+<p>This function creates a timer and returns the
+allocated timer data structure. If <code>repetition</code>
+is 0, the timer created is put in the one-time timer list
+and will be fired exactly once if at all. If 
+<code>repetition</code> is nonzero, the timer is  inserted
+into the repeating timer list and it will be fired
+exactly <code>repetition</code>  times or indefinitely
+depending on whether <code>repetition</code> is positive
+or not.
+<p>The following three functions 
+can be used to modify the state of an existing timer.
+<pre><p>
+<font color="#990000"><b>EZ_Timer</b></font> *<font color="#990000"><b>EZ_ResetTimer</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer, long sec, long usec,
+                        int repetition, <font color="#990000"><b>EZ_CallBack</b></font> callback,
+                        void *pdata, int idata);
+<font color="#990000"><b>EZ_Timer</b></font> *<font color="#990000"><b>EZ_RestartTimer</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer);
+void      <font color="#990000"><b>EZ_CancelTimer</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer);
+</pre>
+<p><p>
+Here are a few more interface functions.
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetTimerPtrData</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer, void *data);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ attach client pointer data to a timer.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetTimerIntData</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer, int value);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ attach an integer to a timer.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetTimerClientData</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer, void *p, int i);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ attach client data to a timer.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetTimerCallBack</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer, <font color="#990000"><b>EZ_CallBack</b></font> cb, void *data);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ set timer callback procedure.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetTimerState</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer, long *sec, long *usec, int *repetition);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the current state of a timer.
+</font>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_GetTimerPtrData</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer,void **dat_return);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the client data attached to a timer.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_GetTimerdIntData</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the integer attached to a timer.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_GetTimerdClientData</b></font>(<font color="#990000"><b>EZ_Timer</b></font> *timer, void **p, int *i);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the pointer and the integer attached to a timer.
+</font>
+<p><h3> 7.2.1  An Example </h3 <br>
+<p>
+<font size=-1>
+<pre>
+/************************** ExampleTimer ************************/
+#include "EZ.h"
+
+static void rtimer_callback(<font color="#990000"><b>EZ_Timer</b></font> *timer, void *pdata)
+{
+  long delay_sec, delay_usec; 
+  int  n_calls_remaining;
+  char str[256];
+
+  <font color="#990000"><b>EZ_GetTimerState</b></font>(timer, &delay_sec, &delay_usec, &n_calls_remaining);
+  if(n_calls_remaining == 0) {<font color="#990000"><b>EZ_Shutdown</b></font>(); exit(0);}
+  sprintf(str,"%.1f seconds remaining before destruction",
+          (float) (delay_usec * n_calls_remaining)/1000000.0);
+  <font color="#990000"><b>EZ_ConfigureWidget</b></font>((<font color="#990000"><b>EZ_Widget</b></font>*)pdata, <font color="#990000"><b>EZ_LABEL_STRING</b></font>, str, 0);
+}
+
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *label;
+  <font color="#990000"><b>EZ_Timer</b></font>  *RTimer;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac,av,0);
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>, NULL,
+                          <font color="#990000"><b>EZ_LABEL_STRING</b></font>, "A Timer",	
+                          0);
+  label = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font>, frame,
+                          <font color="#990000"><b>EZ_FOREGROUND</b></font>,  "red",
+                          <font color="#990000"><b>EZ_PROPAGATE</b></font>,    0,
+                          <font color="#990000"><b>EZ_LABEL_STRING</b></font>, "20.0 seconds remaining before destruction",
+                          <font color="#990000"><b>EZ_LABEL_JUSTIFICATION</b></font>, <font color="#990000"><b>EZ_CENTER</b></font>, 
+                          0);
+  RTimer = <font color="#990000"><b>EZ_CreateTimer</b></font>(0, 100000, 200, rtimer_callback, label, 0);
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(frame);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+
+</pre>
+<p>
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="80.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="82.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

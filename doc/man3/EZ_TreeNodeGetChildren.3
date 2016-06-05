@@ -1,0 +1,48 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TreeNodeGetChildren 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TreeNodeGetChildren, EZ_TreeNodeGetSibling,
+EZ_TreeNodeGetParent \- retieve neighboring tree nodes 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_TreeNode *EZ_TreeNodeGetChildren(EZ_TreeNode *" node )
+.BI "EZ_TreeNode *EZ_TreeNodeGetSibling(EZ_TreeNode *" node )
+.BI "EZ_TreeNode *EZ_TreeNodeGetParent(EZ_TreeNode *" node )
+
+.SH ARGUMENTS
+\fInode\fR  Specifies a tree node.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TreeNodeGetParent\fR returns the parent node.
+.PP
+\fBEZ_TreeNodeGetChildren\fR returns the children node.
+.PP
+\fBEZ_TreeNodeGetSibling\fR returns the sibling node.
+.PP
+The representation of a tree is schematically the
+following
+.nf
+      ...
+     parent  
+      |     \\           \\
+      |      \\           \\           \\
+     node -- sibling -- sibling -- sibling -- ...
+      |        |          |          |
+      |        |          |          |
+     child    ...        ...        ...
+         ...
+.fi
+
+.SH "SEE ALSO"
+ EZ_CreateTreeNode(3), EZ_TreeFindNode(3)
+.br
+
+

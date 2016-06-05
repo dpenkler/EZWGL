@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>EZwgl (1  Introduction)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF=".html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="-1.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="1.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h1>1  Introduction</h1>
+
+<p><p>This manual explains the application 
+programming interface (API) for the <i>EZ</i> Widget and Graphics
+Library (henceforth, <i>EZwgl</i>). 
+It serves as both a specification and
+a users guide.  This document referes to 
+<i>EZwgl</i> release 1.50.
+<p><p><i>EZwgl</i> is a library of C functions based on Xlib. 
+Its purpose is to provide a tool that
+simplifies the task of graphical user interface (GUI) programming
+under the X window system environment. If you are a C
+programmer and want to build a nice graphical user
+interface for your applications, or you want to do some
+graphics programming under the X window 
+system programming environment, then <i>EZwgl</i>
+is for you. 
+<p><p><i>EZwgl</i> implements about thirty or so commonly used widgets.
+Currently implemented widgets are:
+<p><ul>
+<p>
+<li><strong>buttons</strong>, push button, check button, radio
+button, arrow button and menu button.
+<p>
+<li><strong>dial</strong>, a numerical value editor.
+<p>
+<li><strong>entry</strong>, a one line text editor.
+<p>
+<li><strong>fancy listbox</strong>, a multi-column listbox.
+<p>
+<li><strong>file selector</strong>, a <img src="images/0.gif"> style file selection
+dialogue.
+<p>
+<li><strong>frame/labled-frame</strong>, a simple container widget.
+<p>
+<li><strong>gradient bar</strong> 
+<p>
+<li><strong>histogram</strong> 
+<p>
+<li><strong>icon</strong>, a toplevel label/frame that is invisible by your
+window manager.
+<p>
+<li><strong>label</strong>, textual or bitmap/pixmap/image label.
+<p>
+<li><strong>listbox</strong>, a simple textual item selector.
+<p>
+<li><strong>list tree</strong>, a widget for displaying a tree of items.
+<p>
+<li><strong>menus</strong>, popup menu and pull-down menu.
+<p>
+<li><strong>menubar</strong>
+<p>
+<li><strong>notebook</strong>, a container widget for grouping 
+widgets into pages.
+<p>
+<li><strong>optional entry</strong>, a comboBox.
+<p>
+<li><strong>pane-handle</strong>, a special widget for dividing its parent
+into panes.
+<p>
+<li><strong>ruler</strong>
+<p>
+<li><strong>sliders</strong>, horizontal and vertical sliders.
+<p>
+<li><strong>spread sheet</strong>, a simple spread sheet.
+<p>
+<li><strong>thumb wheel</strong>,
+<p>
+<li><strong>text</strong>, an editable text browser. Text widget supports a 
+few hardcoded text properties: fonts, foreground/background color
+and bitmaps/pixmaps.
+<p>
+<li><strong>raw X window</strong>, a widget that gives you a native X window.
+<p>
+<li><strong>work area</strong>, a special container widget capable of 
+managing items and other widgets.
+<p>
+<li><strong>lcd</strong>, a widget mimics the liquid crystal display.
+<p>
+<li><strong>led</strong>, a widget simulates the light emitting diode
+display.
+<p>
+<li><strong>statusMeter </strong>, a widget implements the progress meter.
+<p>
+<li><strong>term </strong>, a vt100 terminal emulator.
+<p>
+<li><strong>3D canvas</strong>, a widget specifically for the <i>EZ</i> 
+graphics library.
+<p>
+<li><strong>free label/frame</strong>. A freely movable label/frame 
+whose geometry is not managed by the geometry manager.
+</ul>
+<p><p><i>EZwgl</i> also implements a set of about 100 <img src="images/1.gif"> 
+like graphics commands that provide high-level support for 3D graphics. 
+It currently supports
+<ul>
+<p>
+<li><strong>zbuffer</strong>
+<p>
+<li><strong>doublle buffer</strong>, supports pixmap or XImage back buffer.
+<p>
+<li><strong>RGB or Colormap mode</strong>, supports a simulated RGB mode (dithering) for 8bit visuals.
+<p>
+<li><strong>flat or smooth shading</strong>
+<p>
+<li><strong>lighting</strong>
+<p>
+<li><strong>fog</strong>
+<p>
+<li><strong>polygon, line and points primitives</strong>
+<p>
+<li><strong>bitmap fonts and a vector font</strong>
+<p>
+<li><strong>mouse and keyboard input devices</strong>
+</ul>
+<p><p><i>EZwgl</i> is designed to work on displays with an at least  8 bit deep 
+<em>PseudoColor, DirectColor, TrueColor, StaticColor, GrayScale</em>,
+or <em>StaticGray</em> visual. 
+<p><p><i>EZwgl</i> has been tested on the following platforms,
+SunSparc/X11R5, SGI-Indigo/X11R5, 
+Pentium-Linux/X11R6 and Alpha OSF/X11R5/X11R6. 
+It should work on any Unix systems with X11R5/X11R6.
+<p><p>The current release is 1.50
+<p><p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF=".html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="-1.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="1.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

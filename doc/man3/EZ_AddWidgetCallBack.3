@@ -1,0 +1,79 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AddWidgetCallBack 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AddWidgetCallBack, EZ_RemoveWidgetCallBack,
+EZ_RemoveAllWidgetCallBacks  \- register/remove callbacks associated to a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_AddWidgetCallBack( EZ_Widget *" widget ",
+.BI "     int " which ", EZ_CallBack " callback ", void *" clientdata ", int " location )
+.BI "void EZ_AddWidgetCallBack00( EZ_Widget *" widget ",
+.BI "     int " which ", EZ_CallBack " callback ", void *" clientdata ", int " location )
+.BI "void EZ_RemoveWidgetCallBack( EZ_Widget *" widget ",
+.BI "     int " which ", EZ_CallBack " callback ", void *"clientdata )
+.BI "void EZ_RemoveWidgetCallBack00( EZ_Widget *" widget ",
+.BI "     int " which ", EZ_CallBack " callback ", void *"clientdata )
+.BI "void EZ_RemoveAllWidgetCallBacks( EZ_Widget *" widget ", int "which )
+.BI "void EZ_RemoveAllWidgetCallBacks00( EZ_Widget *" widget ", int "which )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+\fIcallback\fR  Specifies a callback.
+.sp
+\fIclientdata\fR  Specifies an clientdata to be passed to the
+callback.
+.sp
+\fIwhich\fR  Specifies a callback list. 
+.sp
+\fIlocation\fR  Specifies when the callback is to be called
+relative to other previousely registered callbacks.
+.sp
+.SH DESCRIPTION
+.PP
+An \fBcallback\fR is a procedure of the following prototype:
+.sp
+.nf
+    void (* callback)(void *object, void *data)
+.fi
+.PP
+\fBEZ_AddWidgetCallBack\fR registers a callback to a widget. 
+There are three callback lists associated to a widget: an
+\fBEZ_CALLBACK\fR list, an \fBEZ_MOTION_CALLBACK\fR list and
+an \fBEZ_DESTROY_CALLBACK\fR list. Motion callbacks are invoked 
+whenever the the selection item changes. Normal callbacks are called 
+when a Button1 press occurs on the widget window or a selection
+is made. Destroy callbacks are invoked at the time a widget is
+destroyed. If \fIlocation\fR is 0, the callback will be put in front
+of all previously registered callbacks. If \fIlocation\fR is
+1, the callback will be inserted at the end of all
+previousely registered callbacks.
+.PP
+For composite widget, \fBEZ_AddWidgetCallBack\fR 
+registers the callback to the most appropriate inter widget. To
+register a callback to a composite widget itself, use
+\fBEZ_AddWidgetCallBack00\fR.
+.PP
+\fBEZ_RemoveWidgetCallBack\fR deletes a callback from the
+specified callback list. The specified
+callback will be deleted only if both the procedure and
+the client data match.
+.PP
+For composite widget, \fBEZ_RemoveWidgetCallBack\fR 
+removes the callback from the most appropriate inter widget. To
+remove a callback from a composite widget's callback list, use
+\fBEZ_RemoveWidgetCallBack00\fR.
+.PP
+\fBEZ_RemoveAllCallBacks\fR deletes all callbacks from
+the specified callback list.
+.PP
+
+.SH "SEE ALSO"
+EZ_AddEventHandler(3)
+.br

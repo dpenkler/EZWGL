@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>EZwgl (2.1  Data Types)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="7.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>2.1  Data Types</h2>
+
+<p>
+Most of the data types in <i>EZwgl</i> are hidden from the user. There
+are only a few special data types an application programmer needs
+to be aware of. The important ones are
+the prototypes for callbacks and event handlers. Below is a
+list of these data types.
+<p><font size=-1>
+<pre><p>
+/* these can only be used as pointers */
+typedef void       <font color="#990000"><b>EZ_Widget</b></font>;
+typedef void       <font color="#990000"><b>EZ_LabelPixmap</b></font>;
+typedef void       <font color="#990000"><b>EZ_TextProperty</b></font>;
+typedef void       <font color="#990000"><b>EZ_TextProp</b></font>;
+typedef void       <font color="#990000"><b>EZ_Item</b></font>;
+typedef void       <font color="#990000"><b>EZ_TreeNode</b></font>;
+typedef void       <font color="#990000"><b>EZ_Timer</b></font>;
+typedef void       <font color="#990000"><b>EZ_Bitmap</b></font>;
+typedef void       <font color="#990000"><b>EZ_Pixmap</b></font>;
+typedef void       <font color="#990000"><b>EZ_Input</b></font>;
+</pre>
+<p><pre><p>
+/* prototypes for func ptrs */
+typedef  void      (*<font color="#990000"><b>EZ_CallBack</b></font>)(void *object, void *data));
+typedef  void      (*<font color="#990000"><b>EZ_InputCallback</b></font>)(void *object, void *data, int fd, int mask));
+typedef  void      (*<font color="#990000"><b>EZ_EventHandler</b></font>)(void *object, void *data, int etype, XEvent *event));
+typedef  void      (*<font color="#990000"><b>EZ_MessageHandler</b></font>)(void *msgIn, void *client_data);
+typedef  int       (*<font color="#990000"><b>EZ_DnDEncoder</b></font>)(void *object, void *data, char **msg,int *len, int *needfree));
+typedef  int       (*<font color="#990000"><b>EZ_DnDDecoder</b></font>)(void *object, void *data, char *msg,int len));
+typedef  int       (*<font color="#990000"><b>EZ_SChartHandle</b></font>)(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, void *chart, int r1, int c1, 
+                                              int r2, int c2, int kind, void *data);
+typedef  void      *(*<font color="#990000"><b>EZ_DirTreeNodeCreator</b></font>)(char *path, void *data);
+typedef  void      (*<font color="#990000"><b>EZ_WorkAreaGeometryManager</b></font>)(void *GMData, <font color="#990000"><b>EZ_Item</b></font> **data, int nitems, 
+                                                 int Rx,int Ry,int Rw, int Rh, int xsp, int ysp,
+                                                 int *w_ret, int *h_ret));
+</pre>
+<p><pre><p>
+/*
+ * Used to attach client data to a widget/item. 
+ */
+typedef  union {
+  char            c;
+  short           s;
+  int             i;
+  long            l;
+  unsigned char   uc;
+  unsigned short  us;
+  unsigned int    ui;
+  unsigned long   ul;
+  float           f;
+  void            *p;
+}  <font color="#990000"><b>EZ_UnknownDataType</b></font>;
+</pre>
+<p><pre>
+/*
+ *  application resource values.
+ */
+typedef struct EZ_Value_ {
+  int  type;   /* EZ_INT ... see below */
+  union {
+    char    c;    unsigned char  uc;
+    short   s;    unsigned short us;
+    int     i;    unsigned int   ui;
+    float   f;
+    void    *p;
+    void    *function;
+    char    *str;
+    unsigned long l;
+  } value;
+} EZ_Value;
+
+#define <font color="#990000"><b>EZ_INT</b></font>     0
+#define <font color="#990000"><b>EZ_FLOAT</b></font>   1
+#define <font color="#990000"><b>EZ_POINTER</b></font> 2
+#define <font color="#990000"><b>EZ_ULONG</b></font>   3
+#define <font color="#990000"><b>EZ_LONG</b></font>    4
+#define <font color="#990000"><b>EZ_UCHAR</b></font>   5
+#define <font color="#990000"><b>EZ_CHAR</b></font>    6
+#define <font color="#990000"><b>EZ_USHORT</b></font>  7
+#define <font color="#990000"><b>EZ_SHORT</b></font>   8
+#define <font color="#990000"><b>EZ_UINT</b></font>    9
+#define <font color="#990000"><b>EZ_STRING</b></font>  10
+#define <font color="#990000"><b>EZ_ENUM</b></font>    11
+#define <font color="#990000"><b>EZ_BOOL</b></font>    12
+#define <font color="#990000"><b>EZ_FUNCTION</b></font> 13
+#define <font color="#990000"><b>EZ_FONTNAME</b></font> 14
+#define <font color="#990000"><b>EZ_FILENAME</b></font> 15
+
+</pre>
+<p><pre><p>
+/*
+ *  message
+ */
+typedef struct {
+  Atom       messageType;
+  int        messageLength;
+  char       *message;
+  int        messageId;    /* set by the sender, transaction serial # */
+  int        replyId;
+  int        isReply;
+  /* src info */
+  Window     sender;
+  Atom       senderClass;
+  Atom       senderInstance;
+  int        senderIsSelf;
+} <font color="#990000"><b>EZ_Message</b></font>;
+</pre>
+<p><pre>
+/* used in the GL */
+typedef void       EZ_GLImage;
+
+typedef float      <font color="#990000"><b>EZ_Vector</b></font>[4];
+typedef float      <font color="#990000"><b>EZ_Vector3</b></font>[3];
+typedef float      <font color="#990000"><b>EZ_Matrix</b></font>[4][4];
+typedef float      <font color="#990000"><b>EZ_Material</b></font>;
+typedef float      <font color="#990000"><b>EZ_LightSrc</b></font>;
+typedef float      <font color="#990000"><b>EZ_LightModel</b></font>;
+
+
+</pre>
+<p></font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="7.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetUnknownData 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetWidgetUnknownData, EZ_GetWidgetUnknownData, EZ_GetWidgetUnknownDataPtr
+ \- register/retrieve arbitary data to a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+typedef union {
+  char            c;
+  short           s;
+  int             i;
+  long            l;
+  unsigned char   uc;
+  unsigned short  us;
+  unsigned int    ui;
+  unsigned long   ul;
+  float           f;
+  void            *p;
+} EZ_UnknownDataType;
+.sp
+.BI "void EZ_SetWidgetUnknownData( EZ_Widget" *widget ", int " idx ",
+.BI "                               EZ_UnknownDataType " data )
+.BI "int  EZ_GetWidgetUnknownData( EZ_Widget" *widget ", int " idx ",
+.BI "                               EZ_UnknownDataType *" data_ret )
+.BI "EZ_UnknownDataType EZ_GetWidgetUnknownDataPtr( EZ_Widget" *widget )
+.sp
+
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+\fIidx\fR  Specifies a positive integer.
+.sp
+\fIdata\fR  Specifies an entity of type EZ_UnknownDataType.
+.sp
+\fIdata_ret\fR Specifies the return for client data.
+.sp
+
+.SH DESCRIPTION
+.PP
+These functions attach client data to a widget.  They
+are convenient (but a little dangerous) routines.  They
+come handy when one wants to attach a few client data
+to a widget and does not feel like to create special
+data structures to handle them.  
+.PP
+\fBEZ_SetWidgetUnknownData\fR  (re)allocates the storage
+allocated for client data and set the 'idx' entry to 'data'.  
+
+.PP
+\fBEZ_GetWidgetUnknownData\fR  retrieves the client data
+stored at the 'idx' location. It returns 1 if the 'idx'th
+entry is available and returns 0 otherwise.
+.PP
+\fBEZ_GetWidgetUnknownDataPtr\fR  returns the array allocated
+for client data.
+
+.SH "SEE ALSO"
+EZ_SetWidgetPtrData(3), EZ_SetWidgetIntData(3), 
+

@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_SSheetGetHighlightedRegion</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_SSheetGetHighlightedRegion</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SSheetGetHighlightedRegion  -  return  the  highlighted
+       spread sheet region
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>r</i></font><font color="#004400"><i>1</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>c</i></font><font color="#004400"><i>1</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>r</i></font><font color="#004400"><i>2</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>c</i></font><font color="#004400"><i>2</i></font><font color="#004400"><i>)</i></font><font color="#004400"><i>;</i></font>
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  Specifies a spread sheet widget.
+
+       <font color="#004400"><i>r</i></font><font color="#004400"><i>1</i></font><font color="#004400"><i>,</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>1</i></font><font color="#004400"><i>,</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>2</i></font><font color="#004400"><i>,</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>2</i></font> <font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font>  Specify the returns  for  the  upper-left
+       and lower-right corner of the highlighted region.
+
+
+
+<H2>DESCRIPTION</H2>
+       If  the  current highlighted region is not nil, <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>-</b></font>
+       <font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font> returns 1 and returns the  region  in
+       the supplied variables. It returns 0 otherwise.
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_SSheetCopyRegion.html">EZ_SSheetCopyRegion</A>(3),  <A HREF="EZ_SSheetGetRegionString.html">EZ_SSheetGetRegionString</A>(3),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

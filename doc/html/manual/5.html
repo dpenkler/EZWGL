@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>EZwgl (2  Using EZ Widgets)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="4.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="6.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h1>2  Using <i>EZ</i> Widgets</h1>
+
+<p>There are two classes of widgets in the <i>EZ</i> widget library:
+a class of primitive widgets each of which is implemented using exactly 
+one X window, and a class of composite widgets which are made from a 
+group of primitive widgets. <em>Label, frame, buttons, menu-items, entry</em>
+and <em>sliders</em> are examples of simple widgets while
+<em>text widget</em>, <em>list box</em>, <em>notebook</em> and <em>notebook-page</em>
+are composite widgets.  
+<p><p>
+Widgets in <i>EZwgl</i> are event-driven. Interaction between an application and 
+the <i>EZ</i> widget library is achieved via  <em>callbacks</em> and
+<em>event handlers</em>. Typically, an <i>EZwgl</i> application contains 
+five components:  <em>initialization, creating and configuring
+widgets,  registering widget callbacks and/or event handlers, mapping
+widgets</em>  and <em>handling events</em>. 
+<p><p>
+<i>EZwgl</i> supports application resources. Appearance
+of an <i>EZwgl</i> application is completely configurable by resource
+files.  
+<p><p>
+<i>EZwgl</i> does not support event-action translations.
+Functionality of an <i>EZwgl</i>  cannont be modified by resources.
+<p><p><p>
+<i>EZwgl</i> supports geometry management. It includes four geometry managers:
+row geometry manager (layout children in rows), column geometry manager
+(layout children in columns), row-column geometry manager
+(aka the grid bag geometroy manager) and a simplified version of it 
+(the default).
+<p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> 
+There are some subtle differences between primitive widgets  and
+composite widgets.
+<ul>
+<p>
+<li>For a primitive widget, events are dispatched to the
+widget event handler; callbacks, event handlers and client data
+are registered to the widget data structure. 
+For a composite widget, however, events are dispatched to
+whatever children widgets that are involved; callbacks, event handlers
+and client data, if set, are attached to the most relevent widget. 
+For example, in a Listbox widget, these information are automatically 
+registered to the Internal Listbox widget.
+<p>
+<li>For a primitive widget, children widgets are the direct
+descendants of the widget; for a composite widget, children widgets
+are arranged as the children of the top-most frame of the composite
+widget.
+<p>
+<li>If one sends an event to a composite widget, the event  goes
+to the top-most frame, generating some undesired results. 
+For example, if one sends a <code><font color="#990000"><b>EZ_KEY_PRESS</b></font></code> event to a text
+widget, nothing will happen because the frame ignores key
+events. To really send a key event to a text widget, one has to
+extract the internal-text-widget component and send the event to
+it.
+</ul>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="4.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="6.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetDefaultEntryTextFont 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetDefaultEntryTextFont, EZ_SetDefaultLabelFont,
+EZ_SetDefaultMenuTitleFont \- override the default fonts
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetDefaultEntryTextFont( char *" font_name )
+.BI "void EZ_SetDefaultLabelFont( char *" font_name )
+.BI "void EZ_SetDefaultMenuTitleFont( char *" font_name )
+
+.SH ARGUMENTS
+\fIfont_name\fR Specifies a font name.
+
+.SH DESCRIPTION
+EZWGL uses three default fonts to display textual objects.
+A fixed width font for displayint text in text widgets and entries;
+a bold font for display labels and a slant font for displaying menu titles.
+.PP
+\fBEZ_SetDefaultEntryTextFont\fR overrides the default fixed width
+font.
+.PP
+\fBEZ_SetDefaultLabelFont\fR overrides the default bold font.
+.PP
+\fBEZ_SetDefaultMenuTitleFont\fR overrides the default slant font.
+
+.SH "SEE ALSO"
+EZ_SetKbdHighlightColor(3), EZ_SetGlobalBackground(3)
+
+

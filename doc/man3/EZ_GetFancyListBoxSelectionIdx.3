@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFancyListBoxSelectionIdx 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFancyListBoxSelectionIdx \- retieve the array indices 
+of the selection in a fancy-listbox widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetFancyListBoxSelectionIdx(EZ_Widget *" flistbox,
+.BI "                        int *" row_ret ", int *" col_ret )
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget.
+.sp
+\fIrow_ret\fR, \fIcol_ret\fR  Specifies the returns for row and column
+indices
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFancyListBoxSelectionIdx\fR returns the array indices
+of the selected item(s) in a fancy listbox widget.
+If no selection has been made, it returns -1 to \fIrow_ret\fR.
+.PP
+There are two selection mode in a fancy listbox. In \fBrow\fR mode, a row
+is selected at a time. A row usually consists of several items. In
+this case, \fBEZ_GetFancyListBoxSelectionIdx\fR  returns 0 to
+\fIcol_ret\fR.
+ 
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelection(3)
+.br
+
+

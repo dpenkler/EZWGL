@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetBackgroundGC 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetBackgroundPV, EZ_GetForegroundPV \- return the current bg/fg pixel value
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetBackgroundPV(EZ_Widget " *widget ", unsigned long " *pv ",  int " highligt );
+.BI "unsigned long EZ_GetBackgroundPV(EZ_Widget " *widget )
+
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+\fIpv\fR  Specifies  the return of the pixel value.
+.sp
+\fIhighlight\fR Specifies whether to return the highlight background pixel value.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetBackgroundPV\fR returns returns the background pixel value. 
+.PP
+\fBEZ_GetForegroundPV\fR returns returns the current foreground pixel value. 
+.PP
+
+.SH "SEE ALSO"
+EZ_GetWidgetTileOrigin(3), EZ_GetBackgroundGC(3)
+

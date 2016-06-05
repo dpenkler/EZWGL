@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TreeDestroySubtree 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TreeDestroySubtree \- detach and destroy a subtree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_TreeDestroySubtree(EZ_TreeNode *" stree )
+
+.SH ARGUMENTS
+.sp
+\fIstree\fR  Specifies a subtree.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TreeDestroySubtree\fR detaches \fIstree\fR from its host
+tree and destroy the subtree. 
+
+.SH "SEE ALSO"
+EZ_CreateTreeNode(3), EZ_TreeDetachSubtree(3), EZ_CreateDirTree(3),
+EZ_TreeDestroyNodeDescendants(3)
+
+
+

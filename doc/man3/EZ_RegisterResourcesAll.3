@@ -1,0 +1,66 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_RegisterResourcesAll 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_RegisterResourcesAll \- register a list of widget resources
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_RegisterResourcesAll( int " type ", int "nresources ", EZ_ResourceSpec "resources,
+.BI "     int "(configure)(void *theWidget, int option, EZ_Value *values) )
+.sp
+.nf
+typedef struct {  
+  int     option;    /* reference index, must > 1024 */
+  char    *iname;    /* resource name  */
+  char    *cname;    /* resource class */
+  char    *vtypes;   /* value types, e.g "int,float,string" */
+} EZ_ResourceSpec;
+
+.nf
+typedef struct {
+  int  type; 
+  union {
+    char    c;    unsigned char  uc;
+    short   s;    unsigned short us;
+    int     i;    unsigned int   ui;
+    float   f;
+    void    *p;
+    void    *function;
+    char    *str;
+    unsigned long l;
+  } value;
+} EZ_Value;
+
+
+.SH ARGUMENTS
+.sp
+\fItype\fR Specifies a widget type.
+\fIresources\fR  Specifies a list of resources.
+.sp
+\fInresources\fR  Specifies the number of resources.
+.sp
+\fIconfigure\fR  Specifies a procedure that sets the widget attributes
+from resources.
+
+
+.SH DESCRIPTION
+\fBEZ_RegisterResourcesAll\fR register a list of
+resources for all widget of the given type. Once registered, 
+future invokation of \fIEZ_CreateWidget\fR will consult 
+the specified resource handle to parse and set widget attributes
+from the resource database.
+.sp
+To register a list of resources for a single widget, use the
+configuration option \verb+EZ_RESOURCES_HANDLE+.
+
+
+.SH "SEE ALSO"
+EZ_RegisterApplicationResources(3)
+.br
+
+

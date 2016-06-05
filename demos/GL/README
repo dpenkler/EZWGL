@@ -1,0 +1,12 @@
+
+A few old GL demos
+
+gears.c --- example ported from Mesa
+
+image.c --- GL images
+
+julia.c --- Display julia set
+
+pendulum.c --- Two connected pendulums
+
+

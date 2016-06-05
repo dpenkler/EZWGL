@@ -1,0 +1,44 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetWidgetPosition 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetWidgetPosition,
+EZ_SetWidgetWidth, EZ_SetWidgetHeight, \- set the geometry of a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetWidgetPosition( EZ_Widget " *widget ", int " x ", int " y)
+.BI "void  EZ_SetWidgetWidth( EZ_Widget " *widget ", int " width )
+.BI "void  EZ_SetWidgetHeight( EZ_Widget " *widget ", int " height )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+\fIx\fR, \fIy\fR  Specify the coordinates of the upper-left corner of
+the widget window. 
+.sp
+\fIwidth\fR, \fIheight\fR  Specify the width and height of the widget
+window.
+.PP
+The geometroy manager will honor the specified geometry unless
+the \fIEZ_FORGET_GEOMETRY\fR is set afterwards.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetWidgetPosition\fR sets the origin of the widget
+window. 
+.PP
+\fBEZ_SetWidgetWidth\fR sets the width of the widget window.
+.PP
+\fBEZ_SetWidgetHeight\fR sets the height of the widget window.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetWidgetGeometry(3)
+.br
+
+

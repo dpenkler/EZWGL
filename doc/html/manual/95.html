@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>EZwgl (10.2  Label Item)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="94.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="96.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>10.2  Label Item</h2>
+
+<p>
+A label item displays a piece of textual string or a pixmap/image
+or both, in the later case, it may be orientated 
+either horizontally or vertically.
+<p><h3> 10.2.1  Resources </h3 <br>
+<p>
+Label item supports the following resources.
+<p><font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_X</b></font></code>        <td width=140> <code>x</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_Y</b></font></code>        <td width=140> <code>y</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LOCATION</b></font></code> <td width=140> <code>location</code>  <td width=140> <code>int_x int_y</code></tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_WIDTH</b></font></code>   <td width=140> <code>width</code>    <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HEIGHT</b></font></code>  <td width=140> <code>height</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SIZE</b></font></code>    <td width=140> <code>size</code>     <td width=140>  <code>int_w int_h</code></tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_GEOMETRY</b></font></code>  <td width=140> <code>geometry</code>   <td width=140>  <code>int_x int_y int_w int_h</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_PADX</b></font></code>   <td width=140> <code>padx</code>    <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_PADY</b></font></code>  <td width=140> <code>pady</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_TYPE</b></font></code>   <td width=140> <code>borderType</code>    <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></code>  <td width=140> <code>borderWidth</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_FOREGROUND</b></font></code>  <td width=140> <code>foreground</code>   <td width=140>  <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_BACKGROUND</b></font></code>   <td width=140> <code>background</code>  <td width=140>  <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_ORIENATTION</b></font></code>   <td width=140> <code>orientation</code>   <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABEL_STRING</b></font></code>     <td width=140> <code>labelString</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_FONT_NAME</b></font></code>       <td width=140> <code>fontName</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_FONT_ID</b></font></code>         <td width=140> <code>fontId</code><td width=140>  <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_TEXT_LINE_LENGTH</b></font></code> <td width=140> <code>textLineLength</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_JUSTIFICATION</b></font></code> <td width=140> <code>justification</code><td width=140> <code>enum</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABEL_POSITION</b></font></code>   <td width=140> <code>labelPosition</code><td width=140> <code>enum</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_PIXMAP_FILE</b></font></code>   <td width=140> <code>pixmapFile</code> <td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_IMAGE_FILE</b></font></code>    <td width=140> <code>imageFile</code>  <td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_BITMAP_DATA</b></font></code>   <td width=140> <code>N/A</code>  <td width=140> <code>string</code>         </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_PIXMAP_DATA</b></font></code>   <td width=140> <code>N/A</code>  <td width=140> <code>char **</code>        </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_X_PIXMAP</b></font></code>      <td width=140> <code>N/A</code>  <td width=140> <code>Pixmap</code>         </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABEL_PIXMAP</b></font></code>  <td width=140> <code>N/A</code>  <td width=140> <code><font color="#990000"><b>EZ_Bitmap</b></font> *</code>    </tr><tr><td width=280>
+</table> </center> </font>
+<p><font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></code> <td width=140> <code>dndBubbleString</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></code> <td width=140> <code>dndDragCursor</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+<p><font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_CALLBACK</b></font></code>       <td width=140> <code>N/A</code><td width=140> <code>void* void*</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></code>       <td width=140> <code>N/A</code><td width=140> <code><font color="#990000"><b>EZ_CallBack</b></font> void*</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><h3> 10.2.2  Interface Functions </h3 <br>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetLabelItemStringInfo</b></font> (<font color="#990000"><b>EZ_Item</b></font> *item, char **str, int *len);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the label string of a label item.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_GetLabelItemTextGeometry</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, int *x, int *y, int *w, int *h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return position and text extent of the label string in a label item.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Bitmap</b></font>   *<font color="#990000"><b>EZ_GetLabelItemPixmap</b></font> (<font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the label pixmap of a label item.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_LabelItemSetProperty</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, <font color="#990000"><b>EZ_TextProperty</b></font> *prop);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set or modify the visual info of a label item via text property.
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="93.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="94.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="96.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

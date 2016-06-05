@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetMakeChart 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetMakeChart \- make a chart from a spread sheet region
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item *EZ_SSheetMakeChart( EZ_Widget *" ssheet ", int " r1 ", int "c1 ", int " r2 ", int "c2,
+.BI "           EZ_SChartHandle " handle ", int " kind ", void *" data ", int " cmod);
+
+.nf
+typedef  int  (*EZ_SChartHandle)(EZ_Widget *ssheet, void *chart, int r1, int c1, 
+                                 int r2, int c2, int kind, void *data);
+
+
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIr1,c1,r2,c2 col\fR  Specify the the upper-left and lower-right corner of 
+a region.
+.sp
+\fIhandle\fR Specify a chart handle.
+.sp
+\fIkind, data\fR Specify client data to be passed to chart handle.
+.sp
+\fIcmode\fR Specified coordinate mode, either 0 or 1.
+
+.SH DESCRIPTION
+\fBEZ_SSheetMakeChart\fR creates a chart using the specified chart handle and
+the specified region. A spread sheet chart is a display FIG item. This function
+allocates and initializes a FIG item and passed it to the chart handle. The chart
+handle is responsible for actually making the chart. Once created, the spread
+sheet widget will track the defining region for the chart, when a cell in the region
+is modified, the chart handle will be invoked to update the chart.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetGetActiveChart(3), EZ_SSheetDeleteChart(3), EZ_SSheetGetHighlightedRegion(3),
+.br
+
+

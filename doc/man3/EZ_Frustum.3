@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Frustum 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Frustum \- multiply the current matrix by a perspective projection matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Frustum(float " left ", float " right ", float " bottom, 
+.BI "                float " top ", float " near ", float " far )
+
+.SH ARGUMENTS
+\fIleft\fR, \fIright\fR  Specify the coordinate of the left and right clipping planes.
+.sp
+\fIbottom\fR, \fItop\fR  Specify the coordinate of the bottom and top clipping planes.
+.sp
+\fInear\fR, \fIfar\fR  Specify the near and far depth clipping planes.
+
+.SH DESCRIPTION
+\fBEZ_Frustum\fR generates a perspective projection matrix and
+multiplies the current top matrix by this matrix.
+
+.SH "SEE ALSO"
+EZ_Rotate(3), EZ_Translate(3), EZ_LookAt(3), EZ_Ortho(3),
+EZ_MultMatrix(3), EZ_MatrixMode(3), EZ_Perspective(3)
+
+
+

@@ -1,0 +1,330 @@
+<html>
+<head>
+<title>EZwgl (7.1  X Events)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="81.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>7.1  X Events</h2>
+
+<p>
+Internally, event handling is
+based on  Xlib's event queuing mechanism.
+<i>EZwgl</i> does not queue events itself. It
+just reads events continuousely from Xlib's event queue 
+and processes them when they arrive. In between,
+it checks and processes timer events and file events.
+<p>The following is the event mask used to create
+widget windows for most of the widgets in <i>EZwgl</i>.
+<pre><p>
+ KeyPressMask | ButtonReleaseMask | ExposureMask | ButtonPressMask |
+ StructureNotifyMask | ButtonMotionMask | EnterWindowMask | 
+ LeaveWindowMask | PointerMotionMask | KeymapStateMask
+</pre>
+In other words, most <i>EZ</i> widgets accept
+keyboard, button, pointer motion,
+enter/leave Window, exposure and window configuration
+events.
+<p>X events are handled by event handlers. Each widget 
+has a default event handler.  This event handler 
+defines the default behavior of a widget in response to user
+inputs.  If needed, one can register one or more 
+private event handlers to a widget. The private
+event handers are invoked before the default event handler.
+A private event handler can disable the default event handler
+completely by using <code><font color="#990000"><b>EZ_RemoveEvent</b></font></code> after an event
+has been handled.
+<p>Event handlers are registered by
+<p><pre><p>
+void <font color="#990000"><b>EZ_AddEventHandler</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_EventHandler</b></font> hdlr,
+                        void *data, int where);
+typedef  void (*<font color="#990000"><b>EZ_EventHandler</b></font>)(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data, 
+                                 int etype, XEvent *event);
+</pre>
+<p><p><p><h3> 7.1.1  Write Simple Event Handlers </h3 <br>
+<p>
+<i>EZwgl</i> keeps a few global variables to
+remember the mouse-button-state, pointer-position and
+last pressed-key. These global variables 
+simplifies the complexity of writing simple event handlers. 
+For sophisticated event handlers, unfortunately, one has to
+decipher XEvents.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Global Variables </h3 <br>
+<p>
+<ul>
+<p>
+<li><code>int <font color="#990000"><b>EZ_PointerCoordinates</b></font>[2]</code> This variable
+holds the coordinate of the pointer relative to
+the upper-left corner of the widget window. 
+<p>
+<li><code>int <font color="#990000"><b>EZ_PressedKey</b></font></code>. This variable holds the keycode
+translation of the last pressed key.
+<p>
+<li><code>int <font color="#990000"><b>EZ_ButtonState</b></font></code>. This variable holds
+current state of all mouse buttons. There are three
+macros associated with this variable. They report the
+state of a specific button. 
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_Button1Down</b></font>()</code>
+<p>
+<li><code><font color="#990000"><b>EZ_Button2Down</b></font>()</code>
+<p>
+<li><code><font color="#990000"><b>EZ_Button3Down</b></font>()</code>
+</ul>
+<p>
+<p>
+<li><code>int <font color="#990000"><b>EZ_MouseX</b></font>, <font color="#990000"><b>EZ_MouseY</b></font></code>. These
+two variable hold the current pointer location
+in an widget window. The position is measured
+relative to the <strong>lower-left</strong> corner of the widget
+window, offseted by the border width. These two variables
+are meant for 3DCanvas widgets, they are the screen coordinates
+of the pointer in the current viewport.
+</ul>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Symbolic Event Names </h3 <br>
+<p>
+The next table lists the symbolic names for some
+of the X events the event dispatcher passes to
+private event handlers.
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+Symbolic name <td width=140> Corresponding X event</tr>
+<tr><td width=280> <tr><td width=280>
+<code><font color="#990000"><b>EZ_BUTTON1_PRESS</b></font></code>  <td width=140> ButtonPress, xbutton=Button1</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BUTTON2_PRESS</b></font></code>  <td width=140> ButtonPress, xbutton=Button2</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BUTTON3_PRESS</b></font></code>  <td width=140> ButtonPress, xbutton=Button3</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BUTTON1_RELEASE</b></font></code>  <td width=140> ButtonRelease, xbutton=Button1</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BUTTON2_RELEASE</b></font></code>  <td width=140> ButtonRelease, xbutton=Button2</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BUTTON3_RELEASE</b></font></code>  <td width=140> ButtonRelease, xbutton=Button3</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_REDRAW</b></font></code>  <td width=140> Expose (for 3DCanvas only) </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_RESIZE</b></font></code>  <td width=140> ConfigureNotify (for 3DCanvas only) </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_KEY_PRESS</b></font></code> <td width=140> KeyPress (see below)</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_ENTER_WINDOW</b></font></code> <td width=140> EnterNotify</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_LEAVE_WINDOW</b></font></code> <td width=140> LeaveNotify</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_POINTER_MOTION</b></font></code> <td width=140> MotionNotify</tr>
+<tr><td width=280>
+</table>
+</center>
+</font>
+<p>For <code><font color="#990000"><b>EZ_KEY_PRESS</b></font></code> events, the global variable <code><font color="#990000"><b>EZ_PressedKey</b></font></code> holds
+the keycode translation of the corresponding keysym. The next table lists
+the symbolic names of keycode translations for keysyms corresponding to
+function keys and other special keys.
+<p><font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+Symbolic Name <td width=140> Corresponding keysym </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_PAGE_UP_KEY</b></font></code> <td width=140> XK_Prior</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_PAGE_DOWN_KEY</b></font></code>  <td width=140> XK_Next</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_HOME_KEY</b></font></code> <td width=140> XK_Home </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_LEFT_KEY</b></font></code> <td width=140> XK_Left or XK_KP_Left </tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_RIGHT_KEY</b></font></code> <td width=140> XK_Right or XK_KP_Right</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_UP_KEY</b></font></code> <td width=140> XK_Up or XK_KP_Up</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_DOWN_KEY</b></font></code>  <td width=140> XK_Down or XK_KP_Down</tr>
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_BEGIN_KEY</b></font></code> <td width=140> XK_Begin</tr> 
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_END_KEY</b></font></code>   <td width=140>       XK_End</tr>    
+<tr><td width=280>
+<code><font color="#990000"><b>EZ_F1_KEY</b></font></code>    <td width=140>       XK_F1</tr>  
+<tr><td width=280>
+ <code><font color="#990000"><b>EZ_F2_KEY</b></font></code>    <td width=140>	       XK_F2</tr>     
+<tr><td width=280>
+   <code><font color="#990000"><b>EZ_F3_KEY</b></font></code>    <td width=140>	       XK_F3</tr>   
+<tr><td width=280>
+     <code><font color="#990000"><b>EZ_F4_KEY</b></font></code>    <td width=140>	       XK_F4</tr> 
+<tr><td width=280>
+   <code><font color="#990000"><b>EZ_F5_KEY</b></font></code>    <td width=140>	       XK_F5</tr>   
+<tr><td width=280>
+     <code><font color="#990000"><b>EZ_F6_KEY</b></font></code>    <td width=140>	       XK_F6</tr> 
+<tr><td width=280>
+   <code><font color="#990000"><b>EZ_F7_KEY</b></font></code>    <td width=140>	       XK_F7</tr>   
+<tr><td width=280>
+     <code><font color="#990000"><b>EZ_F8_KEY</b></font></code>    <td width=140>	       XK_F8</tr> 
+<tr><td width=280>
+    <code><font color="#990000"><b>EZ_F9_KEY</b></font></code>    <td width=140>	       XK_F9</tr>  
+<tr><td width=280>
+    <code><font color="#990000"><b>EZ_F10_KEY</b></font></code>   <td width=140>	       XK_F10</tr> 
+<tr><td width=280>
+    <code><font color="#990000"><b>EZ_F11_KEY</b></font></code>   <td width=140>	       XK_F11</tr> 
+<tr><td width=280>
+    <code><font color="#990000"><b>EZ_F12_KEY</b></font></code>   <td width=140>	       XK_F12</tr> 
+<tr><td width=280>
+</table>
+</center>
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> A Simple Event Handler </h3 <br>
+<p>
+Listed below is a simple event handler. All it does is
+to display the event info.
+<p><font size=-1>
+<pre>
+#include "EZ.h"
+
+static void sampleEHandler(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data, int etype, XEvent *xev)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *label = (<font color="#990000"><b>EZ_Widget</b></font> *)data;
+  char str[256];
+
+  switch(etype)
+    {
+    case <font color="#990000"><b>EZ_BUTTON1_PRESS</b></font>:
+      sprintf(str, "Button1Press:  (x,y)=(%d, %d)",
+              <font color="#990000"><b>EZ_PointerCoordinates</b></font>[0],<font color="#990000"><b>EZ_PointerCoordinates</b></font>[1]);
+      break;
+    case <font color="#990000"><b>EZ_BUTTON1_RELEASE</b></font>:
+      sprintf(str, "Button1Release:  (x,y)=(%d, %d)",
+              <font color="#990000"><b>EZ_PointerCoordinates</b></font>[0],<font color="#990000"><b>EZ_PointerCoordinates</b></font>[1]);
+      break;
+    case <font color="#990000"><b>EZ_POINTER_MOTION</b></font>:
+      sprintf(str, "PointerMotion:  (x,y)=(%d, %d)",
+              <font color="#990000"><b>EZ_PointerCoordinates</b></font>[0],<font color="#990000"><b>EZ_PointerCoordinates</b></font>[1]);
+      break;
+    case <font color="#990000"><b>EZ_KEY_PRESS</b></font>:
+      sprintf(str,"KeyPress: key=%c, keycode=%d", <font color="#990000"><b>EZ_PressedKey</b></font>,<font color="#990000"><b>EZ_PressedKey</b></font>);
+      break;
+    case <font color="#990000"><b>EZ_LEAVE_WINDOW</b></font>:
+      sprintf(str, "LeaveWindow");
+      break;
+    case <font color="#990000"><b>EZ_ENTER_WINDOW</b></font>:
+      sprintf(str, "EnterWindow");
+      break;      
+    case <font color="#990000"><b>EZ_REDRAW</b></font>:
+      sprintf(str, "Redraw");
+      break;
+    default:
+      str[0]=0;
+      break;
+    }
+  if(str[0]) <font color="#990000"><b>EZ_ConfigureWidget</b></font>(label, <font color="#990000"><b>EZ_LABEL_STRING</b></font>, str, 0);
+}
+      
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *label;
+  
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac,av,0);
+
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>, NULL,
+                          <font color="#990000"><b>EZ_ORIENTATION</b></font>, <font color="#990000"><b>EZ_VERTICAL_BOTTOM</b></font>,
+                          <font color="#990000"><b>EZ_SIZE</b></font>,        400, 300, 
+                          0);
+  label = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_LABEL</b></font>, frame,
+                          <font color="#990000"><b>EZ_EXPAND</b></font>,       True, 
+                          <font color="#990000"><b>EZ_PROPAGATE</b></font>,    False, 
+                          <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>, 2, 
+                          <font color="#990000"><b>EZ_BORDER_TYPE</b></font>,  <font color="#990000"><b>EZ_BORDER_SUNKEN</b></font>,
+                          <font color="#990000"><b>EZ_TEXT_LINE_LENGTH</b></font>, 80, 
+                          <font color="#990000"><b>EZ_FOREGROUND</b></font>, "red",
+                          <font color="#990000"><b>EZ_BACKGROUND</b></font>, "bisque2",
+                          0);
+
+  <font color="#990000"><b>EZ_AddEventHandler</b></font>(frame, sampleEventHandler, label, 0);
+
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(frame);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+/************************************** ExampleEHandler *****************************/
+
+</pre>
+<p>
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Enter Events </h3 <br>
+<p>
+<i>EZwgl</i> provides a command for sending events to widgets.
+<p><pre><p>
+void <font color="#990000"><b>EZ_EnterEvent</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int eType, int *values);
+</pre>
+<p>This function enters the specified event. <code>etype</code> must be one
+of 
+<p><font size=-1>
+<code><font color="#990000"><b>EZ_REDRAW</b></font></code>,
+<code><font color="#990000"><b>EZ_RESIZE</b></font></code>,
+<code><font color="#990000"><b>EZ_BUTTON1_PRESS</b></font></code>,
+<code><font color="#990000"><b>EZ_BUTTON2_PRESS</b></font></code>,
+<code><font color="#990000"><b>EZ_BUTTON3_PRESS</b></font></code>,
+<code><font color="#990000"><b>EZ_BUTTON1_RELEASE</b></font></code>,
+<code><font color="#990000"><b>EZ_BUTTON2_RELEASE</b></font></code>,
+<code><font color="#990000"><b>EZ_BUTTON3_RELEASE</b></font></code>,
+<code><font color="#990000"><b>EZ_POINTER_MOTION</b></font></code>,
+<code><font color="#990000"><b>EZ_ENTER_WINDOW</b></font></code>,
+<code><font color="#990000"><b>EZ_LEAVE_WINDOW</b></font></code> and
+<code><font color="#990000"><b>EZ_KEY_PRESS</b></font></code>.
+</font>
+<p>For events of type <code><font color="#990000"><b>EZ_BUTTON</b></font>?_PRESS</code>,
+<code><font color="#990000"><b>EZ_BUTTON</b></font>?_RELEASE</code> or <code><font color="#990000"><b>EZ_POINTER_MOTION</b></font></code>,
+<code>values</code>, if not <code>NULL</code> is an array of two integers
+which specifies the pointer location. For 
+<code><font color="#990000"><b>EZ_KEY_PRESS</b></font></code> event, <code>values</code>, if not <code>NULL</code>
+is a pointer to an integer which specifies the keycode for 
+the key that is being pressed.
+<p><strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> Care must be taken if you send events to
+a composite widget. You have to send the event to
+the right internal widget in order to have it handled.
+<p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> This function behave differently for 3DCanvas
+widget. See <code><font color="#990000"><b>EZ_GLEnterEvent</b></font></code>.
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="81.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

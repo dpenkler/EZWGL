@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetGlobalBackground 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetGlobalBackground \- override the default background color
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_SetGlobalBackground( char *" color_name )
+
+.SH ARGUMENTS
+\fIcolor_name\fR Specifies a color.
+
+.SH DESCRIPTION
+EZWGL uses 4 gray colors to draw background and border. 
+\fBEZ_SetGlobalBackground\fR overrides these default colors.
+It returns 1 if it succeeds in allocating a gradient of 4
+like colors and returns 0 if it fails.
+
+.SH "SEE ALSO"
+EZ_SetKbdHighlightColor(3), EZ_SetDefaultLabelFont(3)
+
+

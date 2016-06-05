@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_InstallSymbol</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_InstallSymbol</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_InstallSymbol,  EZ_RetrieveSymbol  - install/retrieve a
+       symbolic constant to/from the resource database
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>V</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>e</b></font> <font color="#004400"><i>v</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>)</i></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>V</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>)</i></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>  Specifies a name.
+
+       <font color="#004400"><i>v</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>e</i></font>  Specifies a value to be associated with <font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>.
+
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>l</b></font> installs the key-value pair (<font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>, <font color="#004400"><i>v</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>e</i></font>)
+       into  an internal lookup table.  It is a tool for convert-
+       ing resource values to other  data  types.  This  function
+       returns -1 if it fails.
+
+       <font color="#004400"><i>v</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>e</i></font> is defined by the following data structure.
+       typedef struct {
+          int        type; /* EZ_INT, EZ_FLOAT, EZ_POINTER or EZ_ULONG */
+          union {
+            int   i;
+            float f;
+            void  *p;
+            ulong l;
+          }          value;
+       } EZ_Value;
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>b</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>l</b></font>  retrieves  and  returns  the  value for
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font>.  If <font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font> is not found in the table, it returns NULL.
+
+       The  following  (integer) symbols are installed by <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>-</b></font>
+       <font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>z</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>m</b></font>
+
+       ( "no",                 0)
+       ( "yes",                1)
+       ( "No",                 0)
+       ( "Yes",                1)
+       ( "null",               0)
+       ( "Null",               0)
+       ( "false",              0)
+       ( "true",               1)
+       ( "False",              0)
+       ( "True",               1)
+       ( "on",                 1)
+       ( "off",                0)
+       ( "On",                 1)
+       ( "Off",                0)
+       ( "none",               0)
+       ( "None",               0)
+       ( "nil",                0)
+       ( "horizontal",         1)
+       ( "horizontalLeft",     2)
+       ( "horizontalRight",    3)
+       ( "horizontalCenter",   4)
+       ( "vertical",           5)
+       ( "verticalTop",        6)
+       ( "verticalBottom",     7)
+       ( "verticalCenter",     8)
+       ( "fillNone",           0)
+       ( "fillHorizontally",   1)
+       ( "fillVertically",     2)
+       ( "fillBoth",           3)
+       ( "center",             0)
+       ( "left",               1)
+       ( "right",              2)
+       ( "top",                3)
+       ( "bottom",             4)
+       ( "topLeft",            5)
+       ( "topRight",           6)
+       ( "bottomLeft",         7)
+       ( "bottomRight",        8)
+       ( "row",                1)
+       ( "column",             2)
+       ( "flat",               1)
+       ( "ridge",              2)
+       ( "groove",             3)
+       ( "raised",             4)
+       ( "sunken",             5)
+       ( "embossed",           8)
+       ( "engraved",           9)
+       ( "normalState",        1)
+       ( "iconicState",        3)
+       ( "empty",              0)
+       ( "square",             1)
+       ( "sunkenSquare",       2)
+       ( "diamond",            3)
+       ( "sunkenDiamond",      4)
+       ( "circle",             5)
+       ( "check",              6)
+       ( "rectangle",          7)
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_InstallSymbolicInt.html">EZ_InstallSymbolicInt</A>(3),    <A HREF="EZ_InstallSymbolicPointer.html">EZ_InstallSymbolicPointer</A>(3),
+       <A HREF="EZ_GetApplicationResource.html">EZ_GetApplicationResource</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

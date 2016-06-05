@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetTextProperty 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetTextProperty  \- create text property
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_TextProperty *EZ_GetTextProperty(int " option, ...)
+
+.SH ARGUMENTS
+
+This function takes variable number of args. Arguments are
+option-value pairs.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetTextProperty\fR returns a text property that meets
+specification. It allocates a new text property when necessary.
+.PP
+Only the following properties are supported: background,
+foreground, font, pixmap and underline. One or more properties
+may be specified on a single function call. For example,
+.br
+.nf
+.in +3
+EZ_TextProperty *prop = EZ_GetTextProperty(
+                           EZ_FORGROUND,  "red",
+                           EZ_BACKGROUND, "blue",
+                           EZ_FONT_NAME,  "-Adobe-Times-Bold-I-Normal--*-120-*-*-*-*-*-*",
+                           EZ_UNDERLINE,  True, 
+                           0);
+.in -3
+.fi                        
+
+
+.SH "SEE ALSO"
+EZ_TextEndOfLine(3),  EZ_TextInsertStringWithProperty(3)
+.br
+
+
+

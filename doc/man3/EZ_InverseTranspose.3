@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  EZ_InverseTranspose 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_InverseTranspose \- invert and transpose a 4x4 matrix.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_InverseTranspose( EZ_Matrix " inverse, " EZ_Matrix " matrix " )
+
+.SH ARGUMENTS
+\fImatrix\fR specifies  a 4x4 matrix.
+.br
+\fIinverse\fR specifies the return of the inverse transpose.
+
+.SH DESCRIPTION
+\fBEZ_InverseTranspose\fR computes and returns the inverse transpose
+of the given matrix. If \fImatrix\fR is singulare, the return value is
+unspecified.
+
+
+.SH "SEE ALSO"
+EZ_InvertMatrix(3), EZ_Rotate(3), EZ_Translate(3), EZ_Scale(3),
+EZ_LoadMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

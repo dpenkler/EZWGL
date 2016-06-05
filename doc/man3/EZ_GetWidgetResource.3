@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetResource "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWidgetResource \- retrieve a resource from resource database
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetWidgetResource(EZ_Widget *" widget ", char *" rname ", char **" value_return)
+.sp
+
+.SH ARGUMENTS
+\fIwidget\fR Specifies a widget.
+.sp
+\fIrname\fR  Specifies a resource name.
+.sp
+\fIvalue_return\fR Specifies the return for the resource value.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWidgetResource\fR retrieves the value of specified 
+resource on \fIwidget\fR. 
+.sp
+This finction returns 1 on success and returns 0 on failure.
+.sp
+
+.SH "SEE ALSO"
+EZ_InstallSymbol(3), EZ_GetApplicationResource(3)
+.br
+
+
+

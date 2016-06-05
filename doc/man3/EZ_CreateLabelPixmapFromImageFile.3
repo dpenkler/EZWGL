@@ -1,0 +1,72 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateLabelPixmapFromImageFile 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateLabelPixmapFromImageFile, EZ_CreateLabelPixmapFromXBitmapData,
+EZ_CreateLabelPixmapFromXBitmapFile, EZ_CreateLabelPixmapFromXpmData,
+EZ_CreateLabelPixmapFromXpmFile, EZ_FreeLabelPixmap \- create/free an internal label pixmap
+from file or data
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Pixmap *EZ_CreateLabelPixmapFromImageFile(char *" file )
+.BI "EZ_Pixmap *EZ_CreateLabelPixmapFromXBitmapData(char *" file ", unsigned int "w ", unsigned int " h)
+.BI "EZ_Pixmap *EZ_CreateLabelPixmapFromXBitmapFile(char *" file )
+.BI "EZ_Pixmap *EZ_CreateLabelPixmapFromXpmData(char **" data )
+.BI "EZ_Pixmap *EZ_CreateLabelPixmapFromXpmFile(char *" file)
+.BI "EZ_Pixmap *EZ_CreateLabelPixmapFromXPixmap(Pixmap " pix ", Pixmap " shape ", int " px ", int " py,
+.BI "                                           int " pw ", int " ph ", int " reuse );
+.BI "void       EZ_FreeLabelPixmap(EZ_Pixmap *"file)
+
+.SH ARGUMENTS
+\fIfile\fR  Specifies a unix file name.
+.sp
+\fIdata\fR  Specifies an XPM data or an X bitmap data.
+.sp
+\fIw\fR, \fIh\fR  Specify the width and height of a X bitmap.
+.sp
+\fIpix\fR, \fIshape\fR Specify a native X pixmap and a shape mask (native X bitmap).
+.sp
+\fIpx,py,pw,ph\fR Specify a rectangle within the pixmap.
+.sp
+\fRreuse\fR Specify whether or not the pixmap created should be inserted
+in the lookup hash table. Set to False if you are going to modify \fIpix\fR
+and you are going to reference \fIpix\fR  in the future.
+
+.SH DESCRIPTION
+.PP
+This set of functions creates an internal representation of a pixmap
+to be used for lables, from various sources. They return the pointer
+to the created pixmap if sucessful and return NULL otherwise.
+ All these function search for files in
+the following directories: the current directory, $EZ_LIBDIR, 
+/usr/include/X11/bitmaps and /usr/include/X11/pixmaps.
+.PP
+\fBEZ_CreateLabelPixmapFromImageFile\fR  creates a pixmap from an
+image file. Currently EZWGL reads images in PPM, GIF, XPM and JPEG
+formats.
+.PP
+\fBEZ_CreateLabelPixmapFromXBitmapFile\fR  creates a pixmap from an
+x-bitmap file. The created pixmap is a bitmap.
+.PP
+\fBEZ_CreateLabelPixmapFromXBitmapData\fR  creates a pixmap from an
+x-bitmap data. The created pixmap is a bitmap.
+.PP
+\fBEZ_CreateLabelPixmapFromXpmData\fR creates a pixmap from an
+XPM data set.
+.PP
+\fBEZ_CreateLabelPixmapFromXpmFile\fR creates a pixmap from an
+XPM file.
+
+.SH "SEE ALSO"
+EZ_ConfigureWidget(3), EZ_CreateXPixmapFromBitmapFile(3),
+EZ_CreateXPixmapFromXpmData(3)
+.br
+
+
+

@@ -1,0 +1,26 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AutoSelectBackBuffer 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AutoSelectBackBuffer \- select a back buffer 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_AutoSelectBackBuffer(" void )
+
+.SH DESCRIPTION
+\fBEZ_AutoSelectBackBuffer\fR automatically selects
+a back buffer for a 3D canvas widget according to the following algorithm.
+.PP
+If shared memory is supported, select an XImage back
+buffer. Otherwise select a Pixmap back buffer.
+
+.SH "SEE ALSO"
+EZ_DrawBuffer(3), EZ_SetBackBuffer(3)
+
+
+

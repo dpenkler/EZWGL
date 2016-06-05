@@ -1,0 +1,7 @@
+!! 
+!!
+*bgImageFile:    bg1.gif
+*bgImageFileB:   bg.gif
+*text.fontName:  -b&h-lucidatypewriter-bold-r-normal-sans-12-120-75-75-m-70-iso8859-1
+*rowBg:          1  nil nil
+*selectionForeground: blue

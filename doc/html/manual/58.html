@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>EZwgl (5.3  Allocating Colors)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="57.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="59.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>5.3  Allocating Colors</h2>
+
+<p>
+The following two routines can be used to allocate colors. They
+all return the pixel value for the specified color. If the exact
+color cannot be allocated, they return the closest match
+available.
+<p><pre><p>
+unsigned long  <font color="#990000"><b>EZ_AllocateColorFromRGB</b></font>(int r, int g, int b);
+unsigned long  <font color="#990000"><b>EZ_AllocateColorFromName</b></font>(char *name);
+</pre>
+<p>The next function converts a pixel value to RGB.
+<pre><p>
+void  <font color="#990000"><b>EZ_PixelValue2RGB</b></font>(unsigned long pixel_value,
+                        int *r, int *g, int *b);
+</pre>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="55.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="57.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="59.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

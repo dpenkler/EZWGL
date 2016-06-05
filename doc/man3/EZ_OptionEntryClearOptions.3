@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_OptionalEntryClearOptions 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_OptionalEntryClearOptions, EZ_OptionalEntryAppendOption,
+EZ_OptionalEntryDeleteOption, \- manipulate the option list for
+OptionalEntry widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_OptionalEntryClearOptions( EZ_Widget *" widget )
+.BI "void  EZ_OptionalEntryAppendOption( EZ_Widget *" widget ", char " *option )
+.BI "void  EZ_OptionalEntryDeleteOption( EZ_Widget *" widget ", char " *option )
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an OptionalEntry widget
+.sp
+\fIoption\fR  Specifies a string
+
+.SH DESCRIPTION
+.PP
+These functions manipulate the option list of an OptionalEntry widget.
+\fBEZ_OptionalEntryClearOptions\fR  removes all options from the list,
+\fBEZ_OptionalEntryAppendOption\fR append 'option' at the end of the 
+option list and \fB EZ_OptionalEntryDeleteOption\fR deletes the
+specified option from the option list.
+.SH "SEE ALSO"
+ EZ_SetOptionalEntryOptionalItems(3)
+.br
+
+
+

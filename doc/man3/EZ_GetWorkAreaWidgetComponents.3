@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWorkAreaWidgetComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWorkAreaWidgetComponents  \- retrieve the components of a
+work-area widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetWorkAreaWidgetComponents( EZ_Widget *" workarea
+.BI "       EZ_Widget **" iwa_ret ", EZ_Widget **" hscroll_ret,
+.BI "       EZ_Widget **" vscroll_ret )
+
+
+.SH ARGUMENTS
+\fIworkarea\fR  Specifies a work area widget.
+.sp
+\fIiwa_ret\fR  Specifies the return for the internal work area.
+.sp
+\fIhscroll_ret\fR  Specifies the return for the horizontal scroll bar.
+.sp
+\fIvscroll_ret\fR  Specifies the return for the vertical scroll bar.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWorkAreaWidgetComponents\fR  returns the
+components of a work-area widget. A work-area contains 3 internal
+components, an internal work-area, a horizontal scrollbar and
+a vertical scrollbar. 
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxWidgetComponents(3), EZ_GetFileSelectorWidgetComponents(3)
+EZ_GetListBoxWidgetComponents(3), EZ_GetTextWidgetComponents(3),
+EZ_GetListTreeWidgetComponents(3), EZ_GetOptionalEntryWidgetComponents(3)

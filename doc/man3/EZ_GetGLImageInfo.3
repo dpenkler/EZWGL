@@ -1,0 +1,40 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetGLImageInfo 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetGLImageInfo \- retrieve info about an gl image
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetLabelPixmapGLImagenfo(EZ_GLImage *" image ", Pixmap " pixmap_ret,
+.BI "                   Pixmap " shape_ret ", int " w_ret ", int " h_ret)
+
+
+.SH ARGUMENTS
+\fIimage\fR  Specifies a gl image, must be created by \fIEZ_CreateGLImage\fR.
+.sp
+\fIpixmap_ret\fR  Specifies the return for the actual X pixmap.
+.sp
+\fIshapre_ret\fR  Specifies the return for the shape mask bitmap.
+space.
+.sp
+\fIw_ret, h_ret\fR Specifies the return for the width and the height
+of the labelPixmap.
+
+.SH DESCRIPTION
+.PP
+This function retrieve the information about an image. It returns
+the depth of the pixmap, 1 for bitmap etc. If \fIpix\fR is not a valid
+labelPixmap, it returns 0.
+
+.SH "SEE ALSO"
+EZ_CreateLabelPixmapFromXpmFile(3), EZ_CreateGLImage(3),
+EZ_GetLabelPixmapInfo(3)
+.br
+
+
+

@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>EZwgl (12.1  Getting Started)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="105.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.1  Getting Started</h2>
+
+<p>
+Roughly speaking, using the <i>EZ</i> graphics library consists of 6 steps.
+<ul>
+<p>
+<li>Initialize <i>EZwgl</i>, Create a 3DCanvas and display it. If needed, an application
+may create more than one 3DCanvases. However, only one of them is active
+at any given time. Use <code><font color="#990000"><b>EZ_Set3DCanvas</b></font></code> to set the active 3DCanvas.
+<p>
+<li>Set the display attributes. The important ones are <em>color mode</em> and
+<em>back buffer type</em> (if double buffer is used).
+ Color mode is sort of global across all 3DCanvases since
+the graphics library uses a single physical colormap. While other attributes, like
+back buffer, zbuffer, lighting, color material, back face culling,
+foging etc are binded to individual 3DCanvases.
+<p>
+<li>Initialize GL data. This include matrices, lighting parameters, material
+properties etc.
+<p>
+<li>Create and display geometric objects by using <code><font color="#990000"><b>EZ_Begin</b></font></code>, <code><font color="#990000"><b>EZ_End</b></font></code>,
+<code><font color="#990000"><b>EZ_Vertex3f</b></font>v</code>,  <code><font color="#990000"><b>EZ_Normal3f</b></font>v</code>, <code><font color="#990000"><b>EZ_Color3f</b></font>v</code>, 
+<code><font color="#990000"><b>EZ_Lightf</b></font>v</code> etc. You may also use display list.
+<p>
+<li>Create a event handler routine for each 3DCanvas, this part is the
+trickest.
+<p>
+<li>Processing events by using any one of the three event handling routines.
+</ul>
+<p><h3> 12.1.1  Example G1, A Polygon </h3 <br>
+<p>
+Let's start with a small example. We'll create a 3DCanvas widget,
+display it and draw a shaded polygon in it. It demonstrate the
+steps outlined above. 
+<font size=-1>
+<pre>
+/*************** Example G1 ******************************************/
+#include "EZ.h"
+
+static void eventHandler(<font color="#990000"><b>EZ_Widget</b></font> *, void *, int, XEvent *);
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *);
+
+main(int argc, char **argv)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *canvas;
+  /* 
+   * Initialize EZWGL, don't forget to 
+   * initialize the graphics library also.
+   */
+  <font color="#990000"><b>EZ_Initialize</b></font>(argc, argv, 1);      /* notice the 1        */
+  /*
+   * canvases do not resize propertly as toplevel
+   * widgets (bug!) It is recommended to put it
+   * under a frame at least for now.
+   */
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>, NULL, 
+                         <font color="#990000"><b>EZ_FILL_MODE</b></font>, <font color="#990000"><b>EZ_FILL_BOTH</b></font>,
+                         0);
+  canvas = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_3D_CANVAS</b></font>, frame,
+                           <font color="#990000"><b>EZ_WIDTH_HINT</b></font>,  320, 
+                           <font color="#990000"><b>EZ_HEIGHT_HINT</b></font>, 320,
+                           <font color="#990000"><b>EZ_EVENT_HANDLE</b></font>, eventHandler, NULL,
+                           0);
+  /*
+   * now display the canvas. One must first display
+   * a 3DCanvas before calling any GL functions !!!
+   */
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(canvas);         
+
+  /* now setup global GL attributes */
+  <font color="#990000"><b>EZ_RGBMode</b></font>();                 /* we are using RGB mode  */
+  <font color="#990000"><b>EZ_ShadeModel</b></font>(<font color="#990000"><b>EZ_SMOOTH</b></font>);     /* turn on smooth shading */
+  /*
+   * We'll draw a 2D polygon, so we don't have to setup
+   * a complex projection matrix. The default matrix mode
+   * is <font color="#990000"><b>EZ_MODELVIEW</b></font>. We just set the projection matrix
+   * on this default matrix stack.
+   */
+  <font color="#990000"><b>EZ_LoadIdentity</b></font>();            /* clear the top mtx 2 id */     
+  <font color="#990000"><b>EZ_Ortho2</b></font>(-1.0,1.0,-1.0,1.0); /* project the unit cube  */
+
+  draw(canvas);                 /* draw the polygon       */
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();           /* handle events          */
+}
+
+static void draw(<font color="#990000"><b>EZ_Widget</b></font> *canvas)
+{
+  <font color="#990000"><b>EZ_Clear</b></font>(<font color="#990000"><b>EZ_COLOR_BUFFER_BIT</b></font>); /* clear the frame buffer */
+
+  <font color="#990000"><b>EZ_Begin</b></font>(<font color="#990000"><b>EZ_POLYGON</b></font>);          /* start a polygon        */
+  <font color="#990000"><b>EZ_Color3f</b></font>(1.0,0.0,0.0);       /* each vertex has its clr*/
+  <font color="#990000"><b>EZ_Vertex2f</b></font>(1.0,0.0);
+  <font color="#990000"><b>EZ_Color3f</b></font>(1.0,1.0,0.0);
+  <font color="#990000"><b>EZ_Vertex2f</b></font>(0.5,0.866);
+  <font color="#990000"><b>EZ_Color3f</b></font>(0.0,1.0,0.0);
+  <font color="#990000"><b>EZ_Vertex2f</b></font>(-0.5,0.866);
+  <font color="#990000"><b>EZ_Color3f</b></font>(0.0,1.0,1.0);
+  <font color="#990000"><b>EZ_Vertex2f</b></font>(-1.0,0.0);
+  <font color="#990000"><b>EZ_Color3f</b></font>(0.0,0.0,1.0);
+  <font color="#990000"><b>EZ_Vertex2f</b></font>(-0.5,-0.866);
+  <font color="#990000"><b>EZ_Color3f</b></font>(1.0,0.0,1.0);
+  <font color="#990000"><b>EZ_Vertex2f</b></font>(0.5,-0.866);
+  <font color="#990000"><b>EZ_End</b></font>();                     /* the end of the polygon */
+}
+/* 
+ * the event handler. It should handle at least the
+ * <font color="#990000"><b>EZ_REDRAW</b></font> event and the <font color="#990000"><b>EZ_RESIZE</b></font>.
+ */
+static void eventHandler(<font color="#990000"><b>EZ_Widget</b></font> *canvas, void *data,
+                         int eventType, XEvent *xevent)
+{
+  switch(eventType) 
+    {
+    case <font color="#990000"><b>EZ_REDRAW</b></font>:
+    case <font color="#990000"><b>EZ_RESIZE</b></font>:
+      draw(canvas);
+      break;
+    case <font color="#990000"><b>EZ_KEY_PRESS</b></font>:
+      if(<font color="#990000"><b>EZ_PressedKey</b></font> == <font color="#990000"><b>EZ_ESCAPE_KEY</b></font>) exit(0);
+      break;
+    default:
+      break;
+    }
+}
+/*************** Example G1 ******************************************/  
+
+</pre>
+<p>
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="105.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+<html>
+<head>
+<title>EZwgl (4.19  Fancy ListBoxes)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="34.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="36.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.19  Fancy ListBoxes</h2>
+
+<p>A fancyListBox  extend the functionalities of a listBox.
+It displays multi-columns of display-items with 
+an optional header row. The contents of a fancyListBox can be
+scrolled in both directions. 
+<p>There are two fancyListBoxes in <i>EZwgl</i>, an internal fancyListBox
+and a composite fancyListBox.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_FANCY_LISTBOX</b></font></tr>
+                <tr> <td> Default class  name <td>       "FancyListBox" </tr>
+                <tr> <td> Default instance name<td>     "fancyListBox" </tr></table>
+<p><p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_IFANCY_LISTBOX</b></font></tr>
+                <tr> <td> Default class  name <td>       "IFancyListBox" </tr>
+                <tr> <td> Default instance name<td>     "iFancyListBox" </tr></table>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Subwidgets Info </h3 <br>
+<p>
+Subwidgets of FancyListBox are listed below.
+<pre>
+
+                ( iFancyListBox
+ FancyListBox-->( horizontalScrollbar
+                ( verticalScrollbar
+
+
+</pre>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetFancyListBoxWidgetComponents</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget,
+                  <font color="#990000"><b>EZ_Widget</b></font> **iflistBox,
+                  <font color="#990000"><b>EZ_Widget</b></font> **hscroll, <font color="#990000"><b>EZ_Widget</b></font> **vscroll);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the components of a FancyListBox.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Item</b></font>    **<font color="#990000"><b>EZ_GetFancyListBoxSelection</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the current selection in a fancyListBox.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_Item</b></font> *<font color="#990000"><b>EZ_GetFancyListBoxItemUsingIdx</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, 
+                                         int row, int col);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the item at the specified location.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetFancyListBoxSelectionIdx</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *row, int *col);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the row and column index of the current selection in a fancyListBox.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetFancyListBoxData</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Item</b></font> **data, int nrow, int ncol);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the array of display items to be displayed in a fancyListBox.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_FancyListBoxClear</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ clear a fancyListBox.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_GetFancyListBoxXYOffset</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, int *xoff, int *yoff);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the XY display offset of a fancyListBox
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetFancyListBoxXYOffset</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, int xoff, int yoff);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the XY display offset of a fancyListBox
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SetFancyListBoxHeader</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Item</b></font> **header, int nelts);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the header row of a fancyListBox.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_FancyListBoxInsertRow</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Item</b></font> **items, 
+                                     int nitems, int where);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+insert a row of display items into a fancyListBox.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_FancyListBoxDeleteRow</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget, int idx);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+delete the specified row in a fancyListBox.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_FancyListBoxDeleteSomeRows</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *idces, int cnt);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+delete some rows from a fancyListBox.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_FancyListBoxReplaceItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Item</b></font> *old, 
+                                <font color="#990000"><b>EZ_Item</b></font> *newItem);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+replace an item with a new item.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_FancyListBoxReplaceItemUsingIdx</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int row, 
+                                        int col, <font color="#990000"><b>EZ_Item</b></font> *newItem);
+</pre>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+replace the item at the specified location by a new item.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_FancyListBoxSelectItemUsingIdx</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int Srow, 
+                                       int Scol, int *location);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+select the specified item and display it at the specified location.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_FancyListBoxSelectItem</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, <font color="#990000"><b>EZ_Item</b></font> *item, 
+                               int *location);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+select the specified item and display it at the specified location.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_GetFancyListBoxNumberOfRows</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the number of rows in a fancyListBox, counting the header row.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_GetFancyListBoxNumberOfColumns</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the number of columns in a fancyListBox.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Item</b></font> ***<font color="#990000"><b>EZ_GetFancyListBoxData</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *widget);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the array of display items in a fancyListBox. Don't modify them.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_Item</b></font> **<font color="#990000"><b>EZ_FancyListBoxFindRowAtXY</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *fl, int x,
+                                      int y, int *r_ret);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the row of items displayed at the specified location.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_Item</b></font> *<font color="#990000"><b>EZ_FancyListBoxFindItemAtXY</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *fl, int x, int y, 
+                                     int *r_ret, int *c_ret);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the item displayed at the specified location.
+</font>
+<p><p>
+<pre><p>
+int <font color="#990000"><b>EZ_FancyListBoxGetHighlightedRows</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *ary, 
+                                                        int size);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the row indices of highlighted items in a fancyListBox.
+</font>
+<p><p>
+<pre><p>
+int <font color="#990000"><b>EZ_FancyListBoxGetHighlightedItems</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, 
+                                  <font color="#990000"><b>EZ_Item</b></font> **arg,int siz);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the highlighted items in a fancyListBox.
+</font>
+<p><p>
+<pre><p>
+void  <font color="#990000"><b>EZ_SetFancyListBoxRowBg</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int mode,
+                                     char *bg1, char *bg2);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ set the alternating background colors.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p>
+<center><img  src="images/flistbox.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>  "FancyListBox"</code>   </tr><tr><td width=280>
+                                    <td width=140>                            <td width=140> or <code>"IFancyListBox"</code>   </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140>  <code>  "fancyListBox"</code>   </tr><tr><td width=280>
+                                    <td width=140>                            <td width=140> or <code>"iFancyListBox"</code>   </tr><tr><td width=280>
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_PADX</b></font></strong>                      <td width=140> padx                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PADY</b></font></strong>                      <td width=140> pady                       <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADX</b></font></strong>                     <td width=140> iPadx                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_IPADY</b></font></strong>                     <td width=140> iPady                      <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code> </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_MOTION_CALLBACK</b></font></strong>          <td width=140> N/A                        <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></strong>        <td width=140> bgImageFileB               <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP_B</b></font></strong>             <td width=140> N/A                  <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></strong>         <td width=140> dndDragCursor              <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></strong>       <td width=140> dndBubbleString            <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_SCROLLBAR_WIDTH</b></font></strong>          <td width=140> scrollbarWidth             <td width=140>   <code>10</code>           </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SCROLLBAR_BORDER_WIDTH</b></font></strong>  <td width=140> scrollbarBorderWidth       <td width=140>   <code>2</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HSCROLL_INCREMENT</b></font></strong>        <td width=140> hScrollIncrement           <td width=140>   <code>1</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_VSCROLL_INCREMENT</b></font></strong>        <td width=140> vScrollIncrement           <td width=140>   <code>1</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_SELECTION_BACKGROUND</b></font></strong>     <td width=140> selectionBackground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SELECTION_FOREGROUND</b></font></strong>     <td width=140> selectionForeground        <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_TEXT_BACKGROUND</b></font></strong>          <td width=140> textBackground             <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_OPTIONAL_HSCROLLBAR</b></font></strong>      <td width=140> optionalHScrollbar         <td width=140>   <code>true</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_OPTIONAL_VSCROLLBAR</b></font></strong>      <td width=140> optionalVScrollbar         <td width=140>   <code>true</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FANCY_LISTBOX_TYPE</b></font></strong>      <td width=140> fancyListBoxType           <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FANCY_LISTBOX_COLUMNS</b></font></strong>   <td width=140> fancyListBoxColumns        <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HIGHLIGHT_MODE</b></font></strong>           <td width=140> highlightMode              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_ROW_BG</b></font></strong>                   <td width=140> rowBg                      <td width=140>   <code>off nil nil</code>  </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_RUBBER_BAND</b></font></strong>              <td width=140> rubberBand                 <td width=140>   <code>false</code>        </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+<p><p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="34.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="36.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetCheckButtonState 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetCheckButtonState, EZ_SetCheckButtonState
+ \- retrieve the state of a check button
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int  EZ_GetCheckButtonState(EZ_Widget *" cbutton ", int " v_ret)
+.BI "void EZ_SetCheckButtonState(EZ_Widget *" cbutton ", int " onoff)
+
+.SH ARGUMENTS
+\fIcbutton\fR Specifies a check button.
+.sp
+\fIv_ret\fR Specifies a return for the current state value of
+the check button.
+.sp
+\fIonoff\fR Specifies a state, 0 for off and 1 for on.
+
+.SH DESCRIPTION
+A check button switch between two values, represented by its on and
+off states.
+.PP
+\fBEZ_GetCheckButtonState\fR returns 1 if \fIcbutton\fR is in its
+on state and returns 0 if it is in its off state. It returns the 
+current state variable to \fIr_ret\fR.
+.PP
+\fBEZ_SetCheckButtonState\fR sets the current state of a check button.
+It refreshes the display if necessary.
+

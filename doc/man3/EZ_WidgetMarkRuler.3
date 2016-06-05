@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WidgetMarkRuler 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WidgetMarkRuler\- set mark on a ruler
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WidgetMarkRuler( EZ_Widget *"ruler ", int " x ", int " y ", EZ_Widget *" srcWidget)
+.BI "void EZ_XWindowMarkRuler( EZ_Widget *"ruler ", int " x ", int " y ", EZ_Widget *" srcWindow)
+.BI "int  *EZ_GetRulerMarks( EZ_Widget *"ruler )
+
+.SH ARGUMENTS
+\fIruler\fR  Specifies a ruler widget.
+.sp
+\fIsrcWidget\fR specifies a widget.
+.sp
+\fIsrcWindow\fR specifies an X window ID.
+.sp
+\fIx,y\fR specifies the pointer coordinates relative to the source window.
+
+
+.SH DESCRIPTION
+.PP
+The first two functions set one fo the two static marks on a ruler widget. 
+A ruler widget has a dynamic mark and two static marks.
+.PP
+\fIEZ_GetRulerMarks\fR returns the array of three marks on a ruler widget.
+The first entry is the dynamic mark, the rest are the two static marks.
+.SH "SEE ALSO"
+EZ_WidgetNotifyRuler(3), EZ_GetRulerMarks(3)
+.br

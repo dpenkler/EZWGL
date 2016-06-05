@@ -1,0 +1,291 @@
+<html>
+<head>
+<title>EZwgl (4.22  LED)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="37.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="39.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.22  LED</h2>
+
+<p>An LED widget simulates a light emitting diodes display. It
+implements a few scrolling functions like those on a
+real LED display.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_LED</b></font></tr>
+                <tr> <td> Default class  name <td>       "Led" </tr>
+                <tr> <td> Default instance name<td>     "led" </tr></table>
+<p><p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *parent, char *str, char *clr);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the text to be displayed.
+</font>
+<p><p>
+<code>char  *<font color="#990000"><b>EZ_GetLedString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *led);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the text being displayed.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_ClearLed</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *led);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+clear an led widget.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedForeground</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *led, char *clr);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the foreground color.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedBackground</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *led, char *clr);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the background color.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedOffPixelColor</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *lcd, char *clr);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the color to display off pixels.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedFont</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *lcd, char *font);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the font.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedWidth</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *lcd, int w);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set width, in terms of led pixels.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedHeight</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *lcd, int h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set height, in terms of led pixels.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedSize</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *lcd, int w, int h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the width and height, in led pixels.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedPixelSize</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *lcd, int s);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set led pixel size.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_RemoveLedAction</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *led, int action);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+remove a queued led scroll function.
+</font>
+<p><p>
+<code>int   <font color="#990000"><b>EZ_LedIsFree</b></font> (<font color="#990000"><b>EZ_Widget</b></font> *lcd);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the busy status of a led widget.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SetLedColorFunction</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *led, </code>
+<code> unsigned long (*colorf)(<font color="#990000"><b>EZ_Widget</b></font> *, int, int)); </code> 
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set a pixel coloring function.
+</font>
+<p><p>
+<pre><p>
+int <font color="#990000"><b>EZ_QueueLedAction</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *led, int type, int delay, int count,
+                       char *msg,  char *clr);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Quene an led scroll function.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Led Actions </h3 <br>
+<p>
+Here is the list of all led actions.
+<font size=-1>
+<pre><p>
+#define <font color="#990000"><b>EZ_LED_SCROLL_LEFT</b></font>        1            #define <font color="#990000"><b>EZ_LED_SWEEP_CENTER</b></font>       11
+#define <font color="#990000"><b>EZ_LED_SCROLL_RIGHT</b></font>       2            #define <font color="#990000"><b>EZ_LED_SWEEP_CENTER_V</b></font>     12
+#define <font color="#990000"><b>EZ_LED_SCROLL_UP</b></font>          3            #define <font color="#990000"><b>EZ_LED_BOUNCE</b></font>             13
+#define <font color="#990000"><b>EZ_LED_SCROLL_DOWN</b></font>        4            #define <font color="#990000"><b>EZ_LED_BOUNCE_V</b></font>           14
+#define <font color="#990000"><b>EZ_LED_SCROLL_CENTE_H</b></font>     5            #define <font color="#990000"><b>EZ_LED_SHOW</b></font>               15
+#define <font color="#990000"><b>EZ_LED_SCROLL_CENTER_V</b></font>    6            #define <font color="#990000"><b>EZ_LED_BLINK</b></font>              16
+#define <font color="#990000"><b>EZ_LED_SWEEP_LEFT</b></font>         7            #define <font color="#990000"><b>EZ_LED_BLINK_SCROLL_LEFT</b></font>  17
+#define <font color="#990000"><b>EZ_LED_SWEEP_RIGHT</b></font>        8            #define <font color="#990000"><b>EZ_LED_BLINK_SCROLL_RIGHT</b></font> 18
+#define <font color="#990000"><b>EZ_LED_SWEEP_UP</b></font>           9            #define <font color="#990000"><b>EZ_LED_SLEEP</b></font>              19
+#define <font color="#990000"><b>EZ_LED_SWEEP_DOWN</b></font>         10
+</pre>
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p>
+<center><img  src="images/led.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>"Led"</code>            </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>"led"</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>            <td width=140> focusPad               <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_left_ptr"</code> </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><p>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_FOREGROUND</b></font></strong>                <td width=140> foreground                 <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                   <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></strong>         <td width=140> dndDragCursor              <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></strong>       <td width=140> dndBubbleString            <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LED_BACKGROUND</b></font></strong>           <td width=140> ledBackground              <td width=140>   <code>"black"</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_LED_PIXEL_COLOR</b></font></strong>         <td width=140> ledPixelColor              <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_LED_WIDTH</b></font></strong>                <td width=140> ledWidth                   <td width=140>    <code>60</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_LED_HEIGHT</b></font></strong>               <td width=140> ledHeight                  <td width=140>    <code>10</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_LED_PIXEL_SIZE</b></font></strong>          <td width=140> ledPixelSize               <td width=140>    <code>2,2</code>           </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_LED_COLOR_FUNCTION</b></font></strong>      <td width=140> ledColorFunction           <td width=140>    <code>null</code>        </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="37.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="39.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

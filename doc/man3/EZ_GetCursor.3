@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetCursor "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetCursor, EZ_GetCursorByName \- retrieve a cursor id
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "Cursor  EZ_GetCursor(int " id )
+.sp
+.BI "Cursor  EZ_GetCursorByName(char *" name )
+.sp
+.BI "char  *EZ_GetCursorName(Cursor " cursor )
+
+.SH ARGUMENTS
+\fIid\fR  Specifies a small integer.
+.sp
+\fIname\fR Specifies a cursor name.
+.sp
+\fIcursor\fR Specifies a cursor id.
+
+.SH DESCRIPTION
+.PP
+The first two functions return an X cursor. The argument
+to \fBEZ_GetCursor\fR must be one of the symbolic contants
+defined in \fI/usr/include/X11/cursorfont.h\fR or the index
+returned by \fIEZ_CreateCursorFrom...\fR.  The argument
+to \fBEZ_GetCursorByName\fR must be either the string form
+of the symbolic constants in \fI/usr/include/X11/cursorfont.h\fR
+or a name given to a user defined cursor. 
+.sp
+On failure, both functions returns \fINone\fR.
+.PP
+\fBEZ_GetCursorName\fR does exactly the opposite of 
+\fIEZ_GetCursorByName\fR, it returns the cursor name.
+
+.SH "SEE ALSO"
+EZ_WaitCursor(3), EZ_CreateCursorFromBitmapFile(3)
+.br
+
+
+

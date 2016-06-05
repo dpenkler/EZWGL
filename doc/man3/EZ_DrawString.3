@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DrawString 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DrawString \- draw a string of characters
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_DrawString(int " font_type ", char *" str)
+
+
+.SH ARGUMENTS
+\fIfont_type\fR Specify a font type, either EZ_BITMAP_FONT or EZ_VECTOR_FONT.
+.sp
+\fIstr\fR Specifies a string.
+
+.SH DESCRIPTION
+\fIEZ_DrawString\fR draws a string using the specified font at the
+current character positon and using the current color.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_CMove3f(3), EZ_SetBitmapFont(3), EZ_SetVectorFont(3)
+
+
+

@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MenuBarFindItem 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MenuBarFindItem  \- find an item on a menubar
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget  *EZ_MenuBarFindItem(EZ_Widget *" mbar ", char *" item)
+
+
+.SH ARGUMENTS
+\fImbar\fR  Specifies a menubar widget.
+.sp
+\fIitem\fR  Specifies an item label.
+.sp
+
+
+.SH DESCRIPTION
+.PP
+\fBEZ_MenuBarFindItem\fR  finds the widget (a no window label) which
+is labeled by 'item'.  One can modifies the appearence of the item
+(like color, pixmap etc) or change the menu attatched to the item.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_MenuBarAddItemAndMenu(3)
+.br
+
+
+

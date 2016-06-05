@@ -1,0 +1,36 @@
+#
+@MCOMMON@
+@SET_MAKE@
+
+EXAMPLES= animate clock hanoi meter btnbox puzzle ezterm xruler scroll counter slide xpm
+subdirs = REdit GL DnD Message Glass 
+#----------------------------------------------------------------------------------
+
+all: $(EXAMPLES) 
+	@for I in ${subdirs}; do (cd $$I; ${MAKE} $@ || exit 1); done
+
+strip:
+	strip $(EXAMPLES)
+
+clean realclean:
+	- $(RM)  $(EXAMPLES)
+	@for I in ${subdirs}; do (cd $$I; ${MAKE} $@ || exit 1); done
+
+mrproper: clean
+	- $(RMF) Makefile
+	@for I in ${subdirs}; do (cd $$I; ${MAKE} $@ || exit 1); done
+
+.c.o:
+	$(CC) $(LINC) -I../include $(XINC) $(CFLAGS) -c $<
+
+.o:
+	$(CC) $(LINC) -I../include $(XINC) $(CFLAGS)  $< -o $@ -L../lib -lEZ $(XLIB) $(LIBS)
+
+.c:
+	$(CC) $(LINC) -I../include $(XINC) $(CFLAGS)  $< -o $@ -L../lib -lEZ $(XLIB) $(LIBS)
+
+
+#----------------------------------------------------------------------------------
+
+
+

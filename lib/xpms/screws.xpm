@@ -1,0 +1,117 @@
+/* XPM */
+static char *screwBig[]  = {
+"19 19 6 1",
+"   m mask   c mask",
+".  m black  c #7F007F007F00",
+"X  m black  c #474848",
+"o  m black  c #bebcbd",
+"O  m black  c #000000000000",
+"+  m white  c #FFFFFFFFFFFF",
+"      .......      ",
+"    ...XXXXX...    ",
+"   ..XXoooooXX..   ",
+"  ..Xoooo.....X..  ",
+" ..Xoooo....XO+X.. ",
+" .Xoooo....XO++.X. ",
+"..Xooo....XO++..X..",
+".Xooo....XO++...XX.",
+".Xoo....OO++....XX.",
+".Xo....XO++....XXX.",
+".Xo...XO++....XXXX.",
+".X...XO++....XXOOX.",
+"..X.XO++....XXOOX..",
+" .XXO++....XXOOOX. ",
+" ..X++....XXOOOX.. ",
+"  ..X....XXOOOX..  ",
+"   ..XXXXXXOXX..   ",
+"    ...XXXXX...    ",
+"      .......      "};
+
+/* XPM */
+static char *screwSmall[]  = {
+"17 17 6 1",
+"   m mask  c mask",
+".  m black  c #7F007F007F00",
+"X  m black  c #470048004800",
+"o  m white  c #BE00BC00BD00",
+"O  m black  c #000000000000",
+"+  m white  c #FFFFFFFFFFFF",
+"     .......     ",
+"    ..XXXXX...   ",
+"   .XXoooooXX.   ",
+"  ..oooo.....X.  ",
+" ..Xooo....XO+.. ",
+"..Xoo....XO++.X..",
+".Xoo....XO++..XX.",
+".Xoo...OO++...XX.",
+".Xo...XO++....XX.",
+".Xo..XO++....XXX.",
+".X..XO++....XXOX.",
+"..X.O++....XXOX..",
+" .XX++....XXOOX. ",
+" ..X+....XXOOO.. ",
+"   .XXXXXXOXX.   ",
+"    ..XXXXX...   ",
+"     .......     "};
+
+
+/* XPM */
+static char *nailBig[]  = {
+"19 19 6 1",
+"   m mask  c mask",
+".  m black  c #7F007F007F00",
+"X  m black  c #474848",
+"o  m black  c #bebcbd",
+"O  m white  c #e7ebe6",
+"+  m black  c #000000000000",
+"      .......      ",
+"    ...XXXXX...    ",
+"   ..XX.....XX..   ",
+"  ..Xooooo....X..  ",
+" ..Xooooooo....X.. ",
+" .XooOOOooo....XX. ",
+"..XoOOOOOooo...XX..",
+".XooOOOOOooo...XXX.",
+".XooOOOOoooo...XXX.",
+".XoooOOoooo...XX+X.",
+".X.ooooooo....XX+X.",
+".X..ooooo....XX++X.",
+"..X.........XX++X..",
+" .XX.......XX+++X. ",
+" ..XXXXXXXXX+++X.. ",
+"  ..XXXXXXX+++X..  ",
+"   ..XXXXX++XX..   ",
+"    ...XXXXX...    ",
+"      .......      "};
+
+
+
+static char *nailSmall[]  = {
+"15 15 6 1",
+"   m mask  c mask",
+".  m white  c #BE00BC00BD00",
+"X  m black  c #470048004800",
+"o  m black  c #7F007F007F00",
+"O  m white  c #E700EB00E600",
+"+  m black  c #000000000000",
+"     .....     ",
+"   ..XXXXX..   ",
+"  .XX...oooX.  ",
+" .X......oooX. ",
+" .X.OO...oooX. ",
+".X.OOOO...ooXX.",
+".X.OOOO...ooXX.",
+".X..OO...ooXX+.",
+".X......oooXX+.",
+".Xo....oooXX++.",
+" .XooooooX+++. ",
+" .XXXXXXXX++X. ",
+"  .XXXXXX++X.  ",
+"   ..XXX++..   ",
+"     .....     "};
+
+
+
+
+
+

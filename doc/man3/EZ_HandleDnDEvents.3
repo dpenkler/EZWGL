@@ -1,0 +1,26 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_HandleDnDEvents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_HandleDnDEvents \- handle DnD event
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_HandleDnDEvents(EZ_Widget *" widget ",  XEvent *" event )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget
+.sp
+\fIXEvent\fR  Specifies a ButtonPress event.
+.SH DESCRIPTION
+.PP
+\fBEZ_HandleDnDEvents\fR hands over control to the DnD system. It
+is meant to be used in the default event handler
+of primitive widgets implemented by the application programmer.
+
+
+

@@ -1,0 +1,53 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Materialf 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Materialf, EZ_Materialfv \- set material parameters
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Materialf(int " face ", int " attr ", float " values )
+
+.BI "void EZ_Materialfv(int " face ", int " attr ", float *" pvalues )
+
+.SH ARGUMENTS
+\fIface\fR Specifies which face or faces are being updated.
+Must be one of EZ_FRONT, EZ_BACK, EZ_FRONT_AND_BACK.
+.sp
+\fIattr\fR Specifies which material properties are being updated.
+Must be one of EZ_EMISSION, EZ_AMBIENT, EZ_DIFFUSE, EZ_SPECULAR,
+EZ_SHININESS, EZ_AMBIENT_AND_DIFFUSE or EZ_COLOR_INDICES.
+.sp
+\fIvalues\fR Specifies the values for the specified \fIattr\fR.
+.sp
+\fIpvalues\fR Specifies the values for the specified \fIattr\fR in
+an array of floats.
+
+.SH DESCRIPTION
+\fBEZ_Materialf/EZ_Materialfv\fR sets values for material properties.
+If the EZ_TWOSIDE lighting model is enabled, there are two sets of
+material parameters. One for front-facing polygons and one for
+back-facing polygons.
+.sp
+If \fIattr\fR is one of EZ_EMISSION, EZ_AMBIENT, EZ_DIFFUSE,
+EZ_SPECULAR or EZ_AMBIENT_AND_DIFFUSE. \fIvalues\fR should consist
+of 4 floats and \fIpvalues\fR should be an array of 4 floats, with
+each in interval [0.0, 1.0].
+.sp
+If \fIattr\fR is EZ_SHININESS, \fIvalues\fR is a float point number 
+between 0.0 and 128.0
+.sp
+If \fIattr\fR is EZ_COLOR_INDICES, \fIvalues\fR should be
+3 floating point numbers. 
+
+
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_Normal3f(3), EZ_Vertex3f(3), EZ_Lightf(3),
+EZ_DefineMaterial(3)
+
+
+

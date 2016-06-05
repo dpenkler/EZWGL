@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetPaddings 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWidgetPaddings  \- return x, y and focus paddings
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_GetWidgetPaddings( EZ_Widget" *widget ",  int " *padx_ret ", "int " *pady_ret,
+.BI "                            "   int " *focuspad_ret )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+\fIpadx_ret\fR, \fIpady_ret\fR Specifies the return for the paddings in the horizontal
+and the vertical direction respectively.
+.sp
+\fIfocuspad_ret\fR Specifies the return for the keyboard focus padding outside the widget
+border.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWidgetPaddings\fR returns the dimension of all three paddings. Padx and pady
+are the spaces between the widget border and its contents (labels or children widgets).
+Focus pad is the amount of spaces reserved for highlighting keyboard focus.
+
+.SH "SEE ALSO"
+EZ_GetWidgetGeometry(3)
+.br
+EZ_GetWidgetBorder(3)
+
+

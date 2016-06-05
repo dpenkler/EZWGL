@@ -1,0 +1,103 @@
+<html>
+<head> 
+<title>The EZWGL home page</title> 
+<body bgcolor="#ffffff" vlink="#ff6600" text="#000000" background="images/bg.gif">
+</head> 
+<br>
+<p>
+<center> <h1>Downloading <i>EZWGL</i> 1.50</h1></center>
+<p>
+<br>
+<hr>
+<br>
+<h2>Obtaining <i>EZWGL</i></h2>
+<p>
+The <i>EZWGL</i> distribution consists of several compressed tar files.
+
+<ul>
+<li><a href="ftp://ftp.ma.utexas.edu/pub/mzou/EZWGL-1.50-src.tgz">Source </a>
+<li><a href="ftp://ftp.ma.utexas.edu/pub/mzou/EZWGL-1.50-doc.tgz">Documentation</a>
+<li><a href="ftp://ftp.ma.utexas.edu/pub/mzou/EZWGL-1.50-demo.tgz">Examples and demos</a>
+</ul>
+
+The latest version is always available from 
+<a href="ftp://ftp.ma.utexas.edu/pub/mzou/EZWGL-latest.tgz">here.</a>
+It is also available via CVS at
+<table bgcolor="#EEEEDD" cellpadding=0 cellspacing=0>
+<tr><td align=right>cvsroot:</td><td>:pserver:anonymous@cvs.math.utexas.edu:/home/cvs/EZWGL</td></tr>
+<tr><td align=right>Password:</td><td>anonymous</td></tr>
+<tr><td align=right>Module:</td><td>EZWGL</td></tr>
+</table>
+A CVS web interface is availble from <a href="http://cvs.math.utexas.edu/cgi-bin/cvsweb.cgi/?cvsroot=EZWGL">here</a>.
+</p>
+<p>
+Oliver Bedford maintains a <a href="http://www.rpm.org/">rpm</a>
+distribution for EZWGL. You can find the 
+<a href="http://triton.pc.uni-koeln.de/EZWGL-rpm/index.html"
+TARGET=_top>relevent rpms here.</a>
+<p>
+<p>
+<p>
+Andrey Zakhvatov maintains the freeBSD port of EZWGL. You can
+find more information at the
+<a href="http://www.freebsd.org/ports/graphics.html" TARGET=_top>
+freeBSD resources page. </a>
+<p>
+<p>
+<hr>
+<p>
+<h2>Unpacking <i>EZWGL</i> Distribution</h2>
+After downloading the distribution EZWGL-x.xx-src.tgz or EZWGL-latest.tgz,
+unpack the archive using the command
+<br>
+<pre>
+       gzip -dc EZWGL-x.xx-src.tgz | tar xvf -
+</pre>
+This will create a directory EZWGL-x.xx. Change to this
+directory. 
+<p>
+<p>
+<hr>
+<p>
+<h2>Compling <i>EZWGL</i></h2>
+EZWGL src distribution comes with autoconf scripts. Run
+<pre>
+         ./configure
+</pre>
+first to create <code>Makefiles</code> for your system.
+Then use the command
+<pre>
+         make shared
+</pre>
+to build a shared library or use the command
+<pre>
+         make static
+</pre>
+to build a static library. Both commands compile
+the examples also. 
+<p>
+<p>
+<hr>
+<p>
+<h2>Installing <i>EZWGL</i></h2>
+<b>Installing the library in a public place needs root priviledge.</b>
+<br>
+<br>
+After compiling the library, use one of the following command
+<br>
+<br>
+<code> make install-shared </code> 
+<br>
+<code> make install-static</code>
+<br>
+<br>
+to install the library and the header file <code>EZ.h</code>.
+<p>
+If you install the shared library in your home directory, you'll
+have to set your <code><b>LD_LIBRARY_PATH</b></code> environment
+accordingly so that the loader can find it.
+
+</body>
+</html>
+
+

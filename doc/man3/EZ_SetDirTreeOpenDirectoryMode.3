@@ -1,0 +1,40 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetDirTreeOpenDirectoryMode 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetDirTreeOpenDirectoryMode \- select a mode for open
+subdirectories on dir trees
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetDirTreeOpenDirectoryMode( int " mode )
+
+.SH ARGUMENTS
+\fImode\fR  Specifies a mode. Must be one of 
+EZ_DIR_NODE_OPEN_DIRECTORY_NONE, EZ_DIR_NODE_OPEN_DIRECTORY_DEFAULT and 
+EZ_DIR_NODE_OPEN_DIRECTORY_COLLAPSING.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetDirTreeOpenDirectoryMode\fR dictates the way subdirectories
+are treated when open a directory on a dir tree. If \fImode\fR is
+EZ_DIR_NODE_OPEN_DIRECTORY_NONE,
+subdirectories are ignored, i.e., nodes are created only for regular
+files. If \fImode\fR is EZ_DIR_NODE_OPEN_DIRECTORY_DEFAULT,
+subdirectories are treated the same as regular files. 
+If \fImode\fR is EZ_DIR_NODE_OPEN_DIRECTORY_COLLAPSING, then
+subdirecties are treated the same as regular files. In this
+case, the siblings of the the directory to be opend will all
+be destroied.
+
+
+.SH "SEE ALSO"
+EZ_GetDirTreeNodeFullPath(3), EZ_SetDirTreeDirectoryNodeCreator(3),
+EZ_SetDirTreeFileNodeCreator(3)
+
+
+

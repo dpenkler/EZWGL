@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_IsList 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GenLists \- create a set of contiguous empty display lists
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GenLists(int " count)
+
+.SH ARGUMENTS
+\fIcount\fR Specifies a range.
+
+.SH DESCRIPTION
+\fBEZ_GenLists\fR creates a set of \fIcount\fR contiguous
+empty display lists and returns the name (a small integer)
+of the first one.
+
+
+.SH "SEE ALSO"
+EZ_NewList(3), EZ_DeleteList(3), EZ_CallList(3)
+
+
+

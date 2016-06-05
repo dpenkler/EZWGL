@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetHistogramValues 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetHistogramValues \- set the histogram bin values
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetHistogramValues( EZ_Widget *" histogram ", float *" values ", int " nvalues);
+        
+
+.SH ARGUMENTS
+\fIhistogram\fR  Specifies a histogram widget.
+.sp
+\fIvalues\fR  Specifies an array of float point values.
+.sp
+\fInvalues\fR  Specifies the size of \fIvalues\fR.
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SetHistogramValues\fR sets the number of bins and the bin values.
+The values will be clipped  by the current histogram range.
+
+.SH "SEE ALSO"
+EZ_SetHistogramValue(3), EZ_SetHistogramRange(3)
+.br
+
+
+

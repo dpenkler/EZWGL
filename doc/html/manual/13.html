@@ -1,0 +1,1240 @@
+<html>
+<head>
+<title>EZwgl (3.1  Description of Pre-defined Widget Resources)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="14.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>3.1  Description of Pre-defined Widget Resources</h2>
+
+<p>
+In this section, we describe briefly all widget resources and
+configuration options defined in <i>EZwgl</i>.
+<p><ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_X</b></font>, <font color="#990000"><b>EZ_Y</b></font>, <font color="#990000"><b>EZ_LOCATION</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_X</b></font></code>        <td width=140> <code>x</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_Y</b></font></code>        <td width=140> <code>y</code>         <td width=140> <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LOCATION</b></font></code> <td width=140> <code>location</code>  <td width=140> <code>int_x int_y</code></tr><tr><td width=280>
+</table> </center>
+</font>
+<p>These options set the position of the widget window. Coordinates are parent
+relative, measured in pixels from the upper-left corner of the widget window.
+In general, one should not hardcode the position of widgets. It will be
+determined by the geometry manager.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_WIDTH</b></font>, <font color="#990000"><b>EZ_HEIGHT</b></font>, <font color="#990000"><b>EZ_SIZE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_WIDTH</b></font></code>   <td width=140> <code>width</code>    <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HEIGHT</b></font></code>  <td width=140> <code>height</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SIZE</b></font></code>    <td width=140> <code>size</code>     <td width=140>  <code>int_w int_h</code></tr><tr><td width=280>
+</table> </center>
+</font>
+<p>These options set the dimension of a widget, in pixels. <strong>Configured
+dimension will always be honored</strong> even if it is smaller
+than the minimal size required to hold its content.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_GEOMETRY</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_GEOMETRY</b></font></code>  <td width=140> <code>geometry</code>   <td width=140>  <code>int_x int_y int_w int_h</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p>This option combines  <code><font color="#990000"><b>EZ_LOCATION</b></font></code> and 
+<code><font color="#990000"><b>EZ_SIZE</b></font></code>. It sets the geometry of a widget. When set by resource,
+it also takes the standard geometry specification
+<code>WIDTH</code>x<code>HEIGHT</code><img src="images/2.gif"><code>XOFFSET</code><img src="images/2.gif"><code>YOFFSET</code>
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_WIDTH_HINT</b></font>, <font color="#990000"><b>EZ_HEIGHT_HINT</b></font>, <font color="#990000"><b>EZ_SIZE_HINT</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_WIDTH_HINT</b></font></code>   <td width=140> <code>widthHint</code>    <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></code>  <td width=140> <code>heightHint</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SIZE_HINT</b></font></code>    <td width=140> <code>sizeHint</code>     <td width=140>  <code>int_w int_h</code></tr><tr><td width=280>
+</table> </center>
+</font>
+<p>These options sets the size hint of a widget. Size hint is
+not guaranteed to be honored. 
+<p>
+</ul>
+<p><p>
+<ul>
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_BORDER_TYPE</b></font>, <font color="#990000"><b>EZ_BORDER_WIDTH</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_TYPE</b></font></code>   <td width=140> <code>borderType</code>    <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></code>  <td width=140> <code>borderWidth</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These two options set the border of a widget. Border types are listed in the 
+following table.
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_NONE</b></font></code>       <td width=140> <code>none</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_FLAT</b></font></code>       <td width=140> <code>flat</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_RIDGE</b></font></code>      <td width=140> <code>ridge</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_GROOVE</b></font></code>     <td width=140> <code>groove</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_RAISED</b></font></code>     <td width=140> <code>raised</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_SUNKEN</b></font></code>     <td width=140> <code>sunken</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_EMBOSSED</b></font></code>   <td width=140> <code>embossed</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_ENGRAVED</b></font></code>   <td width=140> <code>engraved</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_SHADOW</b></font></code>     <td width=140> <code>shadow</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BORDER_SHADOW3</b></font></code>    <td width=140> <code>shadow3</code>  </tr><tr><td width=280>
+</table> </center>
+</font>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_PADX</b></font>, <font color="#990000"><b>EZ_PADY</b></font>, <font color="#990000"><b>EZ_FOCUS_PAD</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_PADX</b></font></code>   <td width=140> <code>padx</code>    <td width=140>  <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_PADY</b></font></code>  <td width=140> <code>pady</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_FOCUS_PAD</b></font></code>  <td width=140> <code>focusPad</code>   <td width=140>  <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_PADX</b></font></code> and <code><font color="#990000"><b>EZ_PADY</b></font></code> set the horizontal and the vertical paddings
+between the widget border and its contents, respectively. <code><font color="#990000"><b>EZ_FOCUS_PAD</b></font></code> sets
+the padding outside the widget border for highlighting keyboard focus.
+<p>
+</ul>
+<p><p><p>
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_FOREGROUND</b></font>, <font color="#990000"><b>EZ_BACKGROUND</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_FOREGROUND</b></font></code>  <td width=140> <code>foreground</code>   <td width=140>  <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_BACKGROUND</b></font></code>   <td width=140> <code>background</code>  <td width=140>  <code>string</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_FOREGROUND</b></font></code> sets the foreground color of a widget. The foreground
+color is used to color textual labels and bitmap labels. <code><font color="#990000"><b>EZ_BACKGROUND</b></font></code>
+sets the background color of a widget. For each configured background
+color, <i>EZwgl</i> allocates three additional colors for rendering borders. Configured
+background colors will be honored only when <i>EZwgl</i> can allocate all four
+colors. Background colors propagates, i.e., children widgets inherit
+parent's background, unless a different background color is set for them.
+<p><p><p>
+<li><code><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font>, <font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></code>   <td width=140> <code>bgImageFile</code>   <td width=140>  <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></code> <td width=140> <code>bgImageFileB</code>  <td width=140>  <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_BG_PIXMAP</b></font></code>       <td width=140> <code>N/A</code>           <td width=140>  <code><font color="#990000"><b>EZ_Bitmap</b></font> *</code>    </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_BG_PIXMAP_B</b></font></code>     <td width=140> <code>N/A</code>           <td width=140>  <code><font color="#990000"><b>EZ_Bitmap</b></font> *</code>    </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></code> sets the pixmap to tile the background of a widget.
+<code><font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></code> is available for sliders, scrollbars and composite
+widgets that uses scrollbars. It sets an additional pixmap to tile the slider/scrollbar
+buttons. Like background color, these two resources propagates to children
+widgets.
+</ul>
+<p><p>
+<ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_ORIENTATION</b></font>, <font color="#990000"><b>EZ_FILL_MODE</b></font>, <font color="#990000"><b>EZ_SIDE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_ORIENATTION</b></font></code>   <td width=140> <code>orientation</code>   <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_FILL_MODE</b></font></code> <td width=140> <code>fillMode</code>  <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SIDE</b></font></code> <td width=140> <code>side</code>  <td width=140>  <code>enum</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_IPADX</b></font></code> <td width=140> <code>iPadx</code>  <td width=140>  <code>int</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_IPADY</b></font></code> <td width=140> <code>iPady</code>  <td width=140>  <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+This resource is used by the default geometry manager to layout
+children  widgets.
+<p><code><font color="#990000"><b>EZ_ORIENATTION</b></font></code> sets the orientation of a container widget.
+ Orientation can be one of the following.
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HORIZONTAL</b></font></code>        <td width=140> <code>horizontal</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HORIZONTAL_LEFT</b></font></code>   <td width=140> <code>horizontalLeft</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HORIZONTAL_RIGHT</b></font></code>  <td width=140> <code>horizontalRight</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_HORIZONTAL_CENTER</b></font></code> <td width=140> <code>horizontalCenter</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_VERTICAL</b></font></code>          <td width=140> <code>vertical</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_VERTICAL_TOP</b></font></code>      <td width=140> <code>verticalTop</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_VERTICAL_BOTTOM</b></font></code>   <td width=140> <code>verticalBottom</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_VERTICAL_CENTER</b></font></code>   <td width=140> <code>verticalCenter</code>  </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SIDE</b></font></code> specifies how to align children widgets in the
+direction perpendicular to the orientation. It takes one of
+the following values.
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_CENTER</b></font></code>        <td width=140> <code>center</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LEFT</b></font></code>   <td width=140> <code>left</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_RIGHT</b></font></code>  <td width=140> <code>right</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_TOP</b></font></code>      <td width=140> <code>top</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BOTTOM</b></font></code>   <td width=140> <code>bottom</code>  </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_IPADX</b></font></code> and <code><font color="#990000"><b>EZ_IPADY</b></font></code> set the amount of spaces
+to be inserted between children widgets in the horizontal
+and the vertical direction respectively.
+<p><p>
+<li><code><font color="#990000"><b>EZ_EXPAND</b></font>, <font color="#990000"><b>EZ_PROPAGATE</b></font></code>
+<p>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_EXPAND</b></font></code>   <td width=140> <code>expand</code>   <td width=140>  <code>boolean</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_PROPAGATE</b></font></code><td width=140> <code>propagate</code>   <td width=140>  <code>boolean</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_EXPAND</b></font></code>  specifies whether or not a child should be stretched in
+one direction to the size of its parent. This attribute is used only
+by the default geomtry manager. A child widget can only be expanded 
+in the direction perpendicular to its parent's orientation.
+<p><code><font color="#990000"><b>EZ_PROPAGATE</b></font></code> specifies whether
+a change of geometry of a child should propagate to the whole
+widget tree. 
+<p>
+</ul>
+<p><ul>
+<p>
+<li><code><font color="#990000"><b>EZ_GRID_CONSTRAINS</b></font></code>
+<p>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140> <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_GRID_CONSTRAINS</b></font></code>   <td width=140> <code>gridConstrains</code><td width=140> 
+<code>enum_row_column int_idx int_minsize int_weight int_pad </code>   </tr><tr><td width=280>
+</table> </center> </font>
+This option sets the row or column contrains.  This resource 
+is used by the grid bag geometry manager to layout children
+widgets. Values for
+<code>enum_row_column</code>  are
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_ROW</b></font></code>        <td width=140> <code>row</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_COLUMN</b></font></code>     <td width=140> <code>column</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_ALL_ROWS</b></font></code>   <td width=140> <code>allRows</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_ALL_COLUMNS</b></font></code><td width=140> <code>allColumns</code>  </tr><tr><td width=280>
+</table> </center> </font>
+<p><p>
+<li><code><font color="#990000"><b>EZ_CELL_GEOMETRY</b></font>, <font color="#990000"><b>EZ_CELL_PLACEMENT</b></font></code>
+<p><p>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_GRID_CELL_GEOMETRY</b></font></code>    <td width=140> <code>gridCellGeometry</code>   <td width=140>
+  <code>int_x int_y int_w int_h</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_GRID_CELL_PLACEMENT</b></font></code>   <td width=140> <code>gridCellPlacement</code>   <td width=140>
+  <code>enum_fill_mode enum_gravity</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_GRID_CELL_GEOMETRY</b></font></code> sets the starting location and the 
+number of cells a widget occupies (in both the horizontal and the
+vertical directions) in a grid bag.
+<code><font color="#990000"><b>EZ_GRID_CELL_PLACEMENT</b></font></code> specifies the rules to place the
+widget in the case when the cells assigned to it are larger than
+its dimension.
+<p>
+</ul>
+<p><p>
+<ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_LABEL_STRING</b></font>, <font color="#990000"><b>EZ_FONT_NAME</b></font>, <font color="#990000"><b>EZ_TEXT_LINE_LENGTH</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABEL_STRING</b></font></code>     <td width=140> <code>labelString</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_FONT_NAME</b></font></code>       <td width=140> <code>fontName</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_FONT_ID</b></font></code>         <td width=140> <code>fontId</code><td width=140>  <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_TEXT_LINE_LENGTH</b></font></code> <td width=140> <code>textLineLength</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_LABEL_STRING</b></font></code> sets the textual label. 
+<code><font color="#990000"><b>EZ_FONT_NAME</b></font></code> specifies the font. 
+<code><font color="#990000"><b>EZ_FONT_ID</b></font></code> specifies  a font id.
+<p><code><font color="#990000"><b>EZ_TEXT_LINE_LENGTH</b></font></code>
+sets the length limit of one line. Long labels will be broken into multiple
+lines according to this limit. 
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_LABEL_POSITON</b></font>, <font color="#990000"><b>EZ_JUSTIFICATION</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_JUSTIFICATION</b></font></code> <td width=140> <code>justification</code><td width=140> <code>enum</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABEL_POSITION</b></font></code>   <td width=140> <code>labelPosition</code><td width=140> <code>enum</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_JUSTIFICATION</b></font></code> specifies 
+the justification of multiple line textual lables. Possible values are
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_CENTER</b></font></code>        <td width=140> <code>center</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LEFT</b></font></code>   <td width=140> <code>left</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_RIGHT</b></font></code>  <td width=140> <code>right</code>  </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_LABEL_POSITION</b></font></code> sets the anchor location for the label. Valid
+values are
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_CENTER</b></font></code>        <td width=140> <code>center</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LEFT</b></font></code>   <td width=140> <code>left</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_RIGHT</b></font></code>  <td width=140> <code>right</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_TOP</b></font></code>   <td width=140> <code>top</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BOTTOM</b></font></code>   <td width=140> <code>bottom</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_TOP_LEFT</b></font></code>   <td width=140> <code>topLeft</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_TOP_RIGHT</b></font></code>   <td width=140> <code>topRight</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BOTTOM_LEFT</b></font></code>   <td width=140> <code>bottomLeft</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_BOTTOM_RIGHT</b></font></code>   <td width=140> <code>bottomRight</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_LABEL_SHADOW</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABEL_SHADOW</b></font></code>   <td width=140> <code>labelShadow</code> <td width=140> <code>int_xoffset int_yoffset</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_LABEL_SHADOW</b></font></code> specifies the way to render a shadow for a textual
+label. It is available for all widgets which has textual labels. The option
+values specify the XY offset to render the shadow.
+<p><p><p>
+<li><code><font color="#990000"><b>EZ_PIXMAP_FILE</b></font>, <font color="#990000"><b>EZ_IMAGE_FILE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_PIXMAP_FILE</b></font></code>   <td width=140> <code>pixmapFile</code> <td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_IMAGE_FILE</b></font></code>    <td width=140> <code>imageFile</code>  <td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_BITMAP_DATA</b></font></code>   <td width=140> <code>N/A</code>  <td width=140> <code>string</code>         </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_PIXMAP_DATA</b></font></code>   <td width=140> <code>N/A</code>  <td width=140> <code>char **</code>        </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_X_PIXMAP</b></font></code>      <td width=140> <code>N/A</code>  <td width=140> <code>Pixmap</code>         </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABEL_PIXMAP</b></font></code>  <td width=140> <code>N/A</code>  <td width=140> <code><font color="#990000"><b>EZ_Bitmap</b></font> *</code>    </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_PIXMAP_FILE</b></font></code> makes an image lable from a XPM image file or an
+X11 bitmap file. <code><font color="#990000"><b>EZ_IMAGE_FILE</b></font></code> makes an image label from a
+GIF, XPM, JPEG, PNG or TIFF image file. 
+<p>The other four options can only be used as configuration options.
+One can not set them by resources.
+<p>When an image label is set succefully. Textual label will be ignored.
+<p></ul>
+<p><ul>
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SLIDER_LENGTH</b></font>, <font color="#990000"><b>EZ_SLIDER_WIDTH</b></font>, <font color="#990000"><b>EZ_SLIDER_BORDER_WIDTH</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_LENGTH</b></font></code><td width=140> <code>sliderLength</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_WIDTH</b></font></code><td width=140> <code>sliderWidth</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_BORDER_WIDTH</b></font></code><td width=140> <code>sliderBorderWidth</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_STYLE</b></font></code><td width=140> <code>sliderStyle</code><td width=140> <code>enum</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SLIDER_LENGTH</b></font></code> and <code><font color="#990000"><b>EZ_SLIDER_WIDTH</b></font></code> set the size of the
+slider button. <code><font color="#990000"><b>EZ_SLIDER_BORDER_WIDTH</b></font></code> sets the border width of a slider.
+<code><font color="#990000"><b>EZ_SLIDER_STYLE</b></font></code> selects one of the 6 kinds (small variations) of 
+sliders. Values are one of 0--5.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SLIDER_RANGE</b></font>, <font color="#990000"><b>EZ_SLIDER_RESOLUTION</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_DISPLAY_VALUE</b></font></code><td width=140> <code>sliderDisplayValue</code><td width=140> <code>boolean</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_RANGE</b></font></code><td width=140> <code>sliderRange</code><td width=140> <code>float_min float_max</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_RESOLUTION</b></font></code><td width=140> <code>sliderResolution</code><td width=140> <code>float</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SLIDER_INIT_VALUE</b></font></code><td width=140> <code>sliderInitialValue</code><td width=140> <code>float</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SLIDER_DISPLAY_VALUE</b></font></code> toggles display numerical values on/off.
+<code><font color="#990000"><b>EZ_SLIDER_RANGE</b></font></code> specifies the range of a slider. 
+<code><font color="#990000"><b>EZ_SLIDER_RESOLUTION</b></font></code> specifies the unit of increment.
+<code><font color="#990000"><b>EZ_SLIDER_INIT_VALUE</b></font></code>  sets the slider value.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SHOW_TICK</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SHOW_TICK</b></font></code><td width=140> <code>showTicks</code><td width=140> <code>int, int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SHOW_TICK</b></font></code> controlls the tickmarks on a slider or a dial. This resource
+takes a pair of integers, the first one specifies the number of ticks
+to be displayed, the second value specifies the length of tickmarks.
+<p></ul>
+<p><p>
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_SCROLLBAR_WIDTH</b></font>, <font color="#990000"><b>EZ_HSCROLL_INCREMENT</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SCROLLBAR_WIDTH</b></font></code><td width=140> <code>scrollbarWidth</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SCROLLBAR_BORDER_WIDTH</b></font></code><td width=140> <code>scrollbarBorderWidth</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_HSCROLL_INCREMENT</b></font></code><td width=140> <code>hScrollIncrement</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_VSCROLL_INCREMENT</b></font></code><td width=140> <code>vScrollIncrement</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p><code><font color="#990000"><b>EZ_HSCROLLBAR_WIDTH</b></font></code> and <code><font color="#990000"><b>EZ_HSCROLLBAR_BORDER_WIDTH</b></font></code> set
+the geometry of a scrollbar.
+<code><font color="#990000"><b>EZ_HSCROLL_INCREMENT</b></font></code> and <code><font color="#990000"><b>EZ_VSCROLL_INCREMENT</b></font></code> 
+set the scroll unit for the arrow buttons on the scrollbar.
+These resources are also available
+for composite widgets that use scrollbars (text, listbox, fancyListbox, tree and workarea).
+<p>
+</ul>
+<p><p><p>
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_INDICATOR_TYPE</b></font>, <font color="#990000"><b>EZ_INDICATOR_COLOR</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_INDICATOR_TYPE</b></font></code><td width=140> <code>indicatorType</code><td width=140> <code>enum</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_INDICATOR_COLOR</b></font></code><td width=140> <code>indicatorColor</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_INDICATOR_SIZE_ADJUST</b></font></code><td width=140> <code>indicatorSizeAdjust</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These options set check button and radio button indicators.
+<code><font color="#990000"><b>EZ_INDICATOR_TYPE</b></font></code> specifies the kind of indicator. Must be one of
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_EMPTY_INDICATOR</b></font></code>         <td width=140> <code>none</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SQUARE_INDICATOR</b></font></code>        <td width=140> <code>square</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SUNKEN_SQUARE_INDICATOR</b></font></code> <td width=140> <code>sunkenSquare</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_DIAMOND_INDICATOR</b></font></code>       <td width=140> <code>diamond</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_SUNKEN_DIAMOND_INDICATOR</b></font></code><td width=140> <code>sunkenDiamond</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_CIRCLE_INDICATOR</b></font></code>        <td width=140> <code>circle</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_CHECK_INDICATOR</b></font></code>         <td width=140> <code>check</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_RECTANGLE_INDICATOR</b></font></code>     <td width=140> <code>rectangle</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_MENU_BUTTON_INDICATOR</b></font></code>   <td width=140> <code>mbutton</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_TICK_INDICATOR</b></font></code>          <td width=140> <code>tick</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_INDICATOR_COLOR</b></font></code> sets the foreground color of the indicator. 
+<code><font color="#990000"><b>EZ_INDICATOR_SIZE_ADJUST</b></font></code> adjusts the size of the indicator. Value
+must be in the range from -4 to 4.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_CHECK_BUTTON_ON_VALUE</b></font>, <font color="#990000"><b>EZ_CHECK_BUTTON_ON_OFF</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_CHECK_BUTTON_ON_VALUE</b></font></code><td width=140> <code>checkButtonOnValue</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_CHECK_BUTTON_OFF_VALUE</b></font></code><td width=140> <code>checkButtonOnValue</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_CHECK_BUTTON_ON_OFF</b></font></code><td width=140> <code>checkButtonOnOff</code><td width=140> <code>boolean</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These options set the value or state of a check button.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_RADIO_BUTTON_GROUP</b></font>, <font color="#990000"><b>EZ_RADIO_BUTTON_VALUE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_RADIO_BUTTON_GROUP</b></font></code><td width=140> <code>radioButtonGroup</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_RADIO_BUTTON_VALUE</b></font></code><td width=140> <code>radioButtonValue</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These options sets the value or state of a radio button.
+<p>
+</ul>
+<p><ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>, <font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></code><td width=140> <code>N/A</code><td width=140> <code>void*</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></code><td width=140> <code>N/A</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+The <code><font color="#990000"><b>EZ_Widget</b></font></code> structure has two slots for applications to
+hook in client data. These two options set the data in these fields.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_CALLBACK</b></font>, <font color="#990000"><b>EZ_EVENT_HANDLER</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_CALLBACK</b></font></code>       <td width=140> <code>N/A</code><td width=140> <code>void* void*</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_MOTION_CALLBACK</b></font></code>       <td width=140> <code>N/A</code><td width=140> <code><font color="#990000"><b>EZ_CallBack</b></font> void*</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></code>       <td width=140> <code>N/A</code><td width=140> <code><font color="#990000"><b>EZ_CallBack</b></font> void*</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></code>       <td width=140> <code>N/A</code><td width=140> <code><font color="#990000"><b>EZ_EventHandler</b></font> void*</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These four options register callbacks or event handlers to a widget. 
+Callbacks and event handlers are not settable via resources. 
+Use <code><font color="#990000"><b>EZ_AddWidgetCallBack</b></font></code> and <code><font color="#990000"><b>EZ_AddEventHandler</b></font></code> if you
+want to register more than one callbacks or event handlers on a widget.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SHORTCUT_KEY</b></font>, <font color="#990000"><b>EZ_UNDERLINE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SHORTCUT_KEY</b></font></code>        <td width=140> <code>shortcutKey</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_UNDERLINE</b></font></code>        <td width=140> <code>underline</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SHORTCUT_KEY</b></font></code> sets a keyboard accelerator for a button type widget.
+Valid values are strings like <code>C-a</code>, <code>M-x</code> or <code>Ctrl-s</code>.
+<code><font color="#990000"><b>EZ_UNDERLINE</b></font></code> sets the keyboard accelerator from the button label. The
+button can be activated via <code>Alt-underlined_char</code>.
+<p>
+</ul>
+<p><p>
+<ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_LCD_NDIGITS</b></font>, <font color="#990000"><b>EZ_LCD_FONT_SIZE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_LCD_NDIGITS</b></font></code><td width=140> <code>lcdNDigits</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LCD_FONT_SIZE</b></font></code><td width=140> <code>lcdFontSize</code><td width=140> <code>int</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LCD_FOREGROUND</b></font></code><td width=140> <code>lcdForeground</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LCD_BACKGROUND</b></font></code><td width=140> <code>lcdBackground</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These options sets up a LCD, a widget displaying fixed width numerical
+values.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_LED_WIDTH</b></font>, <font color="#990000"><b>EZ_LED_PIXEL_SIZE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_LED_WIDTH</b></font></code><td width=140> <code>ledWidth</code><td width=140> <code>int</code>   </tr><tr><td width=280>        
+<code><font color="#990000"><b>EZ_LED_HEIGHT</b></font></code><td width=140> <code>ledHeight</code><td width=140> <code>int</code>   </tr><tr><td width=280>        
+<code><font color="#990000"><b>EZ_LED_PIXEL_COLOR</b></font></code><td width=140> <code>ledPixelColor</code><td width=140> <code>string</code>   </tr><tr><td width=280>        
+<code><font color="#990000"><b>EZ_LED_BACKGROUND</b></font></code><td width=140> <code>ledBackground</code><td width=140> <code>string</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_LED_PIXEL_SIZE</b></font></code><td width=140> <code>ledPixelSize</code><td width=140> <code>int</code>   </tr><tr><td width=280>        
+<code><font color="#990000"><b>EZ_LED_COLOR_FUNCTION</b></font></code><td width=140> <code>N/A</code><td width=140> <code>(ulong *)(int int)</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These options sets up a LED,  a widget with a fixed size that simulate a real LED.
+<p>
+</ul>
+<p><p>
+<ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_OPTIONAL_ENTRY_HISTORY</b></font>, <font color="#990000"><b>EZ_OPTIONAL_ENTRY_EDITABLE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_OPTIONAL_ENTRY_HISTORY</b></font></code><td width=140> <code>optionalEntryHistroy</code><td width=140> <code>boolean</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_OPTIONAL_ENTRY_EDITABLE</b></font></code><td width=140> <code>optionalEntryEditable</code><td width=140> <code>boolean</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_OPTIONAL_ENTRY_STYLE</b></font></code><td width=140> <code>optionalEntryStyle</code><td width=140> <code>enum</code>   </tr><tr><td width=280>
+</table> </center> </font>
+<p>These three options modifies the characteristics of an optional entry. The first
+option toggles histroy mode on/off. If turned on, entry selections will be
+inserted in the popup listbox.  The second option turns editing on/off.
+The last option selects one of the two display styles (represented by 0 and 1)
+for the optional entry.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_OPTIONAL_HSCROLLBAR</b></font>, <font color="#990000"><b>EZ_OPTIONAL_VSCROLLBAR</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_OPTIONAL_HSCROLLBAR</b></font></code><td width=140> <code>optionalHScrollbar</code><td width=140> <code>boolean</code>   </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_OPTIONAL_VSCROLLBAR</b></font></code><td width=140> <code>optionalVScrollbar</code><td width=140> <code>boolean</code>   </tr><tr><td width=280><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_OPTIONAL_HSCROLLBAR</b></font></code> turns the optional horizontal scrollbar on 
+a composite widget on/off. Likewise,
+<code><font color="#990000"><b>EZ_OPTIONAL_VSCROLLBAR</b></font></code> turns the optional vertical scrollbar on/off. 
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_HIGHLIGHT_FOREGROUND</b></font>, <font color="#990000"><b>EZ_HIGHLIGHT_BACKGROUND</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_HIGHLIGHT_FOREGROUND</b></font></code> <td width=140> <code>highlightForeground</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_HIGHLIGHT_BACKGROUND</b></font></code> <td width=140> <code>highlightBackground</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+</table> </center> </font>
+These resources specifies the colors to highlight the current selections. 
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SELECTION_FOREGROUND</b></font>, <font color="#990000"><b>EZ_SELECTION_BACKGROUND</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SELECTION_FOREGROUND</b></font></code> <td width=140> <code>selectionForeground</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SELECTION_BACKGROUND</b></font></code> <td width=140> <code>selectionBackground</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_TEXT_BACKGROUND</b></font></code> <td width=140> <code>textBackground</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+</table> </center> </font>
+These resources are available for ListBox, Text, FancyListBox, Tree 
+and WorkArea widgets.  The first two resources set the selection background and foreground.
+These two colors are used to highlight the relevent selections.
+<code><font color="#990000"><b>EZ_TEXT_BACKGROUND</b></font></code> sets the background color for the internal 
+display window.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_HIGHLIGHT_MODE</b></font>, <font color="#990000"><b>EZ_RUBBER_BAND</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_HIGHLIGHT_MODE</b></font></code> <td width=140> <code>highlightMode</code> <td width=140> <code>enum</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_RUBBER_BAND</b></font></code> <td width=140> <code>rubberBand</code> <td width=140> <code>boolean</code> </tr><tr><td width=280>
+</table> </center> </font>
+<p>These two resources are available for fancyListBox, Tree and WorkArea widgets.
+<code><font color="#990000"><b>EZ_HIGHLIGHT_MODE</b></font></code> selects one of the four modes for highlighting display items.
+Values are 0,1,2 and 3.  The default value
+is 0.  The value is used by <i>EZwgl</i> in the following way:
+<ul>
+<p>
+<li>if bit 1 is on, turn off the marching ants.
+<p>
+<li>if any other bits are on, highlight pixmap and textual lable individually.
+</ul>
+<code><font color="#990000"><b>EZ_RUBBER_BAND</b></font></code> turns rubber band on and off.
+ When turned on, multiple items may be selected.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_ROW_BG</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_ROW_BG</b></font></code> <td width=140> <code>rowBg</code> <td width=140> <code>boolean string string</code> </tr><tr><td width=280>
+</table> </center> </font>
+<p>This option is available to FancyListBox and Tree widgets. It sets up
+two colors to be used as alternating row backgrounds. It needs three values,
+the first one is a boolean value which turns this feature on and off. The last
+two are colors names, or <code>nil</code>, in which case a default color will be
+selected.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_TEXT_WIDGET_EDITABLE</b></font>, <font color="#990000"><b>EZ_TEXT_SPACING</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_TEXT_SPACING</b></font></code> <td width=140> <code>textSpacing</code> <td width=140> <code>int</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_TEXT_WIDGET_EDITABLE</b></font></code><td width=140> <code>textWidgetEditable</code><td width=140> <code>boolean</code>   </tr><tr><td width=280>
+</table> </center> </font>
+These two resources are available only for text widget.
+<code><font color="#990000"><b>EZ_TEXT_SPACING</b></font></code> sets the insertions between text lines. 
+<code><font color="#990000"><b>EZ_TEXT_WIDGET_EDITABLE</b></font></code> turns text editing on/off.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_FANCY_LISTBOX_TYPE</b></font>, <font color="#990000"><b>EZ_FANCY_LISTBOX_COLUMNS</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_FANCY_LISTBOX_TYPE</b></font></code> <td width=140> <code>fancyListBoxType</code> <td width=140> <code>enum</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_FANCY_LISTBOX_COLUMNS</b></font></code> <td width=140> <code>fancyListBoxColumns</code> <td width=140> <code>int</code> </tr><tr><td width=280>
+</table> </center> </font>
+<p><code><font color="#990000"><b>EZ_FANCY_LISTBOX_TYPE</b></font></code> specifies the selection mode of a fancyListBox. 
+Values are either 0 or 1. When sets to 0, individual items can be selected;
+when set to 1, only rows can be selected.
+<p><code><font color="#990000"><b>EZ_FANCY_LISTBOX_COLUMNS</b></font></code> specifies the number of columns in a fancyListBox
+widget.
+<p>
+</ul>
+<p><ul>
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_BACKING_STORE</b></font>, <font color="#990000"><b>EZ_TRANSIENT</b></font>, <font color="#990000"><b>EZ_CURSOR</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_BACKING_STORE</b></font></code> <td width=140> <code>backingStore</code> <td width=140> <code>boolean</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_OVERRIDE_REDIRECT</b></font></code> <td width=140> <code>overrideRedirect</code> <td width=140> <code>boolean</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_TRANSIENT</b></font></code> <td width=140> <code>transient</code> <td width=140> <code>boolean</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_CURSOR</b></font></code> <td width=140> <code>cursur</code> <td width=140> <code>???</code> </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_BACKING_STORE</b></font></code> sets the backing store window attributes on
+the widget window.
+<code><font color="#990000"><b>EZ_OVERRIDE_REDIRECT</b></font></code> sets the override redirect window attributes on
+the widget window.
+<code><font color="#990000"><b>EZ_TRANSIENT</b></font></code> sets the transientFor window
+manager hint on the widget window. <code><font color="#990000"><b>EZ_CURSOR</b></font></code> defines the
+widget window cursor.   When set by resource,
+value is a cursor name. When set by <code><font color="#990000"><b>EZ_CreateWidget</b></font></code>, value is
+a symbolic constant.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_CLASS</b></font>, <font color="#990000"><b>EZ_NAME</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_CLASS</b></font></code> <td width=140> <code>class</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_NAME</b></font></code> <td width=140> <code>name</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+</table> </center> </font>
+These two resources set the widget class name and the widget instance
+name. They override the default widget class and instance names.
+<p>
+</ul>
+<p><ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SMETER_VALUE</b></font>, <font color="#990000"><b>EZ_SMETER_RANGE</b></font>, <font color="#990000"><b>EZ_SMETER_VALUE_N</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_RANGE</b></font></code> <td width=140> <code>statusMeterRange</code> <td width=140> <code>float_min float_max</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_RANGE_N</b></font></code> <td width=140> <code>statusMeterRange</code> <td width=140> <code>int_n float_min float_max</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_VALUE</b></font></code> <td width=140> <code>statusMeterValue</code> <td width=140> <code>float</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_VALUE_N</b></font></code> <td width=140> <code>statusMeterValueN</code> <td width=140> <code>int_n float_v</code> </tr><tr><td width=280>
+</table> </center> </font>
+A status meter can monitor 5 quantities simultaneously. These options set the
+range and value of these quantities.<code><font color="#990000"><b>EZ_SMETER_RANGE_N</b></font></code>  sets the
+range of the nth quantity. <code><font color="#990000"><b>EZ_SMETER_RANGE</b></font></code> sets the range of the first
+quantity. <code><font color="#990000"><b>EZ_SMETER_VALUE_N</b></font></code> sets the values of the nth quantity.
+<code><font color="#990000"><b>EZ_SMETER_VALUE</b></font></code> sets the value of the first quantity.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SMETER_STYLE</b></font>, <font color="#990000"><b>EZ_SMETER_ORIENTATION</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_STYLE</b></font></code> <td width=140> <code>statusMeterStyle</code> <td width=140> <code>int int</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_ORIENTATION</b></font></code> <td width=140> <code>statusMeterOrientation</code> <td width=140> <code>enum</code> </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SMETER_STYLE</b></font></code> defines the display style of a status meter. 
+Value is a pair of integers representing the width of on/off rectangles.
+<code><font color="#990000"><b>EZ_SMETER_ORIENTATION</b></font></code> selects the orientation of a status meter, value is 
+<code><font color="#990000"><b>EZ_HORIZONTAL</b></font></code> or <code><font color="#990000"><b>EZ_VERTICAL</b></font></code>.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SMETER_FOREGROUND</b></font>, <font color="#990000"><b>EZ_SMETER_BACKGROUND</b></font>, <font color="#990000"><b>EZ_SMETER_FOREGROUND_N</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_BACKGROUND</b></font></code> <td width=140> <code>statusMeterBackground</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_FOREGROUND</b></font></code> <td width=140> <code>statusMeterForeground</code> <td width=140> <code>string</code> </tr><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_FOREGROUND_N</b></font></code> <td width=140> <code>statusMeterForegroundN</code> <td width=140> <code>int_n string</code> </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SMETER_BACKGROUND</b></font></code> sets the background color of a status meter.
+<code><font color="#990000"><b>EZ_SMETER_FOREGROUND</b></font></code> sets the color to display the first quantity a status meter
+monitors. <code><font color="#990000"><b>EZ_SMETER_FOREGROUND_N</b></font></code> sets the foreground color to display the nth 
+quantity.
+<p><p>
+<li><code><font color="#990000"><b>EZ_SMETER_STOP</b></font>, <font color="#990000"><b>EZ_SMETER_SHOW_VALUE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SMETER_STOP</b></font></code> <td width=140> <code>statusMeterStop</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_SMETER_SHOW_VALUE</b></font></code><td width=140> <code>statusMeterShowValue</code> <td width=140> <code>boolean</code> </tr><tr><td width=280>
+</table> </center> </font>
+<code><font color="#990000"><b>EZ_SMETER_STOP</b></font></code> activate or deactivate a status meter. 
+<code><font color="#990000"><b>EZ_SMETER_SHOW_VALUE</b></font></code> toggle numeric display on off.
+<p>
+</ul>
+<p><p>
+<ul>
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_WM_WINDOW_NAME</b></font>, <font color="#990000"><b>EZ_WM_ICON_NAME</b></font>, <font color="#990000"><b>EZ_WM_INITIAL_STATE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_WM_WINDOW_NAME</b></font></code> <td width=140> <code>wmWindowName</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WM_ICON_NAME</b></font></code> <td width=140> <code>wmIconName</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WM_INITIAL_STATE</b></font></code> <td width=140> <code>wmInitialState</code> <td width=140> <code>enum</code> </tr><tr><td width=280> 
+</table> </center> </font>
+These three options set the window manager hints for windowName, iconName
+and initialState. Value for <code>wmInitialState</code> is <code>normalState</code>
+or <code>iconState</code>. These options are relevent only for toplevel widgets.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_WM_ICON_LOCATION</b></font>, <font color="#990000"><b>EZ_WM_ICON_XPM_FILE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_WM_ICON_LOCATION</b></font></code> <td width=140> <code>wmIconLocation</code> <td width=140> <code>int_x int_y</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WM_ICON_XPM_FILE</b></font></code> <td width=140> <code>wmIconXpmFile</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WM_ICON_PIXMAP</b></font></code> <td width=140> <code>N/A</code> <td width=140> <code><font color="#990000"><b>EZ_Bitmap</b></font> *</code> </tr><tr><td width=280> 
+</table> </center> </font>
+These options set the window manager hints for iconPosition and iconPixmap.
+The last option sets the icon pixmap to be an <i>EZwgl</i> internal pixmap, it
+cannot be set via resources.  These options are relevent only for toplevel widgets.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_WM_LOCATION</b></font>, <font color="#990000"><b>EZ_WM_SIZE_HINT</b></font>, <font color="#990000"><b>EZ_WM_MAX_SIZE_HINT</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_WM_LOCATION</b></font></code> <td width=140> <code>wmLocation</code> <td width=140> <code>int_x int_y</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WM_SIZE_HINT</b></font></code> <td width=140> <code>wmSizeHint</code> <td width=140> <code>int_w int_h</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WM_MIN_SIZE_HINT</b></font></code> <td width=140> <code>wmMinSizeHint</code> <td width=140> <code>int_w int_h</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_WM_MAX_SIZE_HINT</b></font></code> <td width=140> <code>wmMaxSizeHint</code> <td width=140> <code>int_w int_h</code> </tr><tr><td width=280> 
+</table> </center> </font>
+These options set the window manager hints for position, size, minSize and
+maxSize respectively.  These options are relevent only for toplevel widgets.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_WMHINTS</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_WM_HINTS</b></font></code> <td width=140> <code>wmHints</code> <td width=140> <code>int_mask</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option sets the window manager hint, value is bitwise or'ed from
+<code>PMinSize</code>, <code>PMaxSize</code>, <code>PAspect</code> and <code>PWinGravity</code>. 
+These options are relevent only for toplevel widgets.
+<p>
+</ul>
+<p><ul>
+<p>
+<p>
+<li><code><font color="#990000"><b>EZ_INTERIOR_BORDER</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_INTERIOR_BORDER</b></font></code> <td width=140> <code>interiorBorder</code> <td width=140> <code>int_width enum_style</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option sets the internal border of a labeled frame or a labeled icon. It takes two values,
+a border width and a border style. The later must be one of the valid border
+types defined in <i>EZwgl</i>.
+<p><p>
+<p>
+<li>{<code><font color="#990000"><b>EZ_ARROW_LABEL</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+{<code><font color="#990000"><b>EZ_ARROW_LABEL</b></font></code>} <td width=140> {<code>arrowLabel</code>} <td width=140> {<code>enum</code>} </tr><tr><td width=280> 
+</table> </center> </font>
+This option is available only for Button, Label and NoWindowLabel. It
+labels the widget with an internally defined symbol (arrow). Value is a
+symbolic constant listed below. These symbolic constants are not internally
+defined as resource values. Therefore, when set via resources, the resource
+value must be an integer between 1 and 36.
+<font size=-1>
+<pre><p>
+#define <font color="#990000"><b>EZ_UP_TRIANGLE</b></font>          1       #define <font color="#990000"><b>EZ_DOUBLE_UP_TRIANGLE</b></font>    19  
+#define <font color="#990000"><b>EZ_DOWN_TRIANGLE</b></font>        2       #define <font color="#990000"><b>EZ_DOUBLE_DOWN_TRIANGLE</b></font>  20
+#define <font color="#990000"><b>EZ_LEFT_TRIANGLE</b></font>        3       #define <font color="#990000"><b>EZ_LEFT_RIGHT_ARROW</b></font>      21
+#define <font color="#990000"><b>EZ_RIGHT_TRIANGLE</b></font>       4       #define <font color="#990000"><b>EZ_UP_DOWN_ARROW</b></font>         22
+#define <font color="#990000"><b>EZ_UP_ARROW</b></font>             5       #define <font color="#990000"><b>EZ_LEFT_BAR_TRIANGLE</b></font>     23
+#define <font color="#990000"><b>EZ_DOWN_ARROW</b></font>           6       #define <font color="#990000"><b>EZ_RIGHT_BAR_TRIANGLE</b></font>    24
+#define <font color="#990000"><b>EZ_LEFT_ARROW</b></font>           7       #define <font color="#990000"><b>EZ_UP_BAR_TRIANGLE</b></font>       25
+#define <font color="#990000"><b>EZ_RIGHT_ARROW</b></font>          8       #define <font color="#990000"><b>EZ_DOWN_BAR_TRIANGLE</b></font>     26
+#define <font color="#990000"><b>EZ_UP_TRIANGLE_BAR</b></font>      9       #define <font color="#990000"><b>EZ_ELLIPSE</b></font>               27
+#define <font color="#990000"><b>EZ_DOWN_TRIANGLE_BAR</b></font>    10      #define <font color="#990000"><b>EZ_RECTANGLE</b></font>             28
+#define <font color="#990000"><b>EZ_LEFT_TRIANGLE_BAR</b></font>    11      #define <font color="#990000"><b>EZ_UP_TRIANGLE_UP</b></font>        29
+#define <font color="#990000"><b>EZ_RIGHT_TRIANGLE_BAR</b></font>   12      #define <font color="#990000"><b>EZ_UP_TRIANGLE_DOWN</b></font>      30
+#define <font color="#990000"><b>EZ_UP_ARROW_BAR</b></font>         13      #define <font color="#990000"><b>EZ_DOWN_TRIANGLE_UP</b></font>      31
+#define <font color="#990000"><b>EZ_DOWN_ARROW_BAR</b></font>       14      #define <font color="#990000"><b>EZ_DOWN_TRIANGLE_DOWN</b></font>    32
+#define <font color="#990000"><b>EZ_LEFT_ARROW_BAR</b></font>       15      #define <font color="#990000"><b>EZ_LEFT_TRIANGLE_UP</b></font>      33
+#define <font color="#990000"><b>EZ_RIGHT_ARROW_BAR</b></font>      16      #define <font color="#990000"><b>EZ_LEFT_TRIANGLE_DOWN</b></font>    34
+#define <font color="#990000"><b>EZ_DOUBLE_LEFT_TRIANGLE</b></font>  17     #define <font color="#990000"><b>EZ_RIGHT_TRIANGLE_UP</b></font>     35
+#define <font color="#990000"><b>EZ_DOUBLE_RIGHT_TRIANGLE</b></font> 18     #define <font color="#990000"><b>EZ_RIGHT_TRIANGLE_DOWN</b></font>   36
+</pre>
+</font>
+}
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SCROLL_TYPE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SCROLL_TYPE</b></font></code> <td width=140> <code>scrollType</code> <td width=140> <code>enum</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option is available only for scrollButton widget. It specifies
+how to render the scroll arrow. Valid values are listed below.
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LEFT</b></font></code>        <td width=140> <code>left</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_RIGHT</b></font></code>   <td width=140> <code>right</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_UP</b></font></code>  <td width=140> <code>up</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_DOWN</b></font></code> <td width=140> <code>down</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LEFT_RIGHT</b></font></code>          <td width=140> <code>leftRight</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_UP_DOWN</b></font></code>      <td width=140> <code>upDown</code>  </tr><tr><td width=280>
+</table> </center> </font>
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_DOCKABLE</b></font>, <font color="#990000"><b>EZ_DRAGHANDLE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_DOCKABLE</b></font></code> <td width=140> <code>dockable</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_DRAG_HANDLE</b></font></code> <td width=140> <code>dragHandle</code> <td width=140> <code>enum</code> </tr><tr><td width=280> 
+</table> </center> </font>
+<p>These two resources are available for Frames and MenuBars.
+<code><font color="#990000"><b>EZ_DOCKABLE</b></font></code> sets or removes the dockable attribute on a frame or menubar.
+<code><font color="#990000"><b>EZ_DRAG_HANDLE</b></font></code> sets the location to draw the drag handle. Valid values
+are
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>SymbolicConstant</small>       <td width=140> <small>resourceValue</small> </tr><tr><td width=280><tr><td width=280>
+ <code><font color="#990000"><b>EZ_LEFT</b></font></code>       <td width=140> <code>left</code>  </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_RIGHT</b></font></code>      <td width=140> <code>right</code>   </tr><tr><td width=280>
+ <code><font color="#990000"><b>EZ_TOP</b></font></code>        <td width=140> <code>top</code>  </tr><tr><td width=280>
+</table> </center> </font>
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_LOCATOR_XY</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_LOCATOR_XY</b></font></code> <td width=140> <code>locatorXY</code> <td width=140> <code>float,float</code> </tr><tr><td width=280> 
+</table> </center> </font>
+<p>This resource is available  only for the locator widget. It sets the location
+of the locator (inside [0,1]x[0,1]).
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SPIN_VALUE</b></font>, <font color="#990000"><b>EZ_SPIN_FUNCTION</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SPIN_VALUE</b></font></code> <td width=140> <code>spinValue</code> <td width=140> <code>int,string</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_SPIN_FUNCTION</b></font></code> <td width=140> <code>spinValue</code> <td width=140> <code>func,pointer</code> </tr><tr><td width=280> 
+</table> </center> </font>
+<p>These resources are available only for the spin button widget.  They alter
+the state of a spin button.  
+<code><font color="#990000"><b>EZ_ENTRY_STRING</b></font></code> sets the current value and its position in the list
+of possible values of the spin button. <code><font color="#990000"><b>EZ_ENTRY_FUNCTION</b></font></code> register
+the function to compute the next value for the spin button. It is a function
+of type:
+<p><code>   char *(*func)(int current, int next, void *clientData)</code>
+<p> When invoked, <code>current/next</code> are the index of the current and the
+next spin value, <code>clientData</code> is arbitary client data registered to the
+spin function.
+<p><p><p>
+<li><code><font color="#990000"><b>EZ_FORGET_LOCATION</b></font>, <font color="#990000"><b>EZ_FORGET_SIZE</b></font>, <font color="#990000"><b>EZ_FORGET_GEOMETRY</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_FORGET_X</b></font></code> <td width=140> <code>forgetX</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_FORGET_Y</b></font></code> <td width=140> <code>forgetY</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_FORGET_W</b></font></code> <td width=140> <code>forgetW</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_FORGET_H</b></font></code> <td width=140> <code>forgetH</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_FORGET_LOCATION</b></font></code> <td width=140> <code>forgetLocation</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_FORGET_SIZE</b></font></code> <td width=140> <code>forgetSize</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_FORGET_GEOMETRY</b></font></code> <td width=140> <code>forgetGeometry</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+</table> </center> </font>
+These options informs the geometry manager to forget about the
+configured geometry after using it.  They are meant to be used
+by applications to set the initial geometry of internal widgets. 
+<p>
+</ul>
+<p><ul>
+<p>
+<p>
+<li><code><font color="#990000"><b>EZ_ENTRY_STRING</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_ENTRY_STRING</b></font></code> <td width=140> <code>entryString</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource sets the entry string for Entry and OptionalEntry widgets.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></code> <td width=140> <code>bubbleString</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource sets the bubble help message for a widget.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></code> <td width=140> <code>dndBubbleString</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource sets the bubble message for a drop target.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></code> <td width=140> <code>dndDragCursor</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option sets the drag cursor for a drag source. When set by resource,
+value is a cursor name. When set by <code><font color="#990000"><b>EZ_CreateWidget</b></font></code>, value is
+a symbolic constant.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_RETURN_VALUE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_RETURN_VALUE</b></font></code> <td width=140> <code>returnValue</code> <td width=140> <code>int</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option sets return value for menu-items. The return value field
+in the widget structure can also be used to hold an extra client data.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_GLOB_PATTERN</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_GLOB_PATTERN</b></font></code> <td width=140> <code>globPattern</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource sets the glob pattern for a <code>FileSelector</code> widget.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SHAPED_WINDOW</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SHAPED_WINDOW</b></font></code> <td width=140> <code>shapedWindow</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource sets shape window attribute on a button or label widget. When 
+set, the widget window will be masked by the shape mask of its pixmap label.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SHAPE_FILE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SHAPE_FILE</b></font></code> <td width=140> <code>shapedFile</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource sets shape mask resource. Value is a X11 bitmap file. If
+set succesfully, it sets the <code><font color="#990000"><b>EZ_SHAPED_WINDOW</b></font></code> resource also.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SHAPE_PIXMAP</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SHAPE_FILE</b></font></code> <td width=140> <code>N/A <td width=140> \verb</code>pointer+ </tr><tr><td width=280> 
+</table> </center> </font>
+This resource sets shape mask resource. Value is an internal pixmap
+allocated by one of the <code><font color="#990000"><b>EZ_CreateLabelPixmapFrom</b></font>...</code>.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_MENU_TEAR_OFF</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_MENU_TEAR_OFF</b></font></code> <td width=140> <code>menuTearOff</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource inserts or removes the tear-off bar on a popup menu.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_POPUP_NAME</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_POPUP_NAME</b></font></code> <td width=140> <code>popupName</code> <td width=140> <code>string</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource is available for OptionalEntry and FileSelector widgets.
+For OptionalEntry, it sets the instance name of the pull down listbox.
+For FileSelector, it sets the instance names for the two pull down listboxes,
+to be the specified name with the letter 'A' and 'B' appended.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_IS_EMBEDER</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_IS_EMBEDER</b></font></code> <td width=140> <code>isEmbeder</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option sets the embeding attribute on a widget. When set, the widget
+swallows other <i>EZwgl</i> client's window when moved over to the widget window.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_MOVABLE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_MOVABLE</b></font></code> <td width=140> <code>movable</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option is available for WorkArea and  FreeLabel. For a WorkArea
+widget, it enable/disable moving items around by the left mouse button.
+For FreeLabel, it enable/disable moving the widget window by the
+left mouse button.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_LABELED_ICON</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_LABELED_ICON</b></font></code> <td width=140> <code>movable</code> <td width=140> <code>int</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This option is available for toplevel FreeLabels. It selects one of
+the three display styles (correspond to 0,1,2) for icons. 
+If value is 0, the icon ignores the textual label when it has a
+pixmap label. If value is 1, it displays both the textual and
+the pixmap label, and it shape mask the pixmap label unless
+the <code><font color="#990000"><b>EZ_SHAPED_WINDOW</b></font></code> resource is set to False.
+If value is 2, it shape mask both the pixmap label
+and the textual label, unless 
+the <code><font color="#990000"><b>EZ_SHAPED_WINDOW</b></font></code> resource is set to False.
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_MARK_CLEAN</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_MARK_CLEAN</b></font></code> <td width=140> <code>N/A</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+</table> </center> </font>
+What is this for?
+<p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_RESERVE_MENU_BUTTON</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_RESERVE_MENU_BUTTON</b></font></code> <td width=140> <code>reserveMenuButton</code> <td width=140> <code>boolean</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This resource is available for 3DCanvas only. It tells <i>EZwgl</i>
+to reserve the right mouse button as the menu button.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_GEOMETRY_MANAGER</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_GEOMETRY_MANAGER</b></font></code> <td width=140> <code>N/A</code> <td width=140> <code>???</code> </tr><tr><td width=280> 
+</table> </center> </font>
+This configuration option is available for container widgets.
+It sets the geometry manager for laying our children widgets.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_DIAL_RANGE</b></font>, <font color="#990000"><b>EZ_DIAL_SPAN</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_DIAL_RANGE</b></font></code> <td width=140> <code>dialRange</code> <td width=140> <code>float float</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_DIAL_RESOLUTION</b></font></code> <td width=140> <code>dialResolution</code> <td width=140> <code>float</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_DIAL_SPAN</b></font></code> <td width=140> <code>dialSpan</code> <td width=140> <code>float</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_DIAL_VALUE</b></font></code> <td width=140> <code>dialValue</code> <td width=140> <code>float</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_DIAL_DISPLAY_VALUE</b></font></code> <td width=140> <code>dialDisplayValue</code> <td width=140> <code>int</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_DIAL_STYLE</b></font></code> <td width=140> <code>dialStyle</code> <td width=140> <code>enum</code> </tr><tr><td width=280> 
+</table> </center> </font>
+These resources modify the specified dial attributes.
+<p><p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_BAR_RANGE</b></font>, <font color="#990000"><b>EZ_BAR_COLOR_N</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_BAR_RANGE</b></font></code> <td width=140> <code>barRange</code> <td width=140> <code>float float</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_BAR_WIDTH</b></font></code> <td width=140> <code>barWidth</code> <td width=140> <code>int</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_BAR_EDITABLE</b></font></code> <td width=140> <code>barEditable</code> <td width=140> <code>bool</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_BAR_ORIENTATION</b></font></code> <td width=140> <code>barOrientation</code> <td width=140> <code>enum</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_BAR_COLOR_N</b></font></code> <td width=140> <code>barColorN</code> <td width=140> <code>int str ...</code> </tr><tr><td width=280> 
+</table> </center> </font>
+These resources modify the specified attributes of a gradient bar.
+<p><p><p>
+<p>
+<li><code><font color="#990000"><b>EZ_SHEET_HEADER_SIZE</b></font>, <font color="#990000"><b>EZ_SHEET_CELL_SIZE</b></font></code>
+<font size=-1> <center> <p>
+<table border=1> <tr><td width=280>
+<small>configOption</small> <td width=140>  <small>resourceName</small> 
+      <td width=140>  <small>valueType</small> </tr><tr><td width=280><tr><td width=280>
+<code><font color="#990000"><b>EZ_SHEET_HEADER_SIZE</b></font></code> <td width=140> <code>sheetHeaderSize</code> <td width=140> <code>int int</code> </tr><tr><td width=280> 
+<code><font color="#990000"><b>EZ_SHEET_CELL_SIZE</b></font></code> <td width=140> <code>sheetCellSize</code> <td width=140> <code>int int</code> </tr><tr><td width=280> 
+</table> </center> </font>
+<p>
+These options modify the specified attributes of a spread sheet.
+</ul>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="14.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

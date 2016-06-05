@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetSelectedMenuItem 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetSelectedMenuItem, EZ_GetWidgetReturnData \- retrieve the 
+selected item from a popup menu
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget  *EZ_GetSelectedMenuItem( EZ_Widget " *widget )
+.BI "int         EZ_GetWidgetReturnData( EZ_Widget " *widget )
+.BI "int         EZ_GetWidgetReturnedData( EZ_Widget " *widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+These functions are relevant only for \fBmenu-items\fR, \fBmenus\fR 
+and \fBmenu-buttons\fR. 
+.PP
+\fBEZ_GetWidgetReturnData\fR  returns
+the return-value set on the last selected menu-item. In the case
+when no valid selection was made during the last menu popup, it
+returns -1.
+.PP
+\fBEZ_GetSelectedMenuItem\fR returns the last selected menu item
+on a popup menu. If no valid selection has been made on the last
+popup, it returns NULL.
+.PP
+When a menu is posted, its return value is set to -1. When a selection
+is made and the menu is unposted, the return value of the selected
+menu item is propagated to its parent (a popup menu). If the menu
+was posted by a menu-button, this return value is also propagated to
+the menu button.  The selected item is propagated accordingly.
+
+.SH "SEE ALSO"
+ EZ_CreateWidget(3), EZ_DoPopup(3)
+.br
+
+
+

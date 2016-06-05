@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetFindCell 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetFindCell \- find the first cell containing the specified string
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_SSheetFindCell( EZ_Widget *" ssheet ", char " str ", int *" row  ", int *" col)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIstr\fR Specifies a string.
+.sp
+\fIrow,col\fR  Specify the returns for the row and column index.
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetFindCell\fR search the entire spread sheet for
+a cell that contains the specified string. If found, it
+returns 1 and set the row and column indices. Otherwise,
+it returns 0.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetFindCursorCell(3),  EZ_SSheetSetTabChar(3)
+.br
+
+
+

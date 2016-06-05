@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ClearListBox 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetListBoxData \- return the contents of a listbox
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetListBoxData( EZ_Widget *" listbox,
+.BI "                        EZ_ListboxEntry **" data_ret ", int *" count_ret )
+
+.sp
+.nf
+typedef struct listboxentry_ {
+  int   length;
+  char  *data;
+} EZ_ListBoxEntry;
+
+.fi
+
+.SH ARGUMENTS
+\fIlistbox\fR  Specifies a listbox widget.
+.sp
+\fIdata_ret\fR  Specifies the return for the contents of a listbox.
+.sp
+\fIcount_ret\fR  returns the number of entries.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetListBoxData\fR  returns the contents of a listbox. One should
+modify the returned data.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetListBoxSelection(3), EZ_SetListBoxItems(3)
+.br
+EZ_ClearListBox(3)
+

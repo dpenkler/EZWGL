@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Ortho2 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Ortho2 \- multiply the current matrix by an orthogonal projection matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Ortho(float " left ", float " right ", float " bottom, float " top )
+
+.SH ARGUMENTS
+\fIleft\fR ,\fIright\fR  Specify the coordinate of the left and right clipping planes.
+.sp
+\fIbottom\fR ,\fItop\fR  Specify the coordinate of the bottom and top clipping planes.
+.sp
+
+.SH DESCRIPTION
+This function is equivalent to
+.sp
+.in +5
+ EZ_Ortho(left, right, bottom, top, 0, 1)
+.in -5
+
+.SH "SEE ALSO"
+EZ_Rotate(3), EZ_Translate(3), EZ_LookAt(3), EZ_Frustum(3),
+EZ_MultMatrix(3), EZ_MatrixMode(3), EZ_Perspective(3)
+
+
+

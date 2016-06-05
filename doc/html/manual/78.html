@@ -1,0 +1,284 @@
+<html>
+<head>
+<title>EZwgl (6.2  Write Composite Widgets)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="77.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>6.2  Write Composite Widgets</h2>
+
+<p>
+To make your composite widget available to <code><font color="#990000"><b>EZ_CreateWidget</b></font></code>, you
+need to
+<ul>
+<p>
+<li>{select a default
+class name and a default instance name for your widget.}
+<p>
+<li>{Provide a creation function, of  the following type
+<pre><p>
+<font color="#990000"><b>EZ_Widget</b></font> *create(<font color="#990000"><b>EZ_Widget</b></font> *parent, char *inst_name, char *class_name);
+</pre>
+}
+<p>
+<li>{call <code><font color="#990000"><b>EZ_RegisterCompositeWidget</b></font></code> to register
+your widget.}
+<p>
+<li>{write interface routines as needed.}
+</ul>
+<p>After a widget has been registered, it can be instantiatd
+by calling <code><font color="#990000"><b>EZ_CreateWidgetXrm</b></font></code> with the registered
+type.
+<p><h3> 6.2.1  Example: Counter </h3 <br>
+<p>
+In this section, we implement a counter widget. Our counter
+has three private resources, <code>value</code> (an integer),
+<code>increment</code> (a pair of integers) and <code>counterWidth</code>
+(an integer specifies the width of the counter label).
+<p>We implement two interface procedures; <code>ez_GetCounter</code>
+and <code>ez_SetCounter</code>. 
+<p><font size=-1>
+<pre>
+/************************* Counter Widget *******************************/
+#include "EZ.h"
+
+int  ez_GetCounter (<font color="#990000"><b>EZ_Widget</b></font> *widget);
+void ez_SetCounter (<font color="#990000"><b>EZ_Widget</b></font> *widget, int value);
+/*********************************************************************/
+
+int Counter_TYPE;
+
+/*********************************************************************/
+static <font color="#990000"><b>EZ_Widget</b></font> *CounterCreate(<font color="#990000"><b>EZ_Widget</b></font> *parent, char *iname, char *cname);
+/*********************************************************************/
+typedef struct counter_ {
+  <font color="#990000"><b>EZ_Widget</b></font>   *frame,  *label;
+  <font color="#990000"><b>EZ_Widget</b></font>   *btnLL, *btnL, *btnR, *btnRR;
+  int         type, value;
+  int         increment1, increment2;
+} ez_counter;
+/*********************************************************************/
+
+int  ez_GetCounter(<font color="#990000"><b>EZ_Widget</b></font> *widget)
+{
+  /* return counter value */
+  ez_counter *ptr = (ez_counter *)<font color="#990000"><b>EZ_GetWidgetPtrData</b></font>(widget);
+  return(ptr->value);
+}
+/*********************************************************************/
+
+void  ez_SetCounter(<font color="#990000"><b>EZ_Widget</b></font> *widget, int value)
+{
+  /* set counter value and update display */
+  ez_counter *ptr = (ez_counter *)<font color="#990000"><b>EZ_GetWidgetPtrData</b></font>(widget);
+  if(ptr->value != value)
+    {
+      char str[64];
+      ptr->value = value;
+      sprintf(str, "%d", value);
+      <font color="#990000"><b>EZ_ConfigureWidget</b></font>(ptr->label, <font color="#990000"><b>EZ_LABEL_STRING</b></font>, str, 0);
+      if(<font color="#990000"><b>EZ_WidgetIsViewable</b></font>(ptr->label)) <font color="#990000"><b>EZ_DrawWidget</b></font>(ptr->label);
+    }
+}
+/*********************************************************************/
+ 
+static void btnEHandle(<font color="#990000"><b>EZ_Widget</b></font> *btn, void *data, int etype, XEvent *xev)
+{
+  /* the arrow buttons are labels, this event handler replaces
+   * the default event handler
+   */
+  switch(xev->type)
+    {
+    case Expose:      <font color="#990000"><b>EZ_DrawWidget</b></font>(btn); break;
+    case EnterNotify: <font color="#990000"><b>EZ_HighlightWidget</b></font>(btn, 1); break;
+    case LeaveNotify: <font color="#990000"><b>EZ_HighlightWidget</b></font>(btn, 0); break;
+    case ButtonPress:
+      {
+        if(xev->xbutton.button == <font color="#990000"><b>EZ_Btn1</b></font>)
+          {
+            Display    *dpy = <font color="#990000"><b>EZ_GetDisplay</b></font>();
+            XEvent     xevent;
+            ez_counter *ptr = (ez_counter *)data;
+            int        whichBtn = <font color="#990000"><b>EZ_GetWidgetIntData</b></font>(btn);
+            int        nnn = 10;
+            int        increment, done = 0;
+            
+            switch(whichBtn)
+              {
+              case -2: increment = - ptr->increment2; break;
+              case -1: increment = - ptr->increment1; break;
+              case  1: increment =   ptr->increment1; break;
+              case  2: increment =   ptr->increment2; break;
+              default: break;
+              }
+            /* wait for btn release */
+            while( !done )
+              {
+                /* increment counter */
+                ez_SetCounter(btn, ptr->value + increment);
+                XSync(dpy, False);
+
+                if(--nnn > 0) <font color="#990000"><b>EZ_SitForALittleBit</b></font>(30000 * nnn);
+                else <font color="#990000"><b>EZ_SitForALittleBit</b></font>(30000); 
+          
+                while(XPending(dpy))
+                  {
+                    XNextEvent(dpy, &xevent);
+                    if(xevent.type == ButtonRelease && xevent.xbutton.button == <font color="#990000"><b>EZ_Btn1</b></font>) done = 1;
+                    if(xevent.type == Expose) 
+                      {
+                        <font color="#990000"><b>EZ_WidgetDispatchEvent</b></font>(&xevent);
+                        <font color="#990000"><b>EZ_RemoveEvent</b></font>(&xevent);
+                      }
+                    if(done) break;
+                  }
+              }
+          }
+      }
+    break;
+    case KeyPress:  /* may be ... */
+      break;
+    default:
+      break;
+    }
+  xev->type = 0;  /* disable the default event handler */
+}
+/*********************************************************************/
+static void freeCounter(<font color="#990000"><b>EZ_Widget</b></font> *w, void *data) { free(data);}
+/*********************************************************************/
+static <font color="#990000"><b>EZ_Widget</b></font> *CounterCreate(<font color="#990000"><b>EZ_Widget</b></font> *parent, char *iname, char *cname)
+{
+  ez_counter *record = (ez_counter *)malloc(sizeof(ez_counter));
+  memset(record, 0, sizeof(ez_counter));
+
+  record->value = 0; record->increment1 = 1;  record->increment2 = 10;
+  
+  record->frame = <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>,        parent, 
+                                     iname, cname,
+                                     <font color="#990000"><b>EZ_PADX</b></font>,                0,
+                                     <font color="#990000"><b>EZ_PADY</b></font>,                0,
+                                     <font color="#990000"><b>EZ_IPADX</b></font>,               2,
+                                     <font color="#990000"><b>EZ_HEIGHT</b></font>,              0,
+                                     <font color="#990000"><b>EZ_FILL_MODE</b></font>,           <font color="#990000"><b>EZ_FILL_BOTH</b></font>,
+                                     <font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font>,    freeCounter, record,
+                                     <font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>,     record,
+                                     0);
+  record->btnLL =    <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_LABEL</b></font>,        record->frame,
+                                     <font color="#990000"><b>EZ_ARROW_LABEL</b></font>,         <font color="#990000"><b>EZ_DOUBLE_LEFT_TRIANGLE</b></font>,
+                                     <font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>,     record,
+                                     <font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font>,     -2,   
+                                     <font color="#990000"><b>EZ_EVENT_HANDLER</b></font>,       btnEHandle, record,
+                                     <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>,        2,
+                                     <font color="#990000"><b>EZ_BORDER_TYPE</b></font>,         <font color="#990000"><b>EZ_BORDER_RAISED</b></font>,
+                                     <font color="#990000"><b>EZ_WIDTH</b></font>,                0,
+                                     0);
+  record->btnL =     <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_LABEL</b></font>,        record->frame,
+                                     <font color="#990000"><b>EZ_ARROW_LABEL</b></font>,         <font color="#990000"><b>EZ_LEFT_TRIANGLE</b></font>,
+                                     <font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>,     record,
+                                     <font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font>,     -1,   
+                                     <font color="#990000"><b>EZ_EVENT_HANDLER</b></font>,       btnEHandle, record,
+                                     <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>,        2,
+                                     <font color="#990000"><b>EZ_BORDER_TYPE</b></font>,         <font color="#990000"><b>EZ_BORDER_RAISED</b></font>,
+                                     <font color="#990000"><b>EZ_WIDTH</b></font>,                0,
+                                     0);
+  record->label = <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_LABEL</b></font>,        record->frame,
+                                     "counter", "Counter",
+                                     <font color="#990000"><b>EZ_BORDER_TYPE</b></font>,         <font color="#990000"><b>EZ_BORDER_SUNKEN</b></font>,
+                                     <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>,        2,
+                                     <font color="#990000"><b>EZ_WIDTH</b></font>,               80,
+                                     <font color="#990000"><b>EZ_LABEL_POSITION</b></font>,      <font color="#990000"><b>EZ_CENTER</b></font>,
+                                     <font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>,     record,
+                                     <font color="#990000"><b>EZ_PROPAGATE</b></font>,           False,
+                                     0);
+  record->btnR =    <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_LABEL</b></font>,        record->frame,
+                                    <font color="#990000"><b>EZ_ARROW_LABEL</b></font>,          <font color="#990000"><b>EZ_RIGHT_TRIANGLE</b></font>,
+                                    <font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>,      record,
+                                    <font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font>,      1,   
+                                    <font color="#990000"><b>EZ_EVENT_HANDLER</b></font>,        btnEHandle, record,
+                                    <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>,         2,
+                                    <font color="#990000"><b>EZ_BORDER_TYPE</b></font>,          <font color="#990000"><b>EZ_BORDER_RAISED</b></font>,
+                                    <font color="#990000"><b>EZ_WIDTH</b></font>,                0,
+                                    0);  
+  record->btnRR =   <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_LABEL</b></font>,        record->frame,
+                                    <font color="#990000"><b>EZ_ARROW_LABEL</b></font>,          <font color="#990000"><b>EZ_DOUBLE_RIGHT_TRIANGLE</b></font>,
+                                    <font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>,      record,
+                                    <font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font>,      2,   
+                                    <font color="#990000"><b>EZ_EVENT_HANDLER</b></font>,        btnEHandle, record,
+                                    <font color="#990000"><b>EZ_BORDER_WIDTH</b></font>,         2,
+                                    <font color="#990000"><b>EZ_BORDER_TYPE</b></font>,          <font color="#990000"><b>EZ_BORDER_RAISED</b></font>,
+                                    <font color="#990000"><b>EZ_WIDTH</b></font>,                0,
+                                    0);  
+
+  /* set up: parse resources 'value', 'increment' and 'counterWidth */
+  {
+    char str[64], *value; int a, b;
+    if(<font color="#990000"><b>EZ_GetWidgetResource</b></font>(record->frame, "value", &value))
+      if(sscanf(value, "%d", &a) == 1) record->value = a;
+    if(<font color="#990000"><b>EZ_GetWidgetResource</b></font>(record->frame, "increment", &value))
+      if(sscanf(value, "%d %d", &a, &b) == 2) 
+        { record->increment1 = a;  record->increment2 = b;}
+    if(<font color="#990000"><b>EZ_GetWidgetResource</b></font>(record->frame, "counterWidth", &value))
+      if(sscanf(value, "%d", &a) == 1 && a > 0) 
+        { <font color="#990000"><b>EZ_ConfigureWidget</b></font>(record->label, <font color="#990000"><b>EZ_WIDTH</b></font>,  a, 0); }
+
+    sprintf(str, "%d", record->value);
+    <font color="#990000"><b>EZ_ConfigureWidget</b></font>(record->label, <font color="#990000"><b>EZ_LABEL_STRING</b></font>, str, 0);
+  }
+  return(record->frame);
+}
+/*********************************************************************/
+/* TEST */
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *counter;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac,av,0);
+  Counter_TYPE = <font color="#990000"><b>EZ_RegisterCompositeWidget</b></font>("counter", "Counter",
+                             CounterCreate);
+  counter  = <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(Counter_TYPE,    NULL,
+                                "counter1",      "Counter1",
+                                0);
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(counter);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+/*********************************************************************/
+
+</pre>
+<p>
+</font>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="77.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="79.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

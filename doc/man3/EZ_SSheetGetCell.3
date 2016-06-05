@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetGetCell 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetGetCell \- return the content of a spread sheet cell
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_SSheetGetActiveCell( EZ_Widget *" ssheet ", int " row ", int " col)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIrow,col\fR  Specify the indices of a cell.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetGetCell\fR returns the content of the specified
+cell, One should not modify the returned value.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetGetHighlightedRegion(3),  EZ_SSheetSetTabChar(3)
+.br
+
+
+

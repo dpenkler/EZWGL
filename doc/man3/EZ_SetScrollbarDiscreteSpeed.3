@@ -1,0 +1,40 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetScrollbarDiscreteSpeed 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetScrollbarDiscreteSpeed  \- set the discrete scrolling speed of a scrollbar
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_SetScrollbarDiscreteSpeed(EZ_Widget *" scrollbar ", int " speed)
+
+.SH ARGUMENTS
+\fIscrollbar\fR  Specifies a scrollbar widget.
+.sp
+\fIspeed\fR  Specifies a positive integer.
+
+.SH DESCRIPTION
+\fBEZ_SetScrollbarDiscreteSpeed\fR sets the discrete scrolling
+speed of a scrollbar. The discrete scrolling speed is used when
+the arrow button on the scrollbar is pressed or one of the
+relevent arrow keys is pressed while the scrollbar is in focus.
+.sp
+The default discrete scrolling speed is 1. The interpretation of this
+speed depends on the context. For internal widgets that use
+scrollbars, the meaning is following: for TextWidget and ListBox,
+the scrolling unit is the height of a text line; for Fancy ListBox,
+TreeWidget, WorkArea, the scrolling unit is one pixel.
+.sp
+This function returns the current discrete scrolling speed of the
+scrollbar.
+
+.SH "SEE ALSO"
+EZ_SetHScrollbarDiscreteSpeed(3), EZ_SetVScrollbarDiscreteSpeed(3),
+EZ_GetScrollbarState(3)
+
+
+

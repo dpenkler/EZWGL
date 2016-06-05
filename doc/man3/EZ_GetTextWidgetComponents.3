@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetTextWidgetComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetTextWidgetComponents  \- retrieve the components of a
+text widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetTextWidgetComponents( EZ_Widget *" text
+.BI "       EZ_Widget **" itxt_ret ", EZ_Widget **" hscroll_ret,
+.BI "       EZ_Widget **" vscroll_ret )
+
+
+.SH ARGUMENTS
+\fItext\fR  Specifies a text widget.
+.sp
+\fIitxt_ret\fR  Specifies the return for the internal text widget.
+.sp
+\fIhscroll_ret\fR  Specifies the return for the horizontal scroll bar.
+.sp
+\fIvscroll_ret\fR  Specifies the return for the vertical scroll bar.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetTextWidgetComponents\fR  returns the
+components of a text widget. A text widget contains 3 internal
+components, an internal text widget, a horizontal scrollbar and
+a vertical scrollbar. 
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxWidgetComponents(3), EZ_GetFileSelectorWidgetComponents(3)
+EZ_GetListBoxWidgetComponents(3), EZ_GetWorkAreaWidgetComponents(3),
+EZ_GetListTreeWidgetComponents(3), EZ_GetOptionalEntryWidgetComponents(3)

@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_QueryPixelValue 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_QueryPixelValue \- query pixel value given location
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_QueryPixelValue( EZ_Widget" widget ", int " x ", int " y ", unsigned long " *pv);
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ widget.
+.sp
+\fIx, y\fR  Specifies a location.
+.sp
+\fIpv\fR Specifies the pixel value return.
+
+.SH DESCRIPTION
+\fBEZ_QueryPixelValue\fR returns the pixel value of the specified
+location of the widget window. If widget is not viewable. It returns 0.
+Otherwise, it returns the pixel value to \f*pv\fR and returns 1.
+
+.SH "SEE ALSO"
+EZ_PixelValue2RGB(3)

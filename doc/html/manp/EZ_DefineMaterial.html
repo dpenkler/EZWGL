@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_DefineMaterial</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_DefineMaterial</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_DefineMaterial,   EZ_BindMaterial   -  define  material
+       parameters
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>p</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>s</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>f</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>p</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>s</i></font>  Specifies material properties.
+
+       <font color="#004400"><i>f</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font> Specifies a  face,  either  EZ_FRONT  or  EZ_BACK  or
+       EZ_FRONT_AND_BACK.
+
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font> Specifies a pre-defined material.
+
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font>  defines  a material based on the speci-
+       fied parameters. The defined material can later be bind to
+       one of the two current materials.
+
+       <font color="#004400"><i>p</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>s</i></font>  specifies  an  array of floating point symbols
+       and values that defines the material properties.   <font color="#004400"><i>p</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>-</i></font>
+       <font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>s</i></font>  must  contain  a  sequence of lighting symbols, each
+       followed by the appropriate number of floating point  val-
+       ues.   The  last symbol must be EZ_NULL_F, which is itself
+       not followed by any values.
+
+       The symbols are:
+
+          <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font> specifies the emisive color of the  mate-
+          rial, must followed by 4 floats in the range [0.0, 1.0]
+          that specify the intensity of the  RGBA  components  of
+          the color.
+
+          <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font>  specifies  the ambient color of the mate-
+          rial, must followed by 4 floats in the range [0.0, 1.0]
+          that  specify  the  intensity of the RGBA components of
+          the color.
+
+          <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>F</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font> specifies the diffuse color of  the  mate-
+          rial, must followed by 4 floats in the range [0.0, 1.0]
+          that specify the intensity of the  RGBA  components  of
+          the color.
+
+          <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font> specifies the specular color of the mate-
+          rial, must followed by 4 floats in the range [0.0, 1.0]
+          that  specify  the  intensity of the RGBA components of
+          the color.
+
+          <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font> specifies the shininess of the material,
+          must  followed  by a non-negative floating point number
+          that specifies the shininess exponent.
+
+          <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>O</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>F</b></font> specifies the  indices  that  to  be
+          used  for  lighting calculations in index mode. Must be
+          followed by three floats that specify the ambient, dif-
+          fuse and specular color indices.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>B</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font>  binds  the specified pre-defined material
+       to the specified current material.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_DefineLightSrc.html">EZ_DefineLightSrc</A>(3),   <A HREF="EZ_DefineLightModel.html">EZ_DefineLightModel</A>(3),   <A HREF="EZ_BindLightSrc.html">EZ_BindLightSrc</A>(3)
+       , <A HREF="EZ_BindLightModel.html">EZ_BindLightModel</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

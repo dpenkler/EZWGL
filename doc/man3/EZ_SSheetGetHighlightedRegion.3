@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetGetHighlightedRegion 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetGetHighlightedRegion \- return the highlighted spread sheet region
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_SSheetGetHighlightedRegion( EZ_Widget *" ssheet ", int *" r1 ", int *"c1 ", int *" r2 ", int *"c2);
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIr1,c1,r2,c2 col\fR  Specify the returns for the upper-left and lower-right corner of 
+the highlighted region.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+If the current highlighted region is not nil, \fBEZ_SSheetGetHighlightedRegion\fR returns 1
+and returns the region in the supplied variables. It returns 0 otherwise.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetCopyRegion(3),  EZ_SSheetGetRegionString(3),
+.br
+
+

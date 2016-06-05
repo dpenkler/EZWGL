@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>EZwgl (2.4  Running an EZwgl Application)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="8.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="10.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>2.4  Running an <i>EZwgl</i> Application</h2>
+
+<p>
+When invoking an <i>EZwgl</i> program, you may pass a subset of the
+following common <em>command line options</em>:
+<ul>
+<p>
+<li> <code>-display  DISPLAY_NAME</code>
+<p>This option sets the display name. It is the most common way to 
+temporarily override the <code>DISPLAY</code> environment.
+<p><p>
+<li> <code>-geometry WIDTH</code>x<code>HEIGHT</code><img src="images/2.gif"><code>XOFFSET</code><img src="images/2.gif"><code>YOFFSET</code>
+<p>This option sets the geometry and/or location of your application's
+main window.  The <code>WIDTH</code>x<code>HEIGHT</code> part specifies a prefered
+dimension and the <img src="images/2.gif"><code>XOFFSET</code><img src="images/2.gif"><code>YOFFSET</code> specifies
+a prefered location. You may pass only a subset of the geometry
+specification. For example, the following specifications are all
+valid.
+<font size=-1>
+	<ul>
+	<p>
+<li><code> -geometry 300x200+10+10</code>
+	<p>
+<li><code> -geometry 300x200</code>
+	<p>
+<li><code> -geometry 300</code>
+	<p>
+<li><code> -geometry x200</code>
+	<p>
+<li><code> -geometry 300+10-10</code>
+	<p>
+<li><code> -geometry x200+10-10</code>
+	<p>
+<li><code> -geometry -10+10</code>
+	<p>
+<li><code> -geometry -10+</code>
+	<p>
+<li><code> -geometry +10</code>
+	</ul>
+</font>
+<p><p>
+<li><code>-visual VISUAL_TYPE</code>
+<p>This option selects a visual type supported by your X server.
+Supported visual types are:
+<font size=-1>
+	<ul>
+	<p>
+<li><code> PseudoColor</code>
+	<p>
+<li><code> TrueColor</code>
+	<p>
+<li><code> DirectColor</code>
+	<p>
+<li><code> Grayscale</code>
+	<p>
+<li><code> StaticColor</code>
+	<p>
+<li><code> StaticGray</code>
+	</ul>
+</font>
+<p><p>
+<li><code>-privateColormap</code> 
+<p>This option is relevent only for PseudoColor/grayScale visuals. It tells
+<i>EZwgl</i> to allocate a private colormap instead of using the default
+colormap of your display. It is useful when your application is
+color hungry, (e.g. an image viewer).
+<p><p>
+<li><code>-readWriteColormap</code> 
+<p>This option is relevent only for PseudoColor/grayScale visuals. It tells
+<i>EZwgl</i> to use the default colormap of your display and allocate
+read/write color cells. Use this option if you need exact colors and
+don't want to use a private colormap. EZWGL will switch to the default
+colormap if it cannot allocate a minimum of 44 read/write color cells.
+<p><p>
+<li><code>-background COLOR</code>  or <code>-bg COLOR</code>
+<p>This option sets the <strong>default</strong> background color of your
+widgets.
+<p><p>
+<li><code>-foreground COLOR</code>  or <code>-fg COLOR</code>
+<p>This option overrides the <strong>default</strong> foreground color of your
+widgets. The default foreground color is black.
+<p><p>
+<li><code>-iconic</code>
+<p>This option informs <i>EZwgl</i> to start the application in 
+<em>iconic</em> mode. This option only affects your first
+toplevel widgets. It has no affects if the <code>initial_state</code>
+window manager hint is explicitly set.
+<p><p>
+<li><code>-noBackingStore</code>
+<p>This option informs <i>EZwgl</i> not to set the <strong>backing store</strong>
+attributes for all widget windows.
+<p><p>
+<li><code>-xrmfile resourceFile</code>
+<p>This option tells an application to read 
+the application resources from the specified file.
+<p><p>
+<li><code>-xrm resourceString</code>
+<p>This option sets application resources from the specified resource string.
+<p><p>
+<li><code>-name  name</code>
+<p>This option alters the default application name.
+<p><p>
+<li><code>-dispXrmDB</code>
+<p>Use this option to print the application resources database. It is 
+meant for debugging only.
+<p>
+<p>
+<li><code>-synchronous</code>
+<p>This option tells <i>EZwgl</i> to run in synchronous mode (for debugging).
+<p>
+</ul>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="8.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="10.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetTimerState 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetTimerState \- retrieve the state of a timer
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetTimerState(EZ_Timer *" timer ", long *" sec_ret,
+.BI "                      long *" usec_ret ", int *" repeat_ret )
+
+.SH ARGUMENTS
+
+\fItimer\fR  Specifies a timer.
+.sp
+\fIsec_ret\fR, \fIusec_ret\fR  Specifies the return of time before
+\fItimer\fR fires.
+.sp
+\fIrepeat_return\fR Specifies the return of the repeation count.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetTimerState\fR returns the current state of a timer.
+
+.SH "SEE ALSO"
+EZ_CreateTimer(3), EZ_GetTimerClientData(3)
+
+

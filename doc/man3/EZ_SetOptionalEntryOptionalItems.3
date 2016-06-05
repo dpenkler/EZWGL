@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetOptionalEntryOptionalItems 3 "" EZWGL "EZWGL Functions"
+.BS 
+.SH NAME
+EZ_SetOptionalEntryOptionalItems  \- set the optional items for a combo box
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetOptionalEntryOptionalItems( EZ_Widget *" entry ", 
+.BI "                    char **" items ", int " nitems)
+
+.SH ARGUMENTS
+\fIentry\fR  Specifies an optional entry widget.
+.sp
+\fIitems\fR  Specifies an array of textual items.
+.sp
+\fInitems\fR  Specifies the count of items in \fIitems\fR.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetOptionalEntryOptionalItems\fR sets the choices
+for an optional entry.  
+.PP
+
+.SH "SEE ALSO"
+EZ_SetOptionalEntryString(3), EZ_OptionalEntryAppendOption(3)
+
+

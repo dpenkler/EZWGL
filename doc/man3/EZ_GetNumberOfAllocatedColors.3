@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetNumberOfAllocatedColors 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetNumberOfAllocatedColors, EZ_GetNumberOfReservedColorsForGL
+\- retrieve information about the colormap
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int   EZ_GetNumberOfAllocatedColors(" void )
+.sp
+.BI "int   EZ_GetNumberOfReservedColorsForGL(" void )
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetNumberOfAllocatedColors\fR returns the total number of colors
+allocated by EZWGL. The first 16 colors are pre-allocated and are used
+internally by EZWGL for displaying 3D borders.
+.PP
+\fBEZ_GetNumberOfReservedColorsForGL\fR  returns the number of colors
+reserved for the graphics library. In the colormap used by EZWGL,
+these reserved colors starts at index 16. For example, 
+if this function returns 125, the entries from 16 to 131 are reserved
+for the graphics library.
+
+.SH "SEE ALSO"
+EZ_GetColormap(3)
+.br
+
+

@@ -1,0 +1,43 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateRotateTextPixmap 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateRotateTextPixmap \- draw rotated text
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Bitmap *EZ_CreateRotateTextPixmap( char *" str ", int " fontId ", int " linelength ,
+.BI "                                int " justification ", int " angle)
+.sp
+.BI "EZ_Bitmap *EZ_CreateRotateTextPixmapU( char *" str ", int " fontId ", int " linelength ,
+.BI "                                int " justification ", int " underline ", int " angle)
+
+.SH ARGUMENTS
+\fIstr\fR  Specifies a string
+.sp
+\fIfontId\fR  Specifies a internal font id, must be the return value of \fIEZ_LoadXFont\fR.
+.sp
+\fIlinelength\fR Specifies the length of one line. Long text will be broken into mutiple
+lines according to limit.
+.sp
+\fIjustification\fR Specifies text justfication. Must be one of 
+\fIEZ_LEFT\fR, \fIEZ_RIGHT\fR or \fIEZ_CENTER\fR.
+.sp
+\fIunderline\fR Specifies the index of the character to be underlined or -1.
+.sp
+\fIangle\fR Specifies an angle in degrees.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_CreateRotateTextPixmap\fR returns an internal pixmap 
+displaying a rotated text string. This is the only way in EZWGL
+to render vertical text.
+
+.SH "SEE ALSO"
+
+
+

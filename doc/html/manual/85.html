@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>EZwgl (8  Drag and Drop)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="84.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="86.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h1>8  Drag and Drop</h1>
+
+<p><i>EZwgl</i> supports drag and drop.
+Most widgets and display items are potentially 
+drag sources and/or drop targets.
+An object becomes a drag source if it has
+one or more DnD encoders registered to it. An object becomes a drop
+target if it has one or more DnD decoders registered.
+<p>DnD encoders and DnD decoders are procedures of the following
+prototypes.
+<p><font size=-1>
+<pre><p>
+int encoder(void *object, void *data, char **message, int *length, int *needFree)
+int decoder(void *object, void *data, char *message,  int length)
+</pre>
+</font>
+<p><p>
+When invoked by <i>EZwgl</i>, <code>object</code> is the widget or display item the
+procedure is registered to. <code>data</code> is the client data the application
+has told <i>EZwgl</i> to pass back when invoked. For encoders,
+<code>message</code> returns the encoded message, <code>length</code> returns 
+the length of message and <code>needFree</code> returns a boolean value
+signals whether <i>EZwgl</i>
+should free the encoded message when done with it. For decoders,
+<code>message</code> and <code>length</code> are the message and the length
+of the message passed by <i>EZwgl</i>. The message will be automatically
+freed by <i>EZwgl</i> when the relevent DnD transaction finishes.
+Both encoders and decoders
+should return <code><font color="#990000"><b>EZ_DND_SUCCESS</b></font></code> if conversion succeed and
+return <code><font color="#990000"><b>EZ_DND_FAILUER</b></font></code> when conversion fails.
+<p>You can only transfer data in 8-bit quantities using DnD.
+If you need to transfer information of other kinds, for example, 
+4 bytes quantities, you'll 
+have to engineer your encoder and decoder to convert the quantity
+to and from 8-bit quantities.
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="84.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="86.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

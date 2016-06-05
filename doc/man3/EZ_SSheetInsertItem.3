@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetInsertItem 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetInsertItem \- insert one cell into a spread sheet widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetInsertItem( EZ_Widget *" ssheet ", int " row ", int "col ", char *" str);
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIrow, col\fR  Specify a cell index.
+.sp
+\fIstr\fR  Specifies a string.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SSheetInsertItem\fR insert one cell at the
+specified location.
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetInsertRegionString(3),  EZ_SSheetSetTabChar(3),
+.br
+
+

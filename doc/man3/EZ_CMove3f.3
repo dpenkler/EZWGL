@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CMove2f 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CMove3f, EZ_CMove3fv, EZ_CMoveScreen3f, EZ_CMoveScreen3fv  \- update the current character position
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_CMove3f(float " x ", float " y ", float " z)
+.BI "void EZ_CMove3fv(float *" xyz )
+.BI "void EZ_CMoveScreen3f(float " x ", float " y ", float " z)
+.BI "void EZ_CMoveScreen3fv(float *" xyz )
+
+.SH ARGUMENTS
+\fIx\fR,\fIy\fR,\fIz\fR Specify the coordinates of a point.
+.sp
+\fIxyz\fR Specifies the coordinates of a point in an array of 3 floats.
+
+.SH DESCRIPTION
+\fIEZ_CMove3f\fR and \fIEZ_CMove3fv\fR move the current character
+to the specified position, in modeling space.
+.PP
+\fIEZ_CMoveScreen3f\fR and \fIEZ_CMoveScreen3fv\fR move the current character
+to the specified position, in clipped normalized coordinates. The clipped
+normailzed coordinates is the unit cube [-1,1]x[-1,1]x[-1,1].
+
+.SH "SEE ALSO"
+EZ_DrawString(3), EZ_SetBitmapFont(3), EZ_SetVectorFont(3)
+
+
+

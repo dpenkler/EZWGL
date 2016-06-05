@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_ConfigureWidget</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_ConfigureWidget</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_ConfigureWidget - configure an existing widget
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>f</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>"</i></font><font color="#004400"><i>,</i></font> <font color="#440000"><b>.</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>.</b></font> <font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specifies a widget
+
+        <font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font> Specify configuration options and their values.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>W</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  sets  or  modifies  widget attributes,
+       things like label string,  color,  border.  This  function
+       takes  a variable length arguments, a list of symbols each
+       followed by one or more values. The last  symbol  must  be
+       <font color="#440000"><b>N</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>L</b></font>,  which  is  itself  not  followed by any values. For
+       example
+         <A HREF="EZ_ConfigureWidget.html">EZ_ConfigureWidget</A>(slider,
+                            EZ_SLIDER_RANGE,        -10.0, 20.0,
+                            EZ_SLIDER_DISPLAY_VALUE, True,
+                            EZ_SLIDER_RESOLUTION,    0.5
+                            EZ_SLIDER_INIT_VALUE,    10.0,
+                            0);
+       sets the range of <font color="#004400"><i>s</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font> to [-10.0, 20.0]; sets the current slider
+       value to 10.0; set the slider resolution to 0.5 and enable the slider
+       to display its current value.
+
+
+
+<H2>CONFIGURATION SYMBOLS AND THEIR VALUES</H2>
+       See manual for a complete list of configuration options.
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateWidget.html">EZ_CreateWidget</A>(3),  <A HREF="EZ_DisplayWidget.html">EZ_DisplayWidget</A>(3),   <A HREF="EZ_DestroyWidget.html">EZ_DestroyWidget</A>(3)
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

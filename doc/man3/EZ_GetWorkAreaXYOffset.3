@@ -1,0 +1,40 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWorkAreaWidgetXYOffset 3 "" EZWGL "EZWGL Functions"
+.BS 
+.SH NAMEE
+EZ_GetWorkAreaWidgetXYOffset, EZ_SetWorkAreaWidgetXYOffset 
+ \- returns/sets the current XY offset of a
+WorkArea widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetWorkAreaWidgetXYOffset( EZ_Widget *" widget ", 
+.BI "                    int *" x_ret ", int *" y_ret)
+.BI "void EZ_SetWorkAreaWidgetXYOffset( EZ_Widget *" widget ", 
+.BI "                    int " x ", int " y)
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a WorkArea widget.
+.sp
+\fIx_ret\fR,\fIy_ret\fR  Specifies the returns for the XY offset.
+.sp
+\fIx\fR,\fIy\fR  Specifies the XY offset.
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWorkAreaWidgetXYOffset\fR returns the current XY offset of a
+WorkArea widget. The XY offset is the location of the upper-left
+corner of the minimal rectangle the items in the workarea spans,
+relative to the upper-left corner of
+the widget window. 
+.PP
+\fBEZ_SetWorkAreaWidgetXYOffset\fR  sets the XY offset.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxXYOffset(3)
+
+

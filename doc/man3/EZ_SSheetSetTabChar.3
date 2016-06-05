@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetSetTabChar 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetSetTabChar \- set the cell delimiters
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetSetTabChar( EZ_Widget *" ssheet ", char " tab ", char " newline)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fItab, newline\fR  Specify the two delimiters.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fB EZ_SSheetSetTabChar\fR sets the two cell delimiters of
+a spread sheet. The two characters are used to export/import
+cells from a string or file. The defaults are \fI\\t\fR and
+\fI\\n\fR.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetInsertRegionString(3),  EZ_SSheetSetTabChar(3)
+.br
+
+
+

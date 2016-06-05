@@ -1,0 +1,77 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_FancyListBoxClear 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FancyListBoxClear, EZ_FancyListBoxDeleteRow, EZ_FancyListBoxInsertRow,
+EZ_FancyListBoxReplaceItem, EZ_FancyListBoxReplaceItemUsingIdx, 
+EZ_FancyListBoxSelectItem, EZ_FancyListBoxSelectItemUsingIdx \- fancy
+listbox editing functions
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_FancyListBoxClear( EZ_Widget *" flistbox)
+.BI "void EZ_FancyListBoxDeleteRow( EZ_Widget *" flistbox ", int " row)
+.BI "void EZ_FancyListBoxInsertRow( EZ_Widget *" flistbox ", 
+.BI "                EZ_Item **" items ", int " nitems ", int " row)
+.BI "void EZ_FancyListBoxReplaceItem( EZ_Widget * " flistbox, 
+.BI "                 EZ_Item *" olditem ", EZ_Item *" newitem)
+.BI "void EZ_FancyListBoxReplaceItemUsingIdx( EZ_Widget *"flistbox,
+.BI "                int " row ", int " col ", EZ_Item *" newitem )
+.BI "void EZ_FancyListBoxSelectItem( EZ_Widget *" flistbox,
+.BI "                    EZ_Item *" item ", int *" location )
+.BI "void EZ_FancyListBoxSelectItemUsingIdx(EZ_Widget *" flistbox,
+.BI "           int " row ", int " col ", int *" location)
+
+
+.SH ARGUMENTS
+\fIflistbox\fR  Specifies a fancy listbox widget.
+.sp
+\fIrow\fR  Specifies a row index.
+.sp
+\fIcol_ret\fR  Specifies a column index.
+.sp
+\fIitems\fR  Specifies an array of display items.
+.sp
+\fInitems\fR  Specifies the number of entires in \fIitems\fR.
+.sp
+\fIolditem\fR  Specifies a display item to be replaced.
+.sp
+\fInewitem\fR  Specifies a display item to replace \fIolditem\fR.
+.sp
+\fIlocation\fR Specifies an array of two integers or NULL. 
+
+.SH DESCRIPTION
+.PP
+\fBEZ_FancyListBoxClear\fR destroies all display items it currently
+manages and clears the display.
+.PP
+\fBEZ_FancyListBoxDeleteRow\fR deletes the specified row.
+.PP
+\fBEZ_FancyListBoxInsertRow\fR inserts the given array of display
+items at the specified position.
+.PP
+\fBEZ_FancyListBoxReplaceItem\fR replaces \fIolditem\fR with
+\fInewitem\fR.
+.PP
+\fBEZ_FancyListBoxReplaceItemUsingIdx\fR replaces the item at
+the specified location with \fInewitem\fR.
+.PP
+\fBEZ_FancyListBoxSelectItem\fR sets the selection on the
+specified item. If \fIlocation\fR is not NULL, the display
+will be refreshed so that the selected item will be 
+displayed at the given location.
+.PP
+\fBEZ_FancyListBoxSelectItemUsingIdx\fR behaves the
+same as \fBEZ_FancyListBoxSelectItem\fR except that it
+uses indices.
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelection(3), EZ_GetFancyListBoxItemUsingIdx(3),
+EZ_SetFancyListBoxData(3), EZ_SetFancyListBoxHeader(3)
+.br
+
+

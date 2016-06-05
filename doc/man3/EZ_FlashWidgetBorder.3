@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_FlashWidgetBorder 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FlashWidgetBorder, EZ_FlashWidgetBorder2 \- flash the border of a widget window
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_FlashWidgetBorder( EZ_Widget *" widget )
+.BI "void  EZ_FlashWidgetBorder2( EZ_Widget *" widget )
+
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_FlashWidgetBorder\fR sets up a special timer to flash the border of
+a widget's window border. If \fIwidget\fR is NULL, it disables
+widget border flashing. 
+.PP
+\fBEZ_FlashWidgetBorder2\fR flashes the border of an alternate widget.
+.PP
+
+.SH "SEE ALSO"
+EZ_DisableBubbleHelp(3), EZ_DisableHighlight(3), EZ_DisableLableOffset(3)
+.br
+
+
+

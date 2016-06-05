@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DisableWidgetTree 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DisableWidgetTree, EZ_EnableWidgetTree \- suspend  a hierarchy of
+widgets from processing events
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_DisableWidgetTree( EZ_Widget *" widget )
+.BI "void  EZ_EnableWidgetTree( EZ_Widget *" widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DisableWidgetTree\fR  suspends the hierarchy of widgets starts
+at 'widget' from processing events. 
+.PP
+\fBEZ_EnableWidgetTree\fR  resumes event processing for a suspended widget tree.
+
+.SH "SEE ALSO"
+ EZ_FreezeWidget(3), EZ_ActivateWidget(3), EZ_DisableWidget(3)
+.br
+
+
+

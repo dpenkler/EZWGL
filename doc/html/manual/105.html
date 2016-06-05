@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>EZwgl (12.2  The 3DCanvas Widget)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="104.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="106.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.2  The 3DCanvas Widget</h2>
+
+<p>
+The <i>EZ</i> graphics library is realized through the 3DCanvas widget.
+To each 3DCanvas widget, there is an associated data structure called 
+<em>the graphics context</em> which contains the entire state attributes of the
+graphics library. 
+An application can have as many 3DCanvases as it needs. However, there is only
+one <em>active 3DCanvas</em> at any given instant. Implicitly, the active 3DCanvas is
+set to the last created 3DCanvas.
+<p><p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> Start with release 1.38, borders for 3DCanvas widget has been
+removed. Supporting of border causes various unpleasent problems.
+<p><p>
+To use the graphics library, one must
+first create some 3DCanvases and display them. The graphics library comes to 
+existence only after an active 3DCanvas has been displayed.
+<p><p>
+If more than one 3DCanvases are needed. Use <code><font color="#990000"><b>EZ_Set3DCanvas</b></font></code> to 
+set the active 3DCanvas. This function performs a graphics context
+switch.
+<p><p><p>
+Events for 3DCanvas are handled exactly the same as for
+the other widget in <i>EZwgl</i>. The difference is that
+3DCanvas does not have a default event handler while
+other widgets do.  
+<p>One should register at least one private event handler
+for each 3DCanvas an application creates. 
+The private event handler should provide means to handle 
+at least the
+<code><font color="#990000"><b>EZ_REDRAW</b></font></code> and the <code><font color="#990000"><b>EZ_RESIZE</b></font></code> events. 
+<p>Event handlers are registered via <code><font color="#990000"><b>EZ_AddEventHander</b></font></code> or
+by
+<p><p>
+Here is an example of event handlers.
+<p><font size=-1>
+<pre><p>
+void SampleEventHandler(<font color="#990000"><b>EZ_Widget</b></font> *canvas, void *vd, int et, XEvent *xev)
+{
+  switch(et) {
+       case <font color="#990000"><b>EZ_REDRAW</b></font>:
+       case <font color="#990000"><b>EZ_RESIZE</b></font>:
+         /* redraw objects in canvas */
+         break;
+       case <font color="#990000"><b>EZ_KEY_PRESS</b></font>:
+         /* do something  */
+         break;
+       default:
+         break;
+   }
+}
+</pre>
+</font>
+<p><i>EZwgl</i> provides three additional commands for an application
+manipulate events for 3DCanvas widgets.
+<p><p>
+<code>void <font color="#990000"><b>EZ_GLResetEvents</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *canvas)</code>
+<p>This function clears the event queue for the <code>canvas</code>. If
+<code>canvas</code> is <code>NULL</code>, it clears the event queue for 
+the current active 3DCanvas widget.
+<p><p>
+<code>void <font color="#990000"><b>EZ_GLEnterEvent</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *canvas, int eType, int *values)</code>
+<p><p>
+This function enters the specified event to <code>canvas</code> or
+the current active 3DCanvas if <code>canvas</code> is <code>NULL</code>.
+<code>eType</code> is one of
+<font size=-1>
+<pre><p>
+<font color="#990000"><b>EZ_REDRAW</b></font>                      
+<font color="#990000"><b>EZ_RESIZE</b></font>
+<font color="#990000"><b>EZ_KEY_PRESS</b></font>
+<font color="#990000"><b>EZ_BUTTON1_PRESS</b></font>               <font color="#990000"><b>EZ_BUTTON1_RELEASE</b></font>
+<font color="#990000"><b>EZ_BUTTON2_PRESS</b></font>               <font color="#990000"><b>EZ_BUTTON2_RELEASE</b></font>
+<font color="#990000"><b>EZ_BUTTON3_PRESS</b></font>               <font color="#990000"><b>EZ_BUTTON3_RELEASE</b></font>
+<font color="#990000"><b>EZ_ENTER_WINDOW</b></font>                <font color="#990000"><b>EZ_LEAVE_WINDOW</b></font>
+<font color="#990000"><b>EZ_POINTER_MOTION</b></font>
+</pre>
+</font>
+For events  of type <code><font color="#990000"><b>EZ_BUTTON</b></font>?_PRESS</code>,
+<code><font color="#990000"><b>EZ_BUTTON</b></font>?_RELEASE</code> or <code><font color="#990000"><b>EZ_POINTER_MOTION</b></font></code>, 
+<code>values</code>, if not <code>NULL</code> is an array of two integers
+which specifies the pointer location in the current viewport.
+(Origin is at the lower-left corner!)
+For <code><font color="#990000"><b>EZ_KEY_PRESS</b></font></code> event, <code>values</code>, if not <code>NULL</code>
+is a pointer to an integer which specifies the keycode for the
+key that is being pressed.
+<p><strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> The window coordinate system for a 3DCanvas is
+different from that of other widgets. For a 3DCanvas, the
+origin is the lower-left corner of the widget window while
+for other widgets, the origin is the upper-lefte corner of
+the widget window.
+<p><p>
+<code>int <font color="#990000"><b>EZ_GLNextEvent</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *canvas, XEvent *xevent)</code>
+<p>This function checks Xlib's event queue for any outstanding
+events. If the event queue is empty, it waits for the next
+event to arrive. It then
+removes the first event on the queue and copy it
+to <code>event</code> if <code>event</code> is not <code>NULL</code>.
+If the removed event belongs to <code>canvas</code>,
+it returns the corresponding type. If the event does
+belong to <code>canvas</code>, it dispatches the event to
+the relevent widget and returns <code>0</code>.
+<p><p>
+The <i>EZ</i> graphics library also provides a user convenience routine
+to save the contents of a 3DCanvas window.
+<p><pre><p>
+void <font color="#990000"><b>EZ_Save3DCanvas2PPMImage</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *canvas, chae *file_name);
+void <font color="#990000"><b>EZ_Save3DCanvas2PS</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *canvas, char *fileName);
+void <font color="#990000"><b>EZ_Save3DCanvas2PSA</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *canvas, int mode, int dpi,
+                float scale, char *fileName);
+</pre>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="104.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="106.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetListBoxSelection 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetListBoxSelection, EZ_GetListBoxSelectionLineNumber  \- retrieve the selection in a listbox
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_GetListBoxSelection( EZ_Widget *" listbox)
+.BI "char *EZ_GetListBoxSeletedItem( EZ_Widget *" listbox)
+.BI "int  EZ_GetListBoxSelectionLineNumber( EZ_Widget *" listbox)
+
+
+.SH ARGUMENTS
+\fIlistbox\fR  Specifies a listbox widget.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetListBoxSelection\fR returns the selection in a listbox. It
+returns NULL if no selection has been made.
+.PP
+\fBEZ_GetListBoxSelectedItem\fR returns the selected item in a listbox. 
+.PP
+\fBEZ_GetListBoxSelectionLineNumber\fR returns the index of the
+selected item in a listbox. It returns -1 if no selection has been made.
+
+.SH "SEE ALSO"
+EZ_GetListBoxSelection(3), EZ_SetListBoxItems(3), EZ_ClearListBox(3)
+.br
+
+

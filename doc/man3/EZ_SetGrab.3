@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetGrab "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetGrab, EZ_ReleaseGrab \- grab pointer and keyboard to a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetGrab(EZ_Widget *"  widget )
+.BI "void  EZ_ReleaseGrab(" void )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetGrab\fR grabs the pointer and the keyboard to
+the topmost ancestor of \fIwidget\fR. If \fIwidget\fR
+or any ancestor of \fIwidget\fR is not currently visible,
+this function does nothing. During the period when the
+grabed widget is visible, all events are directed to the
+grab widget.
+.PP
+\fBEZ_ReleaseGrab\fR release the last pointer/keyboard
+grab. 
+
+.SH "SEE ALSO"
+EZ_SetFocusTo(3)
+.br
+
+
+

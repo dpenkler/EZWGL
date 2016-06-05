@@ -1,0 +1,90 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_RegisterApplicationResources 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_RegisterApplicationResources \- register a list of application resources
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_RegisterApplicationResources( int "nresources ", EZ_ResourceSpec "resources,
+.BI "     int "(configure)(void *notUsed, int option, EZ_Value *values) )
+.sp
+.nf
+typedef struct {  
+  int     option;    /* reference index, must > 1024 */
+  char    *iname;    /* resource name  */
+  char    *cname;    /* resource class */
+  char    *vtypes;   /* value types, e.g "int,float,string" */
+} EZ_ResourceSpec;
+
+.nf
+typedef struct {
+  int  type; 
+  union {
+    char    c;    unsigned char  uc;
+    short   s;    unsigned short us;
+    int     i;    unsigned int   ui;
+    float   f;
+    void    *p;
+    void    *function;
+    char    *str;
+    unsigned long l;
+  } value;
+} EZ_Value;
+
+
+.SH ARGUMENTS
+\fIresources\fR  Specifies a list of resources.
+.sp
+\fInresources\fR  Specifies the number of resources.
+.sp
+\fIconfigure\fR  Specifies a procedure that sets the values of
+application variable from resources.
+
+
+.SH DESCRIPTION
+\fBEZ_RegisterApplicationResources\fR registers a list of application
+resources. Its purpose is to set application variables from resources.
+See the example below for its usage. Only global variables can be
+set via resources.
+
+.SH An Example
+.nf
+#include "EZ.h";
+static int   int1 = 0,   int2 = 0; /* var set by resources */
+static float float2 = 0;
+
+static  EZ_ResourceSpec exampleResources[] =
+{
+   { 1234, "aPairOfInt",  "APairOfInt", "int,int"   },
+   { 1235, "intFloat",    "IntFloat",   "int,float" },
+};
+
+int configure(EZ_Widget *notused, int option, EZ_Value *values)
+{
+  switch(option)
+   {
+     case 1:  int1 = values[0].value.i; int2 = values[1].value.i; break;
+     case 2:  int1 = values[0].value.i; float2 = values[1].value.f; break;
+     default:  break;
+   }
+}
+
+main(int ac, char **av)
+{
+  EZ_Initialize(ac, av, 1);
+  EZ_RegisterApplicationResources(2, exampleResources, configure);
+  printf("int1=%d, int2=%d, float2=%f\n", int1, int2, float2);         
+  /* more stuff ... */
+}
+
+
+.SH "SEE ALSO"
+EZ_RegisterResourcesWidget(3)
+.br
+
+

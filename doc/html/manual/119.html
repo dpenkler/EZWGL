@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>EZwgl (12.16  Display Lists)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="118.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="120.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.16  Display Lists</h2>
+
+<p>
+A display list is a list of GL commands grouped together for later
+execution. Each display list has a unique integer identifier.
+A display list is started by calling 
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_NewList</b></font>(int lnum, int mode);</code>
+<p>This function starts  a display list. 
+Possible modes are 
+<code>mode</code> specifies a mode, either <code><font color="#990000"><b>EZ_COMPILE</b></font></code> or
+<code><font color="#990000"><b>EZ_COMPILE_AND_EXECUTE</b></font></code>.
+If mode is <code><font color="#990000"><b>EZ_COMPILE</b></font></code>,
+the subsequent gl commands are not executed as they are placed in
+the display list. If mode is <code><font color="#990000"><b>EZ_COMPILE_AND_EXECUTE</b></font></code>, then 
+the commands are executed, and placed in the display list.
+<p>A display list is completed by calling
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_EndList</b></font>(void);</code>
+<p>To execute the commands saved on a display list, use
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_CallList</b></font>(int lnum);</code>
+<p>To destroy a display list, use
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_DestroyList</b></font>(int lnum);</code>
+<p>To test whether or not an integer identifies a display list, use
+<p><p><p>
+<code>int <font color="#990000"><b>EZ_IsList</b></font>(int lnum);</code>
+<p><p>
+It is also possible to manipulate multiple lists a time.
+<p><p><p>
+<code>int <font color="#990000"><b>EZ_GenLists</b></font>(int range);</code>
+This function returns an integer such that the indices
+<img src="images/71.gif"> are not currently used.
+<p><p><p>
+<code>int <font color="#990000"><b>EZ_CallLists</b></font>(int start, int range);</code>
+<p>This function executes the commands on the lists 
+<img src="images/72.gif">.
+<p><p><p>
+<code>int <font color="#990000"><b>EZ_DeleteLists</b></font>(int start, int range);</code>
+<p>This function delete the display lists with indices
+<img src="images/72.gif">.
+<p><p><p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="118.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="120.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

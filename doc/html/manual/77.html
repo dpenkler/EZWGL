@@ -1,0 +1,609 @@
+<html>
+<head>
+<title>EZwgl (6.1  Write Primitive Widgets)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="78.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>6.1  Write Primitive Widgets</h2>
+
+<p>
+To write your own primitive widget, you need to 
+<ul>
+<p>
+<li>{select a default class name and instance name for your widget.}
+<p>
+<li>{provide the following 5 procedures
+<pre><p>
+           setup(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+     computeSize(<font color="#990000"><b>EZ_Widget</b></font> *widget,  int *w, int *h);
+        freeData(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+            draw(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+     eventHandle(<font color="#990000"><b>EZ_Widget</b></font> *widget, XEvent *event)
+</pre>
+<code>setup</code> is invoked whenever an instance
+of your widget is created.  You should include here
+the widget or widget class initialization code 
+and the code for parsing private resources.
+Primitive widgets are implemented internally through
+the <code>RawXWindow</code> widget. The widget data structure
+provides an array of 10 <code><font color="#990000"><b>EZ_UnknownDataType</b></font></code> for you
+to hook up private data to your widget.
+<p><code>computeSize</code> is invoked by the geometry manager to
+figure out the minimal size of your widget.
+<p><code>freeData</code> is invoked by <code><font color="#990000"><b>EZ_DestroyWidget</b></font></code>
+to clean up widget private data.
+<p><code>draw</code> is invoked whenever there are needs to repaint the
+widget window.
+<p><code>evehtHandle</code> is the 
+default widget event handler.
+<p>
+<p>
+<li>call <code><font color="#990000"><b>EZ_RegisterPrimitiveWidget</b></font></code> to register
+your widget. This function returns an integer identifier.
+<p>
+<li>write interface routines as needed.
+</ul>
+<p>After a widget has been registered, it can be instantiatd
+by calling <code><font color="#990000"><b>EZ_CreateWidgetXrm</b></font></code> with type the
+returned identifier.
+<p><h3> 6.1.1  Example: Locator </h3 <br>
+<p>
+In this section, we implement the locator widget,
+a widget selects the mouse pointer coordinates
+in a rectangular area, scaled to [0,1]x[0,1].
+<p>Our locator has one private resources, <code>value</code>,
+which takes a pair of float point values in the range
+between 0.0 and 1.0.
+<p>We implement two interface routines for our locator.
+<code>ez_GetLocatorXY</code> and  <code>ez_SetLocatorXY</code>.
+The first one returns the coordinates of the locator and
+the second one sets the coordinates of the locator.
+<p>Our locator will handle ButtonPress and KeyPress events.
+It also support MotionCallbacks, private event handlers and
+drag and drop. 
+<p><font size=-1>
+<pre>
+/************************* Locator Widget ****************************/
+#include "EZ.h"
+
+void ez_GetLocatorXY (<font color="#990000"><b>EZ_Widget</b></font> *widget, float *x, float *y);
+void ez_SetLocatorXY (<font color="#990000"><b>EZ_Widget</b></font> *widget, float x,  float y);
+/*********************************************************************/
+
+int  Locator_TYPE;
+
+/*********************************************************************/
+static void LocatorSetup       (<font color="#990000"><b>EZ_Widget</b></font> *widget);
+static void LocatorFreeData    (<font color="#990000"><b>EZ_Widget</b></font> *widget);
+static void LocatorComputeSize (<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h);
+static void LocatorDraw        (<font color="#990000"><b>EZ_Widget</b></font> *widget);
+static void LocatorEventHandle (<font color="#990000"><b>EZ_Widget</b></font> *widget, XEvent *event);
+/*********************************************************************/
+
+static void LocatorSetup(<font color="#990000"><b>EZ_Widget</b></font> *widget)
+{
+  /* this procedure is invoked when a new LOCATOR widget
+   * is created. We initialize the locator through 
+   * resources and create a gc for rendering the crosshair.
+   *      
+   * primitive widgets are implemented using the RAW_XWINDOW
+   * widget. The RAW_XWINDOW widget data structure has
+   * an array of 10 <font color="#990000"><b>EZ_UnknownDataType</b></font> reserved for 
+   * us to hook up private data. 
+   */
+  <font color="#990000"><b>EZ_UnknownDataType</b></font>  *data = <font color="#990000"><b>EZ_GetRawXWinPrivateData</b></font>(widget);
+  unsigned long       mask  = 0L;  
+  XGCValues           gcvalues;
+  char                *value;   /* tmp return for resource */
+
+  /* data is an array of 10 <font color="#990000"><b>EZ_UnknownDataTypes</b></font> */
+  data[0].f = 0.5;
+  data[1].f = 0.5;
+  /* parse private resources */
+  if(<font color="#990000"><b>EZ_GetWidgetResource</b></font>(widget, "value", &value))
+    {
+      float   x,y;      
+      if(sscanf(value, "%f %f", &x, &y) == 2)
+        {
+          if( x >= 0.0 && x <= 1.0) data[0].f = x;
+          if( y >= 0.0 && y <= 1.0) data[1].f = y;
+        }
+    }
+  data[2].p = (void *)<font color="#990000"><b>EZ_GetGC</b></font>(mask, &gcvalues);
+}
+/***************************************************************/
+
+static void LocatorFreeData(<font color="#990000"><b>EZ_Widget</b></font> *widget) 
+{
+  /* this procedure is called when a LOCATOR widget is
+   * destroyed. We free the GC allocated for this widget 
+   */
+  <font color="#990000"><b>EZ_UnknownDataType</b></font>  *data = <font color="#990000"><b>EZ_GetRawXWinPrivateData</b></font>(widget);
+  GC gc = (GC)data[2].p;
+  /* for gc created by <font color="#990000"><b>EZ_GetGC</b></font>, you must use <font color="#990000"><b>EZ_FreeGC</b></font> to free it ! */
+  <font color="#990000"><b>EZ_FreeGC</b></font>(gc); 
+}
+/***************************************************************/
+
+static void LocatorComputeSize(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h)
+{
+  /* this procedure is invoked by the geometry manager to
+   * figure out the minimal size of LOCATOR.
+   */
+  *w =100; *h =100;  
+}
+/***************************************************************/
+
+static void LocatorDraw(<font color="#990000"><b>EZ_Widget</b></font> *widget)
+{
+  int focus_pad = 0;   /* kbd focus highlight padding */
+  int border    = 0;   /* border style */
+  int bwidth    = 0;   /* border width */
+  int padx, pady;      /* XY padding, not used */
+  int width, height;   /* widget window width and height */
+  Display  *dpy;       /* the display */
+  Window   win;        /* widget window */
+  int      depth;      /* depth of visual */
+  int      tile;       /* is bg tiled ? */
+  int      x, y, tmp, tmp2;
+  Pixmap   pixmap;
+  GC       gc;
+  unsigned long pv;
+  <font color="#990000"><b>EZ_UnknownDataType</b></font>  *data = <font color="#990000"><b>EZ_GetRawXWinPrivateData</b></font>(widget);
+
+  <font color="#990000"><b>EZ_GetWidgetPaddings</b></font>(widget, &padx, &pady, &focus_pad); /* get all paddings       */
+  <font color="#990000"><b>EZ_GetWidgetBorder</b></font>(widget, &bwidth, &border);           /* border characteristics */
+  <font color="#990000"><b>EZ_GetWidgetDimension</b></font>(widget, &width, &height);         /* widget size            */
+  dpy = <font color="#990000"><b>EZ_GetDisplay</b></font>();              /* display   */
+  depth = <font color="#990000"><b>EZ_GetDepth</b></font>();             /*   visual    */
+  win = <font color="#990000"><b>EZ_GetWidgetWindow</b></font>(widget); /* widget window */
+  tmp = focus_pad + bwidth;        
+  tmp2 = tmp + tmp;
+
+  /* draw into a tmp pixmap, copy to the widget window when done */
+  pixmap = XCreatePixmap(dpy, win, width, height, depth); 
+
+  /* fill the background */
+  <font color="#990000"><b>EZ_GetBackgroundTileGC</b></font>(widget, &gc, &pv, 0,0);  
+  XFillRectangle(dpy, pixmap, gc, 0, 0, width, height);
+
+  /* fix kbd focus highlight border */
+  <font color="#990000"><b>EZ_FixFocusHighlightBorder</b></font>(widget, pixmap, width, height, focus_pad);
+  
+  /* render the foreground, the crosshair */
+  gc = (GC)data[2].p;
+  pv = <font color="#990000"><b>EZ_GetForegroundPV</b></font>(widget);
+  XSetForeground(dpy, gc, pv);	
+
+  x = tmp + (int)((width - tmp2) * data[0].f + 0.5);
+  y = tmp + (int)((height- tmp2) * data[1].f + 0.5);
+  
+  XDrawLine(dpy, pixmap, gc, x, tmp, x, height -tmp); 
+  XDrawLine(dpy, pixmap, gc, tmp, y, width - tmp,y);
+
+  /* render the widget border */
+  <font color="#990000"><b>EZ_DrawRectBorder</b></font>(widget, pixmap);
+
+  /* and finally  ... */
+  XCopyArea(dpy,pixmap,win, gc,0,0,width,height,0,0); 
+  XFreePixmap(dpy, pixmap); 
+}
+/***************************************************************/
+
+static void LocatorEventHandle(<font color="#990000"><b>EZ_Widget</b></font> *widget, XEvent *event)
+{
+  if(event->type == Expose) LocatorDraw(widget);
+  else if(event->type == ButtonPress || event->type == KeyPress)
+    {
+      int padx, pady, focus_pad=0;                /* paddings  */
+      int border = 0, bwidth = 0, bwpad, bwpad2;  /* border .. */
+      int x,y, width, height;                     /* dimension */
+      Display *dpy = <font color="#990000"><b>EZ_GetDisplay</b></font>();             /* display   */
+      XEvent xevent;
+      float save_x, save_y;
+      <font color="#990000"><b>EZ_UnknownDataType</b></font>  *data = <font color="#990000"><b>EZ_GetRawXWinPrivateData</b></font>(widget);
+
+      if(event->type == ButtonPress)
+        {
+          if(event->xbutton.button == <font color="#990000"><b>EZ_Btn1</b></font>)
+            {
+              /* get paddings and  dimension */
+              <font color="#990000"><b>EZ_GetWidgetPaddings</b></font>(widget, &padx, &pady, &focus_pad);
+              <font color="#990000"><b>EZ_GetWidgetBorder</b></font>(widget, &bwidth, &border);
+              <font color="#990000"><b>EZ_GetWidgetDimension</b></font>(widget, &width, &height);
+              bwpad = focus_pad + bwidth;
+              bwpad2 = bwpad + bwpad;
+              x = event->xbutton.x;
+              y = event->xbutton.y;
+              save_x = data[0].f;
+              save_y = data[1].f;
+              while(1)
+                {
+                  /* loop and wait for ButtonRelease. Invoke
+                   * private event handlers on other events. Handle
+                   * MotionNotify events and execute MotionCallbacks
+                   * if needed.
+                   */
+                  if(x >= 0)
+                    {
+                      data[0].f = (float)(x-bwpad)/(float)(width  - bwpad2);
+                      data[1].f = (float)(y-bwpad)/(float)(height - bwpad2);
+                      if(data[0].f < 0.0) data[0].f = 0.0; else if(data[0].f > 1.0) data[0].f=1.0;
+                      if(data[1].f < 0.0) data[1].f = 0.0; else if(data[1].f > 1.0) data[1].f=1.0;
+                      LocatorDraw(widget);
+                      /* if locator has changed it state, invoke motion callbacks */
+                      if(save_x != data[0].f || save_y != data[1].f)
+                        <font color="#990000"><b>EZ_CallWidgetMotionCallbacks</b></font>(widget);
+                    }
+                  XNextEvent(dpy, &xevent);
+              
+                  /* tricky! We want to give private EHandlers a chance  */
+                  if(<font color="#990000"><b>EZ_FilterEvent</b></font>(&xevent)) <font color="#990000"><b>EZ_InvokePrivateEventHandler</b></font>(&xevent);
+                  if(xevent.type == Expose) 
+                    {
+                      <font color="#990000"><b>EZ_WidgetDispatchEvent</b></font>(&xevent);
+                      <font color="#990000"><b>EZ_RemoveEvent</b></font>(&xevent);
+                    }
+                  if(xevent.type == MotionNotify)
+                    {
+                      x = xevent.xmotion.x;
+                      y = xevent.xmotion.y;
+                      while(XCheckTypedEvent(dpy, MotionNotify, &xevent));
+                    }
+                  else if(xevent.type == ButtonRelease && xevent.xbutton.button == Button1)
+                    break;
+                  else x = -1111;
+                }
+            } 
+          else if(event->xbutton.button == <font color="#990000"><b>EZ_Btn3</b></font>) 
+            {
+              <font color="#990000"><b>EZ_HandleDnDEvents</b></font>(widget, event);
+            }
+        }
+      else /* key press */
+        {
+          char              tmpbuffer[8];
+          int               buffersize = 8, xmove_unit, ymove_unit, count;
+          KeySym            keysym;
+          XComposeStatus    compose; 
+
+          count = XLookupString(&(event->xkey), tmpbuffer, buffersize, &keysym, &compose);
+          tmpbuffer[count] = '\0';
+          xmove_unit = 0;
+          ymove_unit = 0;
+
+          switch(keysym)
+            {
+            case XK_Left: case XK_b:  case XK_h: case XK_B:  case XK_H:  
+#ifdef XK_KP_Left
+            case XK_KP_Left:
+#endif
+              if(event->xkey.state & ShiftMask)        xmove_unit = -4;
+              else if(event->xkey.state & Mod1Mask)    xmove_unit = -10 ;
+              else if(event->xkey.state & ControlMask) xmove_unit = -20;
+              else xmove_unit = -1;
+              break;
+            case XK_Right: case XK_f: case XK_l: case XK_F: case XK_L:  
+#ifdef XK_KP_Right
+            case XK_KP_Right:
+#endif
+              if(event->xkey.state & ShiftMask)         xmove_unit = 4;
+              else if(event->xkey.state & Mod1Mask)     xmove_unit = 10 ;
+              else if(event->xkey.state & ControlMask)  xmove_unit = 20;
+              else xmove_unit = 1;
+              break;
+            case XK_Up: case XK_k:  case XK_p: case XK_K:  case XK_P: 
+#ifdef XK_KP_Up
+            case XK_KP_Up:
+#endif
+              if(event->xkey.state & ShiftMask)         ymove_unit = -4;
+              else if(event->xkey.state & Mod1Mask)     ymove_unit = -10 ;
+              else if(event->xkey.state & ControlMask)  ymove_unit = -20;
+              else ymove_unit = -1;
+              break;
+            case XK_Down: case XK_n: case XK_j: case XK_N: case XK_J:  
+#ifdef XK_KP_Down
+            case XK_KP_Down:
+#endif
+              if(event->xkey.state & ShiftMask)         ymove_unit = 4;
+              else if(event->xkey.state & Mod1Mask)     ymove_unit = 10 ;
+              else if(event->xkey.state & ControlMask)  ymove_unit = 20;
+              else ymove_unit = 1;
+              break;
+            default:
+              break;
+            }
+              
+          if(xmove_unit | ymove_unit)
+            {
+              data[0].f += (xmove_unit) * 0.01;
+              data[1].f += (ymove_unit) * 0.01;
+              if(data[0].f < 0.0) data[0].f = 0.0; else if(data[0].f > 1.0) data[0].f=1.0;
+              if(data[1].f < 0.0) data[1].f = 0.0; else if(data[1].f > 1.0) data[1].f=1.0;
+              LocatorDraw(widget);
+              <font color="#990000"><b>EZ_CallWidgetMotionCallbacks</b></font>(widget);
+            }
+          /* normally there are too many KeyPress events ... */
+          while(XCheckTypedEvent(dpy, KeyPress, &xevent));
+        }
+    }
+}
+/**********************************************************************/
+
+void ez_GetLocatorXY(<font color="#990000"><b>EZ_Widget</b></font> *widget, float *x, float *y)
+{
+  /* return the coordinates of the locator */
+  <font color="#990000"><b>EZ_UnknownDataType</b></font>  *data = <font color="#990000"><b>EZ_GetRawXWinPrivateData</b></font>(widget);
+  *x = data[0].f;  *y = data[1].f; 
+}
+/**********************************************************************/
+
+void ez_SetLocatorXY(<font color="#990000"><b>EZ_Widget</b></font> *widget, float x, float y)
+{
+  /* set the location of the locator */
+  <font color="#990000"><b>EZ_UnknownDataType</b></font>  *data = <font color="#990000"><b>EZ_GetRawXWinPrivateData</b></font>(widget);
+  if(x < 0.0) x = 0.0; else if(x > 1.0) x = 1.0;
+  if(y < 0.0) y = 0.0; else if(y > 1.0) y = 1.0;
+  if(x != data[0].f || y != data[1].f)
+    {
+      data[0].f = x;
+      data[1].f = y;
+      if(<font color="#990000"><b>EZ_WidgetIsViewable</b></font>(widget)) <font color="#990000"><b>EZ_DrawWidget</b></font>(widget);
+      <font color="#990000"><b>EZ_CallWidgetMotionCallbacks</b></font>(widget);
+    }
+}
+/**********************************************************************/
+/* TEST */
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *locator;
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac, av, 0);
+  LocatorType = <font color="#990000"><b>EZ_RegisterPrimitiveWidget</b></font>("locator", "Locator",
+                             LocatorSetup, LocatorComputeSize,
+		             LocatorDraw, LocatorFreeData, LocatorEventHandle);
+  locator = <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(LocatorType, NULL, 
+                               "aLocator", "ALocator",
+                               0);
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(locator);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+/**********************************************************************/
+
+</pre>
+<p>
+</font>
+<p><h3> 6.1.2  Help Functions </h3 <br>
+<p>
+In this section, we list the functions that are useful for writing
+primitive widgets.
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetWidgetPaddings</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *padx, int *pady, int *focusPd);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the paddings of a widget.
+</font>
+<p><pre><p>
+void <font color="#990000"><b>EZ_GetWidgetBorder</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *bwidth, int *btype));
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the border characteristics.
+</font>
+<p><pre><p>
+void <font color="#990000"><b>EZ_GetWidgetDimension</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the dimension of a widget.
+</font>
+<p><pre><p>
+void <font color="#990000"><b>EZ_GetWidgetMinDimension</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the minimal dimension of a widget.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetWidgetPosition</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *x, int *y);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the location of a widget.
+</font>
+<p><pre><p>
+void <font color="#990000"><b>EZ_GetWidgetGeometry</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *x,int *y, int *w, int *h);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the geometry of a widget.
+</font>
+<p><pre><p>
+int <font color="#990000"><b>EZ_GetBackgroundTileGC</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, GC *gc, unsigned long *pv,
+                           int highlight, int force_highlight);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ get background GC, return 1 if tile is used (with tile origin properly set).
+</font>
+<p><pre><p>
+int <font color="#990000"><b>EZ_GetBackgroundGC</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, GC *gc, unsigned long *pv,
+                        int highlight, int force_highlight);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ get background GC, return 1 if tile is used (with tile origin unspecified).
+</font>
+<p><pre><p>
+int <font color="#990000"><b>EZ_GetDarkBrightNormalBDGC</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, GC *dark,
+                               GC *bright, GC *normal);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ get border GCs, return 1 if tile is used (with tile origin unspecified).
+</font>
+<p><pre><p>
+void <font color="#990000"><b>EZ_GetWidgetTileOrigin</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *x, int *y);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ if bg tile is used, return the tile origin.
+</font>
+<p><pre><p>
+int <font color="#990000"><b>EZ_GetWidgetOrientation</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the orientation of a widget.
+</font>
+<p><pre><p>
+Window <font color="#990000"><b>EZ_GetWidgetWindow</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the widget window.
+</font>
+<p><pre><p>
+<font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_GetParentWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the parent widget.
+</font>
+<p><pre><p>
+<font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_GetChildrenWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the first child, other children are siblings of the first child.
+</font>
+<p><pre><p>
+<font color="#990000"><b>EZ_Widget</b></font> *<font color="#990000"><b>EZ_GetSiblingWidget</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the sibling widget.
+</font>
+<p><pre><p>
+unsigned long <font color="#990000"><b>EZ_GetForegroundPV</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the pixel value of the foreground color.
+</font>
+<p><pre><p>
+<font color="#990000"><b>EZ_Bitmap</b></font> *<font color="#990000"><b>EZ_GetWidgetPixmap</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the label pixmap of a widget.
+</font>
+<p><pre><p>
+void <font color="#990000"><b>EZ_GetBrightBDpv</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, unsigned long *pv);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the pixel value of the bright side of the border.
+</font>
+<p><pre><p>
+void <font color="#990000"><b>EZ_GetDarkBDpv</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, unsigned long *pv);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the pixel value of the dark side of the border.
+</font>
+<p><pre><p>
+XFontStruct *<font color="#990000"><b>EZ_GetWidgetFont</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return widget font.
+</font>
+<p><pre><p>
+Display *<font color="#990000"><b>EZ_GetDisplay</b></font>(void);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ return the display.
+</font>
+<p><pre><p>
+void   <font color="#990000"><b>EZ_GetDisplayInfo</b></font>(Display **dpy, int *scrn, Visual **vis, int *depth);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return info about current display.
+</font>
+<p><pre><p>
+void  <font color="#990000"><b>EZ_GetDisplaySize</b></font>(int *w, int *h);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the display screen size.
+</font>
+<p><pre><p>
+GC  <font color="#990000"><b>EZ_GetGC</b></font>(unsigned long mask, GCValues gcvalues);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ create and return a GC.
+</font>
+<p><pre><p>
+void  <font color="#990000"><b>EZ_FreeGC</b></font>(GC gc);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+ free a GC created by <code><font color="#990000"><b>EZ_GetGC</b></font></code>.
+</font>
+<p><pre><p>
+int  <font color="#990000"><b>EZ_RegisterPrimitiveWidget</b></font>(char *iname, char *cname,
+                void (*Setup)(<font color="#990000"><b>EZ_Widget</b></font> *widget),
+                void (*ComputeSize)(<font color="#990000"><b>EZ_Widget</b></font> *widget, int *w, int *h),
+                void (*DrawWidget)(<font color="#990000"><b>EZ_Widget</b></font> *widget),
+                void (*FreeData)(<font color="#990000"><b>EZ_Widget</b></font> *widget),
+               void  (*EventHandle)(<font color="#990000"><b>EZ_Widget</b></font> *widget, XEvent *event));
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+  register a primitive widget to <i>EZwgl</i>. This function returns an
+integer widget type identifier. This type identifier can be used
+by <code><font color="#990000"><b>EZ_CreateWidget</b></font></code> to instantiate the registered widget.
+</font>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="76.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="78.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

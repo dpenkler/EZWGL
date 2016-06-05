@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Scale 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Scale \- multiply the current matrix by a scaling matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Scale(float " x ", float " y " , float "z)
+
+
+.SH ARGUMENTS
+\fIx\fR,\fIy\fR,\fIz\fR Specify three scaling factors.
+
+.SH DESCRIPTION
+\fBEZ_Scale\fR multiplies the current matrix by the matrix
+.sp
+.in +8 
+diag[x,y,z,1]
+.in -8
+
+.SH "SEE ALSO"
+EZ_Rotate(3), EZ_Translate(3), EZ_MultMatrix(3), EZ_PushMatrix(3),
+EZ_LoadMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

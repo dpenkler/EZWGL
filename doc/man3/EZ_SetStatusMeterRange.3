@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetStatusMeterRange 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetStatusMeterRange, EZ_SetStatusMeterRangeN  \- sets the range of
+a status meter.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetStatusMeterRange( EZ_Widget *" smeter ", float " from ", float " to)
+.BI "void  EZ_SetStatusMeterRangeN( EZ_Widget *" smeter ", int " idx ", float " from ", float " to)
+
+.SH ARGUMENTS
+\fIsmeter\fR Specifies a status meter widget.
+.sp
+\fIidx\fR Specifies an integer between 0 and 4 inclusive.
+.sp
+\fIfrom, to\fR Specify two floating point values.
+
+.SH DESCRIPTION
+\fBEZ_SetStatusMeterRange\fR sets the TOTAL range of a status meter.
+.PP
+\fBEZ_SetStatusMeterRangeN\fR sets the range of the \fIidx\fRth
+quantity to be displayed on a status meter.
+
+.SH "SEE ALSO"
+EZ_SetStatusMeterValue(3),  EZ_SetStatusMeterForeground(3)
+
+

@@ -1,0 +1,388 @@
+<html>
+<head>
+<title>EZwgl (8.5  Another DnD Example)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="89.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="91.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>8.5  Another DnD Example</h2>
+
+<p>
+This section explains you through an example the steps needed for
+implementing drag and drop. The example is about using drag and
+drop to transfer files.
+<p>We use a ListTree widget to list directories and files. The file items
+will be the drag sources. We use a TextWidget for a drop target.
+When the user press-drag-release a file item over the window of
+TextWidget, the file will be loaded into the text widget.
+<p>How do we transfere files? The simplest way
+is to transfer the complete path of files. This will work if
+the file-lister and text-widget are running under the same
+environment. It will probabily not work if, say, the file-lister
+and the text-widget are running on machines across two different
+local networks. So we'll need a way to convert the contents of a
+file, just in case the text-widget cannot find the file the
+file-lister supplied.
+<p>So we need two target items.  We have to create them first.
+<pre><p>
+  MY_FILE_NAME_ATOM      = <font color="#990000"><b>EZ_GetAtom</b></font>("MY_FILE_NAME_ATOM");
+  MY_FILE_CONTENTS_ATOM  = <font color="#990000"><b>EZ_GetAtom</b></font>("MY_FILE_CONTENTS_ATOM");
+</pre>
+<p>Now we come to the most important part, writing conversion routines. 
+We first explain the encoders which will be registered to file-items. 
+For each file-item,  we'll record its full path and the length of
+the path in the client data slots of its private data structure. 
+So encode the path name does not need too much work. 
+<p><font size=-1>
+<pre><p>
+int encodeFileName(<font color="#990000"><b>EZ_Item</b></font> *item, void *data,
+                   char **message, int *length, int *needFree)
+{
+  if(item)
+    {
+      char *ptr = (char *)<font color="#990000"><b>EZ_GetItemPtrData</b></font>(item);
+      int  len = <font color="#990000"><b>EZ_GetItemIntData</b></font>(item);
+      if(len > 0)
+        {
+          *length = len;
+          *message = ptr;
+          *needFree = 0;   /* we don't want to free it */
+          return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+        }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+</pre>
+</font>
+<p>To encode the contents of a file, we'll have to figure out the length
+of the file and allocate a buffer to copy the the contents. We'll
+do this naively.
+<p><font size=-1>
+<pre><p>
+int encodeFileContents(<font color="#990000"><b>EZ_Item</b></font> *item, void *data,
+                       char **message, int *length, int *needFree)
+{
+  if(item)
+    {
+      char *ptr = (char *)<font color="#990000"><b>EZ_GetItemPtrData</b></font>(item);
+      int  len = <font color="#990000"><b>EZ_GetItemIntData</b></font>(item);
+      if(len > 0)
+        {
+          char *msg;
+          int  c, totalLength = 0;
+          FILE *fp = fopen(ptr, "r");
+          if(fp)
+           {
+              while(fgetc(fp) != EOF) totalLength++;
+              (void)rewind(fp);
+              msg = (char *)malloc( (totalLength + 1)*sizeof(char));
+              ptr = msg;
+              while((c = fgetc(fp)) != EOF) *ptr++ =c;
+              fclose(fp);
+             *length = totalLength;
+             *message = msg;
+             *needFree = 1; /* ask EZWGL to free msg when done */
+             return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+          }
+        }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+</pre>
+</font>
+<p>Now the decoders. They are registered to the text-widget. For file
+names, we'll try to open the file for reading. If succesful, we'll
+call <code><font color="#990000"><b>EZ_TextLoadFile</b></font></code> to load the file into the text-widget.
+Otherwise, we'll return <code><font color="#990000"><b>EZ_DND_FAILURE</b></font></code>.
+<p><font size=-1>
+<pre><p>
+int decodeFileName(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data,
+                   char *message, int length)
+{
+  if(widget)
+    {
+      if(length > 0)
+        {
+          FILE *fp = fopen(message, "r");
+          if(fp)
+            {
+              fclose(fp);
+              <font color="#990000"><b>EZ_TextLoadFile</b></font>(widget, message);
+              return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+            }
+         }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+</pre>
+</font>
+<p>To decode the file contents, we'll just treat it as a string and
+call <code><font color="#990000"><b>EZ_TextInsertString</b></font></code> to insert it into the text-widget.
+<p><font size=-1>
+<pre><p>
+int decodeFileContents(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data,
+                       char *message, int length)
+{
+  if(widget)
+    {
+      if(length > 0)
+        {
+          <font color="#990000"><b>EZ_FreezeWidget</b></font>(widget);
+          <font color="#990000"><b>EZ_TextClear</b></font>(widget);
+          <font color="#990000"><b>EZ_TextInsertString</b></font>(widget, message);
+          <font color="#990000"><b>EZ_UnFreezeWidget</b></font>(widget);
+          return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+        }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+</pre>
+</font>
+We have done the essential part needed for drag and drop. Now we'll
+just have to put things together and register the encoders and 
+decoders. Unfortunately the order of registration matters. The
+<i>EZwgl</i> will try the conversion targets from the first to the
+last of the target list registered to an object.
+ So we'll register the (en)decoder  for target
+<code>MY_FILE_NAME_ATOM</code> first, since converting file names does
+not need too much data movement. It is the prefered target.
+<p>List below is the complete code for this example.
+<p><font size=-1>
+<pre>
+/******************* Example Source ***************************************/
+#include "EZ.h"
+
+int     encodeFileName(<font color="#990000"><b>EZ_Widget</b></font> *, void *, char **, int *, int *);
+int     encodeFileContents(<font color="#990000"><b>EZ_Widget</b></font> *, void *, char **, int *, int *);
+void    destroyCallBack(<font color="#990000"><b>EZ_Item</b></font> *, void *);
+
+<font color="#990000"><b>EZ_TreeNode</b></font> *MyCreateFileItem(char *);
+
+Atom MY_FILE_NAME_ATOM;
+Atom MY_FILE_CONTENTS_ATOM;
+
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *listTree;
+  <font color="#990000"><b>EZ_TreeNode</b></font> *root;
+  
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac,av,0);
+
+  /* the two target atoms */        
+  MY_FILE_NAME_ATOM = <font color="#990000"><b>EZ_GetAtom</b></font>("MY_FILE_NAME_ATOM");
+  MY_FILE_CONTENTS_ATOM = <font color="#990000"><b>EZ_GetAtom</b></font>("MY_FILE_CONTENTS_ATOM");
+
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>, NULL,
+                          <font color="#990000"><b>EZ_LABEL_STRING</b></font>, "Drag sources",
+                          <font color="#990000"><b>EZ_FILL_MODE</b></font>, <font color="#990000"><b>EZ_FILL_BOTH</b></font>, 
+		          <font color="#990000"><b>EZ_WIDTH</b></font>, 300, <font color="#990000"><b>EZ_HEIGHT</b></font>, 400, 0);
+  listTree = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_TREE</b></font>, frame, 0);
+
+  /* we have to use a customized fileNode creater
+   * to register DnD encoders and to remember pathnames
+   */
+  (void)<font color="#990000"><b>EZ_SetDirTreeFileNodeCreator</b></font>(MyCreateFileItem); 
+  root = <font color="#990000"><b>EZ_CreateDirTree</b></font>("./*"); /* */
+  <font color="#990000"><b>EZ_SetListTreeWidgetTree</b></font>(listTree, root); 
+  
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(frame);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+
+<font color="#990000"><b>EZ_TreeNode</b></font> *MyCreateFileItem(char *fname)
+{
+  <font color="#990000"><b>EZ_TreeNode</b></font> *node = NULL;
+  if(fname)
+    {
+      <font color="#990000"><b>EZ_Item</b></font> *item = NULL;
+      char *ptr, name[256];
+      int len;
+      
+      /* don't mess with fname, work on a local copy of it */
+      strcpy(name, fname);
+      len = strlen(name); 
+      if(name[len-1] == '/') name[len-1] = 0;
+      if((ptr = strrchr(name,'/'))) ptr++;
+      else ptr = name;
+      
+      item = <font color="#990000"><b>EZ_CreateLabelItem</b></font>(ptr, NULL);
+      if(item)
+         {
+          /* store the full pathname. Use destroyCallback to
+           * release the allocated memory !!
+           */
+          char *path = (char *)malloc((len+2)*sizeof(char));
+          (void)strcpy(path,fname);
+          <font color="#990000"><b>EZ_ConfigureItem</b></font>(item, <font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font>, path,
+                           <font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font>, len,
+                           <font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font>, destroyCallBack, path, 0);
+          <font color="#990000"><b>EZ_ItemAddDnDDataEncoder</b></font>(item,MY_FILE_NAME_ATOM,0,
+                                   encodeFileName,NULL, NULL, NULL);
+          <font color="#990000"><b>EZ_ItemAddDnDDataEncoder</b></font>(item,MY_FILE_CONTENTS_ATOM,0,
+                                   encodeFileContents, NULL, NULL, NULL);
+          node = <font color="#990000"><b>EZ_CreateTreeNode</b></font>(NULL, item);
+        }
+    }
+  return(node);
+}
+
+void  destroyCallBack(<font color="#990000"><b>EZ_Item</b></font> *item, void *data)
+{
+  if(data) (void)free((char *)data); /* free the allocated path */
+}
+
+int encodeFileName(<font color="#990000"><b>EZ_Item</b></font> *item, void *data,
+                   char **message, int *length, int *needFree)
+{
+  if(item)
+    {
+      char *ptr = (char *)<font color="#990000"><b>EZ_GetItemPtrData</b></font>(item);
+      int  len = <font color="#990000"><b>EZ_GetItemIntData</b></font>(item);
+      if(len > 0)
+        {
+          *length = len;
+          *message = ptr;
+          *needFree = 0;
+          return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+        }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+
+int encodeFileContents(<font color="#990000"><b>EZ_Item</b></font> *item, void *data,
+                       char **message, int *length, int *needFree)
+{
+  if(item)
+    {
+      char *ptr = (char *)<font color="#990000"><b>EZ_GetItemPtrData</b></font>(item);
+      int  len = <font color="#990000"><b>EZ_GetItemIntData</b></font>(item);
+      if(len > 0)
+        {
+          char *msg;
+          int  c, totalLength = 0;
+          FILE *fp = fopen(ptr, "r");
+          if(fp) while(fgetc(fp) != EOF) totalLength++;
+          (void)fseek(fp, 0L, SEEK_SET);
+          msg = (char *)malloc( (totalLength + 1)*sizeof(char));
+          ptr = msg;
+          while((c = fgetc(fp)) != EOF) *ptr++ =c;
+          fclose(fp);
+         *length = totalLength;
+         *message = msg;
+         *needFree = 1;
+         return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+        }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+
+/******************* Example Target ***************************************/
+#include "EZ.h"
+
+int decodeFileName(<font color="#990000"><b>EZ_Widget</b></font> *, void *, char *, int);
+int decodeFileContents(<font color="#990000"><b>EZ_Widget</b></font> *, void *, char *, int);
+
+Atom MY_FILE_NAME_ATOM;
+Atom MY_FILE_CONTENTS_ATOM;
+
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *frame, *textW;
+  
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac,av,0);
+
+  MY_FILE_NAME_ATOM = <font color="#990000"><b>EZ_GetAtom</b></font>("MY_FILE_NAME_ATOM");
+  MY_FILE_CONTENTS_ATOM = <font color="#990000"><b>EZ_GetAtom</b></font>("MY_FILE_CONTENTS_ATOM");
+
+
+  frame = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_FRAME</b></font>,NULL,
+                          <font color="#990000"><b>EZ_LABEL_STRING</b></font>, "Drag target",
+                          <font color="#990000"><b>EZ_FILL_MODE</b></font>, <font color="#990000"><b>EZ_FILL_BOTH</b></font>, 0);
+  textW = <font color="#990000"><b>EZ_CreateWidget</b></font>(<font color="#990000"><b>EZ_WIDGET_TEXT</b></font>, frame, 0);
+
+  <font color="#990000"><b>EZ_WidgetAddDnDDataDecoder</b></font>(textW, MY_FILE_NAME_ATOM, 0,
+                             decodeFileName, NULL,
+                             NULL, NULL);
+  <font color="#990000"><b>EZ_WidgetAddDnDDataDecoder</b></font>(textW, MY_FILE_CONTENTS_ATOM, 0,
+                             decodeFileContents, NULL,
+                             NULL, NULL);
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(frame);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+
+int decodeFileName(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data,
+                   char *message, int length)
+{
+  if(widget)
+    {
+      if(length > 0)
+        {
+          FILE *fp = fopen(message, "r");
+          if(fp)
+            {
+              <font color="#990000"><b>EZ_TextLoadFile</b></font>(widget, message);
+              fclose(fp);
+              return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+            }
+        }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+
+
+int decodeFileContents(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data,
+                       char *message, int length)
+{
+  if(widget)
+    {
+      if(length > 0)
+        {
+          <font color="#990000"><b>EZ_FreezeWidget</b></font>(widget);
+          <font color="#990000"><b>EZ_TextClear</b></font>(widget);
+          <font color="#990000"><b>EZ_TextInsertString</b></font>(widget, message);
+          <font color="#990000"><b>EZ_UnFreezeWidget</b></font>(widget);
+          return(<font color="#990000"><b>EZ_DND_SUCCESS</b></font>);
+        }
+    }
+  return(<font color="#990000"><b>EZ_DND_FAILURE</b></font>);
+}
+
+</pre>
+<p>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="89.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="91.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

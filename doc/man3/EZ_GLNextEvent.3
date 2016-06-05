@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GLNextEvent 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GLNextEvent \- wait for the next event to arrive on a 3D canvas
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GLNextEvent(EZ_Widget *" canvas ", XEvent *" event )
+
+.SH ARGUMENTS
+\fIcanvas\fR  Specifies a 3D canvas.
+.sp
+\fIevent\fR  Specifies a return for the next X event.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GLNextEvent\fR waits for the next event on \fIcanvas\fR to
+arrive. During the waiting period, it services events on other
+widgets as usual.
+
+.SH "SEE ALSO"
+EZ_AddEventHandler(3), EZ_GLResetEvents(3), EZ_GLEnterEvent(3)
+

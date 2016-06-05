@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>EZwgl (11.1  Trees)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="101.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>11.1  Trees</h2>
+
+<p>
+Trees are built from the special data structure
+<code><font color="#990000"><b>EZ_TreeNode</b></font></code>. A tree node is created by the
+procedure
+<p><p><p>
+<code><font color="#990000"><b>EZ_TreeNode</b></font> *<font color="#990000"><b>EZ_CreateTreeNode</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *parent, <font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><p>
+The <em>tree</em> object is used only in  the
+<code>Tree</code> widget.
+<p><p>
+<i>EZwgl</i> includes commands for manipulating
+trees as well as special commands for manipulating
+directory trees.
+<p><h3> 11.1.1  Interface Routines </h3 <br>
+<p><p><p>
+<code><font color="#990000"><b>EZ_TreeNode</b></font>  *<font color="#990000"><b>EZ_TreeNodeGetParent</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>      
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the parent node.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_TreeNode</b></font>  *<font color="#990000"><b>EZ_TreeNodeGetChildren</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the first child.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_TreeNode</b></font>  *<font color="#990000"><b>EZ_TreeNodeGetSibling</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>      
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the sibling node.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_TreeNode</b></font>  *<font color="#990000"><b>EZ_TreeFindNode</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *root, <font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+find a node in a tree.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_TreeNode</b></font>  *<font color="#990000"><b>EZ_TreeFindNodeUsingItem</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *root, <font color="#990000"><b>EZ_Item</b></font> *item);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+find a node using display item as the search key.
+</font>
+<p><p>
+<pre><p>
+<font color="#990000"><b>EZ_TreeNode</b></font>  *<font color="#990000"><b>EZ_TreeFindNodeUsingProcedure</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *root, 
+	 <font color="#990000"><b>EZ_TreeNode</b></font> *(*f)(<font color="#990000"><b>EZ_TreeNode</b></font> *node, void *data), void *cdata );
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+search for a tree node using the specified procedure.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_TreeDestroySubtree</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>      
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+destruct a subtree.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_TreeDestroyNodeDescendants</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>      
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+destroy all descendants of a tree node.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_TreeAttachSubtree</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node, <font color="#990000"><b>EZ_TreeNode</b></font> *subtree);</code>      
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+append a subtree to a tree node.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_TreeDetachSubtree</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>      
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+detach a node and its descendants from a tree.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_TreeSetCharacter</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node,
+	 int type, int indent, int spacing, int drawBranch);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the display characteristics for a tree.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_TreeTraverseTree</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node,
+        void (*preF)(<font color="#990000"><b>EZ_TreeNode</b></font> *node)),
+        void (*postF)(<font color="#990000"><b>EZ_TreeNode</b></font> *node) );
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+traverse a tree and execute the supplied procedures on each node.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_TreeSetFGColor</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node, unsigned long pv);</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_TreeSetFGColorName</b></font> (<font color="#990000"><b>EZ_TreeNode</b></font> *node, char *name);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the foreground color for all nodes.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_TreeSetBGColor</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node, unsigned long pv);</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_TreeSetBGColorName</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node, char *name);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the background color for all nodes.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_ComputeSubtreeSize</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node, int *w, int *h, int *parity);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+compute the minimal rectangle needed to hold a subtree.
+</font>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_DisplayTreeInDrawable</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, Drawable drawable,
+          int x0, int y0, <font color="#990000"><b>EZ_TreeNode</b></font> *node,
+          int Rx, int Ry, int Rw, int Rh);
+</pre>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+display a subtree.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Item</b></font> *<font color="#990000"><b>EZ_TreeNodeGetItem</b></font>(<font color="#990000"><b>EZ_TreeNode</b></font> *node);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the item assigned to a tree node.
+</font>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="99.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="101.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

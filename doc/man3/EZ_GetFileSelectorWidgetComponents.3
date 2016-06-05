@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFileSelectorWidgetComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFileSelectorWidgetComponents \- return the components of a file selector widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetFileSelectorWidgetComponents(EZ_Widget *" fileSelector,
+.BI "	    EZ_Widget **" patternEntry ", EZ_Widget **" selectionEntry,
+.BI "	    EZ_Widget **" dirListbox ", EZ_Widget **" fileListbox,
+.BI "	    EZ_Widget **" okBtn ", EZ_Widget ** "filterBtn ", EZ_Widget **" cancelBtn)
+.sp
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+
+.SH DESCRIPTION
+.PP
+This function returns the subwidgets of a file selector widget.
+
+.SH "SEE ALSO"
+EZ_SetFileSelectorInitialPattern(3)
+

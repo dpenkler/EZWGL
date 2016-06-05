@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetGlobalForeground 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetGlobalForeground \- override the default foreground color
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_SetGlobalForeground( char *" color_name )
+
+.SH ARGUMENTS
+\fIcolor_name\fR Specifies a color.
+
+.SH DESCRIPTION
+This function sets the default foreground color for all
+widgets. The default foreground color is 'black'. 
+.PP
+Note: the default foreground color only affects those
+widgets whose foreground color is not specified by
+resources.
+
+
+.SH "SEE ALSO"
+EZ_SetKbdHighlightColor(3), EZ_SetDefaultLabelFont(3)
+
+

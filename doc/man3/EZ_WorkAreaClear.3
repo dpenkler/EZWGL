@@ -1,0 +1,80 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WorkAreaClear 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WorkAreaClear, EZ_WorkAreaDeleteItem, EZ_WorkAreaDeleteItemUsingIdx,
+EZ_WorkAreaInsertItem, EZ_WorkAreaInsertItemAfter, EZ_WorkAreaInsertItemBefore,
+EZ_WorkAreaInsertItemUsingIdx, EZ_WorkAreaRearrange, EZ_WorkAreaSelectItem,
+EZ_WorkAreaSelectItemUsingIdx  \- work area editing functions
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WorkAreaClear(EZ_Widget *" warea)
+.BI "void EZ_WorkAreaDeleteItem(EZ_Widget *" warea ", EZ_Item *" item)
+.BI "void EZ_WorkAreaDeleteItemUsingIdx(EZ_Widget *" warea ", int " idx)
+.BI "void EZ_WorkAreaInsertItem(EZ_Widget *" warea ", EZ_Item *" item)
+.BI "void EZ_WorkAreaInsertItemAfter(EZ_Widget *" warea,
+.BI "                         EZ_Item *" item ", EZ_Item *" newitem)
+.BI "void EZ_WorkAreaInsertItemBefore(EZ_Widget *" warea,
+.BI "                         EZ_Item *" item ", EZ_Item *" newitem)
+.BI "void EZ_WorkAreaInsertItemUsingIdx(EZ_Widget *" warea,
+.BI "                         EZ_Item *" item ", int "idx)
+.BI "void EZ_WorkAreaRearrange(EZ_Widget *" warea)
+.BI "void EZ_WorkAreaSelectItem(EZ_Widget *" warea,
+.BI "                         EZ_Item *" item ", int *" location)
+.BI "void EZ_WorkAreaSelectItemUsingIdx(EZ_Widget *" warea,
+.BI  "                        int "idx ", int *" location)
+
+.SH ARGUMENTS
+\fIwarea\fR  Specifies a work area widget.
+.sp
+\fIitem\fR  Specifies a display item currently managed by \fIwarea\fR.
+.sp
+\fInewitem\fR  Specifies a new display item that is NOT currently
+managed by \fIwarea\fR.
+.sp
+\fIidx\fR  Specifies an index.
+.sp
+\fIlocation\fR Specifies an array of two integers or NULL. 
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WorkAreaClear\fR destroies all display items currently
+managed by \fIwarea\fR and clears the display.
+.PP
+\fBEZ_WorkAreaDeleteItem\fR deletes the specified item.
+.PP
+\fBEZ_WorkAreaDeleteItemUsingIdx\fR deletes the item at the given position.
+.PP
+\fBEZ_WorkAreaInsertItem\fR inserts an item at the end of the list
+of items \fIwarea\fR manages.
+.PP
+\fBEZ_WorkAreaInsertItemAfter\fR inserts \fInewitem\fR after
+\fIitem\fR. 
+.PP
+\fBEZ_WorkAreaInsertItemBefore\fR inserts \fInewitem\fR in front of
+\fIitem\fR. 
+.PP
+\fBEZ_WorkAreaInsertItemUsingIdx\fR inserts \fInewitem\fR at the
+specified position.
+.PP
+\fBEZ_WorkAreaRearrange\fR calls the geometry manager of \fIwarea\fR
+to rearrange and redisplay the list of items it manages.
+.PP
+\fBEZ_WorkAreaSelectItem\fR sets the selection on the given item. If
+\fIlocation\fR is not NULL, the display will be adjusted so that
+the selected item be displayed at the given location.
+.PP
+\fBEZ_WorkAreaSelectItemUsingIdx\fR  behaves the same as
+\fBEZ_WorkAreaSelectItemUsingIdx\fR, except it uses array index
+instead of using item directly.
+
+.SH "SEE ALSO"
+EZ_GetWorkAreaSelection(3)
+.br
+
+

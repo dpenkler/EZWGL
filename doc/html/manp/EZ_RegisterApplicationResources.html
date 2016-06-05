@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_RegisterApplicationResources</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_RegisterApplicationResources</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_RegisterApplicationResources   -  register  a  list  of
+       application resources
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>n</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>c</b></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>,</i></font>
+            <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>(</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>)</i></font><font color="#004400"><i>(</i></font><font color="#004400"><i>v</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>*</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>,</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>o</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>,</b></font><font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>V</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>*</b></font><font color="#440000"><b>v</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>)</b></font><font color="#004400"><i>)</i></font>
+
+       typedef struct {
+         int     option;    /* reference index, must &gt; 1024 */
+         char    *iname;    /* resource name  */
+         char    *cname;    /* resource class */
+         char    *vtypes;   /* value types, e.g "int,float,string" */
+       } EZ_ResourceSpec;
+
+       typedef struct {
+         int  type;
+         union {
+           char    c;    unsigned char  uc;
+           short   s;    unsigned short us;
+           int     i;    unsigned int   ui;
+           float   f;
+           void    *p;
+           void    *function;
+           char    *str;
+           unsigned long l;
+         } value;
+       } EZ_Value;
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font>  Specifies a list of resources.
+
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>s</i></font>  Specifies the number of resources.
+
+       <font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>f</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>u</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font>  Specifies a procedure that sets the  values  of
+       application variable from resources.
+
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>s</b></font> registers a list of appli-
+       cation resources. Its purpose is to set application  vari-
+       ables  from  resources.   See  the  example  below for its
+       usage. Only global variables can be set via resources.
+
+
+An Example
+       #include "EZ.h";
+       static int   int1 = 0,   int2 = 0; /* var set by resources */
+       static float float2 = 0;
+
+       static  EZ_ResourceSpec exampleResources[] =
+       {
+          { 1234, "aPairOfInt",  "APairOfInt", "int,int"   },
+          { 1235, "intFloat",    "IntFloat",   "int,float" },
+       };
+
+       int configure(EZ_Widget *notused, int option, EZ_Value *values)
+       {
+         switch(option)
+          {
+            case 1:  int1 = values[0].value.i; int2 = values[1].value.i; break;
+            case 2:  int1 = values[0].value.i; float2 = values[1].value.f; break;
+            default:  break;
+          }
+       }
+
+       main(int ac, char **av)
+       {
+         <A HREF="EZ_Initialize.html">EZ_Initialize</A>(ac, av, 1);
+         <A HREF="EZ_RegisterApplicationResources.html">EZ_RegisterApplicationResources</A>(2, exampleResources, configure);
+         printf("int1=%d, int2=%d, float2=%f0, int1, int2, float2);
+         /* more stuff ... */
+       }
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_RegisterResourcesWidget.html">EZ_RegisterResourcesWidget</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetSpinButtonComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetSpinButtonComponents \- return the subwidgets of a spin button
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetSpinButtonComponents( EZ_Widget *" spin ", EZ_Widget **" entry,
+.BI "                               EZ_Widget **" scrollBtn )
+        
+.SH ARGUMENTS
+\fIspin\fR  Specifies a spin button.
+.sp
+\fIentry\fR  Specifies the return for the entry subwidget.
+.sp
+\fIscrollBtn\fR Specifies the return for the scroll button subwidget.
+spin function \fIf\fR.
+
+.SH DESCRIPTION
+      
+.PP
+A spin button is made from an entry and a scroll button. 
+\fBEZ_GetSpinButtonComponents\fR returns these two subwidgets.
+
+
+.SH "SEE ALSO"
+EZ_GetSpinButtonValue(3)
+.br
+
+
+

@@ -1,0 +1,66 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Begin 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Begin, EZ_End \- delimit the vertices of a primitive
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Begin(int " mode )
+.BI "void  EZ_End(" void )
+.SH ARGUMENTS
+\fImode\fR Specify the primitive that will be created from vertices
+between EZ_Begin and the paring EZ_End. \fImode\fR is one of
+EZ_LINES, EZ_LINE_STRIP, EZ_LINE_LOOP, EZ_TRIANGLES, EZ_TRIANGLE_STRIP, 
+EZ_TRIANGLE_FAN, EZ_QUADS, EZ_QUAD_STRIP, EZ_POLYGON and EZ_POINTS.
+
+.SH DESCRIPTION
+.PP
+The \fIEZ_Begin\fR and \fIEZ_End\fR pair delimit vertices that define
+a primitive or a list of primitives.  \fImode\fR determines the
+interpretation of subsequent vertices. The interpretation of
+\fImode\fR is described below.
+.sp
+.in +3
+\fBEZ_LINES\fR Treats each pair of vertices as a separate line segment.
+.sp
+\fBEZ_LINE_STRIP\fR Subsequent vertices defines a polyline.
+.sp
+\fBEZ_LINE_LOOP\fR Subsequent vertices defines a closed polyline.
+.sp
+\fBEZ_TRIANGLES\fR Treats each triplet of vertices as a separate
+triangle.
+.sp
+\fBEZ_TRIANGLE_STRIP\fR Subsequent vertices defines a triangular
+strip. The first 3 vertices defines the first triangle; vertices
+3,2,4 defines the second triangle; vertices 3,4,5 defines the third
+triangle ...
+.sp
+\fBEZ_TRIANGLE_FAN\fR Subsequent verticse defines a group of
+triangles. All of them share the first vertex. Thus, vertices
+1,2,3 defines the first triangle; vertices 1,2,4 defines the second
+triangle ...
+.sp
+\fBEZ_QUADS\fR Treats every group of four vertices as a separate
+quadrilateral.
+.sp
+\fBEZ_QUAD_STRIP\fR  Subsequent verticse defines a group of
+quadrilaterals. Vertices 1,2,4,3 defines the first one; vertices
+3,4,6,5 defines the second one ...
+.sp
+\fBEZ_POLYGON\fR Subsequent vertices defines a polygon.
+.sp
+\fBEZ_POINTS\fR Treats subsequent vertices as individual points.
+.in -2
+.PP
+
+\fBEZ_Begin/EZ_End\fR pair cannot be nested. The only commands allowed
+inside a \fBEZ_Begin/EZ_End\fR pair are: EZ_Vertex, EZ_Color,
+EZ_Index, EZ_Normal, EZ_Material, EZ_Light, EZ_CallList.
+
+.SH "SEE ALSO"
+EZ_Normal3f(3), EZ_Color3f(3), EZ_Index(3)
+

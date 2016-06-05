@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetupSpinButton 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetupSpinButton \- setup a spin button.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetupSpinButton( EZ_Widget *" spin ", char *"value,
+.BI "                          char *" (f)(int, int, void *) ", void *" clientData)
+        
+
+.SH ARGUMENTS
+\fIspin\fR  Specifies a spin button.
+.sp
+\fIvalue\fR  Specifies the initial value of a spin button.
+.sp
+\fIclientData\fR Specifies the client data to be passed to the
+spin function \fIf\fR.
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SetupSpinButton\fR sets the default state of a spin button. 
+Please use \fIEZ_SPIN_VALUE\fR and \fIEZ_SPIN_FUNCTION\fR resources
+to setup a spin button instead of using this function.
+
+.SH "SEE ALSO"
+EZ_GetSpinButtonValue(3), EZ_GetSpinButtonComponents(3)
+.br
+
+
+

@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetTimerCallBack 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetTimerCallBack \- register a timer callback
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetTimerCallBack(EZ_Timer *" timer ", EZ_CallBack " callback,
+.BI "                          void *" cdata )
+
+.SH ARGUMENTS
+
+\fItimer\fR  Specifies a timer.
+.sp
+\fIcallback\fR Specifies a callback procedure.
+.sp
+\fIcdata\fR Specifies the argument to be passed to \fIcallback\fR when
+invoked.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetTimerCallBack\fR registers a callback to a timer. A timer can
+have only one callback procedure.  The callback procedure will be
+called whenever the timer fires.
+
+.SH "SEE ALSO"
+EZ_CreateTimer(3), EZ_GetTimerState(3), EZ_GetTimerClientData(3),
+
+
+

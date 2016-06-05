@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetOptionalEntryWidgetComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetOptionalEntryWidgetComponents  \- retrieve the components of an
+optional entry (combox)
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetOptionalEntryWidgetComponents( EZ_Widget *" oentry
+.BI "       EZ_Widget **" entry_et ", EZ_Widget **" listbox_ret,
+.BI "       EZ_Widget **" button_ret )
+
+.SH ARGUMENTS
+\fIoentry\fR  Specifies an option entry  widget.
+.sp
+\fIentry_ret\fR  Specifies the return for the entry widget.
+.sp
+\fIlistbox_ret\fR  Specifies the return for the listbox widget.
+.sp
+\fIbutton_ret\fR  Specifies the return for the arrow button.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetOptionalEntryWidgetComponents\fR  returns the
+components of an option entry. An option entry contains 3 internal
+components:  an entry, a listbox and  button.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxWidgetComponents(3), EZ_GetFileSelectorWidgetComponents(3)
+EZ_GetListBoxWidgetComponents(3), EZ_GetWorkAreaWidgetComponents(3),
+EZ_GetTextWidgetComponents(3), EZ_GetListTreeWidgetComponents(3)

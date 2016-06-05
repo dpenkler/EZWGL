@@ -1,0 +1,68 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_RegisterMessageHandler 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_RegisterMessageHandler, EZ_DeleteMessageHandler \- add/delete a message handler
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+typedef struct {
+  Atom       messageType;    /* message type   */
+  int        messageLength;  /* message length */
+  char       *message;       /* the message    */
+  int        messageId;      /* message Id     */
+  int        replyId;        /* if request, the message id to reply */
+  int        isReply;        /* flag whether the message is a reply */
+  Window     sender;         /* sender's communication window id  */
+  Atom       senderClass;    /* sender's class name */
+  Atom       senderInstance; /* sender's instance name */
+  int        senderIsSelf;   /* is message originated from the myself? */
+} EZ_Message;
+.sp
+typedef void (*EZ_MessageHandler)(EZ_Message *msgIn, void *client_data);
+.sp
+.BI "void EZ_RegisterMessageHandler(Atom " type ", int " messageId ", void "*client_data,
+.BI "                          EZ_MessageHandler " handler ", int " timeout, 
+.BI "                          EZ_CallBack "timeoutCB ", void " cdata )
+.sp
+.BI "void EZ_DeleteMessageHandler(Atom " type ", int " messageId ", void "*client_data,
+.BI "                          EZ_MessageHandler " handler)
+
+
+.SH ARGUMENTS
+\fIhandler\fR  Specifies a message handler.
+.sp
+\fIclient_data\fR  Specifies an application data to be passed to the handler.
+.sp
+\fImessageId\fR Specifies a serial number. Serial number is local to each
+application so the sender has to keep track of it.
+.sp
+\fItimeout\fR Specifies the life span of this handler, in seconds. The handler
+will be deleted after the specified number of seconds elapses. If zero or negative, 
+the handler will have an infinite life span.
+.sp
+\fItimeoutCB\fR Specifies a procedure to execute when the handler expires.
+.sp
+\fIcdata\fR Specifies a client data to be passed to \fItimeoutCB\fR.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_RegisterMessageHandler\fR registers a message handler with EZWGL. The
+message handler will be invoked when a messages with the specified type and
+ID arrives. If \fitimeout\fR>0, the handler will expire in the specified
+number of seconds; when it expires, it executes \fItimeoutCB\fR if supplied.
+
+.PP
+\fBEZ_DeleteMessageHandler\fR deletes the registered message handler
+that matches the specification.
+
+.SH "SEE ALSO"
+EZ_SetDefaultMessageHandler(3), EZ_BroadcastMessage(3), EZ_ReplyMessage(3)
+.br
+
+
+

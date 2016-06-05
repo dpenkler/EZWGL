@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_FrontFace 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FrontFace \- select front facing polygons
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_FrontFace(int " orientation )
+
+.SH ARGUMENTS
+\fIorientation\fR Specifies an orientation, either EZ_CCW or EZ_CW.
+
+.SH DESCRIPTION
+.PP
+When projected to window coordinates, a polygon can have
+two possible orientations depending on the ordering of
+its vertices, a clockwise orientation or a counter-clockwise orientation.
+.PP
+\fIEZ_FrontFace\fR specifies which orientated polygons are considered
+to be front facing. 
+
+.SH "SEE ALSO"
+EZ_Vertex3f(3), EZ_Normal3f(3), EZ_Color3f(3), EZ_CullFace(3),
+
+

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>EZwgl (12.10  ColorMaterial)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="112.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="114.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>12.10  ColorMaterial</h2>
+
+<p>
+ColorMaterial is a mechanism that allows one to attach material
+properties to the current color, so that the library track
+continuously the components of its component values. ColorMaterial
+is one of the global state attributes and is enabled or disabled by
+<code><font color="#990000"><b>EZ_Enable</b></font>(<font color="#990000"><b>EZ_COLOR_MATERIAL</b></font>)</code> or
+<code><font color="#990000"><b>EZ_Disable</b></font>(<font color="#990000"><b>EZ_COLOR_MATERIAL</b></font>)</code>. It is disabled by default.
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_ColorMaterial</b></font>(int face, int propName);</code>
+<p>This function attaches a material property <code>propName</code>
+to the current color.  For example, if colorMaterial is
+enabled, the command 
+<p><p>
+<code><font color="#990000"><b>EZ_ColorMaterial</b></font>(<font color="#990000"><b>EZ_FRONT</b></font>, <font color="#990000"><b>EZ_DIFFUSE</b></font>)</code>
+<p>set the diffuse color of the front material to the current color.
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="103.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="112.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="114.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetFocusTo "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetIconPath, EZ_GetIconPath \- set/get icon path
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void   EZ_SetIconPath(char *"  path)
+.BI "char  *EZ_GetIconPath( ) "
+
+.SH ARGUMENTS
+\fIpath\fR  Specifies a path, colon separated directory names.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetIconPath\fR set the path for EZWGL to look for image files. 
+The default icon searcg path is 
+ .:/usr/include/X11R6/pixmaps::/usr/include/X11R6/bitmaps.
+.PP
+\fBEZ_GetIconPath\fR returns the current non-default icon path.
+
+.SH "SEE ALSO"
+EZ_CreateLabelPixmapFromImageFile(3)
+.br
+
+

@@ -1,0 +1,40 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Color3f 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Color3f, EZ_Color3fv, EZ_Color4f, EZ_Color4fv \- set the current
+RGB color
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Color3f(float " r ", float " g ", float " b)
+.BI "void  EZ_Color3fv(float *" rgb )
+.BI "void  EZ_Color4f(float " r ", float " g ", float " b ", float "a)
+.BI "void  EZ_Color4fv(float *" rgba )
+
+
+.SH ARGUMENTS
+\fIr\fR,\fIg\fR,\fIb\fR  Specifies RGB components, in range [0,1].
+.sp
+\fIa\fR Specifies the alpha component, in range [0,1]. This component
+is not used currently.
+.sp
+\fIrgb\fR Specify an array of 3 floats.
+.sp
+\fIrgba\fR Specify an array of 4 floats.
+.sp
+\fIr_ret\fR,\fIg_ret\fR,\fIb_ret\fR Specify the returns for the 
+RGB components of a color.
+.SH DESCRIPTION
+.PP
+All these functions update the current RGB color. 
+
+.SH "SEE ALSO"
+EZ_Index(3), EZ_MapColor(3)
+.br
+
+

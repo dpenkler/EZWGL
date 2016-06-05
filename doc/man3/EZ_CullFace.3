@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CullFace 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CullFace \- specify whether front or back facing polygons can be culled
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_CullFace(int " face )
+
+.SH ARGUMENTS
+\fIface\fR Specifies a face, either EZ_FRONT or EZ_BACK.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_CullFace\fR Specifies whether front or back facing polygons can
+be culled when facet culling is enabled.  Facet culling is enabled
+by calling EZ_Enable with mode EZ_CULL_FACE.
+.PP
+
+.SH "SEE ALSO"
+EZ_FrontFace(3), EZ_Enable(3)
+
+

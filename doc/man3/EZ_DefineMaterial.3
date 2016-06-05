@@ -1,0 +1,72 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DefineMaterial 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DefineMaterial, EZ_BindMaterial \- define material parameters
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Material *EZ_DefineMaterial(float *" parameters )
+.BI "void EZ_BindMaterial(int "face ", EZ_Material *" material )
+
+.SH ARGUMENTS
+.sp
+\fIparameters\fR  Specifies material properties.
+.sp
+\fIface\fR Specifies a face, either EZ_FRONT or EZ_BACK or EZ_FRONT_AND_BACK.
+.sp
+\fImaterial\fR Specifies a pre-defined material.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DefineMaterial\fR defines a material based on the
+specified parameters. The defined material can later be
+bind to one of the two current materials.
+.PP
+\fIparameters\fR specifies an array of floating point symbols and
+values that defines the material properties.
+\fIparameters\fR must contain a sequence of lighting symbols,
+each followed by the appropriate number of floating point values. 
+The last symbol must be EZ_NULL_F, which is itself not followed by any
+values.
+.sp
+The symbols are:
+.in +3
+.sp
+\fBEZ_EMISSION_F\fR specifies the emisive color of the material,
+must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the color.
+.sp
+\fBEZ_AMBIENT_F\fR specifies the ambient color of the material,
+must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the color.
+.sp
+\fBEZ_DIFFUSE_F\fR specifies the diffuse color of the material,
+must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the color.
+.sp
+\fBEZ_SPECULAR_F\fR specifies the specular color of the material,
+must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the color.
+.sp
+\fBEZ_SHININESS_F\fR specifies the shininess of the material,
+must followed by a non-negative floating point number that
+specifies the shininess exponent.
+.sp
+\fBEZ_COLOR_INDICES_F\fR specifies the indices that to be used
+for lighting calculations in index mode. Must be followed by
+three floats that specify the ambient, diffuse and specular
+color indices.
+.in -3
+.PP
+\fBEZ_BindMaterial\fR binds the specified pre-defined material
+to the specified current material.
+
+.SH "SEE ALSO"
+EZ_DefineLightSrc(3), EZ_DefineLightModel(3), EZ_BindLightSrc(3),
+EZ_BindLightModel(3)

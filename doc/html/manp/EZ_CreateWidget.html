@@ -1,0 +1,148 @@
+<html>
+<head> <title>EZ_CreateWidget</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_CreateWidget</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_CreateWidget, EZ_CreateWidgetXrm - create an EZ widget
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>p</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#440000"><b>)</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>X</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>p</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>,</i></font>
+                   <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>c</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>c</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>N</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#440000"><b>)</b></font>
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>t</i></font><font color="#004400"><i>y</i></font><font color="#004400"><i>p</i></font><font color="#004400"><i>e</i></font> Specifies a symbolic widget type (see below).
+
+       <font color="#004400"><i>p</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>t</i></font> Specifies the parent widget or NULL.
+
+       <font color="#004400"><i>c</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>N</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font> Specifies a class name.
+
+       <font color="#004400"><i>n</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font> Specifies an instance name.
+
+        <font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font><font color="#004400"><i>.</i></font>  Specifies  configuration  options, a list of symbols
+       each followed by one or more values. The last symbol  must
+       be <font color="#440000"><b>N</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>L</b></font>, which is itself not followed by any values.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>W</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  creates a widget and initializes the wid-
+       get using the specified  configuration  options.  Then  it
+       reads  the  resource database and configure the widget use
+       resources found in the database.
+
+       <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>W</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>X</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>m</i></font> is equivalent to  <font color="#004400"><i>E</i></font><font color="#004400"><i>Z</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>C</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>W</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  with
+       both <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>L</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>S</b></font> and <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>N</b></font><font color="#440000"><b>A</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>E</b></font> attributes specified.
+
+       Example
+
+          extern void exit();
+          EZ_Widget *button;
+                                  /* type                   parent */
+          button = <A HREF="EZ_CreateWidget.html">EZ_CreateWidget</A>(EZ_WIDGET_NORMAL_BUTTON, NULL,
+                                   /* option,       option value(s) */
+                                   EZ_LABEL_STRING, "Hello World",
+                                   EZ_UNDERLINE,    0,
+                                   EZ_CALLBACK,     exit, NULL,
+                                   0);
+
+       creates a push button widget labeled by "Hello World" with
+       the letter 'H' underlined.
+
+
+<H2>SYMBOLIC WIDGET TYPES</H2>
+       EZ_WIDGET_FRAME,                  EZ_WIDGET_NORMAL_BUTTON,
+       EZ_WIDGET_CHECK_BUTTON,            EZ_WIDGET_RADIO_BUTTON,
+       EZ_WIDGET_MENU_BUTTON,           EZ_WIDGET_MENU_SEPARATOR,
+       EZ_WIDGET_LABEL,                    EZ_WIDGET_RAW_XWINDOW,
+       EZ_WIDGET_MENU_SUBMENU,      EZ_WIDGET_MENU_NORMAL_BUTTON,
+       EZ_WIDGET_MENU_CHECK_BUTTON,  EZ_WIDGET_MENU_RADIO_BUTTON,
+       EZ_WIDGET_VERTICAL_SLIDER,    EZ_WIDGET_HORIZONTAL_SLIDER,
+       EZ_WIDGET_ENTRY,             EZ_WIDGET_VERTICAL_SCROLLBAR,
+       EZ_WIDGET_HORIZONTAL_SCROLLBAR,        EZ_WIDGET_LIST_BOX,
+       EZ_WIDGET_TEXT,                       EZ_WIDGET_NOTE_BOOK,
+       EZ_WIDGET_PANE_HANDLE,                 EZ_WIDGET_EXECUTOR,
+       EZ_WIDGET_OPTIONAL_ENTRY,         EZ_WIDGET_FILE_SELECTOR,
+       EZ_WIDGET_TREE,                       EZ_WIDGET_LIST_TREE,
+       EZ_WIDGET_FANCY_LIST_BOX,             EZ_WIDGET_WORK_AREA,
+       EZ_WIDGET_FREE_LABEL,                 EZ_WIDGET_3D_CANVAS,
+       EZ_WIDGET_NB_PAGE,                     EZ_WIDGET_NW_LABEL,
+       EZ_WIDGET_ICON,                             EZ_WIDGET_LCD,
+       EZ_WIDGET_LED,                     EZ_WIDGET_STATUS_METER,
+       EZ_WIDGET_MENU_BAR                         EZ_WIDGET_TERM,
+       EZ_WIDGET_HORIZONTAL_RULER,      EZ_WIDGET_VERTICAL_RULER,
+       EZ_WIDGET_SCROLL_BUTTON,            EZ_WIDGET_SPIN_BUTTON,
+       EZ_WIDGET_LOCATOR,                         EZ_WIDGET_DIAL,
+       EZ_WIDGET_GRADIENT_BAR,               EZ_WIDGET_HISTOGRAM,
+       EZ_WIDGET_SPREAD_SHEET,             EZ_WIDGET_THUMB_WHEEL,
+
+
+
+
+<H2>CONFIGURATION SYMBOLS AND THEIR VALUES</H2>
+       See  manual for a complete list of resources/configuration
+       options.
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_DisplayWidget.html">EZ_DisplayWidget</A>(3), <A HREF="EZ_ConfigureWidget.html">EZ_ConfigureWidget</A>(3), <A HREF="EZ_DestroyWidget.html">EZ_DestroyWidget</A>(3)
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

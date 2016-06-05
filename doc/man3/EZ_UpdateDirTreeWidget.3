@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_UpdateDirTreeWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_UpdateDirTreeWidget \- updates the directory tree in a ListTree widget.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_UpdateDirTreeWidget(EZ_Widget " *ltree )
+
+
+
+.SH ARGUMENTS
+\fIltree\fR  Specify a ListTree widget.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_UpdateDirTreeWidget\fR updates the directory tree in a ListTree
+widget according to the current directory/file listing. It removes
+nodes corresponding to files that has been removed, creates new
+nodes for new files and updates the display if needed. 
+
+.SH "SEE ALSO"
+EZ_CreateDirTree(3), EZ_CreateTreeNode(3), EZ_CreateItem(3)

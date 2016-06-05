@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GlobFileName 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GlobFileName  \- return all files match a given pattern
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char  **EZ_GlobFileName(char *" pattern)
+
+.SH ARGUMENTS
+\fIpattern\fR  Specifies a glob pattern.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GlobFileName\fR find and returns the list of files
+that match \fIpattern\fR. It returns NULL if no matches
+found.  The return value, if not NULL, is NULL terminated
+list of strings. The returend list and its contents should
+be freed.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_GlobHiddenFiles(3)
+.br
+
+
+

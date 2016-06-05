@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ConfigureWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ConfigureWidget \- configure an existing widget
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ConfigureWidget(EZ_Widget *" widget", " ... )
+
+.SH ARGUMENTS
+\fIwidget\fR Specifies a widget
+.sp
+\fI ...\fR Specify configuration options and their values.
+.sp
+.SH DESCRIPTION
+.PP
+\fIEZ_ConfigureWidget\fR sets or modifies widget attributes, things
+like label string, color, border. This function takes a 
+variable length arguments, a list of symbols each followed by one or
+more values. The last symbol must be \fBNULL\fR, which is itself not
+followed by any values. For example
+.nf
+  EZ_ConfigureWidget(slider,
+                     EZ_SLIDER_RANGE,        -10.0, 20.0,
+                     EZ_SLIDER_DISPLAY_VALUE, True,
+                     EZ_SLIDER_RESOLUTION,    0.5
+                     EZ_SLIDER_INIT_VALUE,    10.0,
+                     0);
+.sf
+sets the range of \fIslider\fR to [-10.0, 20.0]; sets the current slider
+value to 10.0; set the slider resolution to 0.5 and enable the slider
+to display its current value.
+.sp
+
+.SH CONFIGURATION SYMBOLS AND THEIR VALUES
+See manual for a complete list of configuration options.
+
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_DisplayWidget(3), EZ_DestroyWidget(3)
+
+

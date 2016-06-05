@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_EntryEditBackward 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_EntryEditBackward, EZ_EntryEditBackwardWord, EZ_EntryEditBeginOfInput,
+EZ_EntryEditDeleteChar, EZ_EntryEditEndOfInput, EZ_EntryEditForeward, 
+EZ_EntryEditForwardWord, EZ_EntryEditInsertString, EZ_EntryEditKillEndOfLine,
+EZ_EntryEditKillRegion, EZ_EntryEditSetMarker, EZ_EntryPasteSelection \- entry edting functions
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_EntryEditBackward( EZ_Widget *" entry)
+.BI "void EZ_EntryEditBackwardWord( EZ_Widget *" entry)
+.BI "void EZ_EntryEditBeginOfInput( EZ_Widget *" entry)
+.BI "void EZ_EntryEditDeleteChar( EZ_Widget *" entry ", int " direction)
+.BI "void EZ_EntryEditEndOfInput( EZ_Widget *" entry)
+.BI "void EZ_EntryEditForeward( EZ_Widget *" entry)
+.BI "void EZ_EntryEditForwardWord( EZ_Widget *" entry)
+.BI "void EZ_EntryEditInsertString ( EZ_Widget *" entry ", char *" str)
+.BI "void EZ_EntryEditKillEndOfLine( EZ_Widget *" entry ", int " flag)
+.BI "void EZ_EntryEditKillRegion( EZ_Widget *" entry)
+.BI "void EZ_EntryEditSetMarker( EZ_Widget *" entry)
+.BI "void EZ_EntryPasteSelection( EZ_Widget *" entry)
+
+
+.SH ARGUMENTS
+\fIentry\fR  Specifies a entry widget.
+.sp
+\fIdirection\fR Specifies  1 or -1.  1 for deleting forward and -1 for
+deleting backward.
+.sp
+\fIstr\fR Specifies a string.
+
+.SH DESCRIPTION
+.PP
+These functions are the editing commands for entry widget.
+.PP
+
+
+.SH "SEE ALSO"
+EZ_SetEntryString(3), EZ_GetEntryString(3), EZ_OnOffSecretEntry(3)
+
+

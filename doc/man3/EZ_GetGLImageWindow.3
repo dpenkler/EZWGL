@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetGLImageWindow "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetGLImageWindow, EZ_GetGLImageXWindow \- create a GL Image from the
+current active 3D canvas
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetGLImageWindow(int " x ", int " y ", int " w ", int " h, 
+.BI "                        EZ_GLImage *" image_ret )
+.sp
+.BI "void EZ_GetGLImageXWindow(int " x ", int " y ", int " w ", int " h,
+.BI "                        EZ_GLImage *" image_ret )
+
+.SH ARGUMENTS
+\fIx,y,w,h\fR  Specifies a region in the current active 3D canvas.
+.sp
+\fIimage_ret\fR Specifies the return for the GL image.
+.sp
+\fIcursor\fR Specifies a cursor id.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetGLImageWindow\fR creates a GL image copied from the specified
+region in the current active 3D canvas widget. The coordinates here is
+measured from the lower-left corner of the 3D canvas.
+.PP
+\fBEZ_GetGLImageXWindow\fR creates a GL image copied from the specified
+region in the current active 3D canvas widget. The coordinates here is
+measured from the upper-left corner of the 3D canvas.
+
+.SH "SEE ALSO"
+EZ_PutGLImage(3), EZ_CreateGLImage(3)
+.br
+
+
+

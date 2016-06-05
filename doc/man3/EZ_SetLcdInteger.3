@@ -1,0 +1,34 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLcdInteger 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLcdInteger, EZ_SetLcdFloat \- update an LCD widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLcdInteger(EZ_Widget *" lcd ", int" n)
+.sp
+.BI "void EZ_SetLcdFloat(EZ_Widget *" lcd ", float" f)
+.sp
+.SH ARGUMENTS
+\fIlcd\fR  Specifies a LCD widget.
+.sp
+\fIn\fR  Specifies an integer.
+.sp
+\fIf\fR  Specifies a floating point number.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLcdInteger\fR updates a LCD widget to display the given integer.
+.PP
+\fBEZ_SetLcdFloat\fR updates a LCD widget to display the specified
+floating point number.
+
+.SH "SEE ALSO"
+EZ_SetLcdString(3), EZ_ClearLcd(3), EZ_SetLcdNDigits(3), 
+EZ_SetLcdFontSize(3), EZ_SetLcdForeground(3), EZ_SetLcdBackground(3)
+

@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ListTreeWidgetSelectNodeUsingItem 3 "" EZWGL "EZWGL Functions" 
+.BS
+.SH NAME
+EZ_ListTreeWidgetSelectNodeUsingItem \- set the selection in a list tree widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ListTreeWidgetSelectNodeUsingItem(EZ_Widget *" ltree,
+.BI "        EZ_Item *" item ", int *" location )
+
+
+.SH ARGUMENTS
+\fIltree\fR  Specifies a list tree widget.
+.sp
+\fIitem\fR Specifies a display item.
+.sp
+\fIlocation\fR Specifies a location (an array of two integers)
+to display the selection or NULL.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ListTreeWidgetSelectNodeUsingItem\fR  searches the tree 
+in \fIltree\fR for \fIitem\fR. If find, it sets the selection in the list tree
+widget to the corresponding node. If \fIlocation\fR is not NULL, the
+display will be updated so that the selected node is displayed at
+the specified location.
+
+.SH "SEE ALSO"
+EZ_GetListTreeWidgetTree(3), EZ_GetListTreeWidgetSelection(3),
+EZ_CreateDirTree(3)
+.br
+
+

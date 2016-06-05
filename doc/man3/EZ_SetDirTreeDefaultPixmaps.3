@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetDirTreeDefaultPixmaps 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetDirTreeDefaultPixmaps, EZ_SetDirTreeDefaultPixmapsFromXpmFiles \- set 
+the default pixmap labels for directory tree nodes
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetDirTreeDefaultPixmaps(EZ_LabelPixmap " *do ",
+.BI "                       EZ_LabelPixmap " *dc ", EZ_LabelPixmap " *f)
+.BI "void EZ_SetDirTreeDefaultPixmapsFromXpmFiles(char " *doxpm ",
+.BI "                        char " *dcxpm ", char " *fxpm)
+
+
+.SH ARGUMENTS
+\fIdo\fR, \fIdc\fR, \fIf\fR  Specify three EZWGL internal label
+pixmaps. Internal pixmaps are created by \fBEZ_CreateLabelPixmapFrom...\fR.
+When the default directory node generators are used, \fIdo\fR,
+\fIdc\fR, \fIf\fR will be used to label opened-directory-nodes,
+closed-directory-nodes and normal-file-nodes respectively,
+.sp
+\fIdoxmp\fR, \fIdcxpm\fR, \fIfxpm\fR  Specify three xpm files.
+
+.SH DESCRIPTION
+.PP
+These two procedures set the default label pixmaps for directory tree
+nodes.  
+
+.SH "SEE ALSO"
+EZ_CreateDirTree(3), EZ_CreateTreeNode(3), EZ_CreateItem(3)

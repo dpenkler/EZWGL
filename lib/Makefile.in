@@ -1,0 +1,150 @@
+#----------------------------------------------------------------------------------
+@MCOMMON@
+@SET_MAKE@
+
+#----------------------------------------------------------------------------------
+
+all: shared
+
+install: install-shared
+
+static:  libEZ.a
+
+shared: libEZ.so.$(MAJORVERSION)
+
+#----------------------------------------------------------------------------------
+
+HDR =    EZ_VectFont.h\
+	 EZ_Color.h  EZ_GL.h   \
+	 EZ_ColorDefs.h  EZ_LightMaterial.h EZ_Widget.h\
+	 EZ_ConvertLine.h EZ_Poly.h  EZ_WidgetConfig.h\
+	 EZ_ConvertLine00.h     EZ_ConvertPolyP00.h\
+	 EZ_ConvertPoly00.h EZ_ConvertPoint00.h\
+	 EZ_ConvertLine24.h     EZ_ConvertPolyP24.h\
+	 EZ_ConvertPoly24.h EZ_ConvertPoint24.h\
+	 EZ_ConvertPoint.h EZ_Render.h  EZ_XImageTypes.h\
+	 EZ_ConvertPoly.h EZ_RenderFunc.h EZ_Sqrt.h EZ_Timer.h EZ_Input.h\
+	 EZ_MemDebug.h EZ_Cursor.h EZ_Resource.h EZ_GQuarks.h \
+         EZ_CQuarks.h EZ_ITerm.h
+#----------------------------------------------------------------------------------
+# Some make cannot take long lines ...
+#
+SRC1 =   EZ_WidgetTerm.c EZ_WidgetITerm.c EZ_ITermScrn.c EZ_ITermComm.c\
+         EZ_Buffers.c  EZ_Render.c EZ_Clear.c  EZ_Sphere.c EZ_GLImage.c\
+	 EZ_WidgetGC.c EZ_WidgetIListBox.c EZ_WidgetScroll.c\
+	 EZ_WidgetFrame.c EZ_WidgetListBox.c EZ_WidgetRuler.c\
+	 EZ_Color.c  EZ_String.c  EZ_WidgetGeom.c EZ_Arrow.c \
+	 EZ_WidgetHash.c  EZ_Tube.c  EZ_WidgetImage.c EZ_WidgetFont.c\
+	 EZ_ProjView.c  EZ_Widget.c  EZ_WidgetInit.c \
+	 EZ_GLEvent.c  EZ_Widget3DCanvas.c EZ_WidgetInput.c\
+	 EZ_InitGL.c  EZ_WidgetBorder.c EZ_WidgetLabel.c\
+	 EZ_LightMaterial.c EZ_WidgetButtonC.c EZ_WidgetScrollButton.c\
+	 EZ_LightMaterial1.c EZ_WidgetButtonM.c EZ_WidgetMenuItems.c\
+         EZ_Input.c EZ_CreateWidget.c EZ_CreateItem.c EZ_WidgetRowCol.c\
+         EZ_RowCol.c EZ_GM.c  EZ_WidgetLcd.c EZ_WidgetLed.c\
+         EZ_Cursor.c EZ_WidgetSMeter.c EZ_ItemHash.c EZ_Garbage.c\
+         EZ_Message.c EZ_WM.c EZ_WidgetMBar.c EZ_DragXpm.c EZ_WidgetDial.c\
+         EZ_WidgetSeparator.c EZ_RCGM.c
+
+
+SRC2 =   EZ_MatrixStack.c EZ_WidgetButtonN.c EZ_WidgetMisc.c\
+	 EZ_MatrixTrans.c EZ_WidgetButtonR.c EZ_WidgetPopup.c\
+	 EZ_MatrixVect.c  EZ_WidgetConfigure.c EZ_WidgetSlider.c\
+	 EZ_Misc.c  EZ_WidgetDisp.c  EZ_World2Screen.c\
+	 EZ_PolyET.c  EZ_WidgetEvent.c EZ_X11Init.c\
+	 EZ_Polyhedra.c  EZ_WidgetFile.c EZ_Enable.c \
+	 EZ_Fog.c EZ_DpyList.c  EZ_ClearP.c EZ_X11Render.c\
+	 EZ_Text.c EZ_WidgetIText.c EZ_WidgetText.c EZ_WidgetNB.c \
+	 EZ_WidgetNBPage.c EZ_Xpm.c EZ_Sqrt.c EZ_WidgetGrab.c \
+	 EZ_WidgetNWLabel.c EZ_WidgetITopLevel.c EZ_WidgetArrange.c\
+         EZ_WidgetPaneHandle.c EZ_GIF.c EZ_Timer.c EZ_Indicator.c\
+	 EZ_WidgetArrowBtn.c EZ_Comm.c EZ_WidgetEmbeder.c\
+         EZ_DrawSpecial.c EZ_WidgetOptInput.c EZ_Focus.c \
+         EZ_ItemFig.c EZ_ItemUDF.c EZ_Png.c EZ_Tiff.c
+
+
+SRC3 =  EZ_WidgetFileSelect.c  EZ_MemDebug.c EZ_Item.c \
+	 EZ_ItemLabel.c EZ_ItemWidget.c \
+	 EZ_Tree.c EZ_TreeDir.c EZ_WidgetRawXWin.c\
+	 EZ_WidgetITree.c EZ_WidgetTree.c EZ_WidgetTearOff.c\
+	 EZ_WidgetIFListBox.c  EZ_WidgetFListBox.c \
+	 EZ_WidgetIWorkArea.c	EZ_WidgetWorkArea.c EZ_WorkAreaGeom.c\
+	 EZ_DnD.c EZ_DnDMsg.c EZ_DnDData.c EZ_RText.c\
+         EZ_BMP.c EZ_Jpeg.c EZ_Resource.c EZ_ResourceGet.c\
+	 EZ_ResourceEdit.c EZ_WidgetSpinButton.c EZ_WidgetLocator.c\
+         EZ_WidgetGBar.c EZ_WidgetHistogram.c EZ_WidgetSSheet.c\
+         EZ_WidgetThumWheel.c  glob.c fnmatch.c tilde.c 
+
+SRC4 =   EZ_ConvertLine.c EZ_ConvertPoint.c EZ_ConvertPoly.c  \
+         EZ_ConvertPolyP.c EZ_ConvertLineP.c EZ_ConvertPointP.c
+         
+
+SRC = $(SRC1) $(SRC2) $(SRC3) $(SRC4)
+
+#----------------------------------------------------------------------------------
+EZ_WidgetInit.c: VERSION.h
+
+VERSION.h:
+	echo "#define EZWGL_VERSION_STRING \""V$(VERSION), $(DATE)"\"" > $@;
+	echo "#define EZWGL_MAJOR_VERSION "$(MAJORVERSION)"" >> $@;
+	echo "#define EZWGL_MINOR_VERSION "$(MINORVERSION)"" >> $@;
+
+#----------------------------------------------------------------------------------
+ 
+OBJ =    $(SRC:.c=.o)
+
+libEZ.so.$(MAJORVERSION): libEZ.so.$(MAJORVERSION).$(MINORVERSION)
+	- $(RMF) libEZ.so.$(MAJORVERSION)
+	$(LN) -s libEZ.so.$(MAJORVERSION).$(MINORVERSION) libEZ.so.$(MAJORVERSION)
+	- $(RMF) libEZ.so
+	$(LN) -s libEZ.so.$(MAJORVERSION) libEZ.so
+
+libEZ.so.$(MAJORVERSION).$(MINORVERSION): $(OBJ)
+	$(CC) -shared  -o libEZ.so.$(MAJORVERSION).$(MINORVERSION) $(OBJ)
+
+
+libEZ.a: $(OBJ) 
+	 $(AR) r libEZ.a $(OBJ) 
+	 $(RANLIB) libEZ.a
+
+install-shared: shared
+	$(CP) libEZ.so.$(MAJORVERSION).$(MINORVERSION)  $(destlibdir)
+	- $(RMF) $(destlibdir)/libEZ.so $(destlibdir)/libEZ.so.$(MAJORVERSION)
+	$(LN) -s  $(destlibdir)/libEZ.so.$(MAJORVERSION).$(MINORVERSION) $(destlibdir)/libEZ.so.$(MAJORVERSION)
+	$(LN) -s  $(destlibdir)/libEZ.so.$(MAJORVERSION) $(destlibdir)/libEZ.so
+	- (lldconfig >/dev/null || /sbin/ldconfig) 
+
+
+install-static: shared
+	$(CP) libEZ.a $(destlibdir)
+	$(RANLIB) $(destlibdir)/libEZ.a
+
+clean:
+	- $(RMF) $(OBJ) 
+
+realclean: clean
+	- $(RMF) libEZ* *~
+
+mrproper: realclean
+	- $(RMF) Makefile
+
+tilde.o: tilde.c
+	$(CC) $(LINC) $(CFLAGS) -c tilde.c
+
+glob.o: glob.c
+	$(CC) $(LINC) $(CFLAGS) -c glob.c
+
+fnmatch.o: fnmatch.c
+	$(CC) $(LINC) $(CFLAGS) -c fnmatch.c
+
+.c.o:
+	$(CC) $(LINC) $(XINC) $(CFLAGS) -c  $<
+
+
+.c:
+	$(CC) $(LINC) $(XINC) $(CFLAGS)  $< -o $@ -L./ -lEZ $(XLIB) $(LIBS)
+
+#----------------------------------------------------------------------------------
+
+
+

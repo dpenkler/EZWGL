@@ -1,0 +1,64 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DefineLightModel 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DefineLightModel, EZ_BindLightModel \- define a lighting model
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_LightModel *EZ_DefineLightModel(float *" parameters )
+.BI "void EZ_BindLightModel(EZ_LightModel *" lmodel )
+
+.SH ARGUMENTS
+.sp
+\fIparameters\fR  Specifies material properties.
+.sp
+\fIlmodel\fR Specifies a pre-defined lighting model.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DefineLightModel\fR defines a lighting model based on the
+specified parameters. The defined lighting model can later be
+bind the current lighting model.
+.PP
+\fIparameters\fR specifies an array of floating point symbols and
+values that defines the lighting model properties.
+\fIparameters\fR must contain a sequence of lighting symbols,
+each followed by the appropriate number of floating point values. 
+The last symbol must be EZ_NULL_F, which is itself not followed by any
+values.
+.sp
+The symbols are:
+.in +3
+.sp
+\fBEZ_LIGHT_MODEL_AMBIENT_F\fR specifies the ambient color of the
+lighting model, Must followed by 4 floats in the range [0.0, 1.0] that specify the
+intensity of the RGBA components of the ambient color.
+.sp
+\fBEZ_LIGHT_MODEL_LOCAL_VIEWER_F\fR specifies whether reflection
+calculations are done based on a local or infinitely distant viewpoint.
+It must be followed by a single floating point value, which must be
+either 0.0 or 1.0.
+.sp
+\fBEZ_LIGHT_MODEL_TWO_SIDE_F\fR specifies whether lighting
+calculations are done assuming that only frontfacing polygons are
+visible, or are corrected for each polygon based on whether it is
+frontfacing or backfacing. It must be followed by a single floating
+point value, which must be either 0.0 or 1.0. The value 1.0 specifies
+a lighting model that is correct for both frontfacing and backfacing
+polygons. In this case, vertex normals are reversed 
+for all vertices of backfacing polygons and the back-material is
+used to color backfacing polygons.
+.in -3
+.PP
+\fBEZ_BindLightModel\fR binds the specified pre-defined lighting model
+to the current lighting model.
+
+.SH "SEE ALSO"
+EZ_DefineLightSrc(3), EZ_DefineMaterial(3), EZ_BindLightSrc(3),
+EZ_BindMaterial(3)

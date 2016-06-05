@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetListTreeWidgetComponents 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetListTreeWidgetComponents  \- retrieve the components of a
+list tree widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GetListTreeWidgetComponents( EZ_Widget *" ltree
+.BI "       EZ_Widget **" iltree_ret ", EZ_Widget **" hscroll_ret,
+.BI "       EZ_Widget **" vscroll_ret )
+
+
+.SH ARGUMENTS
+\fIltree\fR  Specifies a list tree widget.
+.sp
+\fIiltree_ret\fR  Specifies the return for the internal list tree widget.
+.sp
+\fIhscroll_ret\fR  Specifies the return for the horizontal scroll bar.
+.sp
+\fIvscroll_ret\fR  Specifies the return for the vertical scroll bar.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetListTreeWidgetComponents\fR  returns the
+components of a list tree widget. A list tree widget contains 3 internal
+components, an internal list tree widget, a horizontal scrollbar and
+a vertical scrollbar. 
+.PP
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxWidgetComponents(3), EZ_GetFileSelectorWidgetComponents(3)
+EZ_GetListBoxWidgetComponents(3), EZ_GetWorkAreaWidgetComponents(3),
+EZ_GetTextWidgetComponents(3), EZ_GetOptionalEntryWidgetComponents(3)

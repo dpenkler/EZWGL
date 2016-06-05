@@ -1,0 +1,43 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetBackgroundGC 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetBackgroundGC, EZ_GetbackgroundTileGC \- return the background GC.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetParentGC(EZ_Widget " *widget ", GC " *gc ", unsigned long " *pv )
+.BI "int EZ_GetParentTileGC(EZ_Widget " *widget ", GC " *gc ", unsigned long " *pv )
+
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies a widget.
+.sp
+\fIgc\fR  Specifies  the return of parent's background GC.
+.sp
+\fIpv\fR  Specifies  the return of the pixel value.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetParentBgGC\fR returns the GC used to render parent's background.
+It also returns the background pixel value. 
+If background tile is used, it returns the background tile GC but
+leaves the tile origin undefined. In this case, the background pixel
+value is meaningless.
+.PP
+\fBEZ_GetParentBgTileGC\fR returns the GC used to render parent's background.
+If background tile is used, it returns the background tile GC 
+with the tile origin properly set.
+.PP
+The returned GC is immediate, it will be modified by EZWGL.
+
+.SH "SEE ALSO"
+EZ_GetWidgetTileOrigin(3)
+.br
+EZ_GetDarkBrightNormalBDGC(3)
+

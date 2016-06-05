@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetExecutorCommand 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Set3DCanvas \- set the active 3D canvas widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Set3DCanvas( EZ_Widget *" canvas )
+
+.SH ARGUMENTS
+\fIcanvas\fR  Specifies a 3D canvas widget.
+
+.SH DESCRIPTION
+An application can have only one active 3D canvas a time. This function
+sets the activate 3D canvas widget. It performs a graphics context
+switch.
+
+
+.SH "SEE ALSO"
+EZ_Configure3DCanvas(3)
+.br
+
+
+

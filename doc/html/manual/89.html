@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>EZwgl (8.4  Related Routines)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="88.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="90.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>8.4  Related Routines</h2>
+
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_WidgetAddDnDDataEncoder</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, Atom target,
+                                int tag, <font color="#990000"><b>EZ_DnDEncoder</b></font> encoder, void *edata,
+                                <font color="#990000"><b>EZ_CallBack</b></font> callback, void *cdata);
+void <font color="#990000"><b>EZ_WidgetDeleteDnDDataEncoder</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget,
+                    <font color="#990000"><b>EZ_DnDEncoder</b></font> encoder, void *edata);
+void <font color="#990000"><b>EZ_WidgetDeleteAllDnDDataEncoders</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><pre><p>
+void <font color="#990000"><b>EZ_ItemAddDnDDataEncoder</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, Atom target,
+                              int tag, <font color="#990000"><b>EZ_DnDEncoder</b></font> encoder, void *edata,
+                              <font color="#990000"><b>EZ_CallBack</b></font> callback, void *cdata);
+void <font color="#990000"><b>EZ_ItemDeleteDnDDataEncoder</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item,
+                             <font color="#990000"><b>EZ_DnDEncoder</b></font> encoder, void *edata);
+void <font color="#990000"><b>EZ_ItemDeleteAllDnDDataEncoders</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);
+</pre>
+<p><p>
+<strong><IMG SRC="images/blue_warning.gif" alt="Warning:"></strong> The tag argument used in <code>*Add*Encoder</code>
+is used to choose conversion
+methods. It is useful for the following situations.
+<ul>
+<p>
+<li>A drag source has multiple encoders for the same conversion
+target. For example, when transfering files,  one may want either
+to copy a file or move a file to the destination specified by
+the drop site. This can be achieved by registering multiple encoders
+with different tags. For example, shift-press-drag-relase
+for copying the file and cntrl-press-drag-release for moving the
+file.
+<p>
+<li>Sometimes it is preferable to enforce a more strict drag and
+drop policy so that a careless drag and drop will not do any harm. 
+For example, if you write a file manager and want to use DnD to
+remove files, it may be better to enforce a 
+control-press-drag-release policy for the trash can.
+<p>
+<li>The tag value <code>~0</code> is reserved for a special purpose: drop 
+at the root window of your display. Strictly speaking, the root
+window is not a valid drop site because
+it does not talk to the drag source.
+Nevertheless, for applications like file managers, it is useful
+to have a feature so a user can drop an item at the root window.
+Since the root window is not an official drop site, there
+will be no data transfers. The action is completely handled
+by the drag source. If you want to use this feature. Here 
+are the tricks. 
+<ul>
+<p><p>
+<li> Write a special encoder which does not
+convert anything, but rather, acts like a callback. In the
+example of droping a file item over the background, you may
+want to create a Icon widget, set it up properly and display
+it. The encoder has to return <code><font color="#990000"><b>EZ_DND_SUCCESS</b></font></code> on success
+and <code><font color="#990000"><b>EZ_DND_FAILURE</b></font></code> on failure.  The callbacks for
+this special encoder behave exactly the same as that of a regular 
+encoder. It is invoked when the encoder returns 
+<code><font color="#990000"><b>EZ_DND_SUCCESS</b></font></code>.
+<p><p>
+<li>Register your special encoder with a tag value <code>~0</code>.
+</ul>
+<p>
+</ul>
+<p><pre><p>
+void <font color="#990000"><b>EZ_WidgetAddDnDDataDecoder</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget, Atom target,
+                      int tag, <font color="#990000"><b>EZ_DnDDecoder</b></font> decoder, void *edata,
+                      <font color="#990000"><b>EZ_CallBack</b></font> callback, void *cdata);
+void <font color="#990000"><b>EZ_WidgetDeleteDnDDataDecoder</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget,
+                      <font color="#990000"><b>EZ_DnDDecoder</b></font> decoder, void *data);
+void <font color="#990000"><b>EZ_WidgetDeleteAllDnDDataDecoders</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *widget);
+</pre>
+<p><pre><p>
+void <font color="#990000"><b>EZ_ItemAddDnDDataDecoder</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item, Atom target,
+                     int tag, <font color="#990000"><b>EZ_DnDDecoder</b></font> decoder, void *edata,
+                     <font color="#990000"><b>EZ_CallBack</b></font> callback, void *cdata);
+void <font color="#990000"><b>EZ_ItemDeleteDnDDataDecoder</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item,
+                     <font color="#990000"><b>EZ_DnDDecoder</b></font> decoder, void *data);
+void <font color="#990000"><b>EZ_ItemDeleteAllDnDDataDecoders</b></font>(<font color="#990000"><b>EZ_Item</b></font> *item);
+</pre>
+<p><p>
+<pre><p>
+void <font color="#990000"><b>EZ_GetDnDDropLocation</b></font>(int *rootX, int *rootY,
+                           int *winX, int *winY);
+</pre>
+<p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="88.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="90.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

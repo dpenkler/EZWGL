@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MenuBarSetItemMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MenuBarSetItemMenu  \- Attach a popup menu to an item on a menubar
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget  *EZ_MenuBarSetItemMenu(EZ_Widget *" mbar ", char *" item, 
+.BI "                                     EZ_Widget *" menu)
+
+.SH ARGUMENTS
+\fImbar\fR  Specifies a menubar widget.
+.sp
+\fIitem\fR  Specifies an item label.
+.sp
+\fImenu\fR  Specifies the menu to be attached to the item.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_MenuBarSetItemMenu\fR  attaches a popup menu to 
+an item on a menubar.
+.PP
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_MenuBarAddItemAndMenu(3), EZ_MenuBarFindItem(3)
+.br
+
+
+

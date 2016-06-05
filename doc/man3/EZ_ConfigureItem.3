@@ -1,0 +1,225 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ConfigureItem 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ConfigureItem \- configure a display item
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ConfigureItem(EZ_Item *" item ", " ... )
+
+.SH ARGUMENTS
+\fIitem\fR Specifies a display item.
+.sp
+\fI ...\fR Specify configuration options and their values.
+.SH DESCRIPTION
+.PP
+\fIEZ_ConfigureItem\fR sets or modifies item attributes, things
+like label string, color, border. This function takes a 
+variable length arguments, a list of symbols each followed by one or
+more values. The last symbol must be \fBNULL\fR, which is itself not
+followed by any values.
+
+.SH CONFIGURATION SYMBOLS AND THEIR VALUES
+The set of item configuration options and their values
+are listed below. For each option value, the string before
+the last _ is its type.
+.sp
+\fBEZ_BORDER_WIDTH\fR, \fIint_bw\fR 
+.in +5
+Specifies a border width.
+.in -5
+.sp
+\fBEZ_BORDER_TYPE\fR, \fIint_bt\fR
+.in +5
+Specifies a border type. \fIint_bt\fR must be one of EZ_BORDER_NONE,
+EZ_BORDER_FLAT, EZ_BORDER_RIDGE, EZ_BORDER_GROOVE, EZ_BORDER_RAISED or
+EZ_BORDER_SUNKEN.
+.in -5
+.sp
+\fBEZ_PADX\fR, \fIint_px\fR
+.in +5
+Specifies the horizontal padding between the item border and its contents.
+.in -5
+.sp
+\fBEZ_PADY\fR, \fIint_py\fR
+.in +5
+Specifies the vertical padding between the item border and its contents.
+.in -5
+.sp
+\fBEZ_IPADX\fR, \fIint_ipx\fR
+.in +5
+Specifies the amount of spaces to be inserted horizontally between
+textual label and image label. It is used only when the item has
+a horizontal orientation.
+.in -5
+.sp
+\fBEZ_IPADY\fR, \fIint_ipy\fR
+.in +5
+Specifies the amount of spaces to be inserted vertically between
+textual label and image label. It is used only when the item has
+a vertical orientation.
+.in -5
+.sp
+\fBEZ_ORIENTATION\fR, \fIint_ori\fR
+.in +5
+Specifies the orientation of an item. \fIori\fR must be EZ_HORIZONTAL
+or EZ_VERTICAL.
+.in -5
+.sp
+\fBEZ_LABEL_POSITION\fR, \fIint_lp\fR
+.in +5
+Specifies a location to anchor a label. \fIint_lp\fR must be one of
+EZ_CENTER, EZ_LEFT, EZ_RIGHT, EZ_TOP, EZ_BOTTOM,  EZ_TOP_LEFT,
+EZ_TOP_RIGHT, EZ_BOTTOM_LEFT or EZ_BOTTOM_RIGHT.  This attribute
+is used only when an item has been given a size which is larger
+than its minimal size.
+.in -5
+.sp
+\fBEZ_LABEL_JUSTIFICATION\fR, \fIint_jst\fR
+.in +5
+Specifies the justfication for textual labels. \fIint_jst\fR must be
+one of EZ_CENTER, EZ_LEFT or EZ_RIGHT.
+.in -5
+.sp
+\fBEZ_CALLBACK\fR, \fIEZ_CallBack_cbk\fR, \fIvoidptr_cdata\fR
+.in +5
+Specifies a callback procedure and a client data to be passed to the
+callback. Use this option only when an item is to have only one callback.
+.in -5
+.sp
+\fBEZ_FOREGROUND\fR, \fIstr_fg\fR
+.in +5
+Specifies a forground color.
+.in -5
+.sp
+\fBEZ_BACKGROUND\fR, \fIstr_bg\fR
+.in +5
+Specifies a background color.
+.in -5
+.sp
+\fBEZ_PIXMAP_FILE\fR, \fIstr_filename\fR
+.in +5
+Specifies an X bitmap file or a X pixmap file (an xpm image).
+.in -5
+.sp
+\fBEZ_BITMAP_DATA\fR, \fIarray_of_char\fR,\fIint_width\fR,\fIint_height\fR
+.in +5
+Specify an X bitmap.
+.in -5
+.sp
+\fBEZ_PIXMAP_DATA\fR, \fIarray_of_str\fR
+.in +5
+Specifies an XPM image data.
+.in -5
+.sp
+\fBEZ_X_PIXMAP\fR,
+\fIPixmap_p\fR,\fIint_x\fR,\fIint_y\fR,\fIint_width\fR,\fIint_height\fR
+.in +5
+Specify a rectangular region of a native X pixmap to be used as an
+image label.
+.in -5
+.sp
+\fBEZ_LABEL_PIXMAP\fR, \fIEZ_Pixmap_p\fR
+.in +5
+Specifies an internal pixmap.
+.in -5
+.sp
+\fBEZ_FONT_ID\fR, \fIint_id\fR
+.in +5
+Specifies a fond id.
+.in -5
+.sp
+\fBEZ_FONT_NAME\fR, \fIstr_filename\fR
+.in +5
+Spcifies an X11 font name.
+.in -5
+.sp
+\fBEZ_TEXT_LINE_LENGTH\fR, \fIint_len\fR
+.in +5
+Specifies the wrap around length for textual labels.
+.in -5
+.sp
+\fBEZ_IMAGE_FILE\fR, \fIstr_name\fR
+.in +5
+Specifies an image file name. Supported image formats are: ppm, xpm,
+bmp, gif and jpeg. 
+.in -5
+.sp
+\fBEZ_LABEL_STRING\fR, \fIstr_label\fR
+.in +5
+Specifies a textual label.
+.in -5
+.sp
+\fBEZ_CLIENT_PTR_DATA\fR, \fIptr_data\fR
+.in +5
+Specifies a generic pointer to be stored in a item.
+.in -5
+.sp
+\fBEZ_CLIENT_INT_DATA\fR, \fIint_data\fR
+.in +5
+Specifies an integer to be stored in a item.
+.in -5
+.sp
+\fBEZ_DESTROY_CALLBACK\fR, \fIEZ_CallBack_callback\fR, \fIptr_data\fR
+.in +5
+Specify a destroy callback and a client data to be passed to the
+callback. Use this option only when an item is to have only one
+destroy callback.
+.in -5
+.sp
+\fBEZ_DND_DRAG_CURSOR\fR, \fICursor_cur\fR
+.in +5
+Specifies an X cursor for drag and drop. The specified cursor will
+replace the default cursor when the item is being draged.
+.in -5
+.sp
+\fBEZ_DND_BUBBLE_HELP\fR, \fIstr_hlp\fR
+.in +5
+Specifies a DND bubble help string. DND bubble will be displayed when
+a drag is paused over an item and the item is a drop site. 
+.in -5
+.sp
+\fBEZ_X\fR, \fIint_x\fR 
+.br
+.in +5
+Specifies the x coordinate of the upper-left
+corner of an item in its hosting window.
+.in -5
+.sp 
+\fBEZ_Y\fR, \fIint_y\fR 
+.in +5
+Specifies the y coordinate of the upper-left
+corner of an item in its hosting window.
+.in -5
+.sp
+\fBEZ_WIDTH\fR, \fIint_w\fR
+.in +5
+Specifies the width of an item.
+.in -5
+.sp
+\fBEZ_HEIGHT\fR, \fIint_h\fR
+.in +5
+Specifies the height of an item.
+.in -5
+.sp
+.sp
+\fBEZ_LOCATION\fR, \fIint_x\fR, \fIint_y\fR
+.in +5
+Specify the coordinates of the upper-left corner of an item
+in its hosting window.
+.in -5
+.sp
+\fBEZ_SIZE\fR, \fIint_w\fR, \fIint_h\fR
+.in +5
+Specify the width and height of an item.
+.in -5
+.sp
+
+.SH "SEE ALSO"
+EZ_CreateItem(3), EZ_DestroyItem(3)
+
+

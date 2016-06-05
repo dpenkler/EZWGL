@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Save3DCanvas2PPMImage 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Save3DCanvas2PPMImage \- dump a 3D canvas to a file
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Save3DCanvas2PPMImage( EZ_Widget *" canvas ", char *" file_name )
+
+.SH ARGUMENTS
+\fIcanvas\fR  Specifies a 3D canvas widget.
+.sp
+\fIfile_name\fR  Specifies a file name.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_Save3DCanvas2PPMImage\fR dumps the contents of visible portion
+of a 3D canvas to the specified file as a PPM image.
+
+.SH "SEE ALSO"
+EZ_Save3DCanvas2PS(3)
+
+

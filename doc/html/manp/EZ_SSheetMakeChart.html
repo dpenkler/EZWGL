@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_SSheetMakeChart</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_SSheetMakeChart</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SSheetMakeChart  -  make  a  chart  from a spread sheet
+       region
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>m</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>1</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>c</i></font><font color="#004400"><i>1</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>r</i></font><font color="#004400"><i>2</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>c</i></font><font color="#004400"><i>2</i></font><font color="#004400"><i>,</i></font>
+                  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>H</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font> <font color="#004400"><i>h</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>k</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>c</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>)</i></font><font color="#004400"><i>;</i></font>
+
+       typedef  int  (*EZ_SChartHandle)(EZ_Widget *ssheet, void *chart, int r1, int c1,
+                                        int r2, int c2, int kind, void *data);
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>s</i></font><font color="#004400"><i>s</i></font><font color="#004400"><i>h</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  Specifies a spread sheet widget.
+
+       <font color="#004400"><i>r</i></font><font color="#004400"><i>1</i></font><font color="#004400"><i>,</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>1</i></font><font color="#004400"><i>,</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>2</i></font><font color="#004400"><i>,</i></font><font color="#004400"><i>c</i></font><font color="#004400"><i>2</i></font> <font color="#004400"><i>c</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>l</i></font>  Specify the  the  upper-left  and  lower-
+       right corner of a region.
+
+       <font color="#004400"><i>h</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font> Specify a chart handle.
+
+       <font color="#004400"><i>k</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>,</i></font>  <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font> Specify client data to be passed to chart han-
+       dle.
+
+       <font color="#004400"><i>c</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>o</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>e</i></font> Specified coordinate mode, either 0 or 1.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>t</b></font> creates a  chart  using  the  specified
+       chart  handle  and  the  specified  region. A spread sheet
+       chart is a display FIG item. This function  allocates  and
+       initializes  a FIG item and passed it to the chart handle.
+       The chart handle is responsible for  actually  making  the
+       chart.  Once  created,  the spread sheet widget will track
+       the defining region for the chart,  when  a  cell  in  the
+       region  is  modified,  the chart handle will be invoked to
+       update the chart.
+
+
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_SSheetGetActiveChart.html">EZ_SSheetGetActiveChart</A>(3),       <A HREF="EZ_SSheetDeleteChart.html">EZ_SSheetDeleteChart</A>(3),
+       <A HREF="EZ_SSheetGetHighlightedRegion.html">EZ_SSheetGetHighlightedRegion</A>(3),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

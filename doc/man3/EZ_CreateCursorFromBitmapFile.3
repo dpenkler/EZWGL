@@ -1,0 +1,63 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateCursor "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateCursorFromBitmapFile, EZ_CreateCursorFromBitmapData \- define
+an X cursor
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "Cursor EZ_CreateCursorFromBitmapFile(char *" file ", char *" maskfile,
+.BI "                        char *" fgcolor ", char *" bgcolor ", 
+.BI "                        int " hotx ", int "hoty,
+.BI "                        char *" name ", int *" idx_ret )
+.sp
+.BI "Cursor EZ_CreateCursorFromBitmapData(int " width ", int " height,
+.BI "                        char *" data ", char *" mask
+.BI "                        char *" fgcolor ", char *" bgcolor ", 
+.BI "                        int " hotx ", int "hoty,
+.BI "                        char *" name ", int *" idx_ret )
+.sp
+
+
+.SH ARGUMENTS
+\fIfile\fR  Specifies a file to read the cursor bitmap.
+.sp
+\fImaskfile\fR  Specifies a file to read the cursor mask bitmap or NULL.
+.sp
+\fIfgcolor\fR Specifies the foreground color for the cursor or NULL.
+.sp
+\fIbgcolor\fR Specifies the background color for the cursor or NULL.
+.sp
+\fIhotx\fR,\fIhoty\fR Specify a hotspot in the bitmap.
+.sp
+\fIdata\fR Specifies the bitmap bits.
+.sp
+\fImask\fR Specifies the mask bitmap bits or NULL.
+.sp
+\fIwidth\fR,\fIheight\fR Specify the dimension of the bitmaps.
+.sp
+\fIname\fR  Specifies a name for the cursor being created.
+.sp
+\fIidx_ret\fR Specifies a return for the internal identifier
+for the cursor being created.
+
+.SH DESCRIPTION
+.PP
+These two functions create an X cursor from the specified
+X bitmaps, and return the X cursor id. In case of failure,
+they return \fINone\fR.  \fIname\fR, if specified, can be
+used in \fBEZ_GetCursorByName\fR to retrieve the cursor.
+The value returned to \fIidx_ret\fR can be used in
+\fBEZ_GetCursor\fR to return the cursor.
+
+.SH "SEE ALSO"
+EZ_GetCursor(3), EZ_WaitCursor(3)
+.br
+
+
+

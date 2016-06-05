@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DrawBuffer 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DrawBuffer \- select a buffer to draw into
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_DrawBuffer( int " buf)
+
+.SH ARGUMENTS
+\fIbuf\fR Specifies a buffer, either 
+EZ_FRONT or EZ_BACK.
+
+.SH DESCRIPTION
+\fBEZ_DrawBuffer\fR selects a color buffer to draw into. If 
+\fIbuf\fR is EZ_FRONT, then the front buffer is selected. Subsequent
+rendering are sent directly to the screen. If \fIbuf\fR is EZ_BACK,
+then subsequent drawing will be send to the back buffer. 
+
+.SH "SEE ALSO"
+EZ_SetBackBuffer(3), EZ_SwapBuffers(3), EZ_AutoSelectBackBuffer(3)
+
+
+

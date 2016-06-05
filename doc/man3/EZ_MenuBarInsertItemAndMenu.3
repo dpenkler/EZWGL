@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_MenuBarInsertItemAndMenu 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_MenuBarInsertItemAndMenu  \- insert an item on a menubar
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_MenuBarInsertItemAndMenu(EZ_Widget *" mbar ", char *" label ", int " ul 
+.BI "                                  EZ_Widget *" menu ", char *" ref ", int " where )
+
+.SH ARGUMENTS
+\fImbar\fR  Specifies a menubar widget.
+.sp
+\fIlabel\fR  Specifies an item label.
+.sp
+\fIul\fR Specifies the index of the character in \fIlabel\fR to be
+underlined.
+.sp
+\fImenu\fR Specifies the menu to be associated to the new item.
+.sp
+\fIref\fR  Specifies an existing item label on the menu bar.
+.sp
+\fIwhere\fR Specifies where to insert the new item, relative to
+\fIref\fR. A negative value means the new item will be inserted in
+front of \fIref\fR.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_MenuBarInsertItemAndMenu\fR  add a new item on a menu bar. If
+there are no item on \fImbar\fR labeled by \fIref\fR, the newly
+created item will be insert either at the front or the end of
+the item list, depending on the sign of \fIwhere\fR.
+.PP
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_MenuBarAddItem(3)
+.br
+
+
+

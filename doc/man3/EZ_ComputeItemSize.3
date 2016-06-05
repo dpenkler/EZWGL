@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ComputeItemSize 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ComputeItemSize \- compute the geometry of a display item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ComputeItemSize(EZ_Item *" item ", int *" w_ret ", int *" h_ret )
+
+.SH ARGUMENTS
+\fIitem\fR  Specifies a display item.
+.sp
+\fIw_ret\fR, \fIh_ret\fR Specify the returns for the width and the height
+of \fIitem\fR.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ComputeItemSize\fR computes the dimension of a display item.
+.PP
+This function is intended to be used by the geometry managers of
+a work-area widget.
+
+.SH "SEE ALSO"
+EZ_GetItemDimension(3), EZ_GetItemPosition(3), 
+EZ_SetItemDimension(3), EZ_SetItemPosition(3)
+

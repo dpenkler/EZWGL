@@ -1,0 +1,449 @@
+<html>
+<head>
+<title>EZwgl (4.37  Spread Sheet)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="52.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="54.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>4.37  Spread Sheet</h2>
+
+<p>
+The spread widget behaves like a two dimensional array of simplified input
+fields called cells. Cells can be left, right or center justified and can
+be displayed using different text properties. Rectanglar regions can
+be selected, sorted and charted. Contents of a spread sheet can be
+read from or exported to a text file (treated as a single string).
+Insertion/exporting is controled by the current tab and newline characters,
+the defaults are <code>\t</code> and <code>\n</code>.
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Info </h3 <br>
+<p><table border=2><tr><td> Symbolic widget type<td>       <font color="#990000"><b>EZ_WIDGET_SPREAD_SHEET</b></font></tr>
+                <tr> <td> Default class  name <td>       "SpreadSheet" </tr>
+                <tr> <td> Default instance name<td>     "spreadSheet" </tr></table>
+<p><p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Widget Interface Routines </h3 <br>
+<p><p>
+<code>void   <font color="#990000"><b>EZ_SSheetGetSizes</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int *nrows, int *ncolumns);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the current effect size of the spread sheet. The effect size is the
+minimal rectangle which contains all nonempty cells. 
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSetFirstCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int row, int col);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Set the the cell to be displayed at the upper left corner of the widget
+window.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSetTextProperty</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, TextProperty *prop);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the default text property. Newly created cells will be displayed using
+this default text property.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSetHScrollbar</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, <font color="#990000"><b>EZ_Widget</b></font> *hscrollbar);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSetVScrollbar</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, <font color="#990000"><b>EZ_Widget</b></font> *vscrollbar);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the horizontal/vertical scrollbar for the spread sheet. 
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetHideColumns</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int from, int to);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetHideRows</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int from, int to);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetUnhideColumns</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int from, int to);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetUnhideRows</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int from, int to);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+hide/unhide the specified columns/rows. Hidden columns/rows will be 
+displyed using a vertical/horizontal line of width 1.
+</font>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSwapRow</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int r2);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSwapColumn</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int c1, int c2);</code>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSwapCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Swap two rows/columns/cells.
+</font>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetClearRegion</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, c2);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+clear the region <img src="images/3.gif"> inclusive.
+</font>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetCopyRegion</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2,</code>
+<p><p>
+<code>                          int r, int c, int delete);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+copy the region <img src="images/3.gif"> inclusive and paste it at <img src="images/4.gif">. If
+<code>delete</code> is true, clear the region <img src="images/3.gif"> before pasting.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSortRegion</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2,</code>
+<p><p>
+<code>                        int keycolumn, int (*cmp)(CONST void *, CONST void *) );</code>
+<p><p>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Sort the specified region according to cells in <code>keycolumn</code>,
+using the supplied comparision function
+<code>cmp</code>. Cells are treated as strings in comparision. If <code>cmp</code> is NULL, it
+sorts the <code>keycolumn</code> in lexical ascending order.
+</font>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSortRegionRow</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2,</code>
+<p><p>
+<code>                        int keyrow, int (*cmp)(CONST void *, CONST void *) );</code>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSortColumns</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2,</code>
+<p><p>
+<code>                         int (*cmp)(CONST void *, CONST void *) );</code>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSortRows</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2,</code>
+<p><p>
+<code>                        int (*cmp)(CONST void *, CONST void *) );</code>
+<p><p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetFindCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, char *str, int *row, int *col);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+find the first cell which contain <code>str</code> as a substring, and return the
+row and column index of the cell. This function returns 1 if a match is found
+and returns 0 otherwise.
+</font>
+<p><p>
+<code>void  <font color="#990000"><b>EZ_SSheetSetTabChar</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, char tab, char newline);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the tab and line separator. They are used in 
+<code><font color="#990000"><b>EZ_SSheetGetRegionString</b></font>**</code> and <code><font color="#990000"><b>EZ_SSheetInsertRegionString</b></font>**</code>.
+The default values are '<br>t' and '<br>n'.
+</font>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetGetRegionString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2);</code>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetGetRegionStringWithProperty</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, </code>
+<p><p>
+<code>              int r2, int c2, <font color="#990000"><b>EZ_TextProperty</b></font> ***prop);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the specified region as a single string. Columns and rows are separated using 
+the current tab and newline character. The second function returns the associated
+text property also.
+</font>
+<p><p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetInsertRegionString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, char *str)</code>;
+<p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetInsertRegionStringWithProperty</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, </code>
+<p><p>
+<code>              char *str, <font color="#990000"><b>EZ_TextProperty</b></font> **prop);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Insert cells represented by <code>str</code> at location [r1 c1]. \verb=str= is parsed
+using the current tab and newline character. In the second version, inserted cells will
+be displayed using the associated text property.
+</font>
+<p><p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetInsertRegionString</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, char *str)</code>;
+<p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetInsertRegionStringWithProperty</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, </code>
+<p><p>
+<code>              char *str, <font color="#990000"><b>EZ_TextProperty</b></font> **prop);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Insert cells represented by <code>str</code> at location [r1 c1]. \verb=str= is parsed
+using the current tab and newline character. In the second version, inserted cells will
+be displayed using the associated text property.
+</font>
+<p><p><p>
+<code>int <font color="#990000"><b>EZ_SSheetFindCursorCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int x, int y, int *row, int *col);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Find and return the indices of the cell that contains the point (x,y). This function
+returns 0 if no cells are found.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SSheetHighlightRegion</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+Highlight the specified region.  If r1 < 0, clear the current highlighted region.
+</font>
+<p><p>
+<code>int <font color="#990000"><b>EZ_SSheetGetHighlightedRegion</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int *r1, int *c1, int *r2, int *c2);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the current highlight region. If no region is currently highlighted, returns 0.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SSheetGetActiveCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int *row, int *col, char **str);</code>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SSheetGetActiveCellWithProperty</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int *row, int *col,</code>
+<p><p>
+<code>                                        char **str, <font color="#990000"><b>EZ_TextProperty</b></font> ***prop);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the indices of the current active cell. If <code>str</code> is not null, it returns
+the active cell content.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SSheetSetActiveCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int row, int col);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set the current active cell.
+</font>
+<p><p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetGetCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int row, int col);</code>
+<p><p>
+<code>char *<font color="#990000"><b>EZ_SSheetGetCellWithProperty</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int row, int col, <font color="#990000"><b>EZ_TextProperty</b></font> *p);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the content of the specified cell.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SSheetDrawCell</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int row, int col, Drawable drawable, </code>
+<p><p>
+<code>                       int x, int y, int w, int h);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+draw the content of the specified cell in drawable. (x,y,w,h) specifies the rectangle
+to render the text into.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SSheetSetRegionJustification</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, </code>
+<p><p>
+<code>                                    int r2, int c2, int justification);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+justify the region. <code>justification</code> is one of <code><font color="#990000"><b>EZ_LEFT</b></font>,<font color="#990000"><b>EZ_RIGHT</b></font></code> or
+<code><font color="#990000"><b>EZ_CENTER</b></font></code>.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SSheetSetRegionProperty</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, </code>
+<p><p>
+<code>                                    int r2, int c2, <font color="#990000"><b>EZ_TextProp</b></font> *prop);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+set and redisplay the specified region using the specified text property.
+</font>
+<p><p><p>
+<code>void <font color="#990000"><b>EZ_SSheetMakeChart</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2,</code>
+<p><p>
+<code>            <font color="#990000"><b>EZ_SchartHandle</b></font> handle, int kind, void *cdata, int cmode);</code>
+<p><font size=-1>
+<code>typedef  int  (*<font color="#990000"><b>EZ_SChartHandle</b></font>)(<font color="#990000"><b>EZ_Widget</b></font> *ss, void *chart, int r1, int c1, </code>
+<p><p>
+<code>                                 int r2, int c2, int kind, void *data);</code>
+<p></font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SSheetDeleteChart</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, <font color="#990000"><b>EZ_Item</b></font> *chart);</code>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+delete the specified chart.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Item</b></font> *<font color="#990000"><b>EZ_SSheetGetActiveChart</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet);</code>
+<image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the currently selected chart.
+</font>
+<p><p>
+<code><font color="#990000"><b>EZ_Item</b></font> **<font color="#990000"><b>EZ_SSheetGetAllCharts</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int *cnt);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+return the list of all charts and return the number of charts to <code>cnt</code>.
+</font>
+<p><p>
+<code>void <font color="#990000"><b>EZ_SSheetValidateCharts</b></font>(<font color="#990000"><b>EZ_Widget</b></font> *ssheet, int r1, int c1, int r2, int c2);</code>
+<p><image src="images/dot_clear.gif" width=50 height=1> 
+<font size=-1>
+validate all charts whose definig region intersects to the specified region.
+</font>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Screenshot </h3 <br>
+<p><p>
+<center><img  src="images/ssheet.jpg"> </center>
+<p><h3> 
+<IMG SRC="images/red_ball_small.gif"> Resources </h3 <br>
+<p>
+<font size=-1>
+<center>
+<p>
+<table border=1>
+<tr><td width=280>
+<em>Config_Option</em>                <td width=140>  <em>ResourceName</em>        <td width=140> <em> DefaultValue</em>  </tr><tr><td width=280>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CLASS</b></font></strong>                     <td width=140> class                      <td width=140> <code>  "SpreadSheet"</code>   </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_NAME</b></font></strong>                      <td width=140> name                       <td width=140> <code>  "spreadSheet"</code>   </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_X</b></font></strong>                         <td width=140> x                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_Y</b></font></strong>                         <td width=140> y                          <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_WIDTH</b></font></strong>                     <td width=140> width                      <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT</b></font></strong>                    <td width=140> height                     <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_LOCATION</b></font></strong>                  <td width=140> location                   <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE</b></font></strong>                      <td width=140> size                       <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_GEOMETRY</b></font></strong>                  <td width=140> geometry                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_WIDTH_HINT</b></font></strong>               <td width=140> widthHint                  <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_HEIGHT_HINT</b></font></strong>              <td width=140> heightHint                 <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SIZE_HINT</b></font></strong>                <td width=140> sizeHint                   <td width=140>                       </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BORDER_WIDTH</b></font></strong>             <td width=140> borderWidth                <td width=140>  <code>0</code>             </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BORDER_TYPE</b></font></strong>              <td width=140> borderType                 <td width=140>  <code>none</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_FOCUS_PAD</b></font></strong>                <td width=140> focusPad               <td width=140>  <code>2</code>             </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_EXPAND</b></font></strong>                    <td width=140> expand                     <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_PROPAGATE</b></font></strong>                 <td width=140> propagate                  <td width=140>  <code>true</code>          </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_TRANSIENT</b></font></strong>                 <td width=140> transient                  <td width=140>  <code>false</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CURSOR</b></font></strong>                    <td width=140> cursor                     <td width=140>  <code>"XC_C_PLUS"</code> </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BUBBLE_STRING</b></font></strong>            <td width=140> bubbleString               <td width=140>  <code>null</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_CALLBACK</b></font></strong>                  <td width=140> N/A                   <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_MOTION_CALLBACK</b></font></strong>          <td width=140> N/A                        <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DESTROY_CALLBACK</b></font></strong>         <td width=140> N/A            <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_EVENT_HANDLER</b></font></strong>            <td width=140> N/A               <td width=140>  <code>null null</code>     </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BACKGROUND</b></font></strong>                <td width=140> background                 <td width=140>   <code>"gray74</code>      </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE</b></font></strong>           <td width=140> bgImageFile                <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP</b></font></strong>                <td width=140> N/A                        <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SHAPED_WINDOW</b></font></strong>            <td width=140> shapedWindow               <td width=140>   <code>false</code>        </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SHAPE_FILE</b></font></strong>               <td width=140> shapeFile                  <td width=140>   <code>NULL</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SHAPE_PIXMAP</b></font></strong>             <td width=140> N/A                        <td width=140>   <code>NULL</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BG_IMAGE_FILE_B</b></font></strong>        <td width=140> bgImageFileB               <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_BG_PIXMAP_B</b></font></strong>             <td width=140> N/A                  <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+                                    <td width=140>                            <td width=140>                       </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_PTR_DATA</b></font></strong>         <td width=140> N/A    <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_CLIENT_INT_DATA</b></font></strong>         <td width=140> clientIntData              <td width=140>   <code>0</code>            </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_DND_DRAG_CURSOR</b></font></strong>         <td width=140> dndDragCursor              <td width=140>   <code>none</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_DND_BUBBLE_STRING</b></font></strong>       <td width=140> dndBubbleString            <td width=140>   <code>null</code>         </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_BACKING_STORE</b></font></strong>            <td width=140> backingStore               <td width=140>   <code>true</code>          </tr><tr><td width=280> 
+</table>
+</center>
+<p><center>
+<p>
+<table border=1>
+<tr><td width=280>
+                     <td width=140>             <td width=140>         </tr><tr><td width=280>
+<strong><font color="#990000"><b>EZ_SHEET_HEADER_SIZE</b></font></strong>   <td width=140> sheetHeaderSize         <td width=140>   <code>32 16</code>         </tr><tr><td width=280> 
+<strong><font color="#990000"><b>EZ_SHEET_CELL_SIZE</b></font></strong>   <td width=140> sheetCellSize         <td width=140>   <code>96 24</code>         </tr><tr><td width=280> 
+</table>
+</center>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="52.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="54.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

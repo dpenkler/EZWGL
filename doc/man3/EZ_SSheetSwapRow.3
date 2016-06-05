@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetSwapRow 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetSwapRow, EZ_SSheetSwapColumn, EZ_SSheetSwapCell \- swap two rows/columns/cells
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SSheetSwapRow( EZ_Widget *" ssheet ", int " row1 ", int " row2)
+.BI "void EZ_SSheetSwapColumn( EZ_Widget *" ssheet ", int " col1 ", int " col2)
+.BI "void EZ_SSheetSwapCell( EZ_Widget *" ssheet ", int " r1 ", int " r2 ", int " c1 ", int " c2)
+
+        
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIrow1, row2\fR  Specify two rows.
+.sp
+\fIcol1, col2\fR  Specify two columns.
+.sp
+\fIr1,c1,r2,c2\fR  Specify two cells.
+
+.SH DESCRIPTION
+        
+.PP
+These functions are the editing functions for the spread sheet widget.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetFindCell(3),  EZ_SSheetSortRegion(3)
+.br
+
+
+

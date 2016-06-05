@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLedPixelSize 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLedPixelSize \- Set the pixel size for an LED widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLedPixelSize(EZ_Widget *" led ", int " s)
+.sp
+.SH ARGUMENTS
+\fIled\fR  Specifies a LED widget.
+.sp
+\fIs\fR  Specifies "LED pixel" size, in screen pixels. The value
+must be between 1 and 4,
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLedPixelSize\fR sets the size of "LED pixel" for a LED widget.
+
+.SH "SEE ALSO"
+EZ_QueueLedAction(3), EZ_SetLedFont(3), EZ_SetLedSize(3), 
+EZ_SetLedString(3), EZ_SetLedColorFunction(3), 
+

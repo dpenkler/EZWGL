@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetDragIcon 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetDragIcon, EZ_SetDragCursor \- set the current drag icon or cursor
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetDragIcon(EZ_Widget *" dragIcon ", int " dpyStyle )
+.Bi "void  EZ_SetDragCursor(cursor " cursor)
+
+.SH ARGUMENTS
+\fIdragIcon\fR  Specifies an icon (toplevel free label) widget
+.sp
+\fIdpyStyle\fR  Specifies 0 or 1.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetDragIcon\fR sets up a drag icon for the current DnD
+operation. It is meant to be used by the initialization procedure
+of the drag source. The DnD system resets drag icon to NULL when
+the current DnD transaction finishes. There are two possible display
+styles for the drag icon, repsented by 0 and 1. When set to 1, the 
+drag icon will be displayed using the XOR logical function.
+.PP
+\fBEZ_SetDragIcon\fR  sets the current drag cursor. Drag cursor 
+takes procedence over drag icon.
+
+.SH "SEE ALSO"
+EZ_GetWorkAreaSelection(3)
+.br
+
+

@@ -1,0 +1,43 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TermStartCommand 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TermStartCommand \- run command in a terminal emulator.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_TermStartCommand( EZ_Widget *"term ", char **" args)
+.BI "void EZ_TermStopCommand( EZ_Widget *"term ", int "signal)
+.BI "void EZ_TermSetExitHandler( EZ_Widget *"term ", EZ_Callback "handler ", void *"data)
+
+.SH ARGUMENTS
+\fIterm\fR  Specifies a terminal emulator widget.
+.sp
+\fIargs\fR specifies a shell command and its arguments.
+.sp
+\fIsignal\fR specifies a signal number.
+.sp
+\fIhandler\fR specifies a callback procedure.
+.sp
+\fIdata\fR specifies a client data to be passed to handler.
+
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TermStartCommand\fR runs the specified shell command inside
+a terminal emulator.
+
+.PP
+\fBEZ_TermStopCommand\fR sends the specified signal to the command
+currently running in a terminal emulator.
+.PP
+\fBEZ_TermSetExitHandler\fR specifies a procedure to be executed
+when the shell command exits.
+
+.SH "SEE ALSO"
+EZ_CreateWidgets(3)
+.br

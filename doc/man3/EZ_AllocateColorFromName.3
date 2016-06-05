@@ -1,0 +1,42 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AllocateColorFromName 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AllocateColorFromName, EZ_AllocateColorFromRGB, 
+EZ_PixelValue2RGB  \- pixelvalue and color conversion
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "unsigned long EZ_AllocateColorFromName(char *" clr_name)
+.BI "unsigned long EZ_AllocateColorFromRGB(int " r ", int "g ", int "b)
+.BI "void  EZ_PixelValue2RGB(unsigned long " pv,
+.BI "        int *"r_ret ", int *"g_ret ", int *" b_ret)
+
+.SH ARGUMENTS
+\fIclr_name\fR  Specifies a color name.
+.sp
+\fIr,g,b\fR Specify the RGB components of a color.
+.sp
+\fIpv\fR Specify a pixel value.
+.sp
+\fIr_ret\fR,\fIg_ret\fR,\fIb_ret\fR Specify the returns for the 
+RGB components of a color.
+.SH DESCRIPTION
+.PP
+\fBEZ_AllocateColorFromName\fR allocates the specified color. If exact
+match cannot be achieved, it finds a closest obtainable match and
+returns the result.
+.PP
+\fBEZ_AllocateColorFromRGB\fR allocates the specified color.
+.PP
+\fBEZ_PixelValue2RGB\fR returns the RGB components of the color
+associated to the given pixel value.
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_MapColor(3)
+.br
+
+

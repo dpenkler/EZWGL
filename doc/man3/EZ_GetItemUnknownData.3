@@ -1,0 +1,66 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetItemUnknownData 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetItemUnknownData, EZ_GetItemUnknownData, EZ_GetItemUnknownDataPtr
+ \- register/retrieve arbitary data to a display item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+typedef union {
+  char            c;
+  short           s;
+  int             i;
+  long            l;
+  unsigned char   uc;
+  unsigned short  us;
+  unsigned int    ui;
+  unsigned long   ul;
+  float           f;
+  void            *p;
+} EZ_UnknownDataType;
+.sp
+.BI "void EZ_SetItemUnknownData( EZ_Item" *Item ", int " idx ",
+.BI "                               EZ_UnknownDataType " data )
+.BI "int  EZ_GetItemUnknownData( EZ_Item" *Item ", int " idx ",
+.BI "                               EZ_UnknownDataType *" data_ret )
+.BI "EZ_UnknownDataType EZ_GetItemUnknownDataPtr( EZ_Item" *Item )
+.sp
+
+
+.SH ARGUMENTS
+\fIItem\fR  Specifies a display item.
+.sp
+\fIidx\fR  Specifies a positive integer.
+.sp
+\fIdata\fR  Specifies an entity of type EZ_UnknownDataType.
+.sp
+\fIdata_ret\fR Specifies the return for client data.
+.sp
+
+.SH DESCRIPTION
+.PP
+These functions attach client data to a display item.  They
+are convenient (but a little dangerous) routines.  They
+come handy when one wants to attach a few client data
+to a display item and does not feel like to create special
+data structures to handle them.  
+.PP
+\fBEZ_SetItemUnknownData\fR  (re)allocates the storage
+allocated for client data and set the 'idx' entry to
+'data'.  
+.PP
+\fBEZ_GetItemUnknownData\fR  retrieves the client data
+stored at the 'idx' location. It returns 1 if the 'idx'th
+entry is available and returns 0 otherwise.
+.PP
+\fBEZ_GetItemUnknownDataPtr\fR  returns the array allocated
+for client data.
+
+.SH "SEE ALSO"
+EZ_SetItemPtrData(3), EZ_SetItemIntData(3), 
+

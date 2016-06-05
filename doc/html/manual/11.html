@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>EZwgl (2.6  Geometry Management)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="10.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>2.6  Geometry Management</h2>
+
+<p>
+The purpose of the geometry manager is to automate 
+widget layout. Each widget in <i>EZwgl</i> has attributes that
+control the placement of children widgets as well
+as attributes to hardcode the geometry of widgets.
+Unless absolutely necessary, it is recommended that you 
+do not hard code the geometry of your widgets.
+<p><i>EZwgl</i> implements four geometry managers: 
+layout widget in rows/columns/grid-bag and a 
+simplified grid-bag (the default). The geometry
+manager is controled by the <code><font color="#990000"><b>EZ_GEOMETRY_MANAGER</b></font></code>
+configuration option or the <code>geometryManager</code> resource.
+Possible resource values are: -1 (the default), 0 (grid bag),
+1 (row), 2 (column) and 3 (none).
+<p><h3> 2.6.1  The Default Geometry Manager </h3 <br>
+<p>
+The default geometry manager arranges children widgets in
+one row or one column. To compute the layout, it uses the following
+set of attributes of container widgets
+<font size=-1>
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_ORIENTATION</b></font></code> (how to stack subwidgets)
+<p>
+<li><code><font color="#990000"><b>EZ_FILL_MODE</b></font></code> (how to distribute extra spaces)
+<p>
+<li><code><font color="#990000"><b>EZ_SIDE</b></font></code> (how to align subwidgets)
+<p>
+<li><code><font color="#990000"><b>EZ_PADX</b></font></code> (padding in the horizontal direction)
+<p>
+<li><code><font color="#990000"><b>EZ_PADY</b></font></code> (padding in the vertical direction)
+<p>
+<li><code><font color="#990000"><b>EZ_IPADX</b></font></code> (padding between subwidgets, in the horizontal direction)
+<p>
+<li><code><font color="#990000"><b>EZ_IPADY</b></font></code> (padding between subwidgets, in the vertical direction)
+<p>
+<li><code><font color="#990000"><b>EZ_WIDTH</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_HEIGHT</b></font></code>
+</ul>
+</font>
+and the following set of attributes of children widgets
+<font size=-1>
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_EXPAND</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_WIDTH</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_HEIGHT</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_X</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_Y</b></font></code>
+</ul>
+</font>
+<p><h3> 2.6.2  The Grid Bag Geometry Manager </h3 <br>
+<p>
+The grid bag geometry manager arranges children widgets in multiple
+rows and columns.  It is more powerful and flexible than the default
+geometry manager. The down side is that it is not very intuitive and
+can be extremly complex.  
+<p>The grid bag geometry manager uses the
+row/column contrains of the container widget and 
+cell geometry attributes of  children widgets
+to compute the layout. Row/column contrains are set by the
+following configuration options
+<font size=-1>
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_GRID_COLUMN_CONSTRAINS</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_GRID_ROW_CONSTRAINS</b></font></code>
+</ul>
+</font>
+<p>Cell geometry of children widgets are set by the following two
+configuration options
+<font size=-1>
+<ul>
+<p>
+<li><code><font color="#990000"><b>EZ_GRID_CELL_GEOMETRY</b></font></code>
+<p>
+<li><code><font color="#990000"><b>EZ_GRID_CELL_PLACEMENT</b></font></code>
+</ul>
+</font>
+<p><h3> 2.6.3  The Row and Column Geometry Manager </h3 <br>
+<p>
+Row/column geometry manager layout children widgets
+in rows/columns inside the parent widget window. 
+The size of children widgets does not depend on
+the geometry of the parent, only the location does.
+<p><h3> 2.6.4  About <strong>EZ_PROPAGATE</strong> </h3 <br>
+<p><p>
+Geometry managers in <i>EZwgl</i> use a recursive algorithm to
+compute the layout of widgets. If the geometry of a widget
+changes, the change by default propagates to the whole widget tree. 
+If your interface has many widgets packed as descendants of one
+toplevel widget, the perfermence may not be satisfactory if the
+geometry of leave widgets change constantly. Updating the geometry
+and move/resize/redisplay all widget windows can be slow.
+This is especially noticable if the application is running on a
+different machine across the network.
+<p>The attribute <code><font color="#990000"><b>EZ_PROPAGATE</b></font></code> is designed to alter the
+the default behavior about propagating geometry changes.
+When set <code>True</code> for a widget, change of geometry
+of the widget will no longer propagate.
+<p><p><p><p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="5.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="10.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

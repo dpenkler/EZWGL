@@ -1,0 +1,85 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ \- introduction to EZWGL, the EZ widget and graphics library
+
+.SH SYNOPSIS
+.sp
+The EZ widget and graphics library (EZWGL) is a C library 
+written on top of Xlib. It is designed for developing
+graphics user interface under the X window system programming
+environment.
+
+.SH DESCRIPTION
+EZWGL consists of two parts, a  widget library and a
+graphics library. The widget library implements about a twenty or 
+so commonly used widgets, including \fBbutton\fR, \fBlabel\fR,
+\fBframe\fR, \fBentry\fR, \fBtext-widget\fR, \fBlistbox\fR, 
+\fBslider\fR, \fBnotebook\fR, \fBcombox\fR, \fBmenu\fR, 
+\fBfile-selector\fR, \fBlist-tree\fR,
+\fBwork-area\fR, \fBspin-button\fR, \fBgradient-bar\fR,
+\fBhistogram\fR, \fBspread-sheet\fR and \fB3D-canvas\fR.
+The widget library also implements a \fIdrag-and-drop\fR
+mechanism and a resource management scheme.  
+The graphics library implements
+about 100 OpenGL(TM) like graphics functions that
+provides high level support for 3D graphics, including features like
+\fBzbuffer\fR, \fBdouble-buffer\fR and \fBlighting\fR.
+.PP
+An EZWGL application consists of following components.
+.in +1
+.sp
+\fI1.\fR Include the one and only header file "\fBEZ.h\fR"
+.sp
+\fI2.\fR Initialize the library by calling \fBEZ_Initialize\fR
+.sp
+\fI3.\fR Create widgets using \fBEZ_CreateWidget\fR
+.sp
+\fI4.\fR Register widget callbacks and event handlers using
+\fBEZ_AddWidgetCallBack\fR and \fBEZ_AddEventHandler\fR
+.sp
+\fI5.\fR Map widgets by invoking \fBEZ_DisplayWidget\fR on your
+toplevel widgets
+.sp
+\fI6.\fR Processing events using \fBEZ_EventMainLoop\fR or
+\fBEZ_ServiceEvents\fR or \fBEZ_WaitAndServiceNextEvent\fR
+.in -1
+.PP
+Here is a simple example that demonstrates these steps.
+.sp
+.nf
+#include "EZ.h"                     /* the header file      */
+static  void doexit(EZ_Widget *w, void *d)
+{
+  EZ_Shutdown();
+  exit(0);
+}
+
+main(int argc, char **argv)
+{
+  EZ_Widget *hello;
+
+  EZ_Initialize(argc,argv,0);       /* initialize EZWGL    */
+
+          /* create a button and set its foreground red    */
+  hello = EZ_CreateWidget(EZ_WIDGET_NORMAL_BUTTON, NULL,
+                          EZ_LABEL_STRING, "Hello World",
+                          EZ_FOREGROUND,   "red",
+                          0);
+
+  EZ_AddWidgetCallBack(hello,       /* register call back  */
+        EZ_CALLBACK, doexit, NULL, 0);
+
+  EZ_DisplayWidget(hello);          /* show the button     */
+
+  EZ_EventMainLoop();               /* handle mouse inputs */
+}
+.fi
+
+.SH "SEE ALSO"
+EZ_Initialize(3), EZ_CreateWidget(3), EZ_DisplayWidget(3), EZ_Shutdown(3)	
+
+

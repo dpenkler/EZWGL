@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLcdBackground 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLcdBackground, EZ_SetLcdForeground \- Set the background 
+and foreground color of an LCD widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLcdBackground(EZ_Widget *" lcd ", char *" color)
+.sp
+.BI "void EZ_SetLcdForeground(EZ_Widget *" lcd ", char *" color)
+.SH ARGUMENTS
+\fIlcd\fR  Specifies a LCD widget.
+.sp
+\fIcolor\fR  Specifies a color name.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLcdBackground\fR sets the background color for an LCD widget.
+The default background color is black. This background color is a
+different from the widget background color. The later is used to
+render the border.
+.PP
+\fBEZ_SetLcdForeground\fR sets the foreground color of an LED widget.
+If set, EZWGL allocates 2 extra colors to render the border of
+LCD string. Otherwise, EZWGL uses the widget background color to
+render the LCD string.
+
+.SH "SEE ALSO"
+EZ_SetLcdString(3), EZ_SetLcdInteger(3), EZ_SetLcdNDigits(3),
+EZ_SetLcdFontSize(3)
+
+

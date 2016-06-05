@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetDirTreeDirectoryNodeCreator 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetDirTreeDirectoryNodeCreator, EZ_SetDirTreeFileNodeCreator  \- specify a procedure for
+creating directory/file nodes on dir trees
+
+dir tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_TreeNode *(*EZ_SetDirTreeDirectoryNodeCreator)(EZ_TreeNode " *(*dcreator) "(char *" name ))
+.sp
+.BI "EZ_TreeNode *(*EZ_SetDirTreeFileNodeCreator)(EZ_TreeNode " *(*fcreator) "(char *" name ))
+.SH ARGUMENTS
+\fIdcreator\fR  Specifies a procedure for creating directory
+nodes.
+.sp
+\fIfcreator\fR  Specifies a procedure for creating file nodes.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetDirTreeDirectoryNodeCreator\fR  returns the current dir
+tree directory node generator and sets the directory node creator
+to the specified procedure.
+.PP
+\fBEZ_SetDirTreeFileNodeCreator\fR  returns the current dir
+tree file node generator and sets the directory node creator
+to the specified procedure.
+
+.SH "SEE ALSO"
+EZ_GetDirTreeNodeFullPath(3), EZ_SetDirTreeOpenDirectoryMode(3)
+
+
+

@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetFancyListBoxRowBg 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetFancyListBoxRowBg \- set the alternating background colors for a fancy listbox widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetFancyListBoxRowBg( EZ_Widget *" flistbox ", int " onoff,
+.BI "        char *" color1 ", char *" color2)
+
+
+.SH ARGUMENTS
+\fIflistbox\fR Specifies a fancy listbox widget.
+.sp
+\fIonoff\fR Specifies a boolean value.
+.sp
+\fIcolor1\fR Specify a color or nil.
+.sp
+\fIcolor2\fR Specify a color or nil.
+
+.SH DESCRIPTION
+\fBEZ_SetFancyListBoxRowBg\fR turns on/off the alternating background
+mode. If turns on, neighboring rows will be displayed using the
+alternating colors supplied. Item background color takes precedence
+over the background colors specified by this function. I.e., if the
+background color of an item is set, that color will be
+used to render the background of the tree node.
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelection(3)
+

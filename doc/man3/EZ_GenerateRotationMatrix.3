@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GenerateRotationMatrix 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GenerateRotationMatrix \- generate a rotation matrix 
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_GenerateRotationMatrix(EZ_Matrix " matrix,
+.BI "   float " angle ", float " x ", float " y " , float "z)
+
+
+.SH ARGUMENTS
+\fImatrix\fR Specifies a matrix, a 4x4 array of floating point numbers.
+.sp
+\fIangle\fR Specifies an angle, in degrees.
+.sp
+\fIx\fR,\fIy\fR,\fIz\fR Specifies a direction. 
+
+.SH DESCRIPTION
+\fBEZ_GenerateRotationMatrix\fR generates the rotation matrix
+for the transformation: "rotate about the direction 
+[\fIx\fR,\fIy\fR,\fIz\fR] \fIangle\fR degrees counterclockwise."
+It returns the resulting matrix to \fImatrix\fR.
+
+.SH "SEE ALSO"
+EZ_Rotate(3), EZ_Scale(3), EZ_Translate(3), EZ_MultMatrix(3),
+EZ_LoadMatrix(3), EZ_IdentityMatrix(3), EZ_MatrixMode(3)
+
+
+

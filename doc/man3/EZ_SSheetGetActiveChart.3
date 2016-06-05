@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SSheetGetActiveChart 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SSheetGetActiveChart \- return the current selected chart
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Item *EZ_SSheetGetActiveChart( EZ_Widget *" ssheet)
+.BI "EZ_Item **EZ_SSheetGetAllCharts( EZ_Widget *" ssheet ", int " ncharts )
+
+
+.SH ARGUMENTS
+\fIssheet\fR  Specifies a spread sheet widget.
+.sp
+\fIncharts\fR  Specify the return for the number of charts.
+
+.SH DESCRIPTION
+\fBEZ_SSheetGetActiveChart\fR returns the current selected chart of a
+spread sheet widget.  \fBEZ_SSheetGetAllCharts\fR returns the array of
+all charts.
+
+.PP
+
+.SH "SEE ALSO"
+EZ_SSheetDeleteChart(3)
+.br
+
+

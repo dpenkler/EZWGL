@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LibraryVersion 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LibraryVersion, EZ_GetVersionNumbers \- return EZWGL version info
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_LibraryVersion(" void )
+.BI "void  EZ_GetVersionNumbers(" int " major, " int " minor )
+
+.SH ARGUMENTS
+\fImajor, minor\fR  Specify the return for version numbers.
+.sp
+
+.SH DESCRIPTION
+\fBEZ_LibraryVersion\fR returns the EZWGL version string.
+.PP
+\fBEZ_GetVersionNumbers\fR return the major and minor version number
+of EZWGL.
+
+.SH "SEE ALSO"
+EZ_Initialize(3), EZ_Shutdown(3)
+
+
+

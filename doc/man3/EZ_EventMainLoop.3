@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_EventMainLoop 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_EventMainLoop \- dispatch and service events
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_EventMainLoop( " void )
+.BI "void EZ_ServiceEvents( " void )
+.BI "void EZ_WaitAndServiceNextEvent( " void )
+
+.SH DESCRIPTION
+These three procedures are event dispatchers. 
+.PP
+\fBEZ_EventMainLoop\fR is the main event loop. It is an infinite
+loop that wait for user interactions. When an event arrives, it
+calls the responsible event handlers to handle the event. 
+.PP
+\fBEZ_ServiceEvents\fR checks the event queue for
+outstanding events.  If there are any, it dispatches 
+all of them to the responsible event handlers and then returns.
+.PP
+\fBEZ_WaitAndServiceNextEvent\fR checks the event queue. It waits
+for the next event to arrive if the event queue is empty. It
+then processes the first outstanding event and returns.
+
+.SH "SEE ALSO"
+EZ_AddEventHandler(3), EZ_AddInput(3), EZ_CreateTimer(3)
+
+

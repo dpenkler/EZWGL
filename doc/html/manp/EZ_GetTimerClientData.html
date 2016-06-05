@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GetTimerClientData</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GetTimerClientData</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_GetTimerClientData, EZ_GetTimerIntData, EZ_GetTimerPtr-
+       Data - retrive client data stored in a timer
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>   <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>)</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>*</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#440000"><b>)</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>,</i></font>
+                    <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>p</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>)</i></font>
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font>  Specifies a timer.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specifies the return for the integer data stored
+       in <font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font>.
+
+       <font color="#004400"><i>p</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specifies the return for the pointer data stored
+       in <font color="#004400"><i>t</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>m</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>r</i></font>.
+
+
+
+<H2>DESCRIPTION</H2>
+       The EZ_Timer data structure provides two slots for  appli-
+       cations  to  store client data. One if of type <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> and the
+       other is of type <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>*</b></font>. These functions  retrieve  client
+       data from a timer.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>I</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font> returns the integer client data.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font> returns the ptr client data.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>m</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>C</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font>  returns  both  the  integer  and the
+       pointer client data.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_CreateTimer.html">EZ_CreateTimer</A>(3), <A HREF="EZ_GetTimerState.html">EZ_GetTimerState</A>(3), <A HREF="EZ_SetTimerClientData.html">EZ_SetTimerClientData</A>(3)
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

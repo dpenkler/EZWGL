@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetListBoxItems 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetListBoxItems \- insert a list of items in a listbox
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_SetListBoxItems( EZ_Widget *" listbox,
+.BI "                char **" items ", int " nitems)
+
+.SH ARGUMENTS
+\fIlistbox\fR  Specifies a listbox widget.
+.sp
+\fIitems\fR Specify an array of strings.
+.sp
+\fInitems\fR Specify the number of entries in \fIitems\fR.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetListBoxItems\fR clears the listbox and inserts the specified
+list of items in it.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetListBoxSelection(3), EZ_SetListBoxSelection(3), EZ_ClearListBox(3)
+.br
+
+

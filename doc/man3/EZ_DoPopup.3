@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DoPopup 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DoPopup, EZ_DoPopupAt  \- post a menu
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI " EZ_DoPopup(EZ_Widget *" menu ", int " location )
+.BI " EZ_DoPopupAt(EZ_Widget *" menu ", int " x ", int " y )
+
+.SH ARGUMENTS
+\fImenu\fR  Specifies a popup menu.
+.sp
+\fIlocation\fR Specifies where to post the menu, relative to the
+location of the pointer. There are 9 possible values for \fIlocation\fR:
+EZ_RIGHT, EZ_LEFT, EZ_BOTTOM, EZ_TOP, EZ_TOP_LEFT, EZ_BOTTOM_LEFT,
+EZ_TOP_LEFT, EZ_TOP_RIGHT and EZ_BOTTOM_RIGHT. Other values defaults
+to  EZ_BOTTOM_RIGHT.
+
+.sp
+\fIx\fR, \fIy\fR specifies the coordinates (relative to the root
+window) of the upper-left corner of the menu to be posted.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DoPopup\fR posts a popup menu. 
+.PP
+\fBEZ_DoPopupAt\fR posts a popup menu at the specified location.
+
+.SH "SEE ALSO"
+EZ_CreateSimpleMenu(3) 
+
+

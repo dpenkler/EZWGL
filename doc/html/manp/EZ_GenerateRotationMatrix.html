@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GenerateRotationMatrix</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GenerateRotationMatrix</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_GenerateRotationMatrix - generate a rotation matrix
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font><font color="#440000"><b>(</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font> <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font><font color="#004400"><i>,</i></font>
+          <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>y</i></font> <font color="#440000"><b>,</b></font> <font color="#440000"><b>f</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>z</i></font><font color="#004400"><i>)</i></font>
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font>  Specifies  a matrix, a 4x4 array of floating point
+       numbers.
+
+       <font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font> Specifies an angle, in degrees.
+
+       <font color="#004400"><i>x</i></font>,<font color="#004400"><i>y</i></font>,<font color="#004400"><i>z</i></font> Specifies a direction.
+
+
+<H2>DESCRIPTION</H2>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>R</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>M</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>x</b></font> generates  the  rotation  matrix
+       for   the  transformation:  "rotate  about  the  direction
+       [<font color="#004400"><i>x</i></font>,<font color="#004400"><i>y</i></font>,<font color="#004400"><i>z</i></font>] <font color="#004400"><i>a</i></font><font color="#004400"><i>n</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>l</i></font><font color="#004400"><i>e</i></font> degrees counterclockwise."  It  returns  the
+       resulting matrix to <font color="#004400"><i>m</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>x</i></font>.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_Rotate.html">EZ_Rotate</A>(3),   <A HREF="EZ_Scale.html">EZ_Scale</A>(3),  <A HREF="EZ_Translate.html">EZ_Translate</A>(3),  <A HREF="EZ_MultMatrix.html">EZ_MultMatrix</A>(3)
+       ,      <A HREF="EZ_LoadMatrix.html">EZ_LoadMatrix</A>(3),      <A HREF="EZ_IdentityMatrix.html">EZ_IdentityMatrix</A>(3),
+       <A HREF="EZ_MatrixMode.html">EZ_MatrixMode</A>(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+
+</body>
+</HTML>

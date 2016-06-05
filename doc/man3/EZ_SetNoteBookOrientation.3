@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetNoteBookOrientation 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetNoteBookOrientation \- set the orientation of a notebook widget.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetNoteBookOrientation( EZ_Widget *" notebook ", int " orientation )
+
+.SH ARGUMENTS
+\fInotebook\fR  Specifies a notebook widget.
+.sp
+\fIorientation\fR Specifies an orientation. Possible values are:
+EZ_HORIZONTAL_LEFT, EZ_HORIZONTAL_RIGHT, EZ_VERTICAL_TOP and
+EZ_VERTICAL_BOTTOM.
+
+.SH DESCRIPTION
+This function sets the orientation of a notebook widget. 
+Orientation determines the location of page tabs. The default orientation
+is EZ_VERTICAL_TOP.
+.PP
+When a horizontal orientation is used, you should use
+\fBEZ_CreateRotateTextPixmap\fR to display textual labels vertically.
+
+.SH "SEE ALSO"
+EZ_CreateRotateTextPixmap(3)
+
+

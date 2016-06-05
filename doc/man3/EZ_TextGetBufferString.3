@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TextGetBufferString 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TextGetBufferString \- return the buffer string of a text widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_TextGetBufferString(EZ_Widget *textwidget)
+.sp
+.SH ARGUMENTS
+\fItextwidget\fR  Specifies a text widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+This function returns the a pointer to the buffer string of a text
+widget. The return value points to an internal storage and should not
+be modified in anyway. 
+
+.SH "SEE ALSO"
+EZ_TextGetRegionString(3)
+.br
+
+
+

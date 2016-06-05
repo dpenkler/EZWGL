@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_NewList 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_NewList, EZ_EndList\- create or replace a display list
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_NewList(int " num ", int " mode )
+
+.BI "void EZ_EndList(" void )
+
+.SH ARGUMENTS
+\fInum\fR Specifies a list number.
+.sp
+\fImode\fR Specifies the compilation mode. Must be 
+EZ_COMPILE or EZ_COMPILE_AND_EXECUTE.
+
+.SH DESCRIPTION
+A display list is a set of graphics commands grouped together for
+later execution. 
+.PP
+\fBEZ_NewList\fR creates a new display list. Subsequent gl commands
+are put into this list until a call to \fBEZ_EndList\fR.
+
+If \fImode\fR is EZ_COMPILE, gl commands are just compiled into the
+list. If  \fImode\fR is EZ_COMPILE_AND_EXECUTE, gl commands are
+compiled and executed.
+
+
+.SH "SEE ALSO"
+EZ_CallList(3), EZ_DeleteList(3)
+
+
+

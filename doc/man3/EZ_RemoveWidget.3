@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_RemoveWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_RemoveWidget  \- disconnect a widget from its parent.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_RemoveWidget( EZ_Widget *" widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_RemoveWidget\fR removes a widget from its parent's
+children list. The data structure allocated to widget will
+still be retained. This function does reparent the widget
+window.  
+
+.SH "SEE ALSO"
+ EZ_DestroyWidget(3),   EZ_DestroyWidgetWindows(3), 
+.br
+
+
+

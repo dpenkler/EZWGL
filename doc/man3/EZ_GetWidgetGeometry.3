@@ -1,0 +1,77 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetGeometry 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWidgetGeometry, EZ_GetWidgetPosition,
+EZ_GetWidgetWidth, EZ_GetWidgetHeight,  EZ_GetWidgetBorderWidth,
+EZ_GetWidgetDimension, EZ_GetWidgetMinDimension,
+EZ_GetWidgetMinHeight, EZ_GetWidgetMinWidth \- retrieve the geometry of a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_GetWidgetGeometry( EZ_Widget" *widget ",  int " *x_ret ", "int " *y_ret, 
+.BI "                                             int " *w_ret ", int " *h_ret )
+.BI "void  EZ_GetWidgetPosition( EZ_Widget " *widget ", int " *x_ret ", int " *y_ret);
+.BI "int   EZ_GetWidgetWidth( EZ_Widget " *widget )
+.BI "int   EZ_GetWidgetHeight( EZ_Widget " *widget )
+.BI "void  EZ_GetWidgetDimenison( EZ_Widget" *widget ",  int " *w_ret ", "int " *h_ret)
+.BI "int   EZ_GetWidgetBorderWidth( EZ_Widget " *widget )
+.BI "int   EZ_GetWidgetMinWidth( EZ_Widget " *widget )
+.BI "int   EZ_GetWidgetMinHeight( EZ_Widget " *widget )
+.BI "void  EZ_GetWidgetMinDimenison( EZ_Widget " *widget,
+.BI "                      int " *minw_ret ", int " *minh_ret)
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+\fIx_ret\fR, \fIy_ret\fR  Returns the coordinates of the upper-left corner of
+the widget window. 
+.sp
+\fIw_ret\fR, \fIh_ret\fR  Returns the width and height of the widget window.
+.sp
+\fIminw_ret\fR, \fIminh_ret\fR  Returns the minimal width and minimal 
+height of the widget window.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWidgetGeometry\fR returns the geometry of the widget
+window. If the widget window has not been created, it returns
+0 to \fIx_ret\fR, \fIy_ret\fR  and returns 1 to
+\fIw_ret\fR, \fIh_ret\fR.
+.PP
+\fBEZ_GetWidgetPosition\fR returns the location of the upper-left
+corner of its widget window relative to the upper-left corner of
+its parent window. If the widget window has not been created, it
+returns 0.
+.PP
+\fBEZ_GetWidgetWidth\fR returns the width of the widget window or
+1 if the widget window has not been created.
+.PP
+\fBEZ_GetWidgetHeight\fR returns the height of the widget window or
+1 if the widget window has not been created.
+.PP
+\fBEZ_GetWidgetDimenison\fR returns the width and the height of the
+widget window.
+.PP
+\fBEZ_GetWidgetBorderWidth\fR returns the border width of a widget.
+.PP
+\fBEZ_GetWidgetMinWidth\fR returns the minimal width of the widget
+window. 
+.PP
+\fBEZ_GetWidgetMinHeight\fR returns the minimal height of the
+widget window.
+.PP
+
+.SH "SEE ALSO"
+EZ_GetWidgetAbsoluteGeometry(3)
+.br
+EZ_SetWidgetPosition(3),
+.br
+ EZ_SetWidgetWidth(3), EZ_SetWidgetHeight(3),
+
+

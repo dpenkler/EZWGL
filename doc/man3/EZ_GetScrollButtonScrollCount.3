@@ -1,0 +1,31 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetScrollButtonScrollCount 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetScrollButtonScrollCount \- return the value of the state variable of a scroll button
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetScrollButtonScrollCount(EZ_Widget *" scrollBtn)
+.sp
+
+.SH ARGUMENTS
+\fIscrollBtn\fR Specifies a scroll button.
+.sp
+.SH DESCRIPTION
+.PP
+A scroll button displays one or two arrows. When the left mouse button
+is pressed on the arrow, its callbacks are invoked. The callbacks will
+be executed continuousely till the button press is released. 
+\fIEZ_GetScrollButtonScrollCount\fR returns the number of times
+the callbacks has been executed since the last button press.
+This value will be reset to zero when the left button is released.
+
+.SH "SEE ALSO"
+EZ_CreateWidget(3), EZ_DisplayWidget(3)
+
+

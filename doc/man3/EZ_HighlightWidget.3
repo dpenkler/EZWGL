@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_HighlightWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_HighlightWidget  \- turn widget highlighting on/off.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_HighlightWidget( EZ_Widget " *widget ", int " onoff )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+\fIonoff\fR  Specifies a boolean value.
+.sp
+
+
+.SH DESCRIPTION
+.PP
+\fBEZ_HighlightWidget\fR turns widget highlighting on/off. When turned on, the widget
+will be displayed using a brighter background color or tile pixmap.
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3)
+.br
+EZ_GetWidgetBorder(3)
+
+

@@ -1,0 +1,51 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetItemWidth 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetItemWidth, EZ_GetItemHeight, EZ_GetItemDimension,
+EZ_GetItemPosition, EZ_SetItemDimension, EZ_SetItemHeight,
+EZ_SetItemPosition, EZ_SetItemWidth 
+\- set/retrieve the geometry of a display item
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int  EZ_GetItemHeight(EZ_Item *" item);
+.BI "int  EZ_GetItemWidth(EZ_Item *" item);
+.BI "void EZ_GetItemDimension(EZ_Item *" item ", int * "w_ret ", int *" h_ret)
+.BI "void EZ_GetItemPosition(EZ_Item *" item ", int *" x_ret ", int *" y_ret)
+.BI "void EZ_SetItemDimension(EZ_Item *" item ", int " w ", int " h)
+.BI "void EZ_SetItemHeight(EZ_Item *" item ", int " h);
+.BI "void EZ_SetItemPosition(EZ_Item *" item ", int "x ", int "y)
+.BI "void EZ_SetItemWidth(EZ_Item *" item" , int " w)
+
+
+.SH ARGUMENTS
+\fIitem\fR  Specifies a display item.
+.sp
+\fIx\fR,\fIy\fR Specify the coordinates of the upper-left corner of
+the display item.
+.sp
+\fIx_ret\fR,\fIy_ret\fR Specify the returns for the coordinates of 
+the upper-left corner of the display item.
+.sp
+\fIw\fR,\fIh\fR Specify the width and height for the display item.
+.sp
+\fIw_ret\fR,\fIh_ret\fR Specify the returns for the width and height
+for the display item.
+
+.SH DESCRIPTION
+.PP
+All these functions are self explanatory. They set or retrieve the
+geometric info of a display item. 
+.PP
+These functions are intended for writing the geometry managers for
+the work-area widget. 
+
+.SH "SEE ALSO"
+EZ_CreateItem(3)
+.br
+

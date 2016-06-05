@@ -1,0 +1,43 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetWidgetCINames 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetWidgetCINames, EZ_SetWidgetCINames
+\- set the class and instance name for a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetWidgetCINames(EZ_Widget *" widget ", char *" cname ", char *" iname)
+.sp
+.BI "void EZ_GetWidgetCINames(EZ_Widget *" widget ", char **" cname_ret ", char **" iname_ret)
+
+.SH ARGUMENTS
+.sp
+\fIwidget\fR Specifies a widget.
+.sp
+\fIcname\fR Specifies the class name.
+.sp
+\fIiname\fR Specifies the instance name.
+.sp
+\fIcname_ret\fR Specifies the return for the class name.
+.sp
+\fIiname_ret\fR Specifies the return for the instance name.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetWidgetCINames\fR sets the class and instance name of a
+widget. The class/instance name can also be set by
+\fBEZ_ConfigureWidget\fR using the \fIEZ_CLASS\fR and the
+\fIEZ_NAME\fR options.
+.PP
+\fBEZ_GetWidgetCINames\fR returns the class and instance name of a widget.
+.PP
+
+.SH "SEE ALSO"
+EZ_ConfigureWidget(3)
+.br
+

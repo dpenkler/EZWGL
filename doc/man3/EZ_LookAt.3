@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LookAt 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LookAt \- multiply the current matrix by a viewing matrix
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_LookAt(float " vx ", float " vy ", float " vz, 
+.BI "                float " px ", float " py ", float " pz )
+.BI "                float " ux ", float " uy ", float " uz )
+
+.SH ARGUMENTS
+\fIvx\fR,\fIvy\fR,\fIvz\fR  Specify the location of viewpoint.
+.sp
+\fIpx\fR,\fIpy\fR,\fIpz\fR  Specify the location of the reference point.
+.sp
+\fIux\fR,\fIuy\fR,\fIuz\fR  Specify the view up vector.
+
+.SH DESCRIPTION
+\fBEZ_LookAt\fR defines the line of sight and a view up vector. The
+viewpoint is at [vx,vy,vz], looking at the reference point
+[px,py,pz], with a view up vector [ux,uy, uz]. 
+
+\fBEZ_LookAt\fR generates the corresponding  transformation
+matrix and multiply the top matrix of the current matrix stack
+by this matrix.
+
+.SH "SEE ALSO"
+EZ_Rotate(3), EZ_Translate(3), EZ_Ortho(3), EZ_Frustum(3),
+EZ_MultMatrix(3), EZ_MatrixMode(3), EZ_Perspective(3)
+
+
+

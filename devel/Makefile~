@@ -1,0 +1,59 @@
+#----------------------------------------------------------------------------------
+#
+# use gcc is highly recommended
+
+INCLUDE = -I../include 
+
+
+LIBS = -L../lib  -L/usr/X11R6/lib -lEZ -lX11 -lXext  -lm  -lc
+
+CC= gcc 
+
+CFLAG = -O $(INCLUDE)
+
+EXAMPLES= animate clock hanoi meter btnbox counter locator puzzle
+
+#----------------------------------------------------------------------------------
+
+all: $(EXAMPLES) gl dnd msg
+
+
+gl: 
+	(cd GL; make)
+
+dnd:
+	(cd DnD; make)
+
+msg:
+	(cd Message; make)
+
+glass: 
+	(cd Glass; make)
+
+strip:
+	strip $(EXAMPLES)
+
+clean:
+	$(RM)  $(EXAMPLES)
+	(cd GL; make clean)
+	(cd DnD; make clean)
+	(cd Message; make clean)
+	(cd Glass; make clean)
+
+
+../lib/libEZ.a:
+	cd ../lib; make all
+
+.c.o:
+	$(CC) $(CFLAG) -c $<
+
+.o:
+	$(CC) $(CFLAG) $<  -o $@  $(LIBS) $(JPEG_LIB)
+
+.c:
+	$(CC)  $(CFLAG)  $< -o $@  $(LIBS) $(JPEG_LIB)
+
+#----------------------------------------------------------------------------------
+
+
+

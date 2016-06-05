@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LoadXFont 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LoadXFont \- load an X font
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int  EZ_LoadXFont(char *" font_name )
+
+
+.SH ARGUMENTS
+\fIfont_name\fR  Specifies an X11 font.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_LoadXFont\fR loads an X font and returns an 
+identifier for the font. If the specified font cannot
+be loaded, it returns 0 (which represents the default font). 
+
+.SH "SEE ALSO"
+EZ_GetFontName(3), EZ_GetFontFromId(3)
+.br
+
+

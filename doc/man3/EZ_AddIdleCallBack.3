@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_AddWidgetCallBack 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_AddIdleCallBack,EZ_RemoveIdleCallBack,
+EZ_RemoveAllIdleCallBacks  \- register/remove idle callbacks
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_AddIdleCallBack( EZ_CallBack " callback ", void *" clientdata )
+.BI "void EZ_RemoveIdleCallBack( EZ_CallBack " callback ", void *"clientdata )
+.BI "void EZ_RemoveAllIdleCallBacks(" " ) 
+
+.SH ARGUMENTS
+\fIcallback\fR  Specifies a callback.
+.sp
+\fIclientdata\fR  Specifies an clientdata to be passed to the
+callback.
+
+.SH DESCRIPTION
+.PP
+An \fBcallback\fR is a procedure of the following prototype:
+.sp
+.nf
+    void (* callback)(void *object, void *data)
+.fi
+.PP
+\fBEZ_AddIdleCallBack\fR registers an idle callback. Idle callbacks
+are executed when there are no user events to process.
+.PP
+\fBEZ_RemoveIdleCallBack\fR deletes an idle callback.
+The specified callback will be deleted only if both the procedure and
+the client data match.
+.PP
+\fBEZ_RemoveAllCallBacks\fR deletes all idle callbacks.
+
+.SH "SEE ALSO"
+EZ_ExecuteIdleCallBacks(3)
+.br
+EZ_AddWidgetCallBack(3)
+.br
+EZ_AddEventHandler(3)

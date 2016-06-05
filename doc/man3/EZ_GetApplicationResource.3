@@ -1,0 +1,40 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetApplicationResource "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetApplicationResource \- retrieve an application resource from 
+resource database
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetApplicationResource(char *" rname ", char **" value_return)
+.sp
+
+.SH ARGUMENTS
+\fIrname\fR  Specifies a resource name.
+.sp
+\fIvalue_return\fR Specifies the return for the resource value.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetApplicationResource\fR retrieves 
+the value of specified resource. All resource values 
+are strings. This function can be used to extract
+the values of application variables from the a 
+resource file. EZWGL provides a few routines
+to associate string to other types of data. 
+.sp
+This finction returns 1 on success and returns 0 on failure.
+.PP
+
+.SH "SEE ALSO"
+EZ_InstallSymbol(3), EZ_GetWidgetResource(3)
+.br
+
+
+

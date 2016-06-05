@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetHistogramSelection 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetHistogramSelection \- return the selected bin number and bin value
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_GetHistogramSelection( EZ_Widget *" histogram ", float *" valueReturn)
+        
+
+.SH ARGUMENTS
+\fIhistogram\fR  Specifies a histogram widget.
+.sp
+\fIvalueReturn\fR  Specifies a place to return the bin value.
+.sp
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_GetHistogramSelection\fR  return the bin number and its value
+o the last selected bin. The selection is set when the left mouse button
+is pressed over a histogram widget. If no selection is available, this
+function returns -1.
+
+.SH "SEE ALSO"
+EZ_SetHistogramValue(3), EZ_SetHistogramColors(3)
+.br
+
+
+

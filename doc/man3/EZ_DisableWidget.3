@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_DisableWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_DisableWidget, EZ_EnableWidget \- suspend a widget from processing events
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_DisableWidget( EZ_Widget *" widget )
+.BI "void  EZ_EnableWidget( EZ_Widget *" widget )
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+
+.SH DESCRIPTION
+.PP
+\fBEZ_DisableWidget\fR  suspends a widget from processing events. For
+button type widgets, disabled widgets are displayed with a different
+face. A disabled widget still processes the Expose event.
+.PP
+\fBEZ_EnableWidget\fR  resume a suspended widget to its normal state.
+
+.SH "SEE ALSO"
+ EZ_FreezeWidget(3), EZ_ActivateWidget(3), EZ_DisableWidgetTree(3)
+.br
+
+
+

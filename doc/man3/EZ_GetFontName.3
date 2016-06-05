@@ -1,0 +1,33 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFontFromId 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFontName, EZ_GetFontNameFromId \- retieve font name
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_GetFontNameFromId(int " id )
+.BI "char *EZ_GetFontName(XFontStruct *" fptr )
+
+
+.SH ARGUMENTS
+\fIid\fR  Specifies an font identifier.
+.sp
+\fIfptr\fR  Specifies a native XFontStruct.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFontNameFromId \fR returns the font name associate with
+the font id.
+.PP
+\fBEZ_GetFontName \fR returns the font name of the specified font.
+
+.SH "SEE ALSO"
+EZ_GetFontFromId(3), EZ_LoadXFont(3)
+.br
+
+

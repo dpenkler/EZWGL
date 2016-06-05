@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>EZwgl (3.3  Convert Private Resource Values)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="14.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>3.3  Convert Private Resource Values</h2>
+
+<p>
+Resource values are strings.
+<i>EZwgl</i> can only convert resource
+values to the four basic data types: 
+<code>int, float, ulong</code> and <code>string</code>.
+Although pointers can be used as configuration
+values, they cannot be specified by resources
+directly. If you need to convert resource
+values to pointers, you have to provide
+a convertion mechanism to translate
+strings to pointers.  In the next example, we use 
+resource to select a callback
+procedure for a button.  Since there is only
+one private resource in this example, we'll
+extract it directly instead of registering it
+to the button widget.
+<p><font size=-1>
+<pre>
+#include "EZ.h"
+
+static void sayHi(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data)
+{  printf("Hello, there\n"); }
+
+static void sayBye(<font color="#990000"><b>EZ_Widget</b></font> *widget, void *data)
+{  printf("Goodbye!\n"); }
+
+
+static  <font color="#990000"><b>EZ_ResourceSpec</b></font> exampleResources[] =
+{
+   { 1234, "callback",  "Callback", "string"   },
+};
+
+
+int configure(void *widget, int option, <font color="#990000"><b>EZ_Value</b></font> *values)
+{
+  if(option == 1234)
+   {
+     if(!strncmp(values[0].value.str, "hi",2))
+       <font color="#990000"><b>EZ_AddWidgetCallBack</b></font>(widget, <font color="#990000"><b>EZ_CALLBACK</b></font>, sayHi, NULL, 0);
+     else if(!strncmp(values[0].value.str, "bye",3))
+       <font color="#990000"><b>EZ_AddWidgetCallBack</b></font>(widget, <font color="#990000"><b>EZ_CALLBACK</b></font>, sayBye, NULL, 0);
+   }
+}
+
+main(int ac, char **av)
+{
+  <font color="#990000"><b>EZ_Widget</b></font> *btn;
+
+  <font color="#990000"><b>EZ_Initialize</b></font>(ac, av, 0);
+  fprintf(stderr, "\nRun with: %s -xrm \"*btn.callback: hi\" \nor\n         %s -xrm \"*btn.callback: bye\"\n", av[0],av[0]);
+  
+  btn  =   <font color="#990000"><b>EZ_CreateWidgetXrm</b></font>(<font color="#990000"><b>EZ_WIDGET_NORMAL_BUTTON</b></font>,    NULL,
+                              "Btn",               "btn",
+                              <font color="#990000"><b>EZ_LABEL_STRING</b></font>,     "The callbacks of this button\nis set by Resource",
+                              <font color="#990000"><b>EZ_RESOURCES_HANDLE</b></font>,  1, exampleResources, configure,
+                              0);
+  <font color="#990000"><b>EZ_DisplayWidget</b></font>(btn);
+  <font color="#990000"><b>EZ_EventMainLoop</b></font>();
+}
+
+</pre>
+<p>
+</font>
+
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="12.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="14.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="16.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

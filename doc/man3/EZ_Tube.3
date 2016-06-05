@@ -1,0 +1,38 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Tube 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Tube  \- render a tube around a curve
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_Tube(float *"data ", int " npts ", int " nsides )
+
+
+.SH ARGUMENTS
+\fIdata\fR  Specifies an array of floats. The array defines a curve
+and the radius at each sample point, in the format:
+.nf
+.in +5 
+ x,y,z,r
+.in -5
+\fIdata\fR has to be a static array.
+.sp
+\fInpts\fR Specifies the number of points in \fIdata\fR.
+.sp
+\fInsides\fR Specifies the number of desired number of sides along the
+latitude. 
+
+.SH DESCRIPTION
+.PP
+\fBEZ_Tube\fR renders a tube around the given curve.
+
+.SH "SEE ALSO"
+EZ_Sphere(3), EZ_Tetrahedron(3)
+.br
+
+

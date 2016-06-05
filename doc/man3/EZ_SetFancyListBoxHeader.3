@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetFancyListBoxHeader 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetFancyListBoxHeader \- set up the header row in a fancy listbox
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetFancyListBoxHeader(EZ_Widget *" flistbox,
+.BI "         EZ_Item **" items ", int" nitems )
+
+.SH ARGUMENTS
+\fIlflistbox\fR  Specifies a fancy listbox widget.
+.sp
+\fIitems\fR Specifies an array of display items.
+.sp
+\fInitems\fR Specifies the number of items in \fIitems\fR.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetFancyListBoxHeader\fR sets up the header row of a fancy
+listbox. The header row is not selectable and is not vertically
+scrollable.
+
+.SH "SEE ALSO"
+EZ_SetFancyListBoxData(3), EZ_GetFancyListBoxSelection(3)
+
+

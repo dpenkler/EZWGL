@@ -1,0 +1,37 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_RegisterCompositeWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_RegisterCompositeWidget \- register a Composite widget to EZWGL
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+
+.nf
+int   EZ_RegisterCompositeWidget(char *iname, char *cname,
+                    EZ_Widget *(*Create)(EZ_Widget *parent, char *in, char *cn) )
+.fi
+
+.SH DESCRIPTION
+.PP
+This function registers a Composite widget to EZWGL and returns an
+integer type identifier. Once registered, it is available to
+EZ_CreateWidget.
+
+.SH "SEE ALSO"
+EZ_RegisterPrimitiveWidget(3)
+.br
+EZ_CreateWidget(3)
+
+
+
+
+
+
+
+
+
+

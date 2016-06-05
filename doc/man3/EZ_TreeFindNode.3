@@ -1,0 +1,32 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TreeFindNode 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TreeFindNode  \- search a node in a tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_TreeNode  *EZ_TreeFindNode(EZ_TreeNode *" root ", EZ_TreeNode *" node )
+
+
+.SH ARGUMENTS
+\fIroot\fR  Specifies the root node of a tree.
+.sp
+\fInode\fR  Specifies a node.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TreeFindNode\fR searches the tree rooted at \fIroot\fR for node
+\fInode\fR and returns the result.
+
+.SH "SEE ALSO"
+ EZ_CreateTreeNode(3), EZ_CreateDirTree(3),
+EZ_TreeFindNodeUsingItem(3)
+
+.br
+
+

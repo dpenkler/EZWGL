@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CMove2f 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CMove2f, EZ_CMoveScreen2f \- update the current character position
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_CMove2f(float " x ", float " y )
+.BI "void EZ_CMoveScreen2f(float " x ", float " y )
+
+.SH ARGUMENTS
+\fIx\fR, \fIy\fR Specifies the coordinate of a point.
+
+.SH DESCRIPTION
+EZ_CMove2f(x,y) is equivalent to EZ_CMove3f(x,y,0.0).
+EZ_CMoveScreen2f(x,y) is equivalent to EZ_CMoveScreen3f(x,y,0.0).
+
+.SH "SEE ALSO"
+EZ_CMove3f(3), EZ_CMoveScreen3f(3)
+
+
+

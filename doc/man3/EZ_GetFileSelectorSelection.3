@@ -1,0 +1,27 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetFileSelectorSelection 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_GetFileSelectorSelection \- retrieve the selection in a file selector
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "char *EZ_GetFileSelectorSelection(EZ_Widget *" fselector)
+
+
+.SH ARGUMENTS
+\fIfselector\fR  Specifies a file selector widget.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_GetFileSelectorSelection\fR returns the last selected file
+name in a file selector. If no selection has been made, it return NULL.
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelection(3), EZ_GetListBoxSelection(3)
+
+

@@ -1,0 +1,82 @@
+<html>
+<head> <title>EZ_GetWidgetUnknownData</title> </head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000" background="bg.gif">
+<A HREF="../index.html" TARGET=_top><IMG SRC="ez.gif" ALIGN=LEFT  BORDER=0></A>
+<table> <tr><td width=16> </td> <td height=6 width=100%>  </td></tr>
+        <tr><td width=16> </td> <td>
+	<font color="#0000aa"> <H1 align=center>EZ_GetWidgetUnknownData</H1> </font>
+	 </td> </tr>
+        <tr><td width=16> </td><td height=1> </td> </tr>
+</table>
+<hr>
+<PRE>
+<H2>NAME</H2>
+       EZ_SetWidgetUnknownData,          EZ_GetWidgetUnknownData,
+       EZ_GetWidgetUnknownDataPtr
+        - register/retrieve arbitary data to a widget
+
+
+<H2>SYNOPSIS</H2>
+       <font color="#440000"><b>#</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>c</b></font><font color="#440000"><b>l</b></font><font color="#440000"><b>u</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>&lt;</b></font><font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>.</b></font><font color="#440000"><b>h</b></font><font color="#440000"><b>&gt;</b></font>
+
+       typedef union {
+         char            c;
+         short           s;
+         int             i;
+         long            l;
+         unsigned char   uc;
+         unsigned short  us;
+         unsigned int    ui;
+         unsigned long   ul;
+         float           f;
+         void            *p;
+       } EZ_UnknownDataType;
+
+       <font color="#440000"><b>v</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#004400"><i>*</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font>
+                                      <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font> <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font>  <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#004400"><i>*</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>,</b></font> <font color="#440000"><b>i</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>t</b></font> <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font><font color="#440000"><b>,</b></font>
+                                      <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>*</b></font><font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>T</b></font><font color="#440000"><b>y</b></font><font color="#440000"><b>p</b></font><font color="#440000"><b>e</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font><font color="#440000"><b>(</b></font> <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#004400"><i>*</i></font><font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font><font color="#440000"><b>)</b></font>
+
+
+
+
+<H2>ARGUMENTS</H2>
+       <font color="#004400"><i>w</i></font><font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>g</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font>  Specifies an EZ widget.
+
+       <font color="#004400"><i>i</i></font><font color="#004400"><i>d</i></font><font color="#004400"><i>x</i></font>  Specifies a positive integer.
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font>  Specifies an entity of type EZ_UnknownDataType.
+
+       <font color="#004400"><i>d</i></font><font color="#004400"><i>a</i></font><font color="#004400"><i>t</i></font><font color="#004400"><i>a</i></font><font color="#005500"><i>_</i></font><font color="#004400"><i>r</i></font><font color="#004400"><i>e</i></font><font color="#004400"><i>t</i></font> Specifies the return for client data.
+
+
+
+<H2>DESCRIPTION</H2>
+       These functions attach client data to a widget.  They  are
+       convenient  (but  a little dangerous) routines.  They come
+       handy when one wants to attach a few client data to a wid-
+       get  and  does not feel like to create special data struc-
+       tures to handle them.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>S</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font>  (re)allocates the  storage  allo-
+       cated for client data and set the 'idx' entry to 'data'.
+
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font>   retrieves the client data stored
+       at the 'idx' location. It returns 1 if the  'idx'th  entry
+       is available and returns 0 otherwise.
+
+       <font color="#440000"><b>E</b></font><font color="#440000"><b>Z</b></font><font color="#440000"><b>_</b></font><font color="#440000"><b>G</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>W</b></font><font color="#440000"><b>i</b></font><font color="#440000"><b>d</b></font><font color="#440000"><b>g</b></font><font color="#440000"><b>e</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>U</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>k</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>o</b></font><font color="#440000"><b>w</b></font><font color="#440000"><b>n</b></font><font color="#440000"><b>D</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>a</b></font><font color="#440000"><b>P</b></font><font color="#440000"><b>t</b></font><font color="#440000"><b>r</b></font>   returns  the  array allocated
+       for client data.
+
+
+<H2>SEE ALSO</H2>
+       <A HREF="EZ_SetWidgetPtrData.html">EZ_SetWidgetPtrData</A>(3), <A HREF="EZ_SetWidgetIntData.html">EZ_SetWidgetIntData</A>(3),
+
+
+
+</PRE>
+
+</body>
+</HTML>

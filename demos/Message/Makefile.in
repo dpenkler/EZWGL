@@ -1,0 +1,33 @@
+#
+@MCOMMON@
+@SET_MAKE@
+
+EXAMPLES= server client
+#----------------------------------------------------------------------------------
+
+all: $(EXAMPLES)
+
+strip:
+	strip $(EXAMPLES)
+
+clean realclean:
+	- $(RM)  $(EXAMPLES)
+
+mrproper: clean
+	- $(RMF) Makefile
+
+
+.c.o:
+	$(CC) $(LINC) -I../../include $(XINC) $(CFLAGS) -c $<
+
+.o:
+	$(CC) $(LINC) -I../../include $(XINC) $(CFLAGS)  $< -o $@ -L../../lib -lEZ $(XLIB) $(LIBS)
+
+.c:
+	$(CC) $(LINC) -I../../include $(XINC) $(CFLAGS)  $< -o $@ -L../../lib -lEZ $(XLIB) $(LIBS)
+
+
+#----------------------------------------------------------------------------------
+
+
+

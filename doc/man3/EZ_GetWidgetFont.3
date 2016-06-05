@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH  3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME 
+EZ_GetWidgetFont \- move a scrollbar
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "XFontStruct *EZ_GetWidgetFont( EZ_Widget *" widget )
+.BI "XFontStruct *EZ_GetFontFromId( int " id )
+.BI "XFontStruct *EZ_GetFontFromXFontId( Font " xfid )
+.BI "XFontStruct *EZ_GetFontFromName( char *" fname )
+
+
+.SH ARGUMENTS
+\fIwidget\fR specifies a widget.
+.sp
+\fIid\fR specifies a font id.
+.sp
+\fIxfid\fR specifies an X Font id.
+.sp
+\fIfname\fR specifies an X font name.
+.SH DESCRIPTION
+.PP
+\fBEZ_GetWidgetFont\fR  returns the default font used to render a widget label or text.
+.PP
+\fBEZ_GetFontFromId\fR  returns the XFontStruct associated with an internal font id.
+.PP
+\fBEZ_GetFontFromXFontId\fR returns the XFontStruct associated with the specified X Font.
+.PP
+\fBEZ_GetFontFromName\fR  loads the specified font and return the allocated XFontStruct.
+.PP
+.PP
+These functions never return NULL. When the requested font does not exist, it returns
+the font structure associated to the font "9x15", which seems to be available on all X servers.
+
+.SH "SEE ALSO"
+EZ_GetBackgroundGC(3)
+.br
+
+
+

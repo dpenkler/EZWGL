@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_InstallSymbolicFloat "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_InstallSymbolicFloat, EZ_RetrieveSymbolicFloat \- install/retrieve a symbolic
+constant to/from the resource database
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_InstallSymbolicFloat(char *" name ", float value)
+.sp
+.BI "int EZ_RetrieveSymbolicFloat(char *" name ", float *" value_ret)
+
+.SH ARGUMENTS
+.sp
+\fIname\fR  Specifies a name.
+.sp
+\fIvalue\fR  Specifies an integer.
+.sp
+\fIvalue_ret\fR  Specifies the return for value.
+
+.SH DESCRIPTION
+.PP
+These routines are convenient interface to \fBEZ_InstallSymbol(3)\fR.
+It returns -1 if the symbol \fIname\fR is not found or is associated
+to some other data type.
+
+.SH "SEE ALSO"
+EZ_InstallSymbolicULong(3), EZ_InstallSymbolicPointer(3)
+.br
+
+

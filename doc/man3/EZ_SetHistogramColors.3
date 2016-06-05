@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_GetHistogramSelection 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetHistogramColors \- sets the bar colors
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetHistogramColors( EZ_Widget *" histogram ", unsigned long *" pvs ", int "npvs)
+        
+
+.SH ARGUMENTS
+\fIhistogram\fR  Specifies a histogram widget.
+.sp
+\fIpvs\fR  Specifies an array of pixel values.
+.sp
+\fInpvs\fR  Specifies the size of \fIpvs\fR.
+
+.SH DESCRIPTION
+        
+.PP
+\fBEZ_SetHistogramColors\fR  sets the bar colors of a histogram. If the
+size specified array is less than the number of bins, the colors will
+be used repeatedly.
+
+.SH "SEE ALSO"
+EZ_SetHistogramValue(3), EZ_GetHistogramValue(3)
+.br
+
+
+

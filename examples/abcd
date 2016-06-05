@@ -1,0 +1,14 @@
+.res*Menubar.Resources.labelPosition: 3
+.res*Menubar.Resources.labelPosition: 3
+.res*Menubar.Resources.labelPosition: 3
+.res*fontName: 10x20
+.res*bgImageFile: bg.gif
+.res.TreeFrame.ResourceDialogue.frame.shapeFile: blpnlA.xpmd
+.res.TreeFrame.ResourceDialogue.frame.shapeFile: blpnlA.xpmda
+.res.TreeFrame.ResourceDialogue.frame.shapeFile: blpnlA.xpmda
+.res.TreeFrame.Menubar.Resources.background: green3
+*bgImageFile: guilin.gif
+*bgImageFile: guilin.gif
+.Ezfm.toplevel.MenuBar.propagate: red
+.ezfm.ToolBox.notebook.bottomFrame.Misc.workArea.iWorkArea.class: 1fdsa
+.text.frame.text.scrollbarBorderWidth: 2

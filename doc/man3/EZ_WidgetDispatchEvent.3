@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_WidgetDispatchEvent 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_WidgetDispatchEvent \- dispatch an X event to the default event handler
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_WidgetDispatchEvent( XEvent *" event )
+.BI "void EZ_RemoveEvent( XEvent *" event )
+
+.SH ARGUMENTS
+\fIevent\fR  Specifies an X event.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_WidgetDispatchEvent\fR dispatches an X event to a widget's default
+event handler.
+.PP
+The main event dispatcher invokes private event handlers first. If there
+are needs to invoke the default event handler first, the private event
+handler can do so by calling \fIEZ_WidgetDispatchEvent\fR first, then
+handle the event and call \fIEZ_RemoveEvent\fR when done.
+.PP
+\fBEZ_RemoveEvent\fR event removes the specified event from the event 
+queue. This procedure is intended to be  used  by  a
+ private  event  handler to prevent other event handlers to
+ service the specified event.
+
+
+.SH "SEE ALSO"
+EZ_EventMainLoop(3), EZ_ServiceEvents(3)
+.br
+
+

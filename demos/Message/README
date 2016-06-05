@@ -1,0 +1,19 @@
+
+Exchange messages between EZWGL clients.
+
+client:
+        when double click on an image item, it
+        broadcasts a message asking for someone
+        to convert the image file to Pixmap.
+        If someone answers, it displays the pixmap
+        in the label widget.
+
+server: 
+        When client asks to process an image file
+        it processes the file. If succesful, 
+        It replys the pixmap to client. It also
+         display all messages it receives.
+
+
+
+

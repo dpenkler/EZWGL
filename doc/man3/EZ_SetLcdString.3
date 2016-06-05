@@ -1,0 +1,28 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetLcdString 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetLcdString \- Set the string to be displayed by an LCD widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetLcdString(EZ_Widget *" lcd ", char *" str)
+.sp
+.SH ARGUMENTS
+\fIlcd\fR  Specifies a LCD widget.
+.sp
+\fIstr\fR  Specifies a string.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_SetLcdString\fR updates a LCD widget to display the given string.
+
+.SH "SEE ALSO"
+EZ_SetLcdInteger(3), EZ_SetLcdFloat(3), EZ_ClearLcd(3),
+EZ_SetLcdNDigits(3), EZ_SetLcdFontSize(3), EZ_SetLcdForeground(3),
+EZ_SetLcdBackground(3)
+

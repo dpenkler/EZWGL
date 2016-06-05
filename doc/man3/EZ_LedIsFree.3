@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_LedIsFree 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_LedIsFree \- query whether or not an LED widget's action queue is empty
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_LedIsFree(EZ_Widget *" led )
+.sp
+.SH ARGUMENTS
+\fIled\fR  Specifies a LED widget.
+.sp
+.SH DESCRIPTION
+.PP
+\fBEZ_LedIsFree\fR queries whether or not the action queue of an
+LED widget is empty. It returns 1 if the queue is empty and returns
+0 otherwise.
+.PP
+
+.SH "SEE ALSO"
+EZ_QueueLedAction(3), EZ_SetLedBackground(3), EZ_SetLedOffPixelColor(3),
+EZ_SetLedFont(3), EZ_SetLedWidth(3), EZ_SetLedPixelSize(3), 
+EZ_SetLedString(3), EZ_SetLedColorFunction(3)
+

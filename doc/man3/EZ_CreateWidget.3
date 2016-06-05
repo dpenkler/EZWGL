@@ -1,0 +1,98 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_CreateWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_CreateWidget, EZ_CreateWidgetXrm \- create an EZ widget
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Widget *EZ_CreateWidget(int " type ", EZ_Widget *" parent ", " ... )
+.sp
+.BI "EZ_Widget *EZ_CreateWidgetXrm(int " type ", EZ_Widget *" parent,
+.BI "            char *" name ", char *" className ", " ... )
+.sp
+.SH ARGUMENTS
+\fItype\fR Specifies a symbolic widget type (see below). 
+.sp
+\fIparent\fR Specifies the parent widget or NULL.
+.sp
+\fIclassName\fR Specifies a class name.
+.sp
+\fIname\fR Specifies an instance name.
+.sp
+\fI ...\fR Specifies configuration options, a list of symbols 
+each followed by one or more values. The last symbol must
+be \fBNULL\fR, which is itself not followed by any values.
+.sp
+.SH DESCRIPTION
+.PP
+\fIEZ_CreateWidget\fR creates a widget and initializes the widget
+using the specified configuration options. Then it reads the
+resource database and configure the widget use resources
+found in the database.
+.PP
+\fIEZ_CreateWidgetXrm\fR is equivalent to  \fIEZ_CreateWidget\fR 
+with both \fBEZ_CLASS\fR and \fBEZ_NAME\fR attributes
+specified.
+.PP
+Example 
+.sp
+.nf
+   extern void exit();
+   EZ_Widget *button;
+                           /* type                   parent */
+   button = EZ_CreateWidget(EZ_WIDGET_NORMAL_BUTTON, NULL,
+                            /* option,       option value(s) */
+                            EZ_LABEL_STRING, "Hello World",
+                            EZ_UNDERLINE,    0,
+                            EZ_CALLBACK,     exit, NULL,
+                            0);
+.sf
+.sp
+creates a push button widget labeled by "Hello World" with
+the letter 'H' underlined.
+
+.SH SYMBOLIC WIDGET TYPES 
+.sp
+.nf
+EZ_WIDGET_FRAME,                  EZ_WIDGET_NORMAL_BUTTON, 
+EZ_WIDGET_CHECK_BUTTON,            EZ_WIDGET_RADIO_BUTTON, 
+EZ_WIDGET_MENU_BUTTON,           EZ_WIDGET_MENU_SEPARATOR, 
+EZ_WIDGET_LABEL,                    EZ_WIDGET_RAW_XWINDOW, 
+EZ_WIDGET_MENU_SUBMENU,      EZ_WIDGET_MENU_NORMAL_BUTTON, 
+EZ_WIDGET_MENU_CHECK_BUTTON,  EZ_WIDGET_MENU_RADIO_BUTTON, 
+EZ_WIDGET_VERTICAL_SLIDER,    EZ_WIDGET_HORIZONTAL_SLIDER, 
+EZ_WIDGET_ENTRY,             EZ_WIDGET_VERTICAL_SCROLLBAR, 
+EZ_WIDGET_HORIZONTAL_SCROLLBAR,        EZ_WIDGET_LIST_BOX,
+EZ_WIDGET_TEXT,                       EZ_WIDGET_NOTE_BOOK, 
+EZ_WIDGET_PANE_HANDLE,                 EZ_WIDGET_EXECUTOR, 
+EZ_WIDGET_OPTIONAL_ENTRY,         EZ_WIDGET_FILE_SELECTOR, 
+EZ_WIDGET_TREE,                       EZ_WIDGET_LIST_TREE, 
+EZ_WIDGET_FANCY_LIST_BOX,             EZ_WIDGET_WORK_AREA, 
+EZ_WIDGET_FREE_LABEL,                 EZ_WIDGET_3D_CANVAS,
+EZ_WIDGET_NB_PAGE,                     EZ_WIDGET_NW_LABEL,
+EZ_WIDGET_ICON,                             EZ_WIDGET_LCD,
+EZ_WIDGET_LED,                     EZ_WIDGET_STATUS_METER,
+EZ_WIDGET_MENU_BAR                         EZ_WIDGET_TERM,
+EZ_WIDGET_HORIZONTAL_RULER,      EZ_WIDGET_VERTICAL_RULER,
+EZ_WIDGET_SCROLL_BUTTON,            EZ_WIDGET_SPIN_BUTTON,
+EZ_WIDGET_LOCATOR,                         EZ_WIDGET_DIAL,
+EZ_WIDGET_GRADIENT_BAR,               EZ_WIDGET_HISTOGRAM,
+EZ_WIDGET_SPREAD_SHEET,             EZ_WIDGET_THUMB_WHEEL,
+.sf
+.PP
+
+
+.SH CONFIGURATION SYMBOLS AND THEIR VALUES
+
+See manual for a complete list of resources/configuration
+options.
+
+
+.SH "SEE ALSO"
+EZ_DisplayWidget(3), EZ_ConfigureWidget(3), EZ_DestroyWidget(3)
+
+

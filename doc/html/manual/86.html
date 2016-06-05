@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>EZwgl (8.1  How Drag and Drop Works)</title>
+</head>
+<body bgcolor="#ffffff" vlink="#666600" text="#000000">
+
+<div align=right>
+<A HREF="../index.html" target=../_top><IMG SRC="images/ez.gif" border=0 alt=EZ align=left></A>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="87.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<br>
+<HR>
+<h2>8.1  How Drag and Drop Works</h2>
+
+<p>
+Each <i>EZwgl</i> application has an internal window (unmapped) for
+communication. Drag and Drop transactions are carried out by
+changing the window properties of these communication windows.
+<p>For each type of information an application transfers, there is
+an unique internal identifier (an <strong>Atom</strong>) that specifies the 
+information type.  This identifier is called a
+<em>conversion target</em>. It is the responsibility of an application
+to register the conversion targets before using them. 
+Convertion targets are created by <code>XInternAtom</code> or <code><font color="#990000"><b>EZ_GetAtom</b></font></code>.
+These routines register a name to the X server. Once created, an atom
+remains unique till server shutdown.
+<p>The right mouse button (Button3) is the drag and drop button for
+<i>EZwgl</i>.  When a user press-and-drag Button3 over a drag source,
+<i>EZwgl</i> initiates a new DnD transaction,
+executes the initialization encoder (registered to the special
+target <code><font color="#990000"><b>EZ_DND_DRAG_INIT_ATOM</b></font></code>), build a list of conversion
+targets the drag source converts, and broadcast to all <i>EZwgl</i>
+applications this list of targets.  It then replace the default cursor 
+by the drag cursor if the drag source has one, or
+a snapshot of the drag source will be made to follow the pointer, or
+if a drag icon is supplied, it pops out the drag icon.
+Whenever the pointer moves, the drag source 
+broadcast its position to all <i>EZwgl</i> applications. If the drag is over a
+potential  drop target, the border of the potential target lights up. When the
+drag is released over a drop target,  the following sequence of 
+actions will be initiated.
+<p><ul>
+<p>
+<p>
+<li>The drag source invokes its drag setup encoder 
+(a special encoder registered to the special target
+ <code><font color="#990000"><b>EZ_DND_DRAG_START_ATOM</b></font></code>) and its 
+callbacks; and then sends a message containing the setup message 
+and the list of targets the source converts to the drop target.
+<p>
+<p>
+<li>The target examine the list of targets the source supplied and
+examine the list of decoders registered to itself,  bulids a
+list of matching targets both the source and the target convert and
+invokes its drop setup decoder (a special decoder registered to the
+special target <code><font color="#990000"><b>EZ_DND_DROP_START_ATOM</b></font></code>) and its callbacks.
+<p><p>
+<li>If there are no matching targets on the matching list,
+the target aborts its drop operation, invokes its drag clean
+up decoder (a decoder registered to the special target
+<code><font color="#990000"><b>EZ_DND_DROP_FINISH_ATOM</b></font></code>) and its callback, and sends 
+a message to the drag source to abort. 
+Otherwise, it sends a convertion request, start with the first
+available matching target.
+<p><p>
+<li>Upon reciving a conversion request, the drag source
+invokes its relevent encoder to do the conversion. If succesful, 
+the encoded message is send to the target. Otherwise, it sends
+a message to the drop target that conversion for the requested
+target has failed.
+<p><p>
+<li>If the drop target receives a conversion failed message,
+it examine the list of matching targets. If there are more
+targets on the matching list, it starts step 3 again. Otherwise,
+It sends a message to the drag source to cancell the current
+drag, invokes its drop clean up procedures
+and aborts the current DnD transaction itself.
+<p>If the drop target receives a conversion, it invokes its relevent
+DnD decoder to decode the message. If succesfull, it sends an
+acknowledgement message to the drag source and, if there is a
+callback for this decoder, it invokes the callback.  If decoding
+fails, it'll try the next target on the matching list and start
+step 3 again.
+<p><p>
+<li>If the drag source receives an acknowledgement message,
+it invokes the callback for the current encoder if there is one;
+it then invokes the drag clean up procedures (an encoder registered
+to the special target <code><font color="#990000"><b>EZ_DND_DRAG_FINISH_ATOM</b></font></code>)
+and marks the current DnD transaction complete. If it
+receives a message to abort, it invokes the drag clean up procedures
+and aborts the current DnD transaction.
+</ul>
+<p>
+<HR>
+<div align=right>
+<table border=0><tr> <td height=10></td></tr><tr>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_up.gif" alt=Up></A></td>
+<td><A HREF="85.html">
+    <font color=red><IMG SRC="images/blue_prev.gif" alt=Prev></A></td>
+<td><A HREF="87.html">
+    <font color=red><IMG SRC="images/blue_next.gif" alt=Next></A></td>
+<td><A HREF="contents.html">
+    <font color=red><IMG SRC="images/blue_contents.gif" alt=Contents></A></td>
+</tr></table>
+</div>
+
+<p>
+<small><DIV align = right>HTML Documentation Maintainance:<A HREF="mailto:arturo@nuclecu.unam.mx"><kbd>Arturo Espinosa
+ &lt;arturo@nuclecu.unam.mx&gt;</kbd></A></small>
+
+</body>
+</html>

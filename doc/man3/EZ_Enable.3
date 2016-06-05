@@ -1,0 +1,47 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_Enable 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_Enable, EZ_Disable \- turn on/off graphics capabilities
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_Enable(int " mode )
+.BI "void EZ_Disable(int " mode )
+
+.SH ARGUMENTS
+\fImode\fR Specifies a symbolic constant that represents a graphic
+library capability. 
+
+.SH DESCRIPTION
+\fBEZ_Enable/EZ_Disable\fR turns on/off certain graphics library
+capabilities. These capabilities are represented by the following
+symbolic constants:
+.sp
+.in +5
+\fBEZ_LIGHT[0-7]\fR  enable/disable light source 0--7.
+.sp
+\fBEZ_LIGHTING\fR enable/disable lighting calculations.
+.sp
+\fBEZ_NORMALIZE\fR enable/disable automatic normal vector normalization.
+.sp
+\fBEZ_COLOR_MATERIAL\fR enable/disable color material.
+.sp
+\fBEZ_CULL_FACE\fR enable/disable back face culling.
+.sp
+\fBEZ_FOG\fR enable/disable fog.
+.sp
+\fBEZ_DEPTH_TEST\fR enable/disable zbuffer.
+.sp
+\fBEZ_DITHER\fR enable/disable color dithering.
+.in -5
+
+.SH "SEE ALSO"
+EZ_Color3f(3), EZ_Normal3f(3), EZ_Vertex3f(3), EZ_ColorMaterial(3)
+
+
+

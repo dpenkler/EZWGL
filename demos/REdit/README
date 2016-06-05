@@ -1,0 +1,26 @@
+
+
+1. EZ Resource Editor (redit):
+
+   Usage:
+
+     Tree-->Get Tree,   move pointer to EZWGL client's window and click a mouse button.
+
+     Double click on the TreeNodes to show a list of editable resources.
+
+     Double click on the item in the WorkArea Widget to select a resource to edit
+
+     Modify the resource values and click the Apply button to set the resources.
+
+
+2. EZ Resource Editor (REdit):
+
+   Usage:
+
+       enter a resoure name and a resource value in the relevent entries, click
+       the "Send" button, the resource will be sent to every EZ client ...
+
+
+
+
+

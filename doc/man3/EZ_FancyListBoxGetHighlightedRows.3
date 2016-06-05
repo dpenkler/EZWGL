@@ -1,0 +1,39 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_FancyListBoxGetHighlightedRows 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_FancyListBoxGetHighlightedRows \- return the highlighted rows in a fancy listbox widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_FancyListBoxGetHighlightedRows( EZ_Widget *" flistbox ", int *" intArray,
+.BI "                                       int " arraySize)
+.sp
+.BI "int EZ_FancyListBoxGetHighlightedItems( EZ_Widget *" flistbox ", EZ_Item **" itemArray,
+.BI "                                       int " arraySize)
+
+.SH ARGUMENTS
+\fIflistbox\fR Specifies a fancy listbox widget.
+.sp
+\fIintArray\fR Specifies an array to return the indices of highlighted rows.
+.sp
+\fIitemArray\fR Specify an array to return the highlighted items
+.sp
+\fIarraySize\fR Specify the size of the array.
+
+.SH DESCRIPTION
+\fBEZ_FancyListBoxGetHighlightedRows\fR stores the indices of the highlighted
+rows and returns the number of highlighted rows. This functions works when
+selection is in row mode.
+.PP
+\fBEZ_FancyListBoxGetHighlightedItems\fR stores the the highlighted
+items in  the array supplied, and return the number of highlighted items.
+
+
+.SH "SEE ALSO"
+EZ_GetFancyListBoxSelection(3)
+

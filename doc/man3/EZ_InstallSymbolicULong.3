@@ -1,0 +1,36 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_InstallSymbolicULong "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_InstallSymbolicULong, EZ_RetrieveSymbolicULong \- install/retrieve a symbolic
+constant to/from the resource database
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "int EZ_InstallSymbolicULong(char *" name ", unsigned long value)
+.sp
+.BI "int EZ_RetrieveSymbolicULong(char *" name ", unsigned long *" value_ret)
+
+.SH ARGUMENTS
+.sp
+\fIname\fR  Specifies a name.
+.sp
+\fIvalue\fR  Specifies an integer.
+.sp
+\fIvalue_ret\fR  Specifies the return for value.
+
+.SH DESCRIPTION
+.PP
+These routines are convenient interface to \fBEZ_InstallSymbol(3)\fR.
+It returns -1 if the symbol \fIname\fR is not found or is associated
+to some other data type.
+
+.SH "SEE ALSO"
+EZ_InstallSymbolicInt(3)
+.br
+
+

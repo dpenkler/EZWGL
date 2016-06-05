@@ -1,0 +1,105 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_RegisterWidget 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_RegisterWidget \- register your own widget
+
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void   EZ_RegisterWidget( int " type,
+.BI "                         void (*Setup) (EZ_Widget * widget),
+.BI "                         void (*ComputeSize) (EZ_Widget *widget , int *w , int *h),
+.BI "                         void (*DrawWidget) (EZ_Widget *widget),
+.BI "                         void (*FreeData) (EZ_Widget *widget)),
+.BI "                         void (*EventHandle) (EZ_Widget *widget, XEvent *event) );
+
+
+
+.SH ARGUMENTS
+\fItype\fR  Specifies an integer, must be bigger than 65536.
+.sp
+\fISetup\fR  Specifies a procedure. This procedure is invoked
+whenever a new widget of the specified type is created.
+.sp
+\fIComputeSize\fR  Specifies a procedure. This procedure will
+be invoked when the geometry manager needs to update the geometry
+of widgets of the specified type.
+.sp
+\fIDrawWidget\fR  Specifies a procedure. This procedure will be
+executed when the display of a widget of the given type need to be
+updated.
+.sp
+\fIFreeData\fR  Specifies a procedure. This procedure will be invoked
+when a widget of the specified type is being destroyed.
+.sp
+\fIEventHandle\fR  Specifies a generic event handler for widgets of
+the specified type.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_RegisterWidget\fR registers a custom designed widget to the
+EZ widget library.  After a new widget is registered, it can be handled the
+same as other widgets in the library.  Here is an example
+.PP
+.nf
+
+#include "EZ.h"
+
+#define TEST_TYPE    65537    /* type starts at 65537 */
+
+void TESTsetup(EZ_Widget *widget) { }
+
+void TESTfreeData(EZ_Widget *widget) { }
+
+void TESTcomputeSize(EZ_Widget *widget, int *w, int *h)
+{  *w =200; *h=60; }
+
+void TESTdraw(EZ_Widget *widget)
+{
+  EZ_DrawRectBorder(widget, EZ_GetWidgetWindow(widget));
+}	
+
+void TESTeventHandle(EZ_Widget *widget, XEvent *event)
+{  if(event->type == Expose) TESTdraw(widget); }
+
+
+main(int ac, char **av)
+{
+  EZ_Widget *frame1, *test, *btn;
+
+  EZ_Initialize(ac,av,0);
+
+  /* register our TEST  widget	*/
+  EZ_RegisterWidget(TEST_TYPE, TESTsetup, TESTcomputeSize,
+		    TESTdraw, TESTfreeData, TESTeventHandle);
+
+  frame1 = EZ_CreateWidget(EZ_WIDGET_FRAME,   NULL,
+                           EZ_FILL_MODE,      EZ_FILL_BOTH,
+                           EZ_LABEL_STRING,   "Test Widget",
+                           NULL);
+
+  test =   EZ_CreateWidget(TEST_TYPE,       frame1,
+	 	           EZ_BORDER_TYPE,  EZ_BORDER_UP,
+                           EZ_FOREGROUND,   "red",
+			   EZ_BACKGROUND,   "#00afaf",
+			   EZ_BORDER_WIDTH, 6,
+                           NULL);
+  btn =    EZ_CreateWidget(EZ_WIDGET_NORMAL_BUTTON,  tmp,
+                           EZ_LABEL_STRING,          "A Button",
+                           EZ_BACKGROUND,            "#af00af",
+			   NULL);
+  EZ_DisplayWidget(frame1);
+  EZ_EventMainLoop();
+}
+.fi
+
+.SH "SEE ALSO"
+EZ_GetWritableGC(3)
+.br
+
+

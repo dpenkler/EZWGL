@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetWidgetCallBack 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetWidgetCallBack  \- register a callback to a widget
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void  EZ_SetWidgetCallBack( EZ_Widget *" widget ", 
+.BI "                   EZ_CallBack "callback ", void *" data)
+
+.SH ARGUMENTS
+\fIwidget\fR  Specifies an EZ Widget.
+.sp
+\fIcallback\fR  Specifies a callback procedure.
+.sp
+\fIdata\fR  Specifies a clientdata to be passed to \fIcallback\fR when
+invoked.
+.SH DESCRIPTION
+.PP
+\fBEZ_SetWidgetCallBack\fR registered a unique callback to a
+widget. This function removes all callbacks previousely registered
+to \fIwidget\fR. Use \fBEZ_AddWidgetCallBack\fR instead if there
+are multiple callbacks.
+
+.SH "SEE ALSO"
+ EZ_AddWidgetCallBack(3), EZ_AddEventHandler(3)
+.br
+
+
+

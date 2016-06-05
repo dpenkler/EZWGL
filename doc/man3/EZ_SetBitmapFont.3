@@ -1,0 +1,30 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_SetBitmapFont 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_SetBitmapFont \- select a X bitmap fonts for a 3D canvas
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_SetBitmapFont(char *" font_name )
+
+
+.SH ARGUMENTS
+\fIfont_name\fR Specify a X11 font name.
+
+.SH DESCRIPTION
+\fIEZ_SetBitmapFont\fR selects a bitmap font for a 3D canvas. The 
+selected font will be used to draw character strings by
+EZ_DrawString with the first argument set to EZ_BITMAP_FONT. 
+
+.PP
+
+.SH "SEE ALSO"
+EZ_CMove3f(3), EZ_DrawString(3), EZ_SetVectorFont(3)
+
+
+

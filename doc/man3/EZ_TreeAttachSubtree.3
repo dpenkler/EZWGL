@@ -1,0 +1,35 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_TreeAttachSubtree 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_TreeAttachSubtree, EZ_TreeDetachSubtree  
+\- attach/detach a node (subtree) from its host tree
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_TreeAttachSubtree(EZ_TreeNode *" node ", EZ_TreeNode *" stree )
+.BI "void EZ_TreeDetachSubtree(EZ_TreeNode *" stree )
+
+.SH ARGUMENTS
+\fInode\fR  Specifies a tree node.
+.sp
+\fIstree\fR  Specifies a subtree.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_TreeAttachSubtree\fR inserts \fIsbtree\fR as a child of
+\fInode\fR, if \fIstree\fR is not already a node in the host tree
+of \fInode\fR. 
+.PP
+\fBEZ_TreeDetachSubtree\fR detaches \fIsbtree\fR from its host
+tree. 
+
+.SH "SEE ALSO"
+EZ_CreateTreeNode(3), EZ_TreeDestroySubtree(3), EZ_CreateDirTree(3)
+
+
+

@@ -1,0 +1,57 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_PutGLImage 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_PutGLImage, EZ_PutGLImageWindow, EZ_PutGLImageXWindow,
+EZ_PutGLImageScreen \- create/free an gl image.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_PutGLImage(EZ_GLImage *" image ", int " x ", int " y,
+.BI "                   int " w ", int " h ", float " mx ", float " my ", float "mz )
+
+.BI "void EZ_PutGLImageScreen(EZ_GLImage *" image ", int " x ", int " y,
+.BI "                   int " w ", int " h ", float " sx ", float " sy ", float "sz )
+
+.BI "void EZ_PutGLImageWindow(EZ_GLImage *" image ", int " x ", int " y,
+.BI "                   int " w ", int " h ", int " wx ", int " wy )
+
+.BI "void EZ_PutGLImageXWindow(EZ_GLImage *" image ", int " x ", int " y,
+.BI "                   int " w ", int " h ", int " xx ", int " xy )
+
+
+.SH ARGUMENTS
+\fIimage\fR  Specifies a GL image. Must be created by \fBEZ_CreateGLImage\fR.
+.sp
+\fIx,y,w,h\fR  Specifies a (rectangular) region of the image to be
+displayed. \fI(x,y)\fR specifies the offset of the upper-left corner
+relative to the upper-left corner of the image. \fIw\fR and \fIh\fR 
+specifies the width and the height of the region.
+.sp
+\fImx,my,mz\fR  Specifies the location to put the image, in modeling
+space.
+.sp
+\fIsx,sy,sz\fR Specifies the location to put the image, in screen 
+coordinates (normalized device coordinates: [-1,1]^3).
+.sp
+\fIwx,wy\fR  Specifies the location to put the image, in window
+coordinates (origin at the lower-left corner).
+.sp
+\fIxx,xy\fR  Specifies the location to put the image, in X window
+coordinates (origin at the upper-left corner).
+
+
+.SH DESCRIPTION
+.PP
+These set of procedures renders an image in the current draw buffer.
+
+.SH "SEE ALSO"
+EZ_CreateGLImage(3), EZ_DrawString(3)
+.br
+
+
+
