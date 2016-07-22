@@ -41,7 +41,7 @@ DEFS = -DHAVE_CONFIG_H
 LIBS =  -ljpeg -ltiff -lpng -lz  -lm
 LINC = -I. -I./../ -I./../../
 XINC =  
-XLIB = -lXext  -lX11  -lSM -lICE -lX11 
+XLIB = -lXext  -L/usr/lib64 -lX11  -lSM -lICE -lX11 
 
 # End of Make.common
 
