@@ -27,3 +27,18 @@
 *.i*86
 *.x86_64
 *.hex
+
+#generated files
+Make.common
+Makefile
+config.log
+config.status
+demos/DnD/Makefile
+demos/GL/Makefile
+demos/Glass/Makefile
+demos/Makefile
+demos/Message/Makefile
+demos/REdit/Makefile
+examples/Makefile
+lib/Makefile
+
