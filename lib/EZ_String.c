@@ -304,6 +304,11 @@ static void EZ_DrawStringVFont_Work(str, sx,sy,sz)
     for(str = chbgn; str != chend; str++)
       {
 	k = (int) (*str);
+	if (k == 13)
+	  {
+	    npos[0][0] = ox;
+	    continue;
+	  }
 	if(EZ_VectFontTable[k][0][0]) 
 	  {
 	    i = 0;
