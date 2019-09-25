@@ -1430,7 +1430,7 @@ static void InternalPointsFast(start, end)
 static void InternalPoints(start, end)
      int start, end;
 {
-  int j, i, vlist[300];
+  int j, i, vlist[end - start + 1];
   int *iptr = EZ_VBuf.inside;
 
   for(j = 0, i = start; i < end; i++)
