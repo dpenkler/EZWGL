@@ -36,7 +36,7 @@ Enjoy.
 
 Here is a screenshot of an interactive graph with sliders to set the Y-intercepts and a dial to set the slope of the line.
 
-![EZWGL screenshot](https://github.com/dpenkler/EZWGL/tree/master/doc/html/screenshots/msim.png)
+![EZWGL screenshot](doc/html/screenshots/msim.png)
 
 
 ========================================================================
