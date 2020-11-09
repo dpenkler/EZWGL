@@ -4278,8 +4278,8 @@ EXTERN char *EZ_ConfigureOptionTypes[];
 #endif
 
 #ifndef _EZ_WIDGET_RAWXWIN_C_
-EZ_ResourceHandle *EZ_WResourceHandles[EZ_TOTAL_NUMBER_OF_WIDGETS];
-EZ_ResourceHandle *EZ_ApplicationResourceHandle;
+EXTERN EZ_ResourceHandle *EZ_WResourceHandles[EZ_TOTAL_NUMBER_OF_WIDGETS];
+EXTERN EZ_ResourceHandle *EZ_ApplicationResourceHandle;
 #endif
 
 /*************************************************************************
