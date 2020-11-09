@@ -122,8 +122,12 @@ typedef struct {
  *  rendering functions
  */
 #define MAX_NUM_VTS           3145728  /* (* 1024 1024 3) multiple of 3 and 4 */
-
-
+/*****************************************************************
+ *
+ *  This is the maximum window size for canvases
+ */
+#define EZ_MAX_GLWidth  1600
+#define EZ_MAX_GLHeight 1200
 /**************************************************************
  *
  *  The zbuffer is an array of ints. This is the half zdepth.

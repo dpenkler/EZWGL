@@ -83,7 +83,7 @@ void EZ_InitializeGL()
 				      ZPixmap,    /* image format   */
 				      0,          /* offset         */
 				      NULL,       /* data           */
-				      1024, 1,    /* width, height  */
+				      EZ_MAX_GLWidth, 1,    /* width, height  */
 				      32,         /* bitmap pad     */
 				      0);         /* bytes per line */
       EZ_RowImage->data = (char *)my_malloc(EZ_RowImage->bytes_per_line, _ROW_IMAGE_DATA_);

@@ -188,8 +188,8 @@ void EZ_ComputeWidgetWindowSize(widget, w, h, EZ_TopmostGeomDirtyWidget)
       int xsize = oldwidth;
       int ysize = oldheight;
 
-      xsize  = (xsize > 1024? 1024: ((xsize < 8)? 8: xsize));
-      ysize = (ysize > 1024? 1024:((ysize < 8)? 8: ysize));
+      xsize = (xsize > EZ_MAX_GLWidth  ? EZ_MAX_GLWidth  : ((xsize < 8)? 8: xsize));
+      ysize = (ysize > EZ_MAX_GLHeight ? EZ_MAX_GLHeight : ((ysize < 8)? 8: ysize));
       /*
        * make sure the size is a multiple of 4
        */
