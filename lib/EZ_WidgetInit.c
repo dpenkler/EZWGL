@@ -337,6 +337,8 @@ static void InitEZWGL2()
   EZ_Btn1 = Button1;
   EZ_Btn2 = Button2;
   EZ_Btn3 = Button3;
+  EZ_Btn4 = Button4;
+  EZ_Btn5 = Button5;
 
   /*---------------------------------
    * Create the GC's to be used.

@@ -68,6 +68,7 @@ realclean: clean
 mrproper:
 	(cd $(srcdir); $(RMF) *~ config.cache config.h config.log config.status)
 	@for I in $(subdirs); do (cd $$I; $(MAKE) $@ || exit 1); done
+	@for I in $(sampledirs); do (cd $$I; $(MAKE) $@ || exit 1); done
 	(cd $(srcdir); $(RMF) Makefile Make.common)
 
 ../$(VERNAME).tar.gz: 

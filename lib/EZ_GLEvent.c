@@ -59,7 +59,7 @@ int   EZ_UpdateButtonState MY_ANSIARGS((XEvent *event));
  */
 int           EZ_PointerCoordinates[2], EZ_MouseX, EZ_MouseY;
 unsigned int  EZ_PressedKey, EZ_ButtonState;
-unsigned int  EZ_Btn1,  EZ_Btn2, EZ_Btn3;
+unsigned int  EZ_Btn1,  EZ_Btn2, EZ_Btn3, EZ_Btn4, EZ_Btn5;
 
 /*********************************************************************
  *
@@ -437,7 +437,17 @@ int EZ_UpdateButtonState(event)
 	  EZ_ButtonState |= EZ_BUTTON3;
 	  return(EZ_RIGHT_BUTTON_PRESS);
 	}
-      else
+       else if(button == EZ_Btn4)
+	{
+	  EZ_ButtonState |= EZ_BUTTON4;
+	  return(EZ_BUTTON4_PRESS);
+	}
+       else if(button == EZ_Btn5)
+	{
+	  EZ_ButtonState |= EZ_BUTTON5;
+	  return(EZ_BUTTON5_PRESS);
+	}
+       else
 	{
 	  (void)fprintf(stderr,"Warning: Unknown Button type in EZ_NextEvent()\n");
 	  return(0);
@@ -459,6 +469,16 @@ int EZ_UpdateButtonState(event)
 	{
 	  EZ_ButtonState &= ~EZ_BUTTON3;
 	  return(EZ_RIGHT_BUTTON_RELEASE);
+	}
+      else if(button == EZ_Btn4)
+	{
+	  EZ_ButtonState &= ~EZ_BUTTON4;
+	  return(EZ_BUTTON4_RELEASE);
+	}
+      else if(button == EZ_Btn5)
+	{
+	  EZ_ButtonState &= ~EZ_BUTTON5;
+	  return(EZ_BUTTON5_RELEASE);
 	}
       else
 	{

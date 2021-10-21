@@ -208,6 +208,8 @@ typedef struct {
 #define EZ_BUTTON1               EZ_LEFT_BUTTON
 #define EZ_BUTTON2               EZ_MIDDLE_BUTTON
 #define EZ_BUTTON3               EZ_RIGHT_BUTTON
+#define EZ_BUTTON4               0x8
+#define EZ_BUTTON5               0x10
 
 #define EZ_REDRAW                256
 #define EZ_RESIZE                257
@@ -228,9 +230,14 @@ typedef struct {
 #define EZ_BUTTON1_PRESS         EZ_LEFT_BUTTON_PRESS
 #define EZ_BUTTON2_PRESS         EZ_MIDDLE_BUTTON_PRESS
 #define EZ_BUTTON3_PRESS         EZ_RIGHT_BUTTON_PRESS
+#define EZ_BUTTON4_PRESS         270
+#define EZ_BUTTON5_PRESS         271
 #define EZ_BUTTON1_RELEASE       EZ_LEFT_BUTTON_RELEASE
 #define EZ_BUTTON2_RELEASE       EZ_MIDDLE_BUTTON_RELEASE
 #define EZ_BUTTON3_RELEASE       EZ_RIGHT_BUTTON_RELEASE
+#define EZ_BUTTON4_RELEASE       272
+#define EZ_BUTTON5_RELEASE       273
+/* Add new constants here, update include/EZ.h also */
 
 
 #define EZ_LeftButtonDown()      (EZ_ButtonState & EZ_Button1)
@@ -907,7 +914,7 @@ EXTERN void         EZ_Disable MY_ANSIARGS((int mode));
 #ifndef _EZ_GL_EVENT_C_
 EXTERN int  EZ_MouseX, EZ_MouseY, EZ_PointerCoordinates[2];
 EXTERN unsigned int  EZ_PressedKey, EZ_ButtonState;
-EXTERN unsigned int  EZ_Btn1,  EZ_Btn2, EZ_Btn3;
+EXTERN unsigned int  EZ_Btn1,  EZ_Btn2, EZ_Btn3, EZ_Btn4, EZ_Btn5;
 
 #endif
 

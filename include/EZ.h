@@ -309,7 +309,8 @@ EXTERN int          EZ_MouseX;                  /* = EZ_PointerCoordinates[0] - 
 EXTERN int          EZ_MouseY;                  /* = width - EZ_PointerCoordinates[0] - borderWidth */
 EXTERN unsigned int EZ_PressedKey;              /* for key events, the pressed key */
 EXTERN unsigned int EZ_ButtonState;             /* states of the buttons */
-EXTERN unsigned int EZ_Btn1, EZ_Btn2, EZ_Btn3;  /* Left, middle right btn, may be re-assigned */
+/* Left, middle right 4th &5th btn, may be re-assigned */
+EXTERN unsigned int EZ_Btn1, EZ_Btn2, EZ_Btn3, EZ_Btn4, EZ_Btn5;
 
 EXTERN Atom      EZ_WM_DELETE_WINDOW_ATOM;
 EXTERN Atom      EZ_WM_PROTOCOLS_ATOM;
@@ -1358,6 +1359,8 @@ EXTERN Atom      EZ_RESOURCE_EDITOR_ATOM;
 #define EZ_BUTTON1                   EZ_LEFT_BUTTON
 #define EZ_BUTTON2                   EZ_MIDDLE_BUTTON
 #define EZ_BUTTON3                   EZ_RIGHT_BUTTON
+#define EZ_BUTTON4                   0x8
+#define EZ_BUTTON5                   0x10
 
 #define EZ_REDRAW                    256
 #define EZ_RESIZE                    257
@@ -1378,10 +1381,15 @@ EXTERN Atom      EZ_RESOURCE_EDITOR_ATOM;
 #define EZ_BUTTON1_PRESS             EZ_LEFT_BUTTON_PRESS
 #define EZ_BUTTON2_PRESS             EZ_MIDDLE_BUTTON_PRESS
 #define EZ_BUTTON3_PRESS             EZ_RIGHT_BUTTON_PRESS
+#define EZ_BUTTON4_PRESS             270
+#define EZ_BUTTON5_PRESS             271
+
 #define EZ_BUTTON1_RELEASE           EZ_LEFT_BUTTON_RELEASE
 #define EZ_BUTTON2_RELEASE           EZ_MIDDLE_BUTTON_RELEASE
 #define EZ_BUTTON3_RELEASE           EZ_RIGHT_BUTTON_RELEASE
-
+#define EZ_BUTTON4_RELEASE           272
+#define EZ_BUTTON5_RELEASE           273
+/* Add new constants here, update lib/EZ_GL.h also */
 
 #define EZ_LeftButtonDown()          (EZ_ButtonState & EZ_Button1)
 #define EZ_MiddleButtonDown()        (EZ_ButtonState & EZ_Button2)
