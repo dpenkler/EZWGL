@@ -61,7 +61,7 @@ main(int ac, char **av)
                          EZ_SELECTION_BACKGROUND,"yellow",
                          0);
   EZ_DisplayWidget(gb);
-  EZ_TextLoadFile(text, "GridBag.c");  
+  EZ_TextLoadFile(text, "gridbag.c");  
   EZ_EventMainLoop();
 }
 /********************** Example GridBag *********************/

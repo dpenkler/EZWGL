@@ -3,7 +3,7 @@
 @MCOMMON@
 @SET_MAKE@
 
-EXAMPLES= gears image julia  pendulum
+EXAMPLES= gears image image2 julia  pendulum
 
 #----------------------------------------------------------------------------------
 

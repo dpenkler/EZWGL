@@ -9,7 +9,7 @@ EXAMPLES= arrows        frame         mbutton       rotateTxt     tree \
           flistbox      led           rbutton       timer         demo \
           notebook      scrollBtn     spinBtn       locator       ruler \
           dial          appres        gbar           histogram    ssheet \
-          thumWheel     menu1
+          thumWheel     menu1	      gridbag
 #----------------------------------------------------------------------------------
 
 all: $(EXAMPLES)

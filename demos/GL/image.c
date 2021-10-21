@@ -8,7 +8,7 @@ static EZ_GLImage *testImage, *bkImage, *saveImage = NULL;
 int                imageW, imageH, bkImgW, bkImgH;
 int                saveX, saveY;
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *canvas;
 
