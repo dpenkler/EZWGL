@@ -171,7 +171,8 @@ static void draw(EZ_Widget *canvas)
   EZ_Color3f(0.8,0.7,0.2);
   EZ_PutGLImage(testImage, 0, 0, 300,300, 0.0,0.0, 0.0);
 
-  EZ_SwapBuffers();  
+  EZ_SwapBuffers();
+  usleep(10000);
 }
 /* 
  * the event handler. It should handle at least the
