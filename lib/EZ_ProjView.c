@@ -57,6 +57,7 @@ void    EZ_Perspective MY_ANSIARGS((float   fov, float aspect,
 void    EZ_LookAt MY_ANSIARGS((float  vx, float vy, float vz,
 			       float  px, float py, float pz,
 			       float  ux, float uy, float uz));
+void    EZ_ViewPort MY_ANSIARGS((float x0, float x1, float y0, float y1));
 
 /***************************************************************
  *
@@ -176,6 +177,20 @@ void EZ_LookAt(vx, vy, vz, px, py, pz, ux, uy, uz)
       
   EZ_MultMatrix(m);
   EZ_Translate(-vx,-vy,-vz);
+}
+
+void EZ_ViewPort (x0, x1, y0, y1)
+  float x0, x1, y0, y1;
+{
+  int w,h;
+  w = EZ_WindowWidth;
+  h = EZ_WindowHeight;
+
+  EZ_WindowCenterX = 0.5 * (w - 1) * (x1 - x0) + (w - 1) * x0 + 0.4;
+  EZ_WindowCenterY = 0.5 * (h - 1) * (y1 - y0) + (h - 1) * y0 + 0.4;
+  EZ_WindowScaleX  = 0.5 * (w - 1) * (x1 - x0);
+  EZ_WindowScaleY  = 0.5 * (h - 1) * (y1 - y0);
+
 }
 
 #undef _EZ_PROJ_VIEW_C_

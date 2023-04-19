@@ -1594,6 +1594,7 @@ EXTERN void   EZ_Perspective MY_ANSIARGS(( float   fov, float aspect,
 EXTERN void   EZ_LookAt MY_ANSIARGS((float  vx, float vy, float vz,
 				     float  px, float py, float pz,
 				     float  ux, float uy, float uz));
+EXTERN void   EZ_ViewPort MY_ANSIARGS((float x0, float x1, float y0, float y1));
 #endif
 /*
  * From EZ_World2Screen.c

@@ -1,0 +1,29 @@
+'\"
+'\" Copyright (c) 2023 Dave Penkler
+'\" 
+.TH EZ_ViewPort 3 "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ViewPort \- Set the viewport of the display window.
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "void EZ_ViewPort(float " x0 ", float " x1 ", float " y0 ", float " y1)
+
+.SH ARGUMENTS
+\fIx0\fR ,\fIx1\fR  Specify the coordinate of the left and right
+limits of the viewport in the range 0.0 - 1.0
+.sp
+\fIy0\fR ,\fIy1\fR  Specify the coordinate of the top and bottom
+limits (respectively) of the viewport in the range 0.0 - 1.0 
+.sp
+
+.SH DESCRIPTION
+\fBEZ_ViewPort\fR Defines the rectangular portion of the display
+window to use for the drawing primitives.
+
+.SH "SEE ALSO"
+EZ_Ortho(3), EZ_Rotate(3), EZ_Translate(3), EZ_LookAt(3), EZ_Frustum(3),
+EZ_MultMatrix(3), EZ_MatrixMode(3), EZ_Perspective(3)
