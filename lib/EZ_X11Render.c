@@ -308,7 +308,15 @@ void  EZ_ClearX11(flag)
      int flag;
 {
   unsigned long pixel_value;
-
+  int x0,x1,y0,y1;
+  x0 = EZ_WindowCenterX - EZ_WindowScaleX;
+  x1 = EZ_WindowCenterX + EZ_WindowScaleX;
+  y0 = EZ_WindowCenterY - EZ_WindowScaleY;
+  y1 = EZ_WindowCenterY + EZ_WindowScaleY;
+  if (x0 < 0) x0 = 0;
+  if (y0 < 0) y0 = 0;
+  if (x1 > EZ_WindowWidth) x1 = EZ_WindowWidth;
+  if (y1 > EZ_WindowHeight) y1 = EZ_WindowHeight;
   if(flag & EZ_COLOR_BUFFER_BIT)
     {
       if(EZ_ColorMode == EZ_CMAP_MODE)
@@ -329,8 +337,7 @@ void  EZ_ClearX11(flag)
       XFillRectangle(EZ_Display, 
 		     EZ_Drawable, 
 		     EZ_MainGC, 
-		     0, 0,
-		     EZ_WindowWidth, EZ_WindowHeight);
+		     x0, y0, x1, y1);
       XSync(EZ_Display,0);
     }
 }
