@@ -332,12 +332,12 @@ void  EZ_ClearX11(flag)
 	  else
 	    pixel_value = RGB2PixelLookUp( EZ_BackRGBA[0],EZ_BackRGBA[1], EZ_BackRGBA[2]);
 	}  
-  
+
       XSetForeground(EZ_Display, EZ_MainGC, pixel_value);
       XFillRectangle(EZ_Display, 
 		     EZ_Drawable, 
 		     EZ_MainGC, 
-		     x0, y0, x1, y1);
+		     x0, y0, x1-x0, y1-y0);
       XSync(EZ_Display,0);
     }
 }
