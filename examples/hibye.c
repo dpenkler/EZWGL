@@ -6,6 +6,7 @@ or
  */
 
 #include "EZ.h"
+#include <string.h>
 
 static void sayHi(EZ_Widget *widget, void *data)
 {  printf("Hello, there\n");}
@@ -31,7 +32,7 @@ int configure(void *widget, int option, EZ_Value *values)
    }
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *btn;
 

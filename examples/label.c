@@ -1,6 +1,6 @@
 #include "EZ.h"
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   if(getenv("SIMAGE"))
     {
@@ -17,7 +17,7 @@ static quit(EZ_Widget *widget, void *data)
 
 static char *twoLines = "Multi-line labels may be left, center or right justified. And it may be anchored at the center or the four corners ...";
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *label1, *label2, *label3, *frame4, *btn;
 

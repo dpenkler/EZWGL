@@ -178,7 +178,7 @@ int  RegisterScrolledWidget(char *iname, char *cname)
   return(type);
 }
 /*********************************************************************/
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame;
   EZ_Widget *scrollWin;

@@ -1,5 +1,6 @@
 /****************** Pixmap Server *************************************/
 #include "EZ.h"
+#include <string.h>
 
 #define INSTRUCTION  " \
 \n\n  This program demonstrates MESSAGES. \n\n\
@@ -70,7 +71,7 @@ void msgHandler(EZ_Message *msg, void *data)
     }
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *text;
 
@@ -88,7 +89,7 @@ main(int ac, char **av)
                              "text",              "Text",
                               0);
   EZ_TextInsertString(text, INSTRUCTION);
-  EZ_SetDefaultMessageHandler(msgHandler, text);
+  EZ_SetDefaultMessageHandler((void *)msgHandler, text);
 
   EZ_DisplayWidget(frame);
   EZ_EventMainLoop();

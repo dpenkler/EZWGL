@@ -1,6 +1,6 @@
 #include "EZ.h"
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   if(getenv("SIMAGE"))
     {
@@ -38,7 +38,7 @@ static char *nextF1(int last, int current, void *data)
 
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *top, *spin, *spin1, *frame, *btn;
 

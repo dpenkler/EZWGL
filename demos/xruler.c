@@ -3,7 +3,7 @@
 static EZ_Widget *hruler, *vruler, *label;
 static void timerCb(EZ_Timer *, void *);
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   int swidth, sheight;
 

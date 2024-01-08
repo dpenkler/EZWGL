@@ -208,7 +208,7 @@ static void animate(EZ_Widget *widget, void *data)
 }
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *btn;
 

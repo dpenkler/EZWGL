@@ -1,5 +1,6 @@
 /*********************** Client *******************************************/
 #include "EZ.h"
+#include <string.h>
 
 Atom  PIXMAP_ATOM;
 
@@ -57,7 +58,7 @@ void ltreeCB(EZ_Widget *tree, void *data)
     }
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *ltree, *label, *phandle;
   EZ_TreeNode *root;

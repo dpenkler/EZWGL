@@ -532,7 +532,7 @@ static EZ_Widget *findEmulator(pid) pid_t pid;
  *
  * Catch a SIGCHLD signal and exit if the direct child has died
  */
-static RETSIGTYPE Child_signal(sig) int sig;
+static void Child_signal(sig) int sig;
 {
   int status;
   EZ_Widget *emu = NULL;

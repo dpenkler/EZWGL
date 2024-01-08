@@ -1,6 +1,8 @@
 /***************** Example 2 ********************************/
 
 #include "EZ.h"                                     /* the header file     */
+#include <string.h>
+#include <unistd.h>
 
 static void  cleanExit(EZ_Widget *, void *);        /* quit btn callback   */
 static void  button_callback(EZ_Widget *, void *);  /* button callback     */
@@ -12,7 +14,7 @@ static int emptyx = 3, emptyy = 3;                  /* the empty slot      */
 static int hpad = 1;
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   int        i,j, k;
   char       str[4], *fname = NULL;

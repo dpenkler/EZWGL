@@ -1,6 +1,6 @@
 #include "EZ.h"
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   if(getenv("SIMAGE"))
     {
@@ -22,7 +22,7 @@ static void cb(EZ_Widget *w, void *d)
   EZ_SetEntryString(d, str);
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *entry, *frame,*frame0, *tmp, *frameA, *btn;
 

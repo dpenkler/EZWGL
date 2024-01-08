@@ -1,4 +1,5 @@
 #include "EZ.h"
+#include <string.h>
 
 #ifndef SEEK_SET
 #define SEEK_SET 0
@@ -55,7 +56,7 @@ static void ssort(EZ_Widget *w, void *d);
 /* registered to spread sheet, disply the content of the active cell 
  * the next two callbacks form a infinite loop !!
  */
-static mutex=0;
+static int mutex=0;
 static void motionCB(EZ_Widget *w, void *d)
 {
   char *str=NULL; int row, col;
@@ -92,7 +93,7 @@ static void destroyCB(EZ_Widget *w, void *d)
   EZ_SSheetWriteFile(w, "a");
 }
 
-static dojust(EZ_Widget *w, void *d)
+static void dojust(EZ_Widget *w, void *d)
 {
   int r1=-1,c1,r2,c2;
   EZ_SSheetGetHighlightedRegion(ssheet,  &r1, &c1, &r2, &c2);
@@ -100,14 +101,14 @@ static dojust(EZ_Widget *w, void *d)
     { EZ_SSheetGetActiveCell(ssheet, &r1, &c1, NULL); r2=r1; c2=c1;}
   if(r1 >= 0)
     {
-      int just = (int) d;
+      int just = (int)d;
       EZ_SSheetSetRegionJustification(ssheet, r1,c1,r2,c2,just);
       showStatus(NULL);
     }
   else showStatus("Please selection a region first");
 }
 
-static dohiderow(EZ_Widget *w, void *d)
+static void dohiderow(EZ_Widget *w, void *d)
 {
   static int hidden=0, start, end;
   if(hidden)
@@ -132,7 +133,7 @@ static dohiderow(EZ_Widget *w, void *d)
     }
 }
 
-static dohidecol(EZ_Widget *w, void *d)
+static void dohidecol(EZ_Widget *w, void *d)
 {
   static int hidden=0, start, end;
   if(hidden)
@@ -158,7 +159,7 @@ static dohidecol(EZ_Widget *w, void *d)
 }
 
 
-static dofont(EZ_Widget *w, void *d)
+static void dofont(EZ_Widget *w, void *d)
 {
   /* really should remember the current text property */
   EZ_TextProp *prop = NULL;
@@ -195,7 +196,7 @@ static dofont(EZ_Widget *w, void *d)
 
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget  *frame, *frame1, *entry, *btn, *hscr, *vscr, *ttt;
   

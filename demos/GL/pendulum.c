@@ -17,6 +17,9 @@ static float  xyz[300][4];         /* the spring        */
 static double pPosition[4];        /* position of the pendulums  */
 static float  pendulum[4][3];      /* head and tail of pendulums */
 
+void rkqc();
+void rk4_for_rkqc();
+void rk4();
 /*
  * data to control the configuration of the spring
  */
@@ -68,7 +71,7 @@ static void InitMaterials();
 /*************************************************************************/
 static EZ_Widget *StopButton;
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *canvas, *tmp, *tmpframe, *tmpF, *sliders[4];
   /*
@@ -436,7 +439,7 @@ extern double TotalTime;
 /*********************************************************************/
 /* extern double yscale[], total_time; */
 
-rkqc(yy,htry,hnext,derivs, dimension)    
+void rkqc(yy,htry,hnext,derivs, dimension)    
      double *yy,htry,*hnext;
      vfunc derivs;
      int dimension;
@@ -487,7 +490,7 @@ rkqc(yy,htry,hnext,derivs, dimension)
     yy[i]=yy[i]+ytemp[i]*FCOR;
 }
 
-rk4_for_rkqc(yy,dydx,step,yout,derivs, dimension)
+void rk4_for_rkqc(yy,dydx,step,yout,derivs, dimension)
      double *yy,*yout,*dydx,step;
      vfunc  derivs;
      int dimension;
@@ -519,7 +522,7 @@ rk4_for_rkqc(yy,dydx,step,yout,derivs, dimension)
  *
  *****************************************************************/
 
-rk4(pos,step,derivs, dimension)
+void rk4(pos,step,derivs, dimension)
      double *pos,step;
      vfunc derivs;
      int dimension;

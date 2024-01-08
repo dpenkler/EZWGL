@@ -1,5 +1,6 @@
 /**********************************************************/
 #include "EZ.h"
+#include <string.h>
 
 int     encodeFileName(EZ_Widget *, void *, char **, int *, int *);
 int     encodeFileContents(EZ_Widget *, void *, char **, int *, int *);
@@ -15,7 +16,7 @@ Atom MY_FILE_CONTENTS_ATOM;
 static char *colors[] = { "red", "green", "blue", "cyan", 
                           "magenta", "yellow", "red3","#cf00cf"};
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *listTree;
   EZ_TreeNode *root;

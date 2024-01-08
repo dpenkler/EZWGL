@@ -1,5 +1,6 @@
 /*************************************************************/
 #include "EZ.h"
+#include <string.h>
 
 int encodeBG(EZ_Widget *, void *, char **, int *, int *);
 int decodeBG(EZ_Widget *, void *, char *, int);
@@ -9,7 +10,7 @@ static char *colors[] = { "red", "green", "blue", "cyan",
 
 Atom MY_BG_ATOM;
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *tmp, *btn;
   Cursor cursor;

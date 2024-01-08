@@ -1,5 +1,6 @@
 /************************** resource editor ****************************/
 #include "EZ.h"
+#include <string.h>
 static char *tick_xpm[] = {
 /* width height num_colors chars_per_pixel */
 "    16    16        2            1",
@@ -82,7 +83,7 @@ static void showInfo(EZ_Widget *w, void *d);
 static void doexit(EZ_Widget *w, void *d) { EZ_Shutdown(); exit(0);}
 /**********************************************************************************/
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *tmp, *ump, *tframe, *rframe;
   EZ_Initialize(ac, av, 0);
@@ -454,7 +455,7 @@ static void getTreeCb(EZ_Widget *widget, void *data)
                                 (EZ_MessageHandler) msgHandler,  /* the handler     */
                                 1,           /* expire in one second   */
                                 timeoutCb,   /* what to do when handler expires */
-                                (void *) (data? EZ_RE_GET_TREE1: EZ_RE_GET_TREE)
+                                (void *)(data? EZ_RE_GET_TREE1: EZ_RE_GET_TREE)
                                 );
       /* broadcast a message to find the client 
        * This is the first query message. The res editor

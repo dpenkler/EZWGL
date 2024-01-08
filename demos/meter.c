@@ -115,7 +115,7 @@ void timer_callback(EZ_Timer *timer, void *data)
     }  
 }
 /*********************************************************************/
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *tmp;
   

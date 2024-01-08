@@ -44,7 +44,7 @@ static void rtimer_callback(EZ_Timer *timer, void *pdata)
     EZ_UpdateDirTreeWidget(ltree);
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *listTree;
   EZ_Widget *textW, *tmp;

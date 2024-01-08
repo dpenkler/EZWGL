@@ -47,7 +47,7 @@ static EZ_MenuEntry menuEntries[] = {
   {0,                      NULL, NULL,             NULL,       0,     0,     NULL,     NULL,  0, 0, 0 }
 };
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *mbtn1, *mbtn2, *mbtn3, *frame4, *btn;
   EZ_Widget *menu1, *menu2, *menu3, *smenu;

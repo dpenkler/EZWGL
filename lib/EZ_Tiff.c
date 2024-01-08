@@ -47,7 +47,7 @@ static int EZ_ReadTiff(fname, w_ret, h_ret, p_ret, rgb_return)
   TIFF               *tif;
   unsigned char      *data, *ptr, r, g, b, a;
   int                 x, y, tmp;
-  uint32              w, h, *rast, *tptr;
+  uint32_t            w, h, *rast, *tptr;
 
   if(fname == NULL)   return(0);
   if((tif = TIFFOpen(fname, "r")) == NULL) return(0);
@@ -55,7 +55,7 @@ static int EZ_ReadTiff(fname, w_ret, h_ret, p_ret, rgb_return)
   TIFFGetField(tif, TIFFTAG_IMAGELENGTH, &h);
   tmp = w * h;
 
-  if((rast = (uint32 *) _TIFFmalloc(tmp * sizeof(uint32)))== NULL)
+  if((rast = (uint32_t *) _TIFFmalloc(tmp * sizeof(uint32_t)))== NULL)
     {
       TIFFClose(tif);
       return(0);

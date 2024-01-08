@@ -17,7 +17,7 @@ static void make_author_info_widget(EZ_Widget *pp);
 
 /*************************************************************************/
 EZ_Widget *notebook, *page[20];
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *tmp;
   int       i;

@@ -4,6 +4,8 @@
  *
  */
 #include "EZ.h"
+#include <string.h>
+
 /*----------------------------------------------------------------------
  *           command line options
  */
@@ -596,7 +598,7 @@ static void setupMenu(EZ_Widget *mbar)
 /*----------------------------------------------------------------------
  *  So the story begins ...
  */
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *mbar;
   char      *value;

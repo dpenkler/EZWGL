@@ -3,7 +3,7 @@
 
 EZ_Widget *tmenu, *ssmenu;
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   EZ_Shutdown();
   exit(0);
@@ -46,7 +46,7 @@ void btnCb(EZ_Widget *widget, void *data)
 
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *mbtn1, *mbtn2, *mbtn3, *frame4, *btn;
   EZ_Widget *menu1, *menu2, *menu3, *smenu;

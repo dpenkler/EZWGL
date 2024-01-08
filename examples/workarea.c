@@ -1,5 +1,6 @@
 /************************** WorkArea Items ***********************/
 #include "EZ.h"
+#include <string.h>
 
 static EZ_Widget  *workarea;
 
@@ -15,7 +16,7 @@ static void itemCB(EZ_Item *item, void *data)
 
 EZ_Widget *ruler, *fff;
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Item    *items[20];
   EZ_Bitmap  *bitmap, *pixmap;

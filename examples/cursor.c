@@ -4,7 +4,7 @@ static void grid(EZ_Widget *w, void *d) {EZ_ShowGrid(d);}
 
 
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *tmp;
   int i, j, k, ncursors;

@@ -1,6 +1,6 @@
 #include "EZ.h"
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *slider, *frame5, *btn;
 

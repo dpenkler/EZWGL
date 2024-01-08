@@ -39,7 +39,7 @@ static void frameEventHandler(EZ_Widget *widget, void *data, int etype, XEvent *
   if(str[0]) EZ_ConfigureWidget(label, EZ_LABEL_STRING, str, 0);
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *label;
   

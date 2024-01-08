@@ -1,5 +1,6 @@
 /*************** Example G3 ******************************************/
 #include "EZ.h"
+#include <unistd.h>
 
 static void eventHandler(EZ_Widget *, void *, int, XEvent *);
 static void draw(EZ_Widget *);
@@ -8,7 +9,7 @@ static int clear = 1;
 
 static EZ_GLImage *testImage;
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *canvas;
   /* 

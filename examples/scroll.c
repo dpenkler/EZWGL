@@ -1,7 +1,7 @@
 
 #include "EZ.h"
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   if(getenv("SIMAGE"))
     {
@@ -15,9 +15,9 @@ static quit(EZ_Widget *widget, void *data)
   EZ_Shutdown();
   exit(0);
 }
-static noop(EZ_Widget *widget, void *data){ }
+static void noop(EZ_Widget *widget, void *data){ }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *scrollbar1, *scrollbar2, *scrollbar12, *scrollbar21;
   EZ_Widget *scrollbar3, *scrollbar4, *frame5, *btn;

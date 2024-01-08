@@ -150,7 +150,7 @@ static void entryCb(EZ_Widget *widget, void *data)
   if(bbox) EZ_CallWidgetCallbacks(bbox);  
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *entry, *bbox, *btn1, *btn2, *btn3, *quit;
 

@@ -7,7 +7,7 @@ void cleanExit(EZ_Widget *widget, void *dat)
 }
   
 #define TXT  "This is a test, a newline after here\nand Here is the second line"
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *hello;
   EZ_LabelPixmap *pixmap;

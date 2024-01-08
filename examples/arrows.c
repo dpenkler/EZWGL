@@ -1,6 +1,6 @@
 #include "EZ.h"
   
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *tmp, *tmpa, *frame;
   int i;

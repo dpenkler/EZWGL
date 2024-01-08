@@ -17,7 +17,7 @@ void timer_callback(EZ_Timer *timer, void *data)
   EZ_SetHistogramValue(hgram2, value);
 }
 
-static hcallback(EZ_Widget *widget, void *data)
+static void hcallback(EZ_Widget *widget, void *data)
 {
   int bin; float v;
   bin = EZ_GetHistogramSelection(widget, &v);
@@ -25,7 +25,7 @@ static hcallback(EZ_Widget *widget, void *data)
 }
 
 /*********************************************************************/
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Initialize(ac, av, 0);
   frame  = EZ_CreateWidget(EZ_WIDGET_FRAME,    NULL,

@@ -1,7 +1,7 @@
 
 #include "EZ.h"
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   if(getenv("SIMAGE"))
     {
@@ -16,12 +16,12 @@ static quit(EZ_Widget *widget, void *data)
   exit(0);
 }
 
-static btnCb(EZ_Widget *widget, void *data)
+static void btnCb(EZ_Widget *widget, void *data)
 {
   fprintf(stderr, "You've pressed: %s\n", (char *)data);
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *cbtn1, *cbtn2, *cbtn3, *frame4, *btn;
 

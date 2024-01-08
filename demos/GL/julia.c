@@ -91,7 +91,7 @@ Press the MIDDLE mouse button to pick a square zoomin box, the size of\
  *  so, here it goes,
  */
 
-main(int argc,     char *argv[])
+int main(int argc,     char *argv[])
 {
   EZ_Widget *frames[(MAX_NUM_WINDOWS+3)/4];
   EZ_Widget *menu, *tmp, *tmpa;

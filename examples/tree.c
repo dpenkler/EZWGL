@@ -1,7 +1,7 @@
 /**************************** ExampleTree ******************************/
 #include "EZ.h"
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   if(getenv("SIMAGE"))
     {
@@ -16,7 +16,7 @@ static quit(EZ_Widget *widget, void *data)
   exit(0);
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_TreeNode *root1, *root2;
   EZ_Widget *frame, *tree1, *tree2, *frame5, *btn, *tmp;

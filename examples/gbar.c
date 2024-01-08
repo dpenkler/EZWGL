@@ -39,7 +39,7 @@ static void callback1(EZ_Widget *gbar, void *pdata)
 }
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *gbar, *gbar1, *label;
   EZ_Initialize(ac, av, 0);

@@ -24,7 +24,7 @@ int configure(void *widget, int option, EZ_Value *values)
    }
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Initialize(ac, av, 1);
   printf("Run with one of the following options\n\t %s -xrm \"*aPairOfInt: int1 int2\" -xrm \"*intFloat: int float\"\n\n", av[0]);

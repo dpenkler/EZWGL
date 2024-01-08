@@ -7,6 +7,8 @@
 
 #include <math.h>
 #include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 #include "EZ.h"
 
 #ifndef M_PI
@@ -223,7 +225,7 @@ static void init(void)
 }
 
 static void event_handle(EZ_Widget *, void *, int, XEvent *);
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *label, *canvas;
 

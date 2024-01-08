@@ -12,7 +12,7 @@ void cb(EZ_Widget *widget, void *d)
   sprintf(str, "#%02x%02x%02x", rgb[0], rgb[1], rgb[2]);
   EZ_ConfigureWidget(d, EZ_BACKGROUND, str, 0);
 }
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *tframe, *label, *R, *G, *B;
 

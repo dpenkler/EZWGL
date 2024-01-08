@@ -2,9 +2,10 @@ dnl#------------------------------------------------------------------
 dnl#-- Process this file with autoconf to produce a configure script.
 dnl#------------------------------------------------------------------
 
-AC_INIT(./feature.h)
+AC_INIT
+AC_CONFIG_SRCDIR([./feature.h])
 
-AC_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 
 dnl#-------------------------------
 dnl#  Check for host system type 
@@ -47,7 +48,7 @@ if test -z "${CFLAGS}"; then
     fi
     CFLAGS="$CCOPTS"
 fi
-CFLAGS="${CFLAGS} -fpic"
+CFLAGS="${CFLAGS} -fpic -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast"
 
 dnl#-------------------------------
 dnl#  Check for CC, CPP
@@ -57,9 +58,9 @@ AC_PROG_CC
 dnl# 
 dnl#--- These must be run after AC_PROG_CC but before any other
 dnl#--- macros that use the C compiler
-AC_AIX
-AC_ISC_POSIX
-AC_MINIX
+AC_USE_SYSTEM_EXTENSIONS
+AC_SEARCH_LIBS([strerror],[cposix])
+AC_USE_SYSTEM_EXTENSIONS
 
 AC_PROG_CPP
 
@@ -121,14 +122,11 @@ AC_CHECK_LIB(jpeg, jpeg_destroy_decompress,
   AC_MSG_WARN(*** JPEG support removed (JPEG library not found) ***), $GX_LIBS)
 if test "$jpeg_ok" = yes; then
   AC_MSG_CHECKING([for jpeglib.h])
-  AC_TRY_CPP(
-[#include <sys/types.h>
+  AC_PREPROC_IFELSE([AC_LANG_SOURCE([[#include <sys/types.h>
 #include <stdio.h>
 #undef PACKAGE
 #undef VERSION
-#include <jpeglib.h>],
-    jpeg_ok=yes,
-    jpeg_ok=no)
+#include <jpeglib.h>]])],[jpeg_ok=yes],[jpeg_ok=no])
   AC_MSG_RESULT($jpeg_ok)
   if test "$jpeg_ok" = yes; then
     SUPPORT_LIBS="$SUPPORT_LIBS -ljpeg"; AC_DEFINE(HAVE_LIBJPEG)
@@ -163,10 +161,7 @@ AC_CHECK_LIB(png, png_read_info,
   AC_MSG_WARN(***  PNG support removed (PNG library not found) ***), -lz -lm $GX_LIBS)
 if test "$png_ok" = yes; then
   AC_MSG_CHECKING([for png_structp in png.h])
-  AC_TRY_COMPILE([#include <png.h>],
-    [png_structp pp; png_infop info; png_colorp cmap; png_create_read_struct; png_set_IHDR;],
-    png_ok=yes,
-    png_ok=no)
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <png.h>]], [[png_structp pp; png_infop info; png_colorp cmap; png_create_read_struct; png_set_IHDR;]])],[png_ok=yes],[png_ok=no])
   AC_MSG_RESULT($png_ok)
   if test "$png_ok" = yes; then
     SUPPORT_LIBS="$SUPPORT_LIBS -lpng -lz"; AC_DEFINE(HAVE_LIBPNG)
@@ -184,7 +179,7 @@ dnl#---------------------------------------
 dnl#
 AC_HEADER_DIRENT
 AC_HEADER_SYS_WAIT
-AC_HEADER_TIME
+
 AC_CHECK_HEADERS(fcntl.h limits.h malloc.h sgtty.h strings.h \
                  sys/ioctl.h sys/time.h  string.h strings.h \
                  termios.h sys/select.h stdarg.h stdlib.h)
@@ -201,7 +196,7 @@ AC_TYPE_PID_T
 AC_TYPE_SIZE_T
 AC_STRUCT_TM
 AC_TYPE_MODE_T
-AC_TYPE_SIGNAL
+
 
 dnl#----------------------------------------
 dnl#  Checks for library functions.
@@ -209,10 +204,10 @@ dnl#---------------------------------------
 dnl#
 AC_FUNC_ALLOCA
 AC_FUNC_FNMATCH
-AC_PROG_GCC_TRADITIONAL
+AC_PROG_CC
 AC_FUNC_MEMCMP
 AC_FUNC_SETPGRP
-AC_TYPE_SIGNAL
+
 AC_CHECK_FUNCS(getcwd gethostname gettimeofday select strtol)
 
 LIBS="$SUPPORT_LIBS $LIBS -lm"
@@ -228,9 +223,10 @@ AC_SUBST(LIBS)
 MCOMMON=`pwd`/Make.common
 AC_SUBST_FILE(MCOMMON)
 
-AC_OUTPUT(Make.common Makefile include/Makefile lib/Makefile demos/Makefile \
+AC_CONFIG_FILES([Make.common Makefile include/Makefile lib/Makefile demos/Makefile \
           demos/GL/Makefile demos/Message/Makefile demos/DnD/Makefile demos/REdit/Makefile \
-          demos/Glass/Makefile examples/Makefile)
+          demos/Glass/Makefile examples/Makefile])
+AC_OUTPUT
 
 echo "---------------------------------------------
 Configuration:

@@ -80,7 +80,7 @@ static void doSlide(EZ_Widget *widget, void *pdata)
 }
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *btn, *pop, *tmp; 
   int i, j, dwidth, dheight;

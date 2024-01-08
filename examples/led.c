@@ -59,7 +59,7 @@ static void rtimer2_callback(EZ_Timer *timer, void *pdata)
 
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *led, *led1;
   EZ_Initialize(ac,av,0);

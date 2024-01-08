@@ -3,6 +3,7 @@
 #include <time.h> 
 #include <sys/time.h> 
 #include <unistd.h>
+#include <string.h>
 #include "EZ.h"
 
 void timer_callback(EZ_Timer *timer, void *pdata)
@@ -28,7 +29,7 @@ void timer_callback(EZ_Timer *timer, void *pdata)
     }
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   int i;
   EZ_Widget *ezclock;

@@ -1,5 +1,7 @@
 /************************** resource editor ****************************/
 #include "EZ.h"
+#include <string.h>
+
 static char *resources[] = {
   "*foreground",
   "*background",
@@ -22,7 +24,7 @@ static void sendCb(EZ_Widget *widget, void *data);
 static void doexit(EZ_Widget *w, void *d) { EZ_Shutdown(); exit(0);}
 /**********************************************************************************/
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *tmp, *ump, *tframe, *rframe;
   EZ_Initialize(ac, av, 0);

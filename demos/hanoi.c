@@ -3,6 +3,7 @@
  *  The tower of Hanoi, test WorkArea Items.
  */
 #include "EZ.h"
+#include <string.h>
 #define WWIDTH  640
 #define WHEIGHT 420
 
@@ -250,7 +251,7 @@ void speedCB(EZ_Widget *slider, void *data)
   if(speed < 0) speed = 0;
 }
 /********************************************************/
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   int i, cnt;
   EZ_InitializeXrm("Hanoi",            /* class name            */

@@ -5,7 +5,7 @@ static void my_exit(void *a, void *b)
 
 #define NCOLS     20  /* number of columns in our gridbag */
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *gb, *text, *mbtn, *menu, *tmp;
 

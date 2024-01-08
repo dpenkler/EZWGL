@@ -3,17 +3,17 @@
 
 EZ_Widget *tmenu, *tmbtn;
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   EZ_Shutdown();
   exit(0);
 }
-static btnCb(EZ_Widget *widget, void *data)
+static void btnCb(EZ_Widget *widget, void *data)
 {
   fprintf(stderr, "You've pressed: %s\n", (char *)data);
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *mbtn1, *mbtn2, *mbtn3, *frame4, *btn;
   EZ_Widget *menu1, *menu2, *menu3;

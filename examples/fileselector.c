@@ -1,7 +1,7 @@
   
 #include "EZ.h"
 
-static quit(EZ_Widget *widget, void *data)
+static void quit(EZ_Widget *widget, void *data)
 {
   if(getenv("SIMAGE"))
     {
@@ -24,7 +24,7 @@ static void ftest( EZ_Widget *widget, void *t)
 }
 
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *tmp, *frame5, *btn;
   EZ_Initialize(ac,av,0);

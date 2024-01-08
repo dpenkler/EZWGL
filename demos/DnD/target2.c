@@ -9,7 +9,7 @@ Atom MY_FILE_NAME_ATOM;
 Atom MY_FILE_CONTENTS_ATOM;
 Atom MY_BG_ATOM;
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *textW;
   

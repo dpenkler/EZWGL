@@ -2339,6 +2339,7 @@ EXTERN int   EZ_ReadImageFile MY_ANSIARGS(( char *file, int *width_return, int *
  */
 #ifndef _EZ_X11INIT_C_
 EXTERN int  EZ_XErrorHandler MY_ANSIARGS((Display *dpy, XErrorEvent *error));
+ EXTERN void EZ_ParseGeometry MY_ANSIARGS((char *spec, int *bits, int *x, int *y, int *w, int *h));
 #endif
 /*
  * From EZ_WidgetIText.c

@@ -29,6 +29,7 @@
  *
  *********************************************************************/
 #include "EZ.h"
+#include <string.h>
 
 #define COUNTER_INIT_VALUE   1025
 #define COUNTER_INCREMENT    1026
@@ -178,7 +179,7 @@ int  EZ_RegisterCounterWidget(char *iname, char *cname)
 }
 /*********************************************************************/
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *counter;
   int  counterType;

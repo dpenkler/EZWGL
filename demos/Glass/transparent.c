@@ -330,7 +330,7 @@ void makeDialogue()
  */
 static char *transparentResource = "*tileOrigin: 2 0 0";
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *text, *tmp;
   unsigned long valuemask; 
