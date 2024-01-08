@@ -16,6 +16,7 @@ binprefix = @prefix@/bin
 manprefix = @prefix@/man
 destbindir= @bindir@
 destincludedir= @prefix@/include
+datarootdir = @prefix@/share
 destlibdir= @prefix@/lib
 destmandir= @mandir@/man1
 manext = 1
