@@ -56,11 +56,7 @@ static void gear(float inner_radius, float outer_radius, float width,
       EZ_Vertex3f( r1*cos(angle+3*da), r1*sin(angle+3*da), width*0.5 ); 
    }
    EZ_End();
-  
-   EZ_CMove3f(r0, 0.0, width*0.5);
-   EZ_Color3f(1.0,1.0,1.0);
-   EZ_DrawString(EZ_VECTOR_FONT,"This is alex"); 
-  
+    
  /* draw front sides of teeth */
    EZ_Begin( EZ_QUADS ); 
    da = 2.0*M_PI / teeth / 4.0;
@@ -182,13 +178,6 @@ static void draw( void )
    EZ_PopMatrix();
    EZ_Color3f(1.0,1.0,0.0);
 
-   /*
-   EZ_CMove3f(0.0, 0.0, 0.0);
-   EZ_Color3f(1.0,1.0,0.0);
-   EZ_DrawString(EZ_VECTOR_FONT,"This is a test"); 
-   EZ_Color3f(1.0,1.0,0.0);
-   EZ_Cube(0.0,0.0,0.0, 4.0);
-   */
    EZ_SwapBuffers();
  }
 
