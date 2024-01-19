@@ -18,7 +18,6 @@ clean realclean:
 
 mrproper: clean
 	- $(RMF) Makefile
-	@for I in ${subdirs}; do (cd $$I; ${MAKE} $@ || exit 1); done
 
 .c.o:
 	$(CC) $(LINC) -I../include $(XINC) $(CFLAGS) -c $<
