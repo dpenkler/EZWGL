@@ -79,6 +79,7 @@ int               EZ_CopyLabelPixmaps  MY_ANSIARGS((EZ_Bitmap *dest, EZ_Bitmap *
 EZ_Bitmap         *EZ_CreateBackgroundPixmapsFromImageFile MY_ANSIARGS((char *file));
 EZ_Bitmap         *EZ_CheckBGPixmap MY_ANSIARGS((EZ_Bitmap *vv));
 EZ_Bitmap         *EZ_ScaleLabelPixmap MY_ANSIARGS((EZ_Bitmap *pix, int w, int h, int darkness, int smooth));
+EZ_Bitmap         *EZ_ScaleLabelPixmap2 MY_ANSIARGS((EZ_Bitmap *pix, int x0, int y0, int w0, int h0, int w, int h, int darkness, int smooth));
 unsigned char     *EZ_ScaleRGB  MY_ANSIARGS((unsigned char *rgb, int sw, int sh,
                                              int w, int h, int darkness, int smooht));
 EZ_Bitmap         *EZ_CreateBackgroundPixmapsFromRawRGB MY_ANSIARGS((unsigned char *data, int w, int h));
@@ -1604,10 +1605,16 @@ unsigned char *EZ_ScaleRGBX(sdata, w0,h0,w,h,sr,sg,sb, rt,gt, bt, bright,smooth)
 EZ_Bitmap *EZ_ScaleLabelPixmap(pix, w, h, darkness, smooth)
      EZ_Bitmap *pix; int w,h,darkness, smooth;
 {
+  return EZ_ScaleLabelPixmap2(pix, 0, 0, 0, 0, w, h, darkness, smooth);
+}
+/*************************************************************************************/
+EZ_Bitmap *EZ_ScaleLabelPixmap2(pix, x0, y0, w0, h0, w, h, darkness, smooth)
+     EZ_Bitmap *pix; int x0,y0,w0,h0,w,h,darkness, smooth;
+{
   if(pix)
     {
-      int w0 = pix->width;
-      int h0 = pix->height;
+      if (w0 == 0) w0 = pix->width - x0;
+      if (h0 == 0) h0 = pix->height - y0;
       if(w == 0 || h == 0) {w = w0; h = h0;}
       if(w == w0 && h == h0 && darkness == 100) 
         {
@@ -1617,7 +1624,7 @@ EZ_Bitmap *EZ_ScaleLabelPixmap(pix, w, h, darkness, smooth)
       else if(w > 0 && h > 0 && darkness > 0)
         {
           EZ_Bitmap     *newp = NULL;
-	  XImage        *image = EZ_ReadDrawable2XImage(pix->pixmap, 0, 0, w0, h0);
+	  XImage        *image = EZ_ReadDrawable2XImage(pix->pixmap, x0, y0, w0, h0);
 	  if(image)
 	    {
 	      unsigned char *sdata, *tdata =NULL, *dptr;

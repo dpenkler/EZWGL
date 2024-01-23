@@ -4818,6 +4818,8 @@ EXTERN EZ_Bitmap         *EZ_CreateBackgroundPixmapsFromRawRGB MY_ANSIARGS((unsi
 EXTERN EZ_Bitmap         *EZ_CheckBGPixmap MY_ANSIARGS((EZ_Bitmap *vv));
 EXTERN EZ_Bitmap         *EZ_ScaleLabelPixmap MY_ANSIARGS((EZ_Bitmap *pix, int w, int h, 
                                                            int darkness, int smooth));
+EXTERN EZ_Bitmap         *EZ_ScaleLabelPixmap2 MY_ANSIARGS((EZ_Bitmap *pix, int x0, int y0, int w0, int h0,
+							    int w, int h, int darkness, int smooth));
 EXTERN unsigned char     *EZ_ScaleRGB MY_ANSIARGS((unsigned char *rgb, int sw, int sh,  int tw, int th,
                                                    int darkness, int smooth));
 EXTERN int               EZ_SwapLabelPixmaps  MY_ANSIARGS((EZ_Bitmap *b1, EZ_Bitmap *b2));
