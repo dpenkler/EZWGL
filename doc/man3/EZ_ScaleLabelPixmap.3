@@ -1,0 +1,44 @@
+'\"
+'\" Copyright (c) 1997 Maorong Zou
+'\" 
+.TH EZ_ScaleLabelPixmap "" EZWGL "EZWGL Functions"
+.BS
+.SH NAME
+EZ_ScaleLabelPixmap, EZ_ScaleLabelPixmap2 \- scale an image from an EZ_Pixmap
+
+.SH SYNOPSIS
+.nf
+.B #include <EZ.h>
+.sp
+.BI "EZ_Pixmap *EZ_ScaleLabelPixmap(*EZ_Pixmap " pix ", int " w ", int " h "," 
+.BI "                               int " darkness ", int " smooth )
+.sp
+.BI "EZ_Pixmap *EZ_ScaleLabelPixmap2(*EZ_Pixmap " pix ", int " x0 ", int " y0 ","
+.BI "                                int " w0 ", int " h0 ", int " w ", int " h,
+.BI "                                int " darkness ", int " smooth )
+
+.SH ARGUMENTS
+\fIpix\fR is an EZ_Pixmap containing the image to be scaled.
+.sp
+\fIw,h\fR  Specify the width and height of the scaled image.
+.sp
+\fIx0,y0,w0,h0\fR  Specify a region in the pixmap to be scaled.
+.sp
+\fIdarkness\fR Specifies percentage of color intensity in the scaled image.
+.sp
+\fIsmooth\fR Specifies whether the scaled image should be smoothed.
+
+.SH DESCRIPTION
+.PP
+\fBEZ_ScaleLabelPixmap\fR scales the image in \fPpix\fR to have width \fPw\fR and height \fPh\fR.
+.PP
+\fBEZ_ScaleLabelPixmap2\fR scales the subimage of \fPpix\fR,
+specified by \fPx0\fR, \fPy0\fR, \fPw0\fR and \fPh0\fR to have
+width \fPw\fR and height \fPh\fR.
+
+.SH RETURN
+.PP
+Pointer to the Scaled pixmap.
+.SH "SEE ALSO"
+EZ_CreateLabelPixmapFromImageFile(3), EZ_PutGLImage(3), EZ_CreateGLImage(3)
+.br
