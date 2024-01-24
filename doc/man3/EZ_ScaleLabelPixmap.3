@@ -26,7 +26,7 @@ EZ_ScaleLabelPixmap, EZ_ScaleLabelPixmap2 \- scale an image from an EZ_Pixmap
 .sp
 \fIdarkness\fR Specifies percentage of color intensity in the scaled image.
 .sp
-\fIsmooth\fR Specifies whether the scaled image should be smoothed.
+\fIsmooth\fR Boolean specifiying whether the scaled image should be smoothed.
 
 .SH DESCRIPTION
 .PP
@@ -34,7 +34,8 @@ EZ_ScaleLabelPixmap, EZ_ScaleLabelPixmap2 \- scale an image from an EZ_Pixmap
 .PP
 \fBEZ_ScaleLabelPixmap2\fR scales the subimage of \fPpix\fR,
 specified by \fPx0\fR, \fPy0\fR, \fPw0\fR and \fPh0\fR to have
-width \fPw\fR and height \fPh\fR.
+width \fPw\fR and height \fPh\fR. If  \fPw0\fR and \fPh0\fR are zero
+the full (remaining) width and height are used from the sourece pixmap.
 
 .SH RETURN
 .PP
