@@ -1644,6 +1644,7 @@ EZ_Bitmap *EZ_ScaleLabelPixmap2(pix, x0, y0, w0, h0, w, h, darkness, smooth)
 		}
 	      if(tdata) my_free((char *)tdata);
 	      my_free((char *)sdata);
+	      XDestroyImage(image);
 	    }
 	  return(newp);
 	}
