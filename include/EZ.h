@@ -2126,6 +2126,7 @@ EXTERN int    EZ_EntryIsModified MY_ANSIARGS((EZ_Widget *widget));
 #ifndef _EZ_WIDGET_3D_CANVAS_C_
 EXTERN EZ_Widget       *EZ_Create3DCanvas MY_ANSIARGS((EZ_Widget *parent));
 EXTERN void             EZ_Set3DCanvas MY_ANSIARGS(( EZ_Widget *widget));
+EXTERN EZ_Widget       *EZ_Get3DCanvas MY_ANSIARGS((void));
 EXTERN void             EZ_Configure3DCanvas MY_ANSIARGS(( EZ_Widget *widget));
 EXTERN void             EZ_Set3DCanvasEventHandle MY_ANSIARGS((EZ_Widget *widget, EZ_EventHandler handler, void *data));
 EXTERN void             EZ_Save3DCanvas2PPMImage MY_ANSIARGS((EZ_Widget *widget, char *fname));

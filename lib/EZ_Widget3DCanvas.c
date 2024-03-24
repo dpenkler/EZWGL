@@ -47,6 +47,7 @@ void             EZ_FreeWidget3DCanvasData MY_ANSIARGS(( EZ_Widget *widget));
 void             EZ_3DCanvasEventHandling MY_ANSIARGS(( EZ_Widget *widget, XEvent *event));
 
 void             EZ_Set3DCanvas MY_ANSIARGS(( EZ_Widget *widget));
+EZ_Widget       *EZ_Get3DCanvas MY_ANSIARGS((void));
 void             EZ_Configure3DCanvas MY_ANSIARGS(( EZ_Widget *widget));
 void             EZ_SelectRenderFunctions MY_ANSIARGS((EZ_Widget *widget));
 void             EZ_Set3DCanvasEventHandle MY_ANSIARGS((EZ_Widget *widget, EZ_EventHandler handler, void *data));
@@ -166,6 +167,18 @@ void  EZ_3DCanvasEventHandling(widget, event)
       XGetInputFocus(EZ_Display, &fw, &rt);
       if(fw != EZ_WidgetWindow(widget))	EZ_SetFocusTo(widget); 
     }
+}
+
+/*************************************************************************
+ *
+ *  Get the current canvas to widget.
+ */
+
+EZ_Widget * EZ_Get3DCanvas()
+{
+  EZ_Widget *widget = (EZ_Widget *) NULL;
+  if(EZ_Context != NULL)  widget = EZ_CurrentGWindow;
+  return widget;
 }
 
 /*************************************************************************

@@ -4906,6 +4906,7 @@ EXTERN void             EZ_FreeWidget3DCanvasData MY_ANSIARGS(( EZ_Widget *widge
 EXTERN void             EZ_3DCanvasEventHandling MY_ANSIARGS(( EZ_Widget *widget, XEvent *event));
 
 EXTERN void             EZ_Set3DCanvas MY_ANSIARGS(( EZ_Widget *widget));
+EXTERN EZ_Widget       *EZ_Get3DCanvas MY_ANSIARGS((void));
 EXTERN void             EZ_Configure3DCanvas MY_ANSIARGS(( EZ_Widget *widget));
 EXTERN void             EZ_SelectRenderFunctions MY_ANSIARGS((EZ_Widget *widget));
 EXTERN void             EZ_Set3DCanvasEventHandle MY_ANSIARGS((EZ_Widget *widget, EZ_EventHandler handler, void *data));
