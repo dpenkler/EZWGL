@@ -186,8 +186,8 @@ void EZ_ViewPort (x0, x1, y0, y1)
   w = EZ_WindowWidth;
   h = EZ_WindowHeight;
 
-  EZ_WindowCenterX = 0.5 * (w - 1) * (x1 - x0) + (w - 1) * x0 + 0.4;
-  EZ_WindowCenterY = 0.5 * (h - 1) * (y1 - y0) + (h - 1) * y0 + 0.4;
+  EZ_WindowCenterX = 0.5 * (w - 1) * (x1 - x0) + (w - 1) * x0 + 0.5;
+  EZ_WindowCenterY = 0.5 * (h - 1) * (y1 - y0) + (h - 1) * y0 + 0.5;
   EZ_WindowScaleX  = 0.5 * (w - 1) * (x1 - x0);
   EZ_WindowScaleY  = 0.5 * (h - 1) * (y1 - y0);
 

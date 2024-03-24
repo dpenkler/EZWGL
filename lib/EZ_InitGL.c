@@ -171,7 +171,7 @@ void EZ_InitializeGLContextFor(canvas)
   EZ_CurrentFont = EZ_LARGE_FONT;        /* default vector font    */
   EZ_BitmapFont = EZ_GetFontFromId(EZ_BOLD_FONT);
 
-  EZ_CurrentGWindow  = canvas;
+  EZ_CurrentGWindow = canvas;
   EZ_MainWindow  = (Window )NULL;
   EZ_Drawable = (Drawable )NULL;
   /*  EZ_MainGC = (GC )NULL; */
