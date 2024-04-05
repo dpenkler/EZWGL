@@ -310,9 +310,9 @@ void  EZ_ClearX11(flag)
   unsigned long pixel_value;
   int x0,x1,y0,y1;
   x0 = EZ_WindowCenterX - EZ_WindowScaleX;
-  x1 = EZ_WindowCenterX + EZ_WindowScaleX;
+  x1 = EZ_WindowCenterX + EZ_WindowScaleX + 1;
   y0 = EZ_WindowCenterY - EZ_WindowScaleY;
-  y1 = EZ_WindowCenterY + EZ_WindowScaleY;
+  y1 = EZ_WindowCenterY + EZ_WindowScaleY + 1;
   if (x0 < 0) x0 = 0;
   if (y0 < 0) y0 = 0;
   if (x1 > EZ_WindowWidth) x1 = EZ_WindowWidth;
