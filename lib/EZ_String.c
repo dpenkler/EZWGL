@@ -338,6 +338,10 @@ static void EZ_DrawStringVFont_Work(str, sx,sy,sz)
 	      }
 	  }
       }
+    EZ_CurTxtPosScrn[0] = npos[0][0];
+    EZ_CurTxtPosScrn[1] = npos[0][1];
+    EZ_CurTxtPosScrn[2] = sz;
+    draw_string_type = DRAW_STRING_SCREEN;
   }
 }
 
