@@ -41,4 +41,7 @@ demos/Message/Makefile
 demos/REdit/Makefile
 examples/Makefile
 lib/Makefile
+autom4te.cache/
+config.h
+lib/TAGS
 
