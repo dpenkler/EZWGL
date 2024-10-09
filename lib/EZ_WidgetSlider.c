@@ -369,7 +369,7 @@ void EZ_SetPrintFFormat(from, to, resolution, olength, fret)
 
   itmp = digits - maxdigits;  /* digits for fractional part */
   if(itmp < 0) itmp  = 0;
-  (void) sprintf(fret, "%%.%df", itmp);
+  (void) sprintf(fret, "%%%d.%df", maxdigits+1, itmp);
 }  
 
 /**************************************************************************/
@@ -932,7 +932,7 @@ void EZ_ComputeWidgetVSliderSize(widget, w, h)
 	  char tmp[32];
 
           EZ_SetPrintFFormat(EZ_SliderMaxValue(widget), EZ_SliderMinValue(widget),
-                             EZ_SliderResolution(widget), (float)EZ_SliderLength(widget),
+                             EZ_SliderResolution(widget), (float)EZ_SliderWidth(widget),
                              EZ_SliderFormat(widget));
           
 	  (void)sprintf(tmp, EZ_SliderFormat(widget), EZ_SliderMaxValue(widget));
@@ -1882,10 +1882,14 @@ void  EZ_SliderEventHandle(widget, event)
 			    else  newpos = y;
 			    EZ_SliderPosition(widget) = newpos;
 			    ff = EZ_SliderValue(widget);
-			    EZ_SliderValue(widget) = EZ_SliderMinValue(widget) +
-			      EZ_SliderFactor(widget) * (newpos - EZ_SliderPositionMin(widget));
-                            EZ_SliderValue(widget) = 
-                              EZ_FixSliderValue(EZ_SliderValue(widget), EZ_SliderResolution(widget));
+			    if( y >= EZ_SliderMaxy(widget) - halflength) {
+			      EZ_SliderValue(widget) = EZ_SliderMaxValue(widget);
+			    } else {
+			      EZ_SliderValue(widget) = EZ_SliderMinValue(widget) +
+				EZ_SliderFactor(widget) * (newpos - EZ_SliderPositionMin(widget));
+			      EZ_SliderValue(widget) = 
+				EZ_FixSliderValue(EZ_SliderValue(widget), EZ_SliderResolution(widget));
+			    }
 			    EZ_DrawWidget(widget); 	
 			    if(ff != EZ_SliderValue(widget))
                               {
