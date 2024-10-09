@@ -8,7 +8,7 @@ static void cbtnCallBack(EZ_Widget *, void *);
 static float speed = 0.1;
 static int  bufferMode = 1;
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *canvas, *slider, *cbtn;
   /* 

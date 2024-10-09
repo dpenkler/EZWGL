@@ -1,4 +1,5 @@
 /************************* Example 14S *************************************/
+#include <string.h>
 #include "EZ.h"
 
 int encodeBG(EZ_Widget *, void *, char **, int *, int *);
@@ -8,7 +9,7 @@ static char *colors[] = { "red", "green", "blue", "cyan",
 
 Atom MY_BG_ATOM;
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *tmp, *btn;
   int i;

@@ -28,7 +28,7 @@ void timer_callback(EZ_Timer *timer, void *data)
   EZ_SetTimerIntData(timer, ii+1);
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *flabel, *btn;
   EZ_Timer  *timer;

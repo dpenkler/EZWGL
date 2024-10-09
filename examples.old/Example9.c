@@ -39,7 +39,7 @@ void buttonCallBack(EZ_Widget *widget, void *data)
   EZ_SetFocusTo((EZ_Widget *)EZ_GetWidgetPtrData(dialogue));
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *button, *buttonA;
 

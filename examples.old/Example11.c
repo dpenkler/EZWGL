@@ -24,7 +24,7 @@ static void itemCallBack(EZ_Item *item, void *data)
   EZ_ConfigureWidget(labelWidget, EZ_LABEL_STRING, str, 0);
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *wa, *listbox;
   EZ_Item  *items[40];

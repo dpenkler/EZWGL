@@ -1,7 +1,7 @@
 /**************************** ExampleTree ******************************/
 #include "EZ.h"
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Item     *item;
   EZ_Widget   *tree, *btn;

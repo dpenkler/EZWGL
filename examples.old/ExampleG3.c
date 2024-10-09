@@ -7,7 +7,7 @@ static float light_position[] = {0.5, 0.5, 0.0, 1.0};    /* light position */
 static float white[] = {1.0,1.0,1.0,1.0};
 static float shininess[] = {8.0};
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *canvas;
 

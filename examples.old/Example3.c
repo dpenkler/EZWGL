@@ -17,7 +17,7 @@ void listTreeCallBack(EZ_Widget *widget, void *data)
     }
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *listTree;
   EZ_Widget *textW, *tmp;
@@ -39,7 +39,7 @@ main(int argc, char **argv)
   EZ_ConfigureWidget(textW,
 		     EZ_SELECTION_BACKGROUND, "yellow",
 		     0);
-  root = EZ_CreateDirTree("./*");  /* open the current dir   */
+  root = EZ_CreateDirTree(NULL, "./*", NULL, EZ_DIR_NODE_OPEN_DIRECTORY_DEFAULT);  /* open the current dir   */
 
   EZ_AddWidgetCallBack(listTree, EZ_CALLBACK, 
 		       listTreeCallBack, textW, 0);

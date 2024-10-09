@@ -1,5 +1,5 @@
 /***************** Example 2 ********************************/
-
+#include <unistd.h>
 #include "EZ.h"                                     /* the header file     */
 
 static void  cleanExit(EZ_Widget *, void *);        /* quit btn callback   */
@@ -10,7 +10,7 @@ static EZ_Widget *buttons[4][4];                    /* the buttons         */
 static int width = 39, height = 33;                 /* size of the buttons */
 static int emptyx = 3, emptyy = 3;                  /* the empty slot      */
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   int        i,j, k;
   char       str[4];

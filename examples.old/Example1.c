@@ -7,7 +7,7 @@ void cleanExit(EZ_Widget *widget, void *dat)  /* push button callback */
   exit(0);      /* and exit       */
 }
   
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *hello;
 

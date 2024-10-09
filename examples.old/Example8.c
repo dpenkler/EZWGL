@@ -38,7 +38,7 @@ void buttonCallBack(EZ_Widget *widget, void *data)
   EZ_SetGrab(dialogue); 
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *button, *buttonA;
 

@@ -45,7 +45,7 @@ void clientMessageHandler(EZ_Widget *widget, void *data, int etype, XEvent *xev)
     }
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *button, *buttonA;
   EZ_Widget *yes, *no;

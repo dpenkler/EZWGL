@@ -19,7 +19,7 @@ static void readStdin(EZ_Input *id, void *data, int fd, int mask)
     }
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *textW;
   

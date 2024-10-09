@@ -1,7 +1,7 @@
 /**************************** ExampleFLB ******************************/
 #include "EZ.h"
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   char       str[256];
   FILE       *fp;
@@ -18,7 +18,7 @@ main(int ac, char **av)
 			     EZ_IPADY, 2, 
 			     EZ_SELECTION_FOREGROUND, "black",
 			     0);			     
-  fp = popen("ls -alg | awk '{print $9 \" \" $3 \" \" $4 \" \" $5 \" \" $1}'", "r");
+  fp = popen("ls -alg | awk '{print $8 \" \" $3 \" \" $4 \" \" $5 \" \" $1}'", "r");
   if(fp)
     {
       char fields[6][32];

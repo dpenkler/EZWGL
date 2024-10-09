@@ -32,7 +32,7 @@ void menuCallBack(EZ_Widget *widget, void *data)
     }
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *menu, *button, *tmp;
 

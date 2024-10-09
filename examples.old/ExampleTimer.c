@@ -15,7 +15,7 @@ static void rtimer_callback(EZ_Timer *timer, void *pdata)
   EZ_ConfigureWidget((EZ_Widget*)pdata, EZ_LABEL_STRING, str, 0);
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *label;
   EZ_Timer  *RTimer;

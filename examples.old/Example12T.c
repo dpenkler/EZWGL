@@ -5,7 +5,7 @@ int decodeBG(EZ_Widget *, void *, char *, int);
 
 Atom MY_BG_ATOM;
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *label;
   

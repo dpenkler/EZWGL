@@ -7,7 +7,7 @@ basedir     = $(srcdir)
 libdir      = $(basedir)/lib
 includedir  = $(basedir)/include
 demosdir    = $(basedir)/demos
-examplesdir = $(basedir)/examples
+examplesdir = $(basedir)/examples $(basedir)/examples.old
 docdir      = $(basedir)/doc
 thisdir     =./
 #

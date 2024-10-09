@@ -1,4 +1,5 @@
 /******************* Example 15S ***************************************/
+#include <string.h>
 #include "EZ.h"
 
 int     encodeFileName(EZ_Widget *, void *, char **, int *, int *);
@@ -8,7 +9,7 @@ void    destroyCallBack(EZ_Item *, void *);
 int     testencoder(EZ_Widget *, void *, char **, int *, int *);
 void    testCallBack(EZ_Item *, void *);
 
-EZ_TreeNode *MyCreateFileItem(char *);
+EZ_TreeNode *MyCreateFileItem(char *, void *);
 
 Atom MY_FILE_NAME_ATOM;
 Atom MY_FILE_CONTENTS_ATOM;
@@ -16,7 +17,7 @@ Atom MY_FILE_CONTENTS_ATOM;
 static char *colors[] = { "red", "green", "blue", "cyan", 
                           "magenta", "yellow", "red3","#cf00cf"};
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *listTree;
   EZ_TreeNode *root;
@@ -36,15 +37,14 @@ main(int ac, char **av)
   /* we have to use a customized fileNode creater
    * to register DnD encoders and to remember pathnames
    */
-  (void)EZ_SetDirTreeFileNodeCreator(MyCreateFileItem); 
-  root = EZ_CreateDirTree("./*"); /* */
+  root = EZ_CreateDirTree(MyCreateFileItem, "./*", NULL, EZ_DIR_NODE_OPEN_DIRECTORY_DEFAULT); /* */
   EZ_SetListTreeWidgetTree(listTree, root); 
   
   EZ_DisplayWidget(frame);
   EZ_EventMainLoop();
 }
 
-EZ_TreeNode *MyCreateFileItem(char *fname)
+EZ_TreeNode *MyCreateFileItem(char *fname, void *data)
 {
   EZ_TreeNode *node = NULL;
   if(fname)

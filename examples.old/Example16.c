@@ -12,7 +12,7 @@ void cbtnCallback(EZ_Widget *cbtn, void *data)
     EZ_ConfigureWidget(movingLabel, EZ_PROPAGATE, True, 0);
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *toplevel, *cbtn, *frame, *label, *tmp;
   int count;

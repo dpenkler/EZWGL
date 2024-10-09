@@ -9,7 +9,7 @@ void EventHandler(EZ_Widget *widget, void *data, int etype, XEvent *xev)
     amplitude = (float)(xev->xbutton.y);
 }
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *freeLabel;
   

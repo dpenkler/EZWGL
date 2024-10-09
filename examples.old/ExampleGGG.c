@@ -6,7 +6,7 @@ static void draw(EZ_Widget *);
 static EZ_Matrix RotationMatrix, ViewMatrix;
 static int clear = 1;
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *canvas;
   /* 

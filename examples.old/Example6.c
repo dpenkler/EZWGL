@@ -8,7 +8,7 @@ int       screenNum, depth;
 
 static void eventHandler(EZ_Widget *, void *, int, XEvent *);
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Initialize(argc,argv,0);    /* initialize  EZWGL        */
   EZ_DisableImageDithering();    /* turn off image dithering */
@@ -35,7 +35,7 @@ main(int argc, char **argv)
   EZ_EventMainLoop();
 }
 /***********************************************************************/
-static read_pixel(Window win, int x,int y)
+static void read_pixel(Window win, int x,int y)
 {
   XImage *image;
 

@@ -4,7 +4,7 @@
 static void eventHandler(EZ_Widget *, void *, int, XEvent *);
 static void draw(EZ_Widget *);
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   EZ_Widget *frame, *canvas;
   /* 

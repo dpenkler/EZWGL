@@ -7,7 +7,7 @@ void  rbuttonCallback(EZ_Widget *btn, void *data)
   EZ_SetDefaultLabelFont(ptr);
 }
 
-main(int ac, char **av)
+int main(int ac, char **av)
 {
   EZ_Widget *frame, *frame1, *menubar, *tmp, *mbtn;
   
