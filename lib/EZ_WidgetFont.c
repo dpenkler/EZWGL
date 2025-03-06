@@ -88,10 +88,10 @@ static int           EZ_NumFonts = 0;
 static char          *EZ_DefaultFontNames[] =
 {
   "9x15",
-  "-adobe-helvetica-medium-r-normal--*-120-*-*-*-*-*-*",
+  "-b&h-lucida-medium-r-normal-sans-*-*-100-*-*-*-*",
   "-*-courier-medium-r-normal--*-120-*-*-*-*-*-*",
-  "-adobe-helvetica-bold-r-normal--*-120-*-*-*-*-*-*",
-  "-adobe-times-bold-i-normal--*-120-*-*-*-*-*-*",
+  "-b&h-lucida-bold-r-normal-sans-*-*-100-*-*-*-*",
+  "-*-courier-bold-i-normal--*-120-*-*-*-*-*-*",
   "5x7",
   "7x14",
   "12x24",
