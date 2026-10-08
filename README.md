@@ -4,7 +4,7 @@
 This repo contains the source code of EZWGL, the EZ widget
 and graphics library.
 
-This version is 1.51 
+This version is 1.52 
 
 To compile a shared library, type (you'll have to install the
 library as root !)                           
