@@ -90,7 +90,7 @@ static EZ_SphereData *sphere_parametric_data[8];
  *
  */
 extern void    EZ_TriangularMeshForSphere(EZ_Vector3 **, float, float);
-extern void    EZ_QuadMeshForSphere(EZ_Vector3 **, float, float);
+extern void    EZ_QuadMeshForSphere(EZ_Vector3 **, int, int);
 
 void EZ_Sphere(int type, int level, float  x, float y, float z, float radius)
 {
