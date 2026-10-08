@@ -1262,7 +1262,7 @@ static void InternalPolygonFast(start, end)
 static void InternalPolygon(start, end)
      int start, end;
 {
-  void (*polyfunc)();
+  void (*polyfunc)(int *, int);
   register int   i;
   int n = end - start;
 
@@ -1324,7 +1324,7 @@ static void InternalTriangle(v1,v2,v3)
      int v1,v2,v3;
 {
   int   flag;
-  void  (*polyfunc)();
+  void  (*polyfunc)(int *, int);
 
   Do_BackFaceCull(v1,v1,v2,v3,flag);
   if(flag) return;
@@ -1384,7 +1384,7 @@ static void InternalQuad(v1,v2,v3, v4)
      int v1,v2,v3, v4;
 {
   int   flag;
-  void  (*polyfunc)();
+  void  (*polyfunc)(int *, int);
 
   Do_BackFaceCull(v1,v2,v3,v4,flag);
   if(flag) return;

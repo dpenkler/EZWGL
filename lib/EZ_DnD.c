@@ -114,7 +114,7 @@ Atom EZ_GetAtom(name)
   return(tmp);
 }
 /***************************************************************************************/
-static void DnDHelpTimerCallback();
+static void DnDHelpTimerCallback(EZ_Timer);
 
 void EZ_InitializeDnD()
 {
@@ -131,7 +131,7 @@ void EZ_InitializeDnD()
   EZ_DnDInfo.targetApplicationId = 0;
   
   EZ_DnDInfo.timerEnabled = 1;
-  EZ_DnDInfo.timer = EZ_CreateTimer(1,0,-1, DnDHelpTimerCallback, NULL, 0);
+  EZ_DnDInfo.timer = EZ_CreateTimer(1,0,-1, (EZ_CallBack)DnDHelpTimerCallback, NULL, 0);
   EZ_DnDInfo.dropMessage = (char *)my_malloc(12 * sizeof(char), _MISC_DATA_);
   (void) strcpy(EZ_DnDInfo.dropMessage, "Hi, there!");
   EZ_DnDInfo.dropMessageLength = 0;
@@ -215,7 +215,7 @@ void EZ_RemveWidgetFromDnDList(widget)
 /***************************************************************************************/
 void EZ_GrabButtonRelease()
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler  OldErrorHandler;
   Window         cwindow;
   char           *p, *q;
   EZ_ApplRoster *roster = EZ_OpenEZWGLRoster(0);
@@ -277,10 +277,10 @@ void EZ_GrabButtonRelease()
 /***************************************************************************************/
 void EZ_UngrabButtonRelease()
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler  OldErrorHandler;
   Window         cwindow;
   char           *p, *q;
-  EZ_ApplRoster *roster = EZ_OpenEZWGLRoster(0);
+  EZ_ApplRoster  *roster = EZ_OpenEZWGLRoster(0);
   for(p = roster->data; (p - roster->data) < roster->length;)
     {
       q = p;
@@ -1152,7 +1152,7 @@ void EZ_EnableDnDBubbleHelp()
 {
   if(EZ_DnDInfo.timerEnabled == 0 || EZ_DnDInfo.timer == NULL)
     {
-      EZ_DnDInfo.timer = EZ_CreateTimer(1,0,-1, DnDHelpTimerCallback, NULL, 0);
+      EZ_DnDInfo.timer = EZ_CreateTimer(1,0,-1, (EZ_CallBack)DnDHelpTimerCallback, NULL, 0);
       EZ_DnDInfo.timerEnabled = 1;
     }
 }
@@ -1165,8 +1165,7 @@ void EZ_DisableDnDBubbleHelp()
     }
 }
 
-static void DnDHelpTimerCallback(timer)
-     EZ_Timer *timer;
+static void DnDHelpTimerCallback(EZ_Timer t)
 {
   if(EZ_DnDInfo.siteHelpStatus == 0 && EZ_DnDInfo.site != NULL && EZ_DnDInfo.siteHelpString != NULL )
     EZ_DnDShowTargetHelp();
@@ -1280,7 +1279,7 @@ void EZ_DnDShowTargetHelp()
     }
 }
 /****************************************************************************************************/
-extern void   EZ_GetCurrentTime();
+extern void   EZ_GetCurrentTime(struct timeval *);
 int EZ_CheckDnDTimer()
 {
   struct timeval ctv,*tv;
@@ -1575,7 +1574,7 @@ void EZ_SelectInput(win, mask) Window win; long mask;
         }
       if(doit)
         {
-          int    (*OldErrorHandler)();
+          XErrorHandler OldErrorHandler;
           OldErrorHandler = XSetErrorHandler(EZ_XErrorHandler);
           XSelectInput(EZ_Display, win, mask);
           XSetErrorHandler(OldErrorHandler);            

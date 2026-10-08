@@ -39,16 +39,16 @@
 #include <sys/types.h>
 #include <pwd.h>
 
-static char *xmalloc (), *xrealloc ();
+static char *xmalloc (int), *xrealloc (char *, int);
 
 #if defined (USG) && !defined (HAVE_GETPW_DECLS)
 extern struct passwd *getpwuid (), *getpwnam ();
 #endif /* USG && !defined (HAVE_GETPW_DECLS) */
 
 #if !defined (savestring)
-extern char *xmalloc ();
+extern char *xmalloc (int);
 #  ifndef strcpy
-extern char *strcpy ();
+// extern char *strcpy ();
 #  endif
 #define savestring(x) strcpy (xmalloc (1 + strlen (x)), (x))
 #endif /* !savestring */
@@ -159,10 +159,9 @@ tilde_find_suffix (string)
 
 /* Return a new string which is the result of tilde expanding STRING. */
 char *
-tilde_expand (string)
-     char *string;
+tilde_expand (char *string)
 {
-  char *result, *tilde_expand_word ();
+  char *result, *tilde_expand_word (char *);
   int result_size, result_index;
 
   result_size = result_index = 0;

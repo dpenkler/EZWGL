@@ -1,8 +1,8 @@
 # ./Make.common.in	 -*- Makefile -*-
 
-DATE="21 October 2021"#
+DATE="10 October 2026"#
 MAJORVERSION=1#
-MINORVERSION=51#
+MINORVERSION=52#
 VERSION=$(MAJORVERSION).$(MINORVERSION)#
 VERNAME=EZWGL-$(VERSION)#
 srcdir = @srcdir@

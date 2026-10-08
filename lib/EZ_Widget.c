@@ -3446,4 +3446,26 @@ void EZ_HighlightWidget(widget, flag)  EZ_Widget *widget; int flag;
     }
 }
 /************************************************************************************/
+/* EZ_ProcessWidgetCallbacks()is used to iterate over a widget (w)'s callbacks and  */
+/* eventhandlers to invoke a user defined callback (cb) on the callback/ handler's  */
+/* data. For example to protect the data from a garbage collector.                  */
+/************************************************************************************/
+void EZ_ProcessWidgetCallbacks(EZ_Widget *w, void *cb(void *)) {
+  EZ_CallBackStruct *callbacks = EZ_WidgetCallBackFunc(w);
+  while (callbacks) {
+    if ((callbacks->callback) && !callbacks->internal) {
+      cb(callbacks->data);
+    }
+    callbacks = callbacks->next;
+  }
+  /* Do the same for event handlers */
+  callbacks = (EZ_CallBackStruct *) EZ_WidgetEventHandlers(w);
+  while (callbacks) {
+    if ((callbacks->callback) && !callbacks->internal) {
+      cb(callbacks->data);
+    }
+    callbacks = callbacks->next;
+  }
+}
+/************************************************************************************/
 #undef _EZ_WIDGET_C_

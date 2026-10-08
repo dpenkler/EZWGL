@@ -48,7 +48,7 @@ if test -z "${CFLAGS}"; then
     fi
     CFLAGS="$CCOPTS"
 fi
-CFLAGS="${CFLAGS} -fpic -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast"
+CFLAGS="${CFLAGS} -fpic -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-old-style-definition"
 
 dnl#-------------------------------
 dnl#  Check for CC, CPP

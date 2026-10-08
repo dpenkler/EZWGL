@@ -1838,7 +1838,7 @@ EXTERN void                  EZ_AddEventHandler00 MY_ANSIARGS((EZ_Widget *widget
                                                           void *data, int where));
 EXTERN void                  EZ_RemoveEventHandler00 MY_ANSIARGS((EZ_Widget *widget, EZ_EventHandler handler, void *data));
 EXTERN void                  EZ_RemoveAllEventHandlers00 MY_ANSIARGS((EZ_Widget *widget));
-
+EXTERN void                  EZ_ProcessWidgetCallbacks(EZ_Widget *w, void cb(void *));
 #endif
 
 /*

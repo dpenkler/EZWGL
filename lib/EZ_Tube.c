@@ -56,7 +56,7 @@ static short avail_tube_entries = 0, current_tube_entry = -1;
 
 static TubeData *construct_tube_from_data MY_ANSIARGS((int npts, float *ptr, int nsides));
 
-extern void              EZ_RectangularMesh6();
+extern void              EZ_RectangularMesh6(EZ_Vertex *, int, int);
 /******************************************************************
  *
  *  Generate and display a tube around a curve.
@@ -104,10 +104,10 @@ void EZ_FreeTubeData()
  *
  *  again, code from the attic.
  */
-static float vangle();
-static void  vcross();
-static void  normalize();
-static void  vcopy();
+static float vangle(float [], float []);
+static void  vcross(float[], float[], float[]);
+static void  normalize(float []);
+static void  vcopy(float[], float[]);
 
 static TubeData *construct_tube_from_data(npts, fptr, nsides)
      int         npts;          /* number of points in fptr */

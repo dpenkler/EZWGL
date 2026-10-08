@@ -118,7 +118,7 @@ void  EZ_DestroyAllTimers()
  *
  *  Create a Timer.
  */
-extern void EZ_GetCurrentTime();
+extern void EZ_GetCurrentTime(struct timeval *);
 
 EZ_Timer  *EZ_CreateTimer(sec,usec,repeat,callback, pdata, idata)
      EZ_CallBack callback;

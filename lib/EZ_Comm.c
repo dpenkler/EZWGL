@@ -273,12 +273,12 @@ void EZ_RegisterApplication()
 unsigned long EZ_VerifyExistence(commWindow)
      Window commWindow;
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   Atom          aType;
   int           aFormat = 0, ans;
   char          *data = NULL;
   unsigned long bytesAfter, length;
-  unsigned long  ret = 0;
+  unsigned long ret = 0;
 
   EZ_XErrorCode = 0;
   OldErrorHandler = XSetErrorHandler(EZ_XErrorHandler);
@@ -312,7 +312,7 @@ unsigned long EZ_VerifyExistence(commWindow)
 unsigned long EZ_WindowIsDnDTarget(dndWindow)
      Window dndWindow;
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   Atom          aType;
   int           aFormat = 0, ans;
   unsigned long ret = 0L;
@@ -347,7 +347,7 @@ unsigned long EZ_WindowIsDnDTarget(dndWindow)
 unsigned long EZ_WindowIsDnDSrc(dndWindow)
      Window dndWindow;
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   Atom          aType;
   int           aFormat = 0, ans;
   unsigned long ret = 0L;
@@ -390,7 +390,7 @@ int  EZ_WindowExist(window)
   Window parent_return;
   unsigned int nchildren_return;
   Window *children_return = (Window *)NULL;
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
 
   if(window)
     {
@@ -464,7 +464,7 @@ int EZ_SendEmbedingMessage(type, fmdummy, fmwin, fwidget, todummy, towin,twidget
 {
   EZ_EmbedingMessage theMsg;     
   char message[256];           /* this is big enough !*/
-  int  (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
 
   theMsg.type = type;
   theMsg.fmCommWin =  (unsigned long)fmdummy;
@@ -503,7 +503,7 @@ int EZ_GetWindowProperty(dummyWin, prop_type, data_ret, length_ret, remove)
      unsigned long *length_ret;
      int   remove;
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   Atom          aType;
   int           aFormat = 0, ans;
   unsigned long bytesAfter, totalBytes = 0;
@@ -951,7 +951,7 @@ void EZ_GenerateEmbedingRequest(widget, x,y,w,h)
   char *p, *q;
   int length;
   EZ_ApplRoster *roster;
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   
   theMsg.type = EZ_EMBEDING_REQUEST_S;
   theMsg.id = EZ_ApplicationSetupTime;

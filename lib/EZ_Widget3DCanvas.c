@@ -380,7 +380,7 @@ void EZ_Get3DCanvasSize(canvas, w_ret, h_ret)
 XImage *EZ_ReadDrawable2XImage(drawable, x, y, w, h)
      Drawable drawable; int x, y, w, h;
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   XImage *image;
 
   EZ_XErrorCode = 0;
@@ -497,7 +497,7 @@ void  EZ_Save3DCanvas2PPMImage(widget,file_name)
 
   {
     int    w,h;
-    FILE   *fp, *fopen();
+    FILE   *fp;
     XImage *image = EZ_Read3DCanvas2XImage(widget);
     
     if(image != (XImage *)NULL)
@@ -1063,7 +1063,6 @@ void EZ_SelectRenderFunctions(widget)
 
 /*************************************************************************/
 extern int  EZ_XErrorCode;
-extern int  EZ_XErrorHandler();
 
 XImage *EZ_AllocateSHMXImage(w_in, h_in, shmP)
      int w_in, h_in; void *shmP;
@@ -1295,7 +1294,7 @@ void  EZ_Save3DCanvas2PSA(widget,   /* the 3d Canvas         */
   if(EZ_WidgetMaped(widget) == 0) return;
   {
     int    w,h;
-    FILE   *fp, *fopen();
+    FILE   *fp;
     XImage *image = EZ_Read3DCanvas2XImage(widget);
 
 

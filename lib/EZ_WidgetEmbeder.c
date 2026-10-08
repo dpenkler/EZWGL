@@ -826,7 +826,7 @@ int EZ_MakeSnapShot(widget, type, XX,YY,WW,HH)
      EZ_Widget * widget; 
      int type,XX,YY,WW,HH;
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   XImage *image;
   Pixmap pixmap=(Pixmap)NULL;
   int  x,y, w,h; 

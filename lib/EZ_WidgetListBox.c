@@ -296,8 +296,8 @@ void  EZ_InsertListBoxColorItem(widget, str, clr, where)
     }
 }
 /********************************************************************************/
-extern char *EZ_GetIListBoxSelectedItem();
-extern void  EZ_GetIListBoxData();
+extern char *EZ_GetIListBoxSelectedItem(EZ_Widget *);
+extern void  EZ_GetIListBoxData(EZ_Widget *, listboxentry **, int *);
 
 char *EZ_GetListBoxSelectedItem(widget)
      EZ_Widget *widget;

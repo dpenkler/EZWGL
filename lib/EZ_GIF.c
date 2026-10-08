@@ -131,7 +131,7 @@ int EZ_ReadGIFToPixmap(file, width_return, height_return, pixmap_return)
      int      *width_return, *height_return;  /* width and height return */
      Pixmap   *pixmap_return;                 /* pixmap return           */
 {
-  FILE   *fp, *fopen();
+  FILE   *fp;
   int     result;
   unsigned char *rgb_data = NULL;
 
@@ -156,7 +156,7 @@ int EZ_ReadGIFToRGB(file, width_return, height_return, rgb_return)
      int      *width_return, *height_return;  /* width and height return */
      unsigned char  **rgb_return;                 /* pixmap return           */
 {
-  FILE   *fp, *fopen();
+  FILE   *fp;
   int     result;
 
   if(file == NULL) return(0);

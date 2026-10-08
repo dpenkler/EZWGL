@@ -312,7 +312,7 @@ void EZ_SendMessage(mtype, message, length, mId, recipient, replyId, isA)
   EZ_ApplRoster  *roster;
   Window         window;
   char           *p, *q, *msg;
-  int           (*OldErrorHandler)();
+  XErrorHandler  OldErrorHandler;
   Atom  rclass, rinstance;
 
   msg = (char *)my_malloc((length+EZ_MSG_HEADER_LENGTH+1)*sizeof(char), _C_MESSAGE_);

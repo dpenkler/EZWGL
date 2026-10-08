@@ -86,7 +86,7 @@ void EZ_SendDnDMessage(type, message, length, needFree)
      char *message;
      int length, needFree;
 {
-  int  (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   Window receiver;
   EZ_EncodeDnDMessageHeader(type, message, length, &receiver);  /* attach addresses */
 
@@ -146,7 +146,7 @@ void EZ_BroadcastDnDMessage(type, message, length, needFree)
   EZ_ApplRoster *roster;
   Window         window;
   char           *p, *q;
-  int  (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   (void)EZ_EncodeDnDMessageHeader(type, message, length, &window);
   roster = EZ_OpenEZWGLRoster(0);  /* grab the server remoced 5-19-97 */
   for(p = roster->data; (p - roster->data) < roster->length;)

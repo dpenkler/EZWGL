@@ -85,7 +85,7 @@ Window EZ_FindClientWindow(win)
     unsigned char *data;
     Window        inf;
     Display       *dpy = EZ_Display;
-    int            (*OldErrorHandler)();
+    XErrorHandler OldErrorHandler;
       
     WM_STATE = XInternAtom(dpy, "WM_STATE", True);
     if(!WM_STATE) return win;

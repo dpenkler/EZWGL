@@ -191,7 +191,7 @@ void EZ_NormalCursor(widget)
 static Cursor installCursor(pixmap, mask, fg, bg, xx,yy, name, idx_ret)
      Pixmap pixmap, mask; char *fg, *bg, *name; int xx, yy; int *idx_ret;
 {
-  int    (*OldErrorHandler)();
+  XErrorHandler OldErrorHandler;
   XColor fgc, bgc;
   Cursor cursor = None;
   int vvv = -1;

@@ -1070,7 +1070,7 @@ int EZ_QueryPixelValue(widget, x, y, pv)
       if(x >= 0 && x < EZ_WidgetWidth(widget) && 
          y >=0 && y <= EZ_WidgetHeight(widget))
         {
-          int    (*OldErrorHandler)();
+          XErrorHandler OldErrorHandler;
           XImage *image;
           EZ_XErrorCode = 0;
           OldErrorHandler = XSetErrorHandler(EZ_XErrorHandler);
@@ -1190,8 +1190,7 @@ void EZ_SetWidgetTreeGroupLeader(widget, leader)
 {
   setTreeLeaderWork(widget, leader, 0);
 }
-void  EZ_SetCreateNewWidgetHook(hook)
-     void (hook)();
+void  EZ_SetCreateNewWidgetHook(void (*hook)(EZ_Widget *))
 {
   EZ_CreateNewWidgetHook = hook;
 }

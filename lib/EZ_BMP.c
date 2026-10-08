@@ -164,7 +164,7 @@ int EZ_ReadBMPToPixmap(filename, width_return, height_return,
      int      *width_return, *height_return;  /* width and height return */
      Pixmap   *pixmap_return;                 /* pixmap return           */
 {
-  FILE   *fp, *fopen();
+  FILE   *fp;
   int    ok = 0;
   char   *fname = "EZ_ReadBMPToPixmap";
   
@@ -190,7 +190,7 @@ int EZ_ReadBMPToRGB(filename, width_return, height_return, rgb_return)
      int      *width_return, *height_return;  /* width and height return */
      unsigned char **rgb_return; 
 {
-  FILE   *fp, *fopen();
+  FILE   *fp;
   int    ok = 0;
   char   *fname = "EZ_ReadBMPToPixmap";
   

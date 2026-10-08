@@ -1223,7 +1223,7 @@ static void  EZ_ITextLoadTextFile(widget, file, annotation)
      char      *file;
      int       annotation;
 {
-  FILE         *fp, *fopen();
+  FILE         *fp;
   char         str[1024], qstr[128];
   TextProp     *tprop;
   int          length, special, newproperty;
@@ -3090,7 +3090,7 @@ int  EZ_ITextSaveText(widget, fname)
       int i, j, nlines = EZ_ITextNLines(widget);
       ITextLine *tline;
       char      *str;
-      FILE      *fp, *fopen();
+      FILE      *fp;
       if(nlines > 0)
 	{
 	  if( (fp = fopen(fname, "w")))
@@ -3185,7 +3185,7 @@ int EZ_ITextSaveAnnotatedText(widget,fname)
       ITextLine *tline;
       TextProp  **prop, *cprop, *tprop;
       char      *str;
-      FILE      *fp, *fopen();
+      FILE      *fp;
       if(nlines > 0)
 	{
 	  if( (fp = fopen(fname, "w")))

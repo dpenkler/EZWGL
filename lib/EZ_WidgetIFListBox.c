@@ -647,12 +647,10 @@ void  EZ_IFListBoxEventHandle(widget, event)
     }
 }
 /***********************************************************************************/
-static int find_Pointer_Item_linear();
-int EZ_FindPointerOnRowIFL(array, nrows, ncolumns,x, y,Rx,Ry,Rw,Rh)
-     EZ_Item ***array;
-     int nrows, ncolumns;
-     int x,y;
-     int Rx,Ry,Rw,Rh;
+static int find_Pointer_Item_linear(EZ_Item ***array, int nrows, int ncolumns, int x, int y,
+				    int Rx, int Ry, int Rw, int Rh);
+int EZ_FindPointerOnRowIFL(EZ_Item ***array, int nrows, int ncolumns, int x, int y,
+			   int Rx, int Ry, int Rw, int Rh)
 {
   EZ_Item ***ptr, **row, *item;
   int len, len1, find = -1;

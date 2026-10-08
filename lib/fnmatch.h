@@ -31,6 +31,6 @@ Cambridge, MA 02139, USA.  */
 
 /* Match STRING against the filename pattern PATTERN,
    returning zero if it matches, FNM_NOMATCH if not.  */
-extern int fnmatch();
+extern int fnmatch(char *, char *, int);
 
 #endif /* fnmatch.h */
